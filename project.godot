@@ -1,0 +1,47 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="GMTK Game Jam 2024"
+run/main_scene="res://Levels/DeclanTest.tscn"
+config/features=PackedStringArray("4.2", "GL Compatibility")
+config/icon="res://Art/Sprites/icon.svg"
+
+[autoload]
+
+GameManager="*res://Scripts/GameManager.gd"
+
+[debug]
+
+gdscript/warnings/untyped_declaration=2
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/window_width_override=960
+window/size/window_height_override=540
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+
+[file_customization]
+
+folder_colors={
+"res://Art/": "red",
+"res://Levels/": "blue",
+"res://Prefabs/": "purple",
+"res://Scripts/": "green"
+}
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
