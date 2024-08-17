@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://r1kjk04fwuou" path="res://Prefabs/Hold.tscn" id="3_mld6p"]
 [ext_resource type="PackedScene" uid="uid://d2k004b3i14wd" path="res://Prefabs/test_cube.tscn" id="3_p6epa"]
 [ext_resource type="PackedScene" uid="uid://dhrgrpwwax6i8" path="res://Prefabs/Spikes.tscn" id="5_hdhvn"]
-[ext_resource type="PackedScene" uid="uid://bkatak76uuoli" path="res://Prefabs/campfire.tscn" id="6_d0jtj"]
+[ext_resource type="PackedScene" uid="uid://bkatak76uuoli" path="res://Prefabs/Campfire.tscn" id="6_d0jtj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u745l"]
 size = Vector2(1900, 100)

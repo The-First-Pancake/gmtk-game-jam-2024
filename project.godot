@@ -13,7 +13,9 @@ config_version=5
 config/name="GMTK Game Jam 2024"
 run/main_scene="res://Levels/DeclanTest.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
-config/icon="res://Art/Sprites/icon.svg"
+boot_splash/bg_color=Color(0.133333, 0.121569, 0.211765, 1)
+boot_splash/image="res://Art/Logos/first_pancake_splash.png"
+config/icon="res://Art/Logos/first_pancake_logo.svg"
 
 [autoload]
 
