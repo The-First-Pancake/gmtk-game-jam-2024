@@ -1,8 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://fee5nvfuba0j"]
+[gd_scene load_steps=12 format=3 uid="uid://fee5nvfuba0j"]
 
 [ext_resource type="PackedScene" uid="uid://b1lrc4bb14deo" path="res://Prefabs/Blocks/L-Piece.tscn" id="2_bcq1q"]
 [ext_resource type="PackedScene" uid="uid://dngf3odx0yf5k" path="res://Prefabs/player.tscn" id="3_qudki"]
+[ext_resource type="PackedScene" uid="uid://bspfor2ohamxb" path="res://Prefabs/Blocks/1x4-Piece.tscn" id="3_wwefr"]
+[ext_resource type="PackedScene" uid="uid://tr5tvhxjw1ov" path="res://Prefabs/Blocks/L-Piece-Mirrored.tscn" id="4_cqm2b"]
 [ext_resource type="Texture2D" uid="uid://bf4k2m7wu1y64" path="res://Art/Sprites/Default.jpg" id="4_r2vew"]
+[ext_resource type="PackedScene" uid="uid://bdyf8npx3i7xk" path="res://Prefabs/Blocks/2x2-Piece.tscn" id="6_aq1kf"]
+[ext_resource type="PackedScene" uid="uid://c7c8vai4olkeh" path="res://Prefabs/Blocks/T-Piece.tscn" id="7_m41cw"]
+[ext_resource type="PackedScene" uid="uid://cggg3io864evw" path="res://Prefabs/Blocks/Z-Piece-Mirrored.tscn" id="8_c37rc"]
+[ext_resource type="PackedScene" uid="uid://cihssf8yq5orj" path="res://Prefabs/Blocks/Z-Piece.tscn" id="9_rc0sa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_atmmq"]
 size = Vector2(617, 834)
@@ -26,12 +32,6 @@ texture = ExtResource("4_r2vew")
 position = Vector2(-0.5, -2)
 shape = SubResource("RectangleShape2D_atmmq")
 
-[node name="PlaceableCharacterBody2d2" parent="." instance=ExtResource("2_bcq1q")]
-position = Vector2(320, 289)
-
-[node name="PlaceableCharacterBody2d" parent="." instance=ExtResource("2_bcq1q")]
-position = Vector2(141, 662)
-
 [node name="NewBlockQueue" type="StaticBody2D" parent="."]
 position = Vector2(318, 483)
 scale = Vector2(1.1376, 1.42999)
@@ -44,3 +44,24 @@ shape = SubResource("RectangleShape2D_1lx0t")
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 position = Vector2(991, -133)
 energy = 1.85
+
+[node name="PlaceableCharacterBody2d" parent="." instance=ExtResource("3_wwefr")]
+position = Vector2(200, 500)
+
+[node name="PlaceableCharacterBody2d2" parent="." instance=ExtResource("4_cqm2b")]
+position = Vector2(350, 700)
+
+[node name="PlaceableCharacterBody2d3" parent="." instance=ExtResource("2_bcq1q")]
+position = Vector2(350, 400)
+
+[node name="PlaceableCharacterBody2d4" parent="." instance=ExtResource("6_aq1kf")]
+position = Vector2(150, 150)
+
+[node name="PlaceableCharacterBody2d5" parent="." instance=ExtResource("7_m41cw")]
+position = Vector2(400, 100)
+
+[node name="PlaceableCharacterBody2d6" parent="." instance=ExtResource("8_c37rc")]
+position = Vector2(0, 450)
+
+[node name="PlaceableCharacterBody2d7" parent="." instance=ExtResource("9_rc0sa")]
+position = Vector2(50, 800)

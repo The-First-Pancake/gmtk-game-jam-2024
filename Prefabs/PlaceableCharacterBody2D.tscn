@@ -4,9 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://cq4lo5nuujjv" path="res://Art/Sprites/TetrisPlaceholders/Tetromino_J1_1.png" id="2_riihf"]
 
 [node name="PlaceableCharacterBody2d" type="CharacterBody2D"]
+input_pickable = true
 script = ExtResource("1_1yjnn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(6.25, 6.25)
 texture = ExtResource("2_riihf")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]

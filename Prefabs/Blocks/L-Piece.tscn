@@ -13,7 +13,6 @@ texture_filter = 1
 input_pickable = true
 
 [node name="Sprite2D" parent="." index="0"]
-scale = Vector2(6.25, 6.25)
 texture = SubResource("CanvasTexture_2w0a4")
 
 [node name="CollisionPolygon2D" parent="." index="1"]

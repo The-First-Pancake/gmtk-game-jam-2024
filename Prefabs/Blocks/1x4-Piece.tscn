@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bspfor2ohamxb"]
+
+[ext_resource type="PackedScene" uid="uid://cxgaavewg0jbi" path="res://Prefabs/PlaceableCharacterBody2D.tscn" id="1_mkfor"]
+[ext_resource type="Texture2D" uid="uid://cjhbrhpjs4u1x" path="res://Art/Sprites/Tetronimoes/1x4_Piece.png" id="2_4mba4"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_jdlda"]
+diffuse_texture = ExtResource("2_4mba4")
+texture_filter = 1
+
+[node name="PlaceableCharacterBody2d" instance=ExtResource("1_mkfor")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = SubResource("CanvasTexture_jdlda")
+
+[node name="CollisionPolygon2D" parent="." index="1"]
+polygon = PackedVector2Array(-50, 200, -50, -200, 50, -200, 50, 200)
