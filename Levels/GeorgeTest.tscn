@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://fee5nvfuba0j"]
+[gd_scene load_steps=6 format=3 uid="uid://fee5nvfuba0j"]
 
 [ext_resource type="Texture2D" uid="uid://ct4hutt4owng4" path="res://Art/Sprites/TetrisPlaceholders/Background.png" id="2_aflem"]
 [ext_resource type="PackedScene" uid="uid://b1lrc4bb14deo" path="res://Prefabs/Blocks/L-Piece.tscn" id="2_bcq1q"]
+[ext_resource type="PackedScene" uid="uid://dngf3odx0yf5k" path="res://Prefabs/player.tscn" id="3_qudki"]
 [ext_resource type="Texture2D" uid="uid://bf4k2m7wu1y64" path="res://Art/Sprites/Default.jpg" id="4_r2vew"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_atmmq"]
@@ -15,6 +16,8 @@ texture = ExtResource("2_aflem")
 
 [node name="PlaceableCharacterBody2d" parent="." instance=ExtResource("2_bcq1q")]
 position = Vector2(577, 593)
+
+[node name="Player" parent="." instance=ExtResource("3_qudki")]
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(746, 977)

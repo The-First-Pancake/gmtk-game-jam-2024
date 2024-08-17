@@ -90,3 +90,7 @@ func _process(delta: float) -> void:
 	
 
 	move_and_slide()
+
+func try_squash() -> void:
+	if is_on_floor():
+		queue_free()

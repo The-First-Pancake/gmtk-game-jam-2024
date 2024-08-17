@@ -4,6 +4,9 @@ enum PlaceState {PLACING, FALLING, PLACED}
 @export var grid_size : float = 50
 var state : int = PlaceState.PLACING
 
+const DEFAULT_COLLISION_LAYER : int = 1
+const UNPLACED_COLLISION_LAYER : int = 2
+
 func _ready() -> void:
 	enter_placing()
 
@@ -18,19 +21,25 @@ func _physics_process(delta: float) -> void:
 			enter_falling()
 	elif (state == PlaceState.FALLING):
 		# Add the gravity.
-		if not is_on_floor():
-			velocity += get_gravity() * delta
-			move_and_slide()
-		else:
-			enter_placed()
-	elif (state == PlaceState.PLACED):
-		return # do not update object when placed
+		velocity += get_gravity() * delta
+		var collision : KinematicCollision2D = move_and_collide(velocity * delta)
+		if (collision):
+			if (collision.get_collider() is Player):
+				if (collision.get_angle(up_direction) < deg_to_rad(45) and collision.get_angle(up_direction) > deg_to_rad(-45)):
+					var player : Player = collision.get_collider() as Player
+					player.try_squash()
+			elif (collision.get_angle(up_direction) < deg_to_rad(45) and collision.get_angle(up_direction) > deg_to_rad(-45)):
+				enter_placed()
 
 func enter_placing() -> void:
+	set_collision_layer_value(DEFAULT_COLLISION_LAYER, false);
+	set_collision_layer_value(UNPLACED_COLLISION_LAYER, true);
 	modulate.a = 0.5 # make transparent
 	state = PlaceState.PLACING
 
 func enter_falling() -> void:
+	set_collision_layer_value(DEFAULT_COLLISION_LAYER, true);
+	set_collision_layer_value(UNPLACED_COLLISION_LAYER, false);
 	modulate.a = 1 # make solid
 	state = PlaceState.FALLING
 
