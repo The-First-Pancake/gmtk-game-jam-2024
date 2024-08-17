@@ -1,3 +1,28 @@
-[gd_scene format=3 uid="uid://fee5nvfuba0j"]
+[gd_scene load_steps=5 format=3 uid="uid://fee5nvfuba0j"]
+
+[ext_resource type="Texture2D" uid="uid://ct4hutt4owng4" path="res://Art/Sprites/TetrisPlaceholders/Background.png" id="2_aflem"]
+[ext_resource type="PackedScene" uid="uid://b1lrc4bb14deo" path="res://Prefabs/Blocks/L-Piece.tscn" id="2_bcq1q"]
+[ext_resource type="Texture2D" uid="uid://bf4k2m7wu1y64" path="res://Art/Sprites/Default.jpg" id="4_r2vew"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_atmmq"]
+size = Vector2(617, 834)
 
 [node name="GeorgeTest" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(678, 568)
+texture = ExtResource("2_aflem")
+
+[node name="PlaceableCharacterBody2d" parent="." instance=ExtResource("2_bcq1q")]
+position = Vector2(577, 593)
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(746, 977)
+scale = Vector2(1.16232, 0.0289407)
+
+[node name="Default" type="Sprite2D" parent="Floor"]
+texture = ExtResource("4_r2vew")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(-0.5, -2)
+shape = SubResource("RectangleShape2D_atmmq")
