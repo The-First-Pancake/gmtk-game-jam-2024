@@ -1,23 +1,20 @@
 extends CharacterBody2D
 
 enum PlaceState {PLACING, FALLING, PLACED}
+@export var grid_size : float = 50
 var state : int = PlaceState.PLACING
-var collider : CollisionPolygon2D = null
 
 func _ready() -> void:
 	enter_placing()
-	collider = get_node_or_null("CollisionPolygon2D")
-	
 
 func _physics_process(delta: float) -> void:
 	if (state == PlaceState.PLACING):
 		var mouse_pos : Vector2 = get_global_mouse_position()
-		position = mouse_pos
-		var collision : KinematicCollision2D = move_and_collide(Vector2.ZERO, true);
+		position = Vector2(int(mouse_pos.x / grid_size) * grid_size, int(mouse_pos.y / grid_size) * grid_size)
 		if (Input.is_action_just_pressed("rotate_block")):
 			rotation += deg_to_rad(90)
 			return
-		if (Input.is_action_just_pressed("drop_block")):
+		if (!check_for_collisions() and Input.is_action_just_pressed("drop_block")):
 			enter_falling()
 	elif (state == PlaceState.FALLING):
 		# Add the gravity.
@@ -39,3 +36,15 @@ func enter_falling() -> void:
 
 func enter_placed() -> void:
 	state = PlaceState.PLACED
+	
+func check_for_collisions() -> bool:
+	var collision : KinematicCollision2D = move_and_collide(Vector2.ZERO, true, 0);
+	if (collision):
+		modulate.g = 0.5
+		modulate.r = 2 # Redden unplaceable blocks
+		modulate.b = 0.5
+	else:
+		modulate.g = 1
+		modulate.r = 1
+		modulate.b = 1
+	return is_instance_valid(collision)
