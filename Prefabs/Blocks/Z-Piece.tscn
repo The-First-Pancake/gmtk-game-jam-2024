@@ -1,10 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://cihssf8yq5orj"]
+[gd_scene load_steps=5 format=3 uid="uid://cihssf8yq5orj"]
 
 [ext_resource type="PackedScene" uid="uid://cxgaavewg0jbi" path="res://Prefabs/PlaceableCharacterBody2D.tscn" id="1_858x5"]
 [ext_resource type="Texture2D" uid="uid://caendbhwl2roa" path="res://Art/Sprites/Tetronimoes/Z_Piece.png" id="2_iex5l"]
+[ext_resource type="Texture2D" uid="uid://k5ki1yih68vw" path="res://Art/Sprites/Tetronimoes/Z_Piece_Normal.png" id="3_rdspe"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_ayr3u"]
 diffuse_texture = ExtResource("2_iex5l")
+normal_texture = ExtResource("3_rdspe")
 texture_filter = 1
 
 [node name="PlaceableCharacterBody2d" instance=ExtResource("1_858x5")]

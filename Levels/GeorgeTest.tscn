@@ -42,8 +42,9 @@ scale = Vector2(0.628025, 1.14167)
 shape = SubResource("RectangleShape2D_1lx0t")
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-position = Vector2(991, -133)
-energy = 1.85
+position = Vector2(950, 150)
+rotation = -6.28319
+energy = 1.55
 
 [node name="PlaceableCharacterBody2d" parent="." instance=ExtResource("3_wwefr")]
 position = Vector2(200, 500)
