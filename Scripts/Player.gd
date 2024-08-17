@@ -14,7 +14,11 @@ var current_hold: Node2D = null
 
 var coyote_time: float = 0.1
 
+var terminal_velocity: float = 1500
+
 var was_on_floor: bool = true
+
+var campfires: Array[Campfire] = []
 
 @onready var side_hand_point: Marker2D = %"Side Hand Point" as Marker2D
 @onready var top_hand_point: Marker2D = %"Top Hand Point" as Marker2D
@@ -24,17 +28,7 @@ var was_on_floor: bool = true
 func _process(delta: float) -> void:
 	if current_hold == null:
 		# Add the gravity.
-		if not is_on_floor():
-			var is_downsliding: bool = is_on_wall() and velocity.y > 0
-			var gravity_reduced: bool = gravity_reduce_timer.time_left > 0
-			if is_downsliding:
-				velocity += get_gravity()*0.5 * delta
-				velocity.y = min(velocity.y, downslide_speed)
-			elif gravity_reduced:
-				velocity += get_gravity()*0.5 * delta
-				velocity.y = min(velocity.y, downslide_speed)
-			else:
-				velocity += get_gravity()*3 * delta
+		apply_gravity(delta)
 		
 		#grab holds
 		if Input.is_action_just_pressed("jump"):
@@ -97,7 +91,6 @@ func _process(delta: float) -> void:
 	if current_hold:
 		var aim_dir: Vector2 = Input.get_vector("move_left","move_right","move_up","move_down")
 		
-		
 		var holding_cieling: bool = abs(current_hold.rotation_degrees - 180) < 1
 		if holding_cieling:
 			global_position = current_hold.global_position - (top_hand_point.global_position - global_position)
@@ -121,9 +114,48 @@ func _process(delta: float) -> void:
 				velocity = leap_velocity * aim_dir
 			current_hold = null
 	
-
 	move_and_slide()
 
 func try_squash() -> void:
 	if is_on_floor():
+		die()
+
+func die() -> void:
+	var highest_campfire: Campfire = null
+	for campfire: Campfire in campfires:
+		if campfire.is_lit == false: continue
+		if highest_campfire == null:
+			highest_campfire = campfire
+			continue
+		if global_position.distance_to(campfire.global_position) > global_position.distance_to(highest_campfire.global_position):
+			highest_campfire = campfire
+	
+	if highest_campfire:
+		#respawn
+		global_position = highest_campfire.global_position
+	else:
+		print("you die for real")
 		queue_free()
+		
+
+func apply_gravity(delta: float) -> void:
+	if is_on_floor(): return
+	if velocity.y > terminal_velocity: return
+	
+	var is_downsliding: bool = is_on_wall() and velocity.y > 0
+	var gravity_reduced: bool = gravity_reduce_timer.time_left > 0
+	if is_downsliding:
+		velocity += get_gravity()*0.5 * delta
+		velocity.y = min(velocity.y, downslide_speed)
+	elif gravity_reduced:
+		velocity += get_gravity()*0.5 * delta
+		velocity.y = min(velocity.y, downslide_speed)
+	else:
+		velocity += get_gravity()*3 * delta
+
+func on_hitbix_hit(area: Area2D) -> void:
+	if area.is_in_group("spike"):
+		die()
+	if area is Campfire:
+		area.is_lit = true
+		campfires.append(area)

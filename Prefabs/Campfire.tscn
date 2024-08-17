@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://bkatak76uuoli"]
+
+[ext_resource type="Script" path="res://Levels/Campfire.gd" id="1_bl4yb"]
+[ext_resource type="Texture2D" uid="uid://bf4k2m7wu1y64" path="res://Art/Sprites/Default.jpg" id="2_yly2o"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1b7ag"]
+radius = 15.0
+height = 59.9999
+
+[sub_resource type="Gradient" id="Gradient_6ffac"]
+offsets = PackedFloat32Array(0, 0.815789, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.20614, 0.20614, 0.20614, 1, 0, 0, 0, 0)
+
+[node name="Campfire" type="Area2D"]
+position = Vector2(1049, 484)
+script = ExtResource("1_bl4yb")
+
+[node name="Default2" type="Sprite2D" parent="."]
+modulate = Color(0, 0.957959, 0.527895, 1)
+scale = Vector2(0.0984376, 0.0376028)
+texture = ExtResource("2_yly2o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_1b7ag")
+
+[node name="Fire Particle FX" type="CPUParticles2D" parent="."]
+unique_name_in_owner = true
+amount = 100
+lifetime = 4.0
+explosiveness = 0.1
+direction = Vector2(0, -1)
+gravity = Vector2(0, -9)
+initial_velocity_max = 30.0
+scale_amount_min = 5.0
+scale_amount_max = 5.0
+color = Color(0.939488, 0.293843, 0, 1)
+color_ramp = SubResource("Gradient_6ffac")
+hue_variation_min = -1.0
+hue_variation_max = 1.0

@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bqwoae4vy8cio"]
+[gd_scene load_steps=8 format=3 uid="uid://bqwoae4vy8cio"]
 
 [ext_resource type="Texture2D" uid="uid://bf4k2m7wu1y64" path="res://Art/Sprites/Default.jpg" id="1_5q3qq"]
 [ext_resource type="PackedScene" uid="uid://dngf3odx0yf5k" path="res://Prefabs/player.tscn" id="1_23dxn"]
 [ext_resource type="PackedScene" uid="uid://r1kjk04fwuou" path="res://Prefabs/Hold.tscn" id="3_mld6p"]
 [ext_resource type="PackedScene" uid="uid://d2k004b3i14wd" path="res://Prefabs/test_cube.tscn" id="3_p6epa"]
+[ext_resource type="PackedScene" uid="uid://dhrgrpwwax6i8" path="res://Prefabs/Spikes.tscn" id="5_hdhvn"]
+[ext_resource type="PackedScene" uid="uid://bkatak76uuoli" path="res://Prefabs/campfire.tscn" id="6_d0jtj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u745l"]
 size = Vector2(1900, 100)
@@ -93,6 +95,14 @@ rotation = 3.14159
 
 [node name="Hold9" parent="." instance=ExtResource("3_mld6p")]
 position = Vector2(550, 582)
+
+[node name="Spikes" parent="." instance=ExtResource("5_hdhvn")]
+
+[node name="Campfire" parent="." instance=ExtResource("6_d0jtj")]
+
+[node name="Spikes2" parent="." instance=ExtResource("5_hdhvn")]
+position = Vector2(1495, 848)
+rotation = 1.5708
 
 [node name="Hold7" parent="." instance=ExtResource("3_mld6p")]
 position = Vector2(1653, 717)

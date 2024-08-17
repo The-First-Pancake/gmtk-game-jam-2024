@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dngf3odx0yf5k"]
+[gd_scene load_steps=7 format=3 uid="uid://dngf3odx0yf5k"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_auxp4"]
 [ext_resource type="Texture2D" uid="uid://bf4k2m7wu1y64" path="res://Art/Sprites/Default.jpg" id="2_xi536"]
@@ -12,6 +12,10 @@ radius = 77.0065
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1uqg7"]
 radius = 19.0263
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_018a7"]
+radius = 21.0
+height = 56.0
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(879, 863)
@@ -55,3 +59,10 @@ one_shot = true
 [node name="Gravity Reduce Timer" type="Timer" parent="."]
 unique_name_in_owner = true
 one_shot = true
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CapsuleShape2D_018a7")
+
+[connection signal="area_entered" from="Hitbox" to="." method="on_hitbix_hit"]
