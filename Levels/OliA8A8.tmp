@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqwoae4vy8cio"]
+
+[ext_resource type="Script" path="res://Scripts/platformer_controller.gd" id="1_0glo6"]
+[ext_resource type="Texture2D" uid="uid://bf4k2m7wu1y64" path="res://Art/Sprites/Default.jpg" id="1_5q3qq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0b81x"]
+radius = 20.0
+height = 54.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u745l"]
+size = Vector2(642, 854)
+
+[node name="OliverTest" type="Node2D"]
+
+[node name="Platformer Controller" type="CharacterBody2D" parent="."]
+position = Vector2(404, 330)
+script = ExtResource("1_0glo6")
+
+[node name="Default" type="Sprite2D" parent="Platformer Controller"]
+scale = Vector2(0.055, 0.055)
+texture = ExtResource("1_5q3qq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platformer Controller"]
+shape = SubResource("CapsuleShape2D_0b81x")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(890, 1018)
+scale = Vector2(3.64, 0.16)
+
+[node name="Default" type="Sprite2D" parent="StaticBody2D"]
+texture = ExtResource("1_5q3qq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_u745l")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(470, 699)
+scale = Vector2(0.686932, 0.0723132)
+
+[node name="Default" type="Sprite2D" parent="StaticBody2D2"]
+texture = ExtResource("1_5q3qq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("RectangleShape2D_u745l")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(1393, 421)
+scale = Vector2(0.686932, 0.0723132)
+
+[node name="Default" type="Sprite2D" parent="StaticBody2D3"]
+texture = ExtResource("1_5q3qq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+shape = SubResource("RectangleShape2D_u745l")
