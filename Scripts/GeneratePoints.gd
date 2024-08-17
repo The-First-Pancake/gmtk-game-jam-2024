@@ -1,17 +1,21 @@
+class_name HoldPointGenerator
 extends Node
 
 var units_per_block : int = 100
-@export var number_of_holds : int = 5
+@export var generate_test_points : bool = false
+var generated_points : PackedVector2Array = PackedVector2Array()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var collision_polygon : CollisionPolygon2D = $"../CollisionPolygon2D"
 	var collision_points : PackedVector2Array = collision_polygon.polygon
 	
-	var generated_points : PackedVector2Array = generateHoldPoints(collision_points)
-	print(generated_points)
-	placeTestPoints(generated_points)
+	generated_points = generateHoldPoints(collision_points)
+	if (generate_test_points):
+		placeTestPoints(generated_points)
 	
+func get_generated_points() -> PackedVector2Array:
+	return generated_points
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
