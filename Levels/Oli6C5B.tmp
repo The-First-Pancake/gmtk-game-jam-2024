@@ -30,21 +30,6 @@ position = Vector2(650, 850)
 [node name="Test Cube5" parent="." instance=ExtResource("3_p6epa")]
 position = Vector2(1050, 750)
 
-[node name="Test Cube13" parent="." instance=ExtResource("3_p6epa")]
-position = Vector2(1350, 650)
-
-[node name="Test Cube14" parent="." instance=ExtResource("3_p6epa")]
-position = Vector2(1450, 650)
-
-[node name="Test Cube15" parent="." instance=ExtResource("3_p6epa")]
-position = Vector2(1550, 650)
-
-[node name="Test Cube16" parent="." instance=ExtResource("3_p6epa")]
-position = Vector2(1650, 650)
-
-[node name="Test Cube17" parent="." instance=ExtResource("3_p6epa")]
-position = Vector2(1650, 650)
-
 [node name="Test Cube8" parent="." instance=ExtResource("3_p6epa")]
 
 [node name="Test Cube9" parent="." instance=ExtResource("3_p6epa")]
@@ -85,14 +70,10 @@ rotation = 3.14159
 
 [node name="Hold2" parent="." instance=ExtResource("3_mld6p")]
 position = Vector2(718, 750)
-rotation = 1.5708
 
 [node name="Hold6" parent="." instance=ExtResource("3_mld6p")]
 position = Vector2(1350, 717)
 rotation = 3.14159
-
-[node name="Hold9" parent="." instance=ExtResource("3_mld6p")]
-position = Vector2(550, 582)
 
 [node name="Hold7" parent="." instance=ExtResource("3_mld6p")]
 position = Vector2(1653, 717)
@@ -104,4 +85,3 @@ rotation = 1.5708
 
 [node name="Hold3" parent="." instance=ExtResource("3_mld6p")]
 position = Vector2(981, 549)
-rotation = -1.5708

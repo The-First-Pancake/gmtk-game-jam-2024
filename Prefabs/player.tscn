@@ -11,7 +11,7 @@ height = 66.0
 radius = 77.0065
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1uqg7"]
-radius = 15.0
+radius = 19.0263
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(879, 863)
@@ -24,24 +24,34 @@ texture = ExtResource("2_xi536")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_0b81x")
 
-[node name="Hand Point" type="Marker2D" parent="."]
+[node name="Mid-Air Hold Detector" type="Area2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(22, -13)
+position = Vector2(13, -24)
 
-[node name="Mid-Air Hold Detector" type="Area2D" parent="Hand Point"]
-unique_name_in_owner = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hand Point/Mid-Air Hold Detector"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mid-Air Hold Detector"]
 shape = SubResource("CircleShape2D_hkokj")
 debug_color = Color(0.761018, 0.178089, 1, 0.42)
 
-[node name="Grounded Hold Detector2" type="Area2D" parent="Hand Point"]
+[node name="Grounded Hold Detector2" type="Area2D" parent="."]
 unique_name_in_owner = true
+position = Vector2(13, -24)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hand Point/Grounded Hold Detector2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Grounded Hold Detector2"]
 shape = SubResource("CircleShape2D_1uqg7")
 debug_color = Color(0.761018, 0.178089, 1, 0.42)
 
+[node name="Side Hand Point" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(23, -12)
+
+[node name="Top Hand Point" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -32)
+
 [node name="Coyote Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="Gravity Reduce Timer" type="Timer" parent="."]
 unique_name_in_owner = true
 one_shot = true

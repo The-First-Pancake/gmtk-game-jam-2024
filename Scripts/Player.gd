@@ -16,12 +16,21 @@ var coyote_time: float = 0.1
 
 var was_on_floor: bool = true
 
+@onready var side_hand_point: Marker2D = %"Side Hand Point" as Marker2D
+@onready var top_hand_point: Marker2D = %"Top Hand Point" as Marker2D
+
+@onready var gravity_reduce_timer: Timer = %"Gravity Reduce Timer" as Timer
+
 func _process(delta: float) -> void:
 	if current_hold == null:
 		# Add the gravity.
 		if not is_on_floor():
 			var is_downsliding: bool = is_on_wall() and velocity.y > 0
+			var gravity_reduced: bool = gravity_reduce_timer.time_left > 0
 			if is_downsliding:
+				velocity += get_gravity()*0.5 * delta
+				velocity.y = min(velocity.y, downslide_speed)
+			elif gravity_reduced:
 				velocity += get_gravity()*0.5 * delta
 				velocity.y = min(velocity.y, downslide_speed)
 			else:
@@ -38,11 +47,20 @@ func _process(delta: float) -> void:
 			else:
 				holds = mid_air_hold_detector.get_overlapping_areas()
 			
+			#Grab the closest hold
+			var closest_hold: Node2D = null
 			for hold in holds:
-				if hold.is_in_group("hold"):
-					velocity = Vector2.ZERO
-					current_hold = hold as Node2D
-					return
+				if !hold.is_in_group("hold"): continue
+				if abs(hold.rotation_degrees) < 1: continue #if the hold is upright we can't grab it
+				if closest_hold == null:
+					closest_hold = hold
+					continue
+				if side_hand_point.global_position.distance_to(hold.global_position) < side_hand_point.global_position.distance_to(closest_hold.global_position):
+					closest_hold = hold
+			if closest_hold:
+				velocity = Vector2.ZERO
+				current_hold = closest_hold
+				return
 		
 		# Handle jump.
 		var coyote_timer: Timer = %"Coyote Timer" as Timer
@@ -53,7 +71,6 @@ func _process(delta: float) -> void:
 		var has_recently_left_ground: bool = coyote_timer.time_left != 0
 		
 		if (is_on_floor() or has_recently_left_ground) and Input.is_action_just_pressed("jump"):
-			
 			was_on_floor = false
 			velocity.y = jump_velocity
 		else:
@@ -66,8 +83,8 @@ func _process(delta: float) -> void:
 		if input_direction: #if we're tryna move
 			if sign(input_direction) != sign(velocity.x):
 				velocity.x = 0 # for instant turning around
-			velocity.x += input_direction * acceleration * delta
-			velocity.x = clamp(velocity.x,-max_speed, max_speed)
+			if abs(velocity.x) < max_speed:
+				velocity.x += input_direction * acceleration * delta
 		else: #if we aint tryna move
 			velocity.x = move_toward(velocity.x, 0, deceleration * delta) #slow down
 		
@@ -78,14 +95,30 @@ func _process(delta: float) -> void:
 			transform.x.x = -1 
 	
 	if current_hold:
-		var hand_point: Marker2D = %"Hand Point" as Marker2D
-		print(hand_point.position)
-		print(global_position)
-		global_position = current_hold.global_position - (hand_point.global_position - global_position)
-		
 		var aim_dir: Vector2 = Input.get_vector("move_left","move_right","move_up","move_down")
+		
+		
+		var holding_cieling: bool = abs(current_hold.rotation_degrees - 180) < 1
+		if holding_cieling:
+			global_position = current_hold.global_position - (top_hand_point.global_position - global_position)
+			if aim_dir.x > 0:
+				transform.x.x = 1
+			elif aim_dir.x < 0:
+				transform.x.x = -1 
+		else:
+			global_position = current_hold.global_position - (side_hand_point.global_position - global_position)
+			if abs(current_hold.rotation_degrees - 90) < 1:
+				transform.x.x = -1
+			elif abs(current_hold.rotation_degrees - 270) < 1:
+				transform.x.x = 1
+		
 		if Input.is_action_just_released("jump"):
-			velocity = leap_velocity * aim_dir
+			if abs(aim_dir.y) == 0:
+				velocity = leap_velocity * aim_dir
+				gravity_reduce_timer.wait_time = 0.15
+				gravity_reduce_timer.start()
+			else:
+				velocity = leap_velocity * aim_dir
 			current_hold = null
 	
 
