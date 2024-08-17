@@ -6,7 +6,7 @@
 [node name="PlaceableCharacterBody2d" type="CharacterBody2D"]
 script = ExtResource("1_1yjnn")
 
-[node name="TetrominoJ11" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_riihf")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
