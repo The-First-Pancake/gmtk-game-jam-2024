@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxgaavewg0jbi"]
+
+[ext_resource type="Script" path="res://Scripts/Placeable.gd" id="1_1yjnn"]
+[ext_resource type="Texture2D" uid="uid://cq4lo5nuujjv" path="res://Art/Sprites/TetrisPlaceholders/Tetromino_J1_1.png" id="2_riihf"]
+
+[node name="PlaceableCharacterBody2d" type="CharacterBody2D"]
+script = ExtResource("1_1yjnn")
+
+[node name="TetrominoJ11" type="Sprite2D" parent="."]
+texture = ExtResource("2_riihf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(15, 0, -45, 0, -45, -30, 45, -30, 45, 30, 15, 30)
