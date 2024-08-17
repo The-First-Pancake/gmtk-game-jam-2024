@@ -1,10 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cp76cuowe440"]
+[gd_scene load_steps=3 format=3 uid="uid://cp76cuowe440"]
 
-[ext_resource type="Texture2D" uid="uid://bf4k2m7wu1y64" path="res://Art/Sprites/Default.jpg" id="1_84kc2"]
+[ext_resource type="PackedScene" uid="uid://b1lrc4bb14deo" path="res://Prefabs/Blocks/L-Piece.tscn" id="1_1vwcw"]
+[ext_resource type="PackedScene" uid="uid://b1l3smfthr7o1" path="res://Prefabs/test_point.tscn" id="2_r5kbe"]
 
 [node name="DeclanTest" type="Node2D"]
 
-[node name="Default" type="Sprite2D" parent="."]
-position = Vector2(964, 544)
-scale = Vector2(2.99688, 1.25499)
-texture = ExtResource("1_84kc2")
+[node name="PlaceableCharacterBody2d" parent="." instance=ExtResource("1_1vwcw")]
+position = Vector2(942, 485)
+
+[node name="test_point" parent="." instance=ExtResource("2_r5kbe")]
