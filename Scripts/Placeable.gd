@@ -1,14 +1,15 @@
 extends CharacterBody2D
 
-enum PlaceState {PLACING, FALLING, PLACED}
+enum PlaceState {QUEUED, PLACING, FALLING, PLACED}
 @export var grid_size : float = 50
-var state : int = PlaceState.PLACING
+@export var collider : CollisionPolygon2D = null
+var state : int = PlaceState.QUEUED
 
 const DEFAULT_COLLISION_LAYER : int = 1
 const UNPLACED_COLLISION_LAYER : int = 2
 
 func _ready() -> void:
-	enter_placing()
+	enter_queued()
 
 func _physics_process(delta: float) -> void:
 	if (state == PlaceState.PLACING):
@@ -17,7 +18,7 @@ func _physics_process(delta: float) -> void:
 		if (Input.is_action_just_pressed("rotate_block")):
 			rotation += deg_to_rad(90)
 			return
-		if (!check_for_collisions() and Input.is_action_just_pressed("drop_block")):
+		if (!check_for_collisions() and Input.is_action_just_released("drop_block")):
 			enter_falling()
 	elif (state == PlaceState.FALLING):
 		# Add the gravity.
@@ -30,6 +31,14 @@ func _physics_process(delta: float) -> void:
 					player.try_squash()
 			elif (collision.get_angle(up_direction) < deg_to_rad(45) and collision.get_angle(up_direction) > deg_to_rad(-45)):
 				enter_placed()
+
+func on_collision_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if (state == PlaceState.QUEUED):
+			if (Input.is_action_just_pressed("drop_block")):
+				enter_placing()
+
+func enter_queued() -> void:
+	state = PlaceState.QUEUED
 
 func enter_placing() -> void:
 	set_collision_layer_value(DEFAULT_COLLISION_LAYER, false);

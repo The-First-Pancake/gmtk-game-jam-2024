@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://fee5nvfuba0j"]
+[gd_scene load_steps=7 format=3 uid="uid://fee5nvfuba0j"]
 
 [ext_resource type="Texture2D" uid="uid://ct4hutt4owng4" path="res://Art/Sprites/TetrisPlaceholders/Background.png" id="2_aflem"]
 [ext_resource type="PackedScene" uid="uid://b1lrc4bb14deo" path="res://Prefabs/Blocks/L-Piece.tscn" id="2_bcq1q"]
@@ -8,14 +8,14 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_atmmq"]
 size = Vector2(617, 834)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1lx0t"]
+size = Vector2(234, 438)
+
 [node name="GeorgeTest" type="Node2D"]
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(678, 568)
 texture = ExtResource("2_aflem")
-
-[node name="PlaceableCharacterBody2d" parent="." instance=ExtResource("2_bcq1q")]
-position = Vector2(577, 593)
 
 [node name="Player" parent="." instance=ExtResource("3_qudki")]
 
@@ -29,3 +29,17 @@ texture = ExtResource("4_r2vew")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
 position = Vector2(-0.5, -2)
 shape = SubResource("RectangleShape2D_atmmq")
+
+[node name="PlaceableCharacterBody2d2" parent="." instance=ExtResource("2_bcq1q")]
+position = Vector2(320, 289)
+
+[node name="PlaceableCharacterBody2d" parent="." instance=ExtResource("2_bcq1q")]
+position = Vector2(319, 205)
+
+[node name="NewBlockQueue" type="StaticBody2D" parent="."]
+position = Vector2(318, 483)
+scale = Vector2(1.1376, 1.42999)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NewBlockQueue"]
+scale = Vector2(0.628025, 1.14167)
+shape = SubResource("RectangleShape2D_1lx0t")
