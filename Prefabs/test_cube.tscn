@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2k004b3i14wd"]
+
+[ext_resource type="Texture2D" uid="uid://bf4k2m7wu1y64" path="res://Art/Sprites/Default.jpg" id="1_d8x5s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0nnkt"]
+size = Vector2(100, 100)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xcslr"]
+radius = 18.0
+
+[node name="Test Cube" type="StaticBody2D"]
+position = Vector2(1050, 850)
+
+[node name="Default" type="Sprite2D" parent="."]
+position = Vector2(2.14577e-06, 8.46386e-06)
+scale = Vector2(0.159375, 0.117509)
+texture = ExtResource("1_d8x5s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0nnkt")
+
+[node name="Hold" type="Area2D" parent="." groups=["hold"]]
+position = Vector2(-67, -1)
+
+[node name="Default2" type="Sprite2D" parent="Hold"]
+modulate = Color(1, 0, 1, 1)
+scale = Vector2(0.05625, 0.0399529)
+texture = ExtResource("1_d8x5s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hold"]
+shape = SubResource("CircleShape2D_xcslr")

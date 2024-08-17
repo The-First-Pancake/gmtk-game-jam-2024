@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://dngf3odx0yf5k"]
+
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_auxp4"]
+[ext_resource type="Texture2D" uid="uid://bf4k2m7wu1y64" path="res://Art/Sprites/Default.jpg" id="2_xi536"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hkokj"]
+radius = 29.0172
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0b81x"]
+radius = 26.0
+height = 66.0
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(879, 863)
+script = ExtResource("1_auxp4")
+
+[node name="Hold Detector" type="Area2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(19, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hold Detector"]
+shape = SubResource("CircleShape2D_hkokj")
+debug_color = Color(0.761018, 0.178089, 1, 0.42)
+
+[node name="Player Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.08125, 0.0799059)
+texture = ExtResource("2_xi536")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_0b81x")
+
+[node name="Hand Point" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(22, -13)
+
+[connection signal="area_entered" from="Hold Detector" to="." method="_on_hold_detector_area_entered"]

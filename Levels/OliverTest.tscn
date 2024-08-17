@@ -1,43 +1,21 @@
-[gd_scene load_steps=8 format=3 uid="uid://bqwoae4vy8cio"]
+[gd_scene load_steps=7 format=3 uid="uid://bqwoae4vy8cio"]
 
-[ext_resource type="Script" path="res://Scripts/platformer_controller.gd" id="1_0glo6"]
 [ext_resource type="Texture2D" uid="uid://bf4k2m7wu1y64" path="res://Art/Sprites/Default.jpg" id="1_5q3qq"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_hkokj"]
-radius = 52.0384
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0b81x"]
-radius = 26.0
-height = 66.0
+[ext_resource type="PackedScene" uid="uid://dngf3odx0yf5k" path="res://Prefabs/player.tscn" id="1_23dxn"]
+[ext_resource type="PackedScene" uid="uid://d2k004b3i14wd" path="res://Prefabs/test_cube.tscn" id="3_p6epa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u745l"]
 size = Vector2(1900, 100)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_xcslr"]
+radius = 18.0
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0nnkt"]
 size = Vector2(100, 100)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_xcslr"]
-radius = 23.0217
-
 [node name="OliverTest" type="Node2D"]
 
-[node name="Platformer Controller" type="CharacterBody2D" parent="." groups=["player"]]
-position = Vector2(867, 813)
-script = ExtResource("1_0glo6")
-
-[node name="Hold Detector" type="Area2D" parent="Platformer Controller"]
-unique_name_in_owner = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platformer Controller/Hold Detector"]
-shape = SubResource("CircleShape2D_hkokj")
-debug_color = Color(0.761018, 0.178089, 1, 0.42)
-
-[node name="Default" type="Sprite2D" parent="Platformer Controller"]
-scale = Vector2(0.08125, 0.0799059)
-texture = ExtResource("1_5q3qq")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platformer Controller"]
-shape = SubResource("CapsuleShape2D_0b81x")
+[node name="Player" parent="." instance=ExtResource("1_23dxn")]
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(1000, 1100)
@@ -51,84 +29,44 @@ texture = ExtResource("1_5q3qq")
 position = Vector2(-50, -50)
 shape = SubResource("RectangleShape2D_u745l")
 
-[node name="Cube2" type="StaticBody2D" parent="."]
-position = Vector2(550, 850)
+[node name="Hold2" type="Area2D" parent="." groups=["hold"]]
+position = Vector2(1118, 850)
 
-[node name="Default" type="Sprite2D" parent="Cube2"]
-position = Vector2(2.14577e-06, 8.46386e-06)
-scale = Vector2(0.159375, 0.117509)
-texture = ExtResource("1_5q3qq")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Cube2"]
-shape = SubResource("RectangleShape2D_0nnkt")
-
-[node name="Hold" type="Area2D" parent="Cube2" groups=["hold"]]
-position = Vector2(-67, -1)
-
-[node name="Default2" type="Sprite2D" parent="Cube2/Hold"]
+[node name="Default2" type="Sprite2D" parent="Hold2"]
 modulate = Color(1, 0, 1, 1)
-scale = Vector2(0.075, 0.075)
+scale = Vector2(0.05625, 0.0399529)
 texture = ExtResource("1_5q3qq")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Cube2/Hold"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hold2"]
 shape = SubResource("CircleShape2D_xcslr")
 
-[node name="Cube3" type="StaticBody2D" parent="."]
-position = Vector2(550, 950)
-
-[node name="Default" type="Sprite2D" parent="Cube3"]
-position = Vector2(2.14577e-06, 8.46386e-06)
-scale = Vector2(0.159375, 0.117509)
-texture = ExtResource("1_5q3qq")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Cube3"]
-position = Vector2(1, 1)
-shape = SubResource("RectangleShape2D_0nnkt")
-
-[node name="Hold" type="Area2D" parent="Cube3" groups=["hold"]]
-position = Vector2(-67, -1)
-
-[node name="Default2" type="Sprite2D" parent="Cube3/Hold"]
-modulate = Color(1, 0, 1, 1)
-scale = Vector2(0.075, 0.075)
-texture = ExtResource("1_5q3qq")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Cube3/Hold"]
-shape = SubResource("CircleShape2D_xcslr")
-
-[node name="Cube4" type="StaticBody2D" parent="."]
+[node name="Test Cube" type="StaticBody2D" parent="."]
 position = Vector2(1050, 850)
 
-[node name="Default" type="Sprite2D" parent="Cube4"]
+[node name="Default" type="Sprite2D" parent="Test Cube"]
 position = Vector2(2.14577e-06, 8.46386e-06)
 scale = Vector2(0.159375, 0.117509)
 texture = ExtResource("1_5q3qq")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Cube4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Test Cube"]
 shape = SubResource("RectangleShape2D_0nnkt")
 
-[node name="Hold" type="Area2D" parent="Cube4" groups=["hold"]]
+[node name="Hold" type="Area2D" parent="Test Cube" groups=["hold"]]
 position = Vector2(-67, -1)
 
-[node name="Default2" type="Sprite2D" parent="Cube4/Hold"]
+[node name="Default2" type="Sprite2D" parent="Test Cube/Hold"]
 modulate = Color(1, 0, 1, 1)
-scale = Vector2(0.075, 0.075)
+scale = Vector2(0.05625, 0.0399529)
 texture = ExtResource("1_5q3qq")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Cube4/Hold"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Test Cube/Hold"]
 shape = SubResource("CircleShape2D_xcslr")
 
-[node name="Cube5" type="StaticBody2D" parent="."]
-position = Vector2(1350, 950)
+[node name="Test Cube2" parent="." instance=ExtResource("3_p6epa")]
+position = Vector2(650, 850)
 
-[node name="Default" type="Sprite2D" parent="Cube5"]
-position = Vector2(2.14577e-06, 8.46386e-06)
-scale = Vector2(0.159375, 0.117509)
-texture = ExtResource("1_5q3qq")
+[node name="Test Cube4" parent="." instance=ExtResource("3_p6epa")]
+position = Vector2(1450, 950)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Cube5"]
-shape = SubResource("RectangleShape2D_0nnkt")
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="Cube5"]
-
-[connection signal="area_entered" from="Platformer Controller/Hold Detector" to="Platformer Controller" method="_on_hold_detector_area_entered"]
+[node name="Test Cube3" parent="." instance=ExtResource("3_p6epa")]
+position = Vector2(550, 950)
