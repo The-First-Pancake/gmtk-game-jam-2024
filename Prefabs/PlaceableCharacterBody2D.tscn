@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cxgaavewg0jbi"]
+[gd_scene load_steps=4 format=3 uid="uid://cxgaavewg0jbi"]
 
 [ext_resource type="Script" path="res://Scripts/Placeable.gd" id="1_1yjnn"]
 [ext_resource type="Texture2D" uid="uid://cq4lo5nuujjv" path="res://Art/Sprites/TetrisPlaceholders/Tetromino_J1_1.png" id="2_riihf"]
+[ext_resource type="PackedScene" uid="uid://c4x6g67fj5uq8" path="res://Prefabs/hold_point_generator.tscn" id="3_5mqgh"]
 
 [node name="PlaceableCharacterBody2d" type="CharacterBody2D"]
 input_pickable = true
@@ -13,5 +14,7 @@ texture = ExtResource("2_riihf")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(15, 0, -45, 0, -45, -30, 45, -30, 45, 30, 15, 30)
+
+[node name="HoldPointGenerator" parent="." instance=ExtResource("3_5mqgh")]
 
 [connection signal="input_event" from="." to="." method="on_collision_input_event"]

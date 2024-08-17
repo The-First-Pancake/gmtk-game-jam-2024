@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" path="res://Scripts/GeneratePoints.gd" id="1_d5id5"]
 
-[node name="Node2D" type="Node2D"]
+[node name="HoldPointGenerator" type="Node2D"]
 script = ExtResource("1_d5id5")

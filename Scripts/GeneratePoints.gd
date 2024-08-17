@@ -1,6 +1,6 @@
 extends Node
 
-var units_per_block : int = 30
+var units_per_block : int = 100
 @export var number_of_holds : int = 5
 
 # Called when the node enters the scene tree for the first time.

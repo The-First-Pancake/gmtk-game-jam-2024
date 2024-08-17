@@ -7,10 +7,10 @@
 diffuse_texture = ExtResource("2_1yifi")
 texture_filter = 1
 
-[node name="PlaceableCharacterBody2d" instance=ExtResource("1_q0m3r")]
+[node name="2x2 Piiece" instance=ExtResource("1_q0m3r")]
 
 [node name="Sprite2D" parent="." index="0"]
 texture = SubResource("CanvasTexture_jivrq")
 
 [node name="CollisionPolygon2D" parent="." index="1"]
-polygon = PackedVector2Array(-100, 100, -100, -100, 100, -100, 100, 100)
+polygon = PackedVector2Array(-95, 95, -95, -95, 95, -95, 95, 95)
