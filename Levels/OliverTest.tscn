@@ -1,17 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://bqwoae4vy8cio"]
+[gd_scene load_steps=6 format=3 uid="uid://bqwoae4vy8cio"]
 
 [ext_resource type="Texture2D" uid="uid://bf4k2m7wu1y64" path="res://Art/Sprites/Default.jpg" id="1_5q3qq"]
 [ext_resource type="PackedScene" uid="uid://dngf3odx0yf5k" path="res://Prefabs/player.tscn" id="1_23dxn"]
+[ext_resource type="PackedScene" uid="uid://r1kjk04fwuou" path="res://Prefabs/Hold.tscn" id="3_mld6p"]
 [ext_resource type="PackedScene" uid="uid://d2k004b3i14wd" path="res://Prefabs/test_cube.tscn" id="3_p6epa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u745l"]
 size = Vector2(1900, 100)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_xcslr"]
-radius = 18.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0nnkt"]
-size = Vector2(100, 100)
 
 [node name="OliverTest" type="Node2D"]
 
@@ -29,44 +24,37 @@ texture = ExtResource("1_5q3qq")
 position = Vector2(-50, -50)
 shape = SubResource("RectangleShape2D_u745l")
 
-[node name="Hold2" type="Area2D" parent="." groups=["hold"]]
-position = Vector2(1118, 850)
-
-[node name="Default2" type="Sprite2D" parent="Hold2"]
-modulate = Color(1, 0, 1, 1)
-scale = Vector2(0.05625, 0.0399529)
-texture = ExtResource("1_5q3qq")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hold2"]
-shape = SubResource("CircleShape2D_xcslr")
-
-[node name="Test Cube" type="StaticBody2D" parent="."]
-position = Vector2(1050, 850)
-
-[node name="Default" type="Sprite2D" parent="Test Cube"]
-position = Vector2(2.14577e-06, 8.46386e-06)
-scale = Vector2(0.159375, 0.117509)
-texture = ExtResource("1_5q3qq")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Test Cube"]
-shape = SubResource("RectangleShape2D_0nnkt")
-
-[node name="Hold" type="Area2D" parent="Test Cube" groups=["hold"]]
-position = Vector2(-67, -1)
-
-[node name="Default2" type="Sprite2D" parent="Test Cube/Hold"]
-modulate = Color(1, 0, 1, 1)
-scale = Vector2(0.05625, 0.0399529)
-texture = ExtResource("1_5q3qq")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Test Cube/Hold"]
-shape = SubResource("CircleShape2D_xcslr")
-
 [node name="Test Cube2" parent="." instance=ExtResource("3_p6epa")]
 position = Vector2(650, 850)
+
+[node name="Test Cube5" parent="." instance=ExtResource("3_p6epa")]
+position = Vector2(1050, 750)
+
+[node name="Test Cube8" parent="." instance=ExtResource("3_p6epa")]
+
+[node name="Test Cube9" parent="." instance=ExtResource("3_p6epa")]
+position = Vector2(650, 750)
+
+[node name="Test Cube10" parent="." instance=ExtResource("3_p6epa")]
+position = Vector2(550, 650)
+
+[node name="Test Cube6" parent="." instance=ExtResource("3_p6epa")]
+position = Vector2(1050, 650)
+
+[node name="Test Cube7" parent="." instance=ExtResource("3_p6epa")]
+position = Vector2(1050, 550)
 
 [node name="Test Cube4" parent="." instance=ExtResource("3_p6epa")]
 position = Vector2(1450, 950)
 
 [node name="Test Cube3" parent="." instance=ExtResource("3_p6epa")]
 position = Vector2(550, 950)
+
+[node name="Hold" parent="." instance=ExtResource("3_mld6p")]
+position = Vector2(982, 850)
+
+[node name="Hold2" parent="." instance=ExtResource("3_mld6p")]
+position = Vector2(718, 750)
+
+[node name="Hold3" parent="." instance=ExtResource("3_mld6p")]
+position = Vector2(981, 549)

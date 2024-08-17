@@ -7,13 +7,14 @@ var acceleration: float = 3000
 var deceleration: float = 4000
 var max_speed: float = 700
 
-var leap_velocity: float = 1200.0
+var leap_velocity: float = 1300.0
 
 var downslide_speed: float = 300
 var current_hold: Node2D = null
 
-var coyote_time: float = 0.2
+var coyote_time: float = 0.1
 
+var was_on_floor: bool = true
 
 func _process(delta: float) -> void:
 	if current_hold == null:
@@ -26,19 +27,37 @@ func _process(delta: float) -> void:
 			else:
 				velocity += get_gravity()*3 * delta
 		
+		#grab holds
 		if Input.is_action_just_pressed("jump"):
-			var hold_detector: Area2D = %"Hold Detector" as Area2D
-			var holds: Array[Area2D] = hold_detector.get_overlapping_areas()
+			var mid_air_hold_detector: Area2D = %"Mid-Air Hold Detector" as Area2D
+			var grounded_hold_detector_2: Area2D = %"Grounded Hold Detector2" as Area2D
+			
+			var holds: Array[Area2D] = []
+			if is_on_floor():
+				holds = grounded_hold_detector_2.get_overlapping_areas()
+			else:
+				holds = mid_air_hold_detector.get_overlapping_areas()
+			
 			for hold in holds:
 				if hold.is_in_group("hold"):
-					
 					velocity = Vector2.ZERO
 					current_hold = hold as Node2D
 					return
 		
 		# Handle jump.
-		if is_on_floor() and Input.is_action_just_pressed("jump"):
+		var coyote_timer: Timer = %"Coyote Timer" as Timer
+		if was_on_floor and not is_on_floor():
+			coyote_timer.wait_time = coyote_time
+			coyote_timer.start()
+		
+		var has_recently_left_ground: bool = coyote_timer.time_left != 0
+		
+		if (is_on_floor() or has_recently_left_ground) and Input.is_action_just_pressed("jump"):
+			
+			was_on_floor = false
 			velocity.y = jump_velocity
+		else:
+			was_on_floor = is_on_floor()
 		
 		# Get the input direction and handle the movement/deceleration.
 		# As good practice, you should replace UI actions with custom gameplay actions.
@@ -69,4 +88,5 @@ func _process(delta: float) -> void:
 			velocity = leap_velocity * aim_dir
 			current_hold = null
 	
+
 	move_and_slide()

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://r1kjk04fwuou"]
+
+[ext_resource type="Texture2D" uid="uid://bf4k2m7wu1y64" path="res://Art/Sprites/Default.jpg" id="1_ceq6n"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xcslr"]
+radius = 18.0
+
+[node name="Hold" type="Area2D" groups=["hold"]]
+
+[node name="Default2" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 1, 1)
+scale = Vector2(0.05625, 0.0399529)
+texture = ExtResource("1_ceq6n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_xcslr")
