@@ -24,7 +24,7 @@ func placeTestPoints(points: PackedVector2Array) -> void:
 		var parent : Node2D = $".."
 		parent.add_child.call_deferred(test_point)
 		test_point.position = point
-		test_point.rotation = parent.rotation
+		#test_point.rotation = parent.rotation
 	return
 
 func generateHoldPoints(points: PackedVector2Array) -> PackedVector2Array:
