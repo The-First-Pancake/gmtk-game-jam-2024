@@ -88,7 +88,7 @@ position = Vector2(1088, 916)
 is_exit = false
 
 [node name="Exit Door" parent="." instance=ExtResource("19_owl44")]
-position = Vector2(1672, 908)
+position = Vector2(1667, 764)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 position = Vector2(950, 150)
