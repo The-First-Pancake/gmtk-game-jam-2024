@@ -238,9 +238,9 @@ rise_speed = 16.0
 [node name="Top Water" type="TextureRect" parent="Water"]
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_1wnnk")
-offset_left = -1380.0
+offset_left = -1497.0
 offset_top = -137.0
-offset_right = -494.0
+offset_right = -534.0
 offset_bottom = -105.0
 scale = Vector2(3.125, 3.125)
 texture = ExtResource("11_y6mt6")
@@ -249,9 +249,9 @@ stretch_mode = 1
 [node name="Deep Water" type="TextureRect" parent="Water"]
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_1wnnk")
-offset_left = -1377.0
+offset_left = -1498.0
 offset_top = -37.0
-offset_right = -491.0
+offset_right = -535.0
 offset_bottom = 191.0
 scale = Vector2(3.125, 3.125)
 texture = ExtResource("12_2m3xp")
