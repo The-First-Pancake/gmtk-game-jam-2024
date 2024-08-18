@@ -109,7 +109,7 @@ scale = Vector2(3.125, 3.125)
 texture = ExtResource("3_yibs3")
 stretch_mode = 1
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Floor"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Floor" groups=["terrain"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/StaticBody2D"]
 position = Vector2(165.12, 132.32)
@@ -127,7 +127,7 @@ scale = Vector2(3.125, 3.125)
 texture = ExtResource("3_yibs3")
 stretch_mode = 1
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Left Wall"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Left Wall" groups=["terrain"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Left Wall/StaticBody2D"]
 position = Vector2(173.76, 1869.76)
@@ -145,7 +145,7 @@ scale = Vector2(3.125, 3.125)
 texture = ExtResource("3_yibs3")
 stretch_mode = 1
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Left Wall2"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Left Wall2" groups=["terrain"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Left Wall2/StaticBody2D"]
 position = Vector2(135.96, 1876.56)

@@ -30,5 +30,5 @@ func _on_body_entered(body: Node2D) -> void:
 			interior_wall_2.process_mode = Node.PROCESS_MODE_DISABLED
 
 func _on_exit_hitbox_body_exited(body: Node2D) -> void:
-	if body is Player:
+	if body is Player and is_exit:
 		GameManager.level_complete()

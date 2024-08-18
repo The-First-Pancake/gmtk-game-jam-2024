@@ -28,6 +28,8 @@ var campfires: Array[Campfire] = []
 
 func _ready() -> void:
 	GameManager.player = self
+	await get_tree().create_timer(0.3).timeout
+	velocity.x = 900
 
 var is_downsliding: bool
 

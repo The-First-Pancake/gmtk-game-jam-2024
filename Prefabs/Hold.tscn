@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://r1kjk04fwuou"]
+[gd_scene load_steps=6 format=3 uid="uid://r1kjk04fwuou"]
 
+[ext_resource type="Script" path="res://Scripts/Hold.gd" id="1_3dxqk"]
 [ext_resource type="Texture2D" uid="uid://dpyoyg7dk52w6" path="res://Art/Sprites/hold/Hold.png" id="1_43tsb"]
 [ext_resource type="Texture2D" uid="uid://bnvyxybj0rs1t" path="res://Art/Sprites/hold/Hold_Normal.png" id="2_q3t11"]
 
@@ -12,6 +13,7 @@ texture_filter = 1
 radius = 9.05539
 
 [node name="Hold" type="Area2D" groups=["hold"]]
+script = ExtResource("1_3dxqk")
 
 [node name="Default2" type="Sprite2D" parent="."]
 position = Vector2(0, -7)
