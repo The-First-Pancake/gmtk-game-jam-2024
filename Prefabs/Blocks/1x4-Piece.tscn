@@ -16,4 +16,4 @@ safe_margin = 8.0
 texture = SubResource("CanvasTexture_jdlda")
 
 [node name="CollisionPolygon2D" parent="." index="1"]
-polygon = PackedVector2Array(-45, 195, -45, -195, 45, -195, 45, 195)
+polygon = PackedVector2Array(-49, 199, -49, -199, 49, -199, 49, 199)

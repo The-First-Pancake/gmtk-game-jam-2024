@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://fee5nvfuba0j"]
+[gd_scene load_steps=13 format=3 uid="uid://fee5nvfuba0j"]
 
 [ext_resource type="PackedScene" uid="uid://ctlx3qylqphyo" path="res://Prefabs/BlockSpawner.tscn" id="3_faxmf"]
 [ext_resource type="PackedScene" uid="uid://dngf3odx0yf5k" path="res://Prefabs/player.tscn" id="3_qudki"]
 [ext_resource type="Script" path="res://Scripts/SpawnObject.gd" id="4_mwb6v"]
 [ext_resource type="Texture2D" uid="uid://bf4k2m7wu1y64" path="res://Art/Sprites/Default.jpg" id="4_r2vew"]
 [ext_resource type="PackedScene" uid="uid://r1kjk04fwuou" path="res://Prefabs/Hold.tscn" id="5_8fyq4"]
+[ext_resource type="PackedScene" uid="uid://bkatak76uuoli" path="res://Prefabs/Campfire.tscn" id="6_rgih4"]
+[ext_resource type="PackedScene" uid="uid://dhrgrpwwax6i8" path="res://Prefabs/Spikes.tscn" id="7_5cl6t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_atmmq"]
 size = Vector2(617, 834)
@@ -15,15 +17,26 @@ size = Vector2(704.047, 438)
 [sub_resource type="Resource" id="Resource_6716m"]
 script = ExtResource("4_mwb6v")
 spawn_prefab = ExtResource("5_8fyq4")
-spawn_count = 1
+spawn_count = 25
+
+[sub_resource type="Resource" id="Resource_b3o7y"]
+script = ExtResource("4_mwb6v")
+spawn_prefab = ExtResource("6_rgih4")
+spawn_count = 2
+
+[sub_resource type="Resource" id="Resource_mwrdh"]
+script = ExtResource("4_mwb6v")
+spawn_prefab = ExtResource("7_5cl6t")
+spawn_count = 10
 
 [node name="GeorgeTest" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("3_qudki")]
+position = Vector2(1050, 950)
 
 [node name="Floor" type="StaticBody2D" parent="."]
-position = Vector2(1020, 1023)
-scale = Vector2(1.16232, 0.0289407)
+position = Vector2(1200, 1050)
+scale = Vector2(1.96232, 0.0292254)
 
 [node name="Default" type="Sprite2D" parent="Floor"]
 texture = ExtResource("4_r2vew")
@@ -41,7 +54,7 @@ scale = Vector2(0.628025, 1.14167)
 shape = SubResource("RectangleShape2D_1lx0t")
 
 [node name="BlockSpawner" parent="NewBlockQueue" instance=ExtResource("3_faxmf")]
-spawn_objects = Array[Resource]([SubResource("Resource_6716m")])
+spawn_objects = Array[ExtResource("4_mwb6v")]([SubResource("Resource_6716m"), SubResource("Resource_b3o7y"), SubResource("Resource_mwrdh")])
 spawn_object_probability = 0.5
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]

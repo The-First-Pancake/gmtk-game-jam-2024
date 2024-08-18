@@ -4,7 +4,7 @@ extends Marker2D
 var spawn_timer : Timer
 
 @export var block_prefabs : Array[PackedScene]
-@export var spawn_objects: Array[Resource]
+@export var spawn_objects: Array[SpawnObject]
 @export var spawn_object_probability : float = 0.0
 
 var spawned_block : Placeable
@@ -36,7 +36,8 @@ func generate_and_spawn_hold_objects(block: Placeable) -> void:
 			var object_choice : float = randf()
 			for i in len(spawn_objects):
 				print("Total objects to spawn @ for loop: ", total_objects_to_spawn)
-				cum_probability += spawned_object_counts[i] / total_objects_to_spawn
+				cum_probability += float(spawned_object_counts[i]) / float(total_objects_to_spawn)
+				print("Cum probability: ", cum_probability)
 				if (object_choice < cum_probability):
 					spawned_object_counts[i] -= 1
 					total_objects_to_spawn -= 1

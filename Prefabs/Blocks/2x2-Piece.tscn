@@ -15,4 +15,4 @@ texture_filter = 1
 texture = SubResource("CanvasTexture_jivrq")
 
 [node name="CollisionPolygon2D" parent="." index="1"]
-polygon = PackedVector2Array(-95, 95, -95, -95, 95, -95, 95, 95)
+polygon = PackedVector2Array(-99, 99, -99, -99, 99, -99, 99, 99)

@@ -10,8 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://cihssf8yq5orj" path="res://Prefabs/Blocks/Z-Piece.tscn" id="8_c41xu"]
 [ext_resource type="Script" path="res://Scripts/SpawnObject.gd" id="9_gkg5t"]
 [ext_resource type="PackedScene" uid="uid://r1kjk04fwuou" path="res://Prefabs/Hold.tscn" id="10_a5syx"]
-[ext_resource type="PackedScene" path="res://Prefabs/Spikes.tscn" id="11_uu4ty"]
-[ext_resource type="PackedScene" path="res://Prefabs/Campfire.tscn" id="12_oia60"]
+[ext_resource type="PackedScene" uid="uid://dhrgrpwwax6i8" path="res://Prefabs/Spikes.tscn" id="11_uu4ty"]
+[ext_resource type="PackedScene" uid="uid://bkatak76uuoli" path="res://Prefabs/Campfire.tscn" id="12_oia60"]
 
 [sub_resource type="Resource" id="Resource_xvcvp"]
 script = ExtResource("9_gkg5t")
@@ -32,10 +32,9 @@ spawn_count = 0
 position = Vector2(-59.775, -197.903)
 script = ExtResource("1_b4ypx")
 block_prefabs = Array[PackedScene]([ExtResource("2_njfkm"), ExtResource("3_y13gq"), ExtResource("4_bg7ku"), ExtResource("5_bix6h"), ExtResource("6_6443k"), ExtResource("7_f67qo"), ExtResource("8_c41xu")])
-spawn_objects = Array[ExtResource("9_gkg5t")]([SubResource("Resource_xvcvp"), SubResource("Resource_rl80j"), SubResource("Resource_hwvb2")])
+spawn_objects = Array[Resource]([SubResource("Resource_xvcvp"), SubResource("Resource_rl80j"), SubResource("Resource_hwvb2")])
 
 [node name="SpawnTimer" type="Timer" parent="."]
-wait_time = 5.0
 one_shot = true
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_spawn_timer_finished"]
