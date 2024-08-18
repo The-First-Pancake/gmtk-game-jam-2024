@@ -45,7 +45,7 @@ func _process(delta: float) -> void:
 			var closest_hold: Node2D = null
 			for hold in holds:
 				if !hold.is_in_group("hold"): continue
-				if abs(hold.rotation_degrees) < 1: continue #if the hold is upright we can't grab it
+				if abs(hold.global_rotation_degrees) < 1: continue #if the hold is upright we can't grab it
 				if closest_hold == null:
 					closest_hold = hold
 					continue
@@ -91,7 +91,7 @@ func _process(delta: float) -> void:
 	if current_hold:
 		var aim_dir: Vector2 = Input.get_vector("move_left","move_right","move_up","move_down")
 		
-		var holding_cieling: bool = abs(current_hold.rotation_degrees - 180) < 1
+		var holding_cieling: bool = abs(angle_difference(current_hold.global_rotation, deg_to_rad(180))) < deg_to_rad(1)
 		if holding_cieling:
 			global_position = current_hold.global_position - (top_hand_point.global_position - global_position)
 			if aim_dir.x > 0:
@@ -100,9 +100,9 @@ func _process(delta: float) -> void:
 				transform.x.x = -1 
 		else:
 			global_position = current_hold.global_position - (side_hand_point.global_position - global_position)
-			if abs(current_hold.rotation_degrees - 90) < 1:
+			if abs(angle_difference(current_hold.global_rotation, deg_to_rad(90))) < deg_to_rad(1):
 				transform.x.x = -1
-			elif abs(current_hold.rotation_degrees - 270) < 1:
+			elif abs(angle_difference(current_hold.global_rotation, deg_to_rad(270))) < deg_to_rad(1):
 				transform.x.x = 1
 		
 		if Input.is_action_just_released("jump"):
@@ -121,17 +121,17 @@ func _process(delta: float) -> void:
 
 func update_animations() -> void:
 	var is_downsliding: bool = is_on_wall() and velocity.y > 0
-	if is_on_floor():
-		if abs(velocity.x) > 10:
-			sprite_animator.play("walk")
-		else:
-			sprite_animator.play("idle")
-	elif current_hold:
-		var holding_cieling: bool = abs(current_hold.rotation_degrees - 180) < 1
+	if current_hold:
+		var holding_cieling: bool = abs(angle_difference(current_hold.global_rotation, deg_to_rad(180))) < deg_to_rad(1)
 		if holding_cieling:
 			sprite_animator.play("hang_top")
 		else:
 			sprite_animator.play("hang_side")
+	elif is_on_floor():
+		if abs(velocity.x) > 10:
+			sprite_animator.play("walk")
+		else:
+			sprite_animator.play("idle")
 	elif is_downsliding:
 		sprite_animator.play("downslide")
 	else:

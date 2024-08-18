@@ -182,7 +182,7 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0b81x"]
-radius = 26.0
+radius = 21.0
 height = 78.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hkokj"]
@@ -202,8 +202,8 @@ script = ExtResource("1_auxp4")
 unique_name_in_owner = true
 scale = Vector2(3.125, 3.125)
 sprite_frames = SubResource("SpriteFrames_2xloi")
-animation = &"walk"
-frame_progress = 0.0652054
+animation = &"hang_side"
+frame_progress = 0.167764
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 9)
@@ -228,11 +228,11 @@ debug_color = Color(0.760784, 0.176471, 1, 0.117647)
 
 [node name="Side Hand Point" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(13, -11)
+position = Vector2(28, -11)
 
 [node name="Top Hand Point" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(0, -31)
+position = Vector2(9, -58)
 
 [node name="Coyote Timer" type="Timer" parent="."]
 unique_name_in_owner = true

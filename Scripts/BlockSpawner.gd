@@ -31,19 +31,16 @@ func generate_and_spawn_block() -> void:
 
 func generate_and_spawn_hold_objects(block: Placeable) -> void:
 	for spawn_point_idx in len(block.hold_point_generator.get_generated_points()):
-		if (randf() > spawn_object_probability):
+		if (randf() < spawn_object_probability):
 			var cum_probability : float = 0
 			var object_choice : float = randf()
 			for i in len(spawn_objects):
-				print("Total objects to spawn @ for loop: ", total_objects_to_spawn)
 				cum_probability += float(spawned_object_counts[i]) / float(total_objects_to_spawn)
-				print("Cum probability: ", cum_probability)
 				if (object_choice < cum_probability):
 					spawned_object_counts[i] -= 1
 					total_objects_to_spawn -= 1
 					spawn_object_on_hold(spawn_objects[i], block, spawn_point_idx)
 					if (total_objects_to_spawn == 0):
-						print("remaking spawned objects")
 						refresh_spawn_object_counts()
 					break
 
