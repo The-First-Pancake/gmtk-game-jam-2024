@@ -1,4 +1,4 @@
-class_name Placeable
+class_name Placeable_fucked
 extends CharacterBody2D
 
 enum PlaceState {QUEUED, PLACING, FALLING, PLACED}
