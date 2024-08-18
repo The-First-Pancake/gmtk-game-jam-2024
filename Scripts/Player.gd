@@ -15,6 +15,7 @@ var current_hold: Node2D = null
 var coyote_time: float = 0.1
 
 var terminal_velocity: float = 1500
+var idols_collected: int = 0
 
 var was_on_floor: bool = true
 
@@ -182,6 +183,10 @@ func on_hitbix_hit(area: Area2D) -> void:
 		die()
 	if area.is_in_group("water"):
 		die()
+	if area.is_in_group("idol"):
+		area.queue_free()
+		idols_collected += 1
+		return
 	if area is Campfire:
 		if campfires.has(area): return #skip if we already have it
 		area.is_lit = true

@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://Levels/WaterLevel.gd" id="10_7kdmf"]
 [ext_resource type="Texture2D" uid="uid://5p0gmre6j1rp" path="res://Art/Sprites/water/water_texture.tres" id="11_y6mt6"]
 [ext_resource type="Texture2D" uid="uid://bs6m1kttcvgdo" path="res://Art/Sprites/water/Water_Depth.png" id="12_2m3xp"]
+[ext_resource type="PackedScene" uid="uid://b3c0skin4w372" path="res://Prefabs/idol.tscn" id="13_jfp1q"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_sacac"]
 light_mode = 1
@@ -170,3 +171,6 @@ stretch_mode = 1
 position = Vector2(23, 302.5)
 shape = SubResource("RectangleShape2D_84vdb")
 debug_color = Color(0, 0.595, 0.7, 0)
+
+[node name="Idol" parent="." instance=ExtResource("13_jfp1q")]
+position = Vector2(1460, 994)
