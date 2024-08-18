@@ -158,6 +158,7 @@ func die() -> void:
 		global_position = highest_campfire.global_position
 	else:
 		print("you die for real")
+		get_tree().reload_current_scene()
 		queue_free()
 		
 

@@ -23,7 +23,7 @@ func _physics_process(delta: float) -> void:
 		if (Input.is_action_just_pressed("rotate_block")):
 			rotation += deg_to_rad(90)
 			return
-		if (!check_for_collisions() and Input.is_action_just_released("drop_block")):
+		if (!check_for_collisions() and Input.is_action_just_pressed("drop_block")):
 			enter_falling()
 	elif (state == PlaceState.FALLING):
 		# Add the gravity.
@@ -39,8 +39,8 @@ func _physics_process(delta: float) -> void:
 
 func on_collision_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if (state == PlaceState.QUEUED):
-			if (Input.is_action_just_pressed("drop_block")):
-				enter_placing()
+		if Input.is_action_just_pressed("drop_block"):
+			enter_placing()
 
 func enter_queued() -> void:
 	state = PlaceState.QUEUED
@@ -54,9 +54,10 @@ func enter_queued() -> void:
 			area_2d_child.set_collision_layer_value(UNPLACED_COLLISION_LAYER, true);
 
 func enter_placing() -> void:
+	await get_tree().process_frame
 	picked_up.emit()
 	modulate.a = 0.5 # make transparent
-	state = PlaceState.PLACING
+	state = PlaceState.PLACING 
 
 func enter_falling() -> void:
 	set_collision_layer_value(DEFAULT_COLLISION_LAYER, true);
