@@ -27,7 +27,7 @@ light_mode = 1
 light_mode = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gljxb"]
-size = Vector2(330.24, 265.92)
+size = Vector2(959.68, 265.92)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_375yt"]
 size = Vector2(344.96, 3752.8)
@@ -68,7 +68,7 @@ spawn_count = 10
 light_mode = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_84vdb"]
-size = Vector2(2162, 721)
+size = Vector2(2162, 709)
 
 [node name="Template Level" type="Node2D"]
 
@@ -96,7 +96,7 @@ rotation = -6.28319
 energy = 1.55
 
 [node name="Player" parent="." instance=ExtResource("2_hossx")]
-position = Vector2(1019, 965)
+position = Vector2(1019, 984)
 
 [node name="Floor" type="TextureRect" parent="."]
 texture_filter = 1
@@ -116,12 +116,30 @@ position = Vector2(165.12, 132.32)
 shape = SubResource("RectangleShape2D_gljxb")
 debug_color = Color(0, 0.595, 0.7, 0)
 
+[node name="Cieling" type="TextureRect" parent="."]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_4c02t")
+offset_left = -339.0
+offset_top = -11274.0
+offset_right = 620.0
+offset_bottom = -11008.0
+scale = Vector2(3.125, 3.125)
+texture = ExtResource("3_yibs3")
+stretch_mode = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Cieling" groups=["terrain"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cieling/StaticBody2D"]
+position = Vector2(479.84, 132.32)
+shape = SubResource("RectangleShape2D_gljxb")
+debug_color = Color(0, 0.595, 0.7, 0)
+
 [node name="Left Wall" type="TextureRect" parent="."]
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_4c02t")
-offset_left = -350.0
+offset_left = -351.0
 offset_top = -10524.0
-offset_right = -4.0
+offset_right = -5.0
 offset_bottom = -6608.0
 scale = Vector2(3.125, 3.125)
 texture = ExtResource("3_yibs3")
@@ -220,20 +238,20 @@ rise_speed = 16.0
 [node name="Top Water" type="TextureRect" parent="Water"]
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_1wnnk")
-offset_left = -1063.0
+offset_left = -1380.0
 offset_top = -137.0
-offset_right = -368.0
+offset_right = -494.0
 offset_bottom = -105.0
 scale = Vector2(3.125, 3.125)
 texture = ExtResource("11_y6mt6")
 stretch_mode = 1
 
-[node name="Top Water2" type="TextureRect" parent="Water"]
+[node name="Deep Water" type="TextureRect" parent="Water"]
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_1wnnk")
-offset_left = -1063.0
+offset_left = -1377.0
 offset_top = -37.0
-offset_right = -368.0
+offset_right = -491.0
 offset_bottom = 191.0
 scale = Vector2(3.125, 3.125)
 texture = ExtResource("12_2m3xp")
@@ -242,7 +260,7 @@ stretch_mode = 1
 [node name="Water Kill Area" type="Area2D" parent="Water" groups=["water"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Water/Water Kill Area"]
-position = Vector2(23, 302.5)
+position = Vector2(23, 308.5)
 shape = SubResource("RectangleShape2D_84vdb")
 debug_color = Color(0, 0.595, 0.7, 0)
 
