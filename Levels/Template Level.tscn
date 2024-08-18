@@ -51,10 +51,10 @@ size = Vector2(2162, 721)
 [node name="Background" type="TextureRect" parent="."]
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_sacac")
-offset_left = 366.0
-offset_top = -10484.0
-offset_right = 1006.0
-offset_bottom = -6799.0
+offset_left = 347.0
+offset_top = -10481.0
+offset_right = 987.0
+offset_bottom = -6796.0
 scale = Vector2(3.25556, 3.25556)
 texture = ExtResource("1_dtx2u")
 stretch_mode = 1
