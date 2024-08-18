@@ -1,20 +1,23 @@
+class_name Placeable
 extends CharacterBody2D
 
 enum PlaceState {QUEUED, PLACING, FALLING, PLACED}
 @export var grid_size : float = 50
-@export var collider : CollisionPolygon2D = null
 var state : int = PlaceState.QUEUED
+var hold_point_generator : HoldPointGenerator
 
+signal picked_up
 const DEFAULT_COLLISION_LAYER : int = 1
 const UNPLACED_COLLISION_LAYER : int = 2
 
 func _ready() -> void:
+	hold_point_generator = $HoldPointGenerator
 	enter_queued()
 
 func _physics_process(delta: float) -> void:
 	if (state == PlaceState.PLACING):
 		var mouse_pos : Vector2 = get_global_mouse_position()
-		position = Vector2(int(mouse_pos.x / grid_size) * grid_size, int(mouse_pos.y / grid_size) * grid_size)
+		global_position = Vector2(int(mouse_pos.x / grid_size) * grid_size, int(mouse_pos.y / grid_size) * grid_size)
 		if (Input.is_action_just_pressed("rotate_block")):
 			rotation += deg_to_rad(90)
 			return
@@ -41,6 +44,7 @@ func enter_queued() -> void:
 	state = PlaceState.QUEUED
 
 func enter_placing() -> void:
+	picked_up.emit()
 	set_collision_layer_value(DEFAULT_COLLISION_LAYER, false);
 	set_collision_layer_value(UNPLACED_COLLISION_LAYER, true);
 	modulate.a = 0.5 # make transparent
