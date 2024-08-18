@@ -228,6 +228,7 @@ texture = ExtResource("4_tybef")
 position = Vector2(2, -56)
 scale = Vector2(9.20313, 9.20313)
 color = Color(1, 0.539063, 0, 1)
+energy = 3.0
 texture = SubResource("GradientTexture2D_6xj73")
 script = ExtResource("5_3u6so")
 
@@ -279,3 +280,5 @@ scale = Vector2(3.125, 3.125)
 sprite_frames = SubResource("SpriteFrames_yxi0w")
 animation = &"wave"
 frame_progress = 0.379668
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -42,3 +42,10 @@ func fall() -> void:
 	await get_tree().process_frame
 	gibs.visible = true
 	queue_free()
+
+func extinguish() -> void:
+	is_lit = false
+
+func _on_area_entered(area: Area2D) -> void:
+	if area.is_in_group("water"):
+		extinguish()

@@ -179,6 +179,8 @@ func apply_gravity(delta: float) -> void:
 func on_hitbix_hit(area: Area2D) -> void:
 	if area.is_in_group("spike"):
 		die()
+	if area.is_in_group("water"):
+		die()
 	if area is Campfire:
 		if campfires.has(area): return #skip if we already have it
 		area.is_lit = true
