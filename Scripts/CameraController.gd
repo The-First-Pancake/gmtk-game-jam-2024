@@ -1,17 +1,28 @@
 class_name CameraController
 extends Camera2D
 
-var instance: CameraController
+static var instance: CameraController
 @export var target: Node2D
 @export var step: float
 @export var top_trigger: float
 @export var bottom_trigger: float
+@export var random_stength: float = 15.0
+@export var shake_fade: float = 5.0
 
+var RNG : RandomNumberGenerator = RandomNumberGenerator.new()
+
+var shake_strength : float = 0.0
 
 func _ready() -> void:
 	instance = self
 
 var is_sliding: bool = false
+
+func apply_shake() -> void:
+	shake_strength = random_stength
+	
+func random_offset() -> Vector2:
+	return Vector2(RNG.randf_range(-shake_strength, shake_strength), RNG.randf_range(-shake_strength, shake_strength))
 
 func _process(delta: float) -> void:
 	if is_sliding: return
@@ -32,3 +43,8 @@ func _process(delta: float) -> void:
 			is_sliding = true
 			await slide_tween.finished
 			is_sliding = false
+	
+	if shake_strength > 0:
+		shake_strength = lerpf(shake_strength,0,shake_fade * delta)
+		
+	offset = random_offset()

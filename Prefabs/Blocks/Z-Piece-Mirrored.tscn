@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cggg3io864evw"]
+[gd_scene load_steps=5 format=3 uid="uid://b60t64b6u40dy"]
 
 [ext_resource type="PackedScene" uid="uid://cxgaavewg0jbi" path="res://Prefabs/PlaceableCharacterBody2D.tscn" id="1_5qe82"]
 [ext_resource type="Texture2D" uid="uid://ditts8oapni60" path="res://Art/Sprites/Tetronimoes/Z_Piece_Reflect.png" id="2_xhdm4"]

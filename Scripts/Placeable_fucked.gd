@@ -76,6 +76,28 @@ func enter_placed(collision : KinematicCollision2D) -> void:
 	
 	CameraController.instance.apply_shake()
 	
+	#var points : PackedVector2Array = hold_point_generator.get_generated_points()
+	#print("Collision Position: ", collision.get_position())
+	#var particle_spawn_points : PackedVector2Array
+	#for point in points:
+		#var global_coord : Vector2 = to_global(point)
+		#print(global_coord)
+		#print("Difference: ", global_coord.y - collision.get_position().y)
+		#if abs(global_coord.y - collision.get_position().y) <= 2:
+			#particle_spawn_points.push_back(global_coord)
+	#
+	#var impact_particles_prefab : PackedScene = preload("res://Prefabs/block_impact_particles.tscn") as PackedScene
+	#
+	#for point in particle_spawn_points:
+		#var impact_particles : Node2D = impact_particles_prefab.instantiate()
+		#add_child(impact_particles)
+		#print(point)
+		#impact_particles.global_position = point
+		#impact_particles.rotation = rotation
+		#for child in impact_particles.get_children():
+			#if child is GPUParticles2D:
+				#child.emitting = true
+	
 	placed.emit()
 	
 func check_for_collisions() -> bool:

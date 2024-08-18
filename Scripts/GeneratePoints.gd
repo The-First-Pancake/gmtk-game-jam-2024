@@ -46,7 +46,7 @@ func generateHoldPoints(points: PackedVector2Array) -> Array[PackedVector2Array]
 		var orthvector : Vector2 = (point2 - point1).rotated(deg_to_rad(-90))
 		var distance: float = point1.distance_to(point2)
 		var direction : Vector2 = point1.direction_to(point2)
-		print("Collision Point: ", point1)
+		#print("Collision Point: ", point1)
 		if (distance >= units_per_block):
 			var distance_vector : Vector2 = Vector2(units_per_block, units_per_block)
 			var working_point : Vector2 = point1 - ((distance_vector * direction) / 2)
@@ -54,7 +54,7 @@ func generateHoldPoints(points: PackedVector2Array) -> Array[PackedVector2Array]
 			for j in range((distance/units_per_block)):
 				var new_point : Vector2 = (distance_vector * direction) + working_point
 				working_point = new_point
-				print("Created point: ", new_point)
+				#print("Created point: ", new_point)
 				created_points.push_back(new_point)
 				orth_points.push_back(orthvector)
 

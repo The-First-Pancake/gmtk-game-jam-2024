@@ -1,7 +1,7 @@
 [gd_scene load_steps=23 format=3 uid="uid://c6nn0uh1ntg88"]
 
 [ext_resource type="Texture2D" uid="uid://bqfeqtdw7xcxo" path="res://Art/Sprites/Backgrounds/background.png" id="1_5bdbs"]
-[ext_resource type="PackedScene" uid="uid://ctlx3qylqphyo" path="res://Prefabs/BlockSpawner.tscn" id="2_bpi8i"]
+[ext_resource type="PackedScene" path="res://Prefabs/BlockSpawner.tscn" id="2_bpi8i"]
 [ext_resource type="Script" path="res://Scripts/SpawnObject.gd" id="3_et5ok"]
 [ext_resource type="PackedScene" uid="uid://r1kjk04fwuou" path="res://Prefabs/Hold.tscn" id="4_0nrww"]
 [ext_resource type="PackedScene" uid="uid://bkatak76uuoli" path="res://Prefabs/Campfire.tscn" id="5_i3bgg"]
