@@ -44,17 +44,29 @@ func on_collision_input_event(viewport: Node, event: InputEvent, shape_idx: int)
 
 func enter_queued() -> void:
 	state = PlaceState.QUEUED
+	set_collision_layer_value(DEFAULT_COLLISION_LAYER, false);
+	set_collision_layer_value(UNPLACED_COLLISION_LAYER, true);
+	# Deal with child nodes
+	for child in get_children():
+		if (child is Area2D):
+			var area_2d_child : Area2D = child as Area2D
+			area_2d_child.set_collision_layer_value(DEFAULT_COLLISION_LAYER, false);
+			area_2d_child.set_collision_layer_value(UNPLACED_COLLISION_LAYER, true);
 
 func enter_placing() -> void:
 	picked_up.emit()
-	set_collision_layer_value(DEFAULT_COLLISION_LAYER, false);
-	set_collision_layer_value(UNPLACED_COLLISION_LAYER, true);
 	modulate.a = 0.5 # make transparent
 	state = PlaceState.PLACING
 
 func enter_falling() -> void:
 	set_collision_layer_value(DEFAULT_COLLISION_LAYER, true);
 	set_collision_layer_value(UNPLACED_COLLISION_LAYER, false);
+	# Deal with child nodes
+	for child in get_children():
+		if (child is Area2D):
+			var area_2d_child : Area2D = child as Area2D
+			area_2d_child.set_collision_layer_value(DEFAULT_COLLISION_LAYER, true);
+			area_2d_child.set_collision_layer_value(UNPLACED_COLLISION_LAYER, false);
 	modulate.a = 1 # make solid
 	state = PlaceState.FALLING
 

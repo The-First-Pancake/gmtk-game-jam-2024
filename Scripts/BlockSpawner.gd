@@ -28,6 +28,7 @@ func generate_and_spawn_block() -> void:
 	spawned_block.global_position = global_position
 	spawned_block.connect("picked_up", _spawned_block_picked_up)
 	generate_and_spawn_hold_objects(spawned_block)
+	spawned_block.enter_queued() # force entering the queued again to force physics layers
 
 func generate_and_spawn_hold_objects(block: Placeable) -> void:
 	for spawn_point_idx in len(block.hold_point_generator.get_generated_points()):
@@ -36,7 +37,7 @@ func generate_and_spawn_hold_objects(block: Placeable) -> void:
 			var object_choice : float = randf()
 			for i in len(spawn_objects):
 				cum_probability += float(spawned_object_counts[i]) / float(total_objects_to_spawn)
-				if (object_choice < cum_probability):
+				if (object_choice <= cum_probability):
 					spawned_object_counts[i] -= 1
 					total_objects_to_spawn -= 1
 					spawn_object_on_hold(spawn_objects[i], block, spawn_point_idx)

@@ -1,7 +1,7 @@
 class_name HoldPointGenerator
 extends Node
 
-var units_per_block : int = 100
+var units_per_block : int = 98
 @export var generate_test_points : bool = false
 var generated_points : PackedVector2Array = PackedVector2Array()
 var generated_orth_vectors : PackedVector2Array = PackedVector2Array()
