@@ -2,12 +2,12 @@ class_name Player
 extends CharacterBody2D
 
 
-var jump_velocity: float = -800.0
+var jump_velocity: float = -850.0
 var acceleration: float = 3000
 var deceleration: float = 4000
 var max_speed: float = 700
 
-var leap_velocity: float = 1300.0
+var leap_velocity: float = 1350.0
 
 var downslide_speed: float = 300
 var current_hold: Node2D = null
@@ -114,7 +114,30 @@ func _process(delta: float) -> void:
 				velocity = leap_velocity * aim_dir
 			current_hold = null
 	
+	update_animations()
 	move_and_slide()
+
+@onready var sprite_animator: AnimatedSprite2D = %"Sprite Animator" as AnimatedSprite2D
+
+func update_animations() -> void:
+	var is_downsliding: bool = is_on_wall() and velocity.y > 0
+	if is_on_floor():
+		if abs(velocity.x) > 10:
+			sprite_animator.play("walk")
+		else:
+			sprite_animator.play("idle")
+	elif current_hold:
+		var holding_cieling: bool = abs(current_hold.rotation_degrees - 180) < 1
+		if holding_cieling:
+			sprite_animator.play("hang_top")
+		else:
+			sprite_animator.play("hang_side")
+	elif is_downsliding:
+		sprite_animator.play("downslide")
+	else:
+		sprite_animator.play("jump")
+		
+		
 
 func try_squash() -> void:
 	if is_on_floor():
@@ -157,5 +180,6 @@ func on_hitbix_hit(area: Area2D) -> void:
 	if area.is_in_group("spike"):
 		die()
 	if area is Campfire:
+		if campfires.has(area): return #skip if we already have it
 		area.is_lit = true
 		campfires.append(area)

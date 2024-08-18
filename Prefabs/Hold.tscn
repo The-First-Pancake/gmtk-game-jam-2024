@@ -1,16 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://r1kjk04fwuou"]
+[gd_scene load_steps=5 format=3 uid="uid://r1kjk04fwuou"]
 
-[ext_resource type="Texture2D" uid="uid://bf4k2m7wu1y64" path="res://Art/Sprites/Default.jpg" id="1_ceq6n"]
+[ext_resource type="Texture2D" uid="uid://dpyoyg7dk52w6" path="res://Art/Sprites/hold/Hold.png" id="1_43tsb"]
+[ext_resource type="Texture2D" uid="uid://bnvyxybj0rs1t" path="res://Art/Sprites/hold/Hold_Normal.png" id="2_q3t11"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_vaxov"]
+diffuse_texture = ExtResource("1_43tsb")
+normal_texture = ExtResource("2_q3t11")
+texture_filter = 1
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xcslr"]
-radius = 18.0
+radius = 9.05539
 
 [node name="Hold" type="Area2D" groups=["hold"]]
 
 [node name="Default2" type="Sprite2D" parent="."]
-modulate = Color(1, 0, 1, 1)
-scale = Vector2(0.05625, 0.0399529)
-texture = ExtResource("1_ceq6n")
+position = Vector2(0, -12)
+scale = Vector2(3.15, 3.15)
+texture = SubResource("CanvasTexture_vaxov")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -11)
 shape = SubResource("CircleShape2D_xcslr")

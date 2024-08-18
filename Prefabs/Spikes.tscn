@@ -1,19 +1,20 @@
 [gd_scene load_steps=3 format=3 uid="uid://dhrgrpwwax6i8"]
 
-[ext_resource type="Texture2D" uid="uid://bf4k2m7wu1y64" path="res://Art/Sprites/Default.jpg" id="1_v1mih"]
+[ext_resource type="Texture2D" uid="uid://dl5vghi4ai07t" path="res://Art/Sprites/spikes.png" id="1_qt3w2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1b7ag"]
-radius = 15.0
-height = 59.9999
+radius = 6.0
+height = 54.0
 
-[node name="Spikes" type="Area2D" groups=["hold", "spike"]]
-position = Vector2(1450, 595)
+[node name="Spikes" type="Area2D" groups=["spike"]]
 
 [node name="Default2" type="Sprite2D" parent="."]
-modulate = Color(0.76543, 0, 0.204799, 1)
-scale = Vector2(0.13125, 0.0117508)
-texture = ExtResource("1_v1mih")
+texture_filter = 1
+position = Vector2(0, -18)
+scale = Vector2(3.15, 3.15)
+texture = ExtResource("1_qt3w2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -12)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_1b7ag")

@@ -1,18 +1,27 @@
-[gd_scene load_steps=8 format=3 uid="uid://bqwoae4vy8cio"]
+[gd_scene load_steps=11 format=3 uid="uid://bqwoae4vy8cio"]
 
 [ext_resource type="Texture2D" uid="uid://bf4k2m7wu1y64" path="res://Art/Sprites/Default.jpg" id="1_5q3qq"]
 [ext_resource type="PackedScene" uid="uid://dngf3odx0yf5k" path="res://Prefabs/player.tscn" id="1_23dxn"]
+[ext_resource type="Texture2D" uid="uid://chmo5ok0uela7" path="res://Art/Sprites/background.png" id="1_l72yn"]
 [ext_resource type="PackedScene" uid="uid://r1kjk04fwuou" path="res://Prefabs/Hold.tscn" id="3_mld6p"]
 [ext_resource type="PackedScene" uid="uid://d2k004b3i14wd" path="res://Prefabs/test_cube.tscn" id="3_p6epa"]
 [ext_resource type="PackedScene" uid="uid://dhrgrpwwax6i8" path="res://Prefabs/Spikes.tscn" id="5_hdhvn"]
 [ext_resource type="PackedScene" uid="uid://bkatak76uuoli" path="res://Prefabs/Campfire.tscn" id="6_d0jtj"]
+[ext_resource type="PackedScene" uid="uid://b1lrc4bb14deo" path="res://Prefabs/Blocks/L-Piece.tscn" id="7_frb8m"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_2ysom"]
+light_mode = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u745l"]
 size = Vector2(1900, 100)
 
 [node name="OliverTest" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_23dxn")]
+[node name="Background" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_2ysom")
+position = Vector2(982, 546)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("1_l72yn")
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(1000, 1100)
@@ -74,15 +83,15 @@ position = Vector2(1550, 850)
 position = Vector2(1250, 950)
 
 [node name="Hold" parent="." instance=ExtResource("3_mld6p")]
-position = Vector2(982, 850)
+position = Vector2(1005, 850)
 rotation = 4.71239
 
 [node name="Hold4" parent="." instance=ExtResource("3_mld6p")]
-position = Vector2(1114, 850)
+position = Vector2(1096, 850)
 rotation = 1.5708
 
 [node name="Hold5" parent="." instance=ExtResource("3_mld6p")]
-position = Vector2(1049, 915)
+position = Vector2(1050, 895)
 rotation = 3.14159
 
 [node name="Hold2" parent="." instance=ExtResource("3_mld6p")]
@@ -97,8 +106,10 @@ rotation = 3.14159
 position = Vector2(550, 582)
 
 [node name="Spikes" parent="." instance=ExtResource("5_hdhvn")]
+position = Vector2(1448, 605)
 
 [node name="Campfire" parent="." instance=ExtResource("6_d0jtj")]
+position = Vector2(1051, 488)
 
 [node name="Spikes2" parent="." instance=ExtResource("5_hdhvn")]
 position = Vector2(1495, 848)
@@ -113,5 +124,14 @@ position = Vector2(1620, 951)
 rotation = 1.5708
 
 [node name="Hold3" parent="." instance=ExtResource("3_mld6p")]
-position = Vector2(981, 549)
+position = Vector2(1207, 545)
 rotation = -1.5708
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+position = Vector2(4, 3)
+
+[node name="PlaceableCharacterBody2d" parent="." instance=ExtResource("7_frb8m")]
+position = Vector2(1202, 453)
+
+[node name="Player" parent="." instance=ExtResource("1_23dxn")]
+position = Vector2(643, 652)
