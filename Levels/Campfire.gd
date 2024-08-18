@@ -30,14 +30,13 @@ func _ready() -> void:
 			if abs(global_rotation_degrees) > 20:
 				fall()
 		)
-	
-	
+
 func fall() -> void:
 	var gibs: Node2D = %Gibs as Node2D
 	if gibs == null: return
 	await get_tree().process_frame
 	gibs.process_mode = Node.PROCESS_MODE_INHERIT
-	gibs.reparent(get_parent())
+	gibs.reparent(get_tree().current_scene)
 	
 	await get_tree().process_frame
 	gibs.visible = true
@@ -49,3 +48,12 @@ func extinguish() -> void:
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("water"):
 		extinguish()
+
+func _on_body_entered(body: Node2D) -> void:
+	var parent: Node = get_parent()
+	if parent is Placeable:
+		if parent.state != parent.PlaceState.PLACED:
+			return
+	if body is Placeable:
+		if body != get_parent():
+			fall()

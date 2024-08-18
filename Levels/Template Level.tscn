@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://6dd2cbybvcqg"]
+[gd_scene load_steps=22 format=3 uid="uid://6dd2cbybvcqg"]
 
 [ext_resource type="Texture2D" uid="uid://bqfeqtdw7xcxo" path="res://Art/Sprites/Backgrounds/background.png" id="1_dtx2u"]
 [ext_resource type="PackedScene" uid="uid://dngf3odx0yf5k" path="res://Prefabs/player.tscn" id="2_hossx"]
@@ -24,9 +24,6 @@ size = Vector2(330.24, 265.92)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hvw07"]
 size = Vector2(195.52, 3752.8)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3wdni"]
-size = Vector2(888.5, 854.888)
 
 [sub_resource type="Resource" id="Resource_6716m"]
 script = ExtResource("6_xpr8c")
@@ -133,16 +130,8 @@ step = 300.0
 top_trigger = 300.0
 bottom_trigger = 200.0
 
-[node name="NewBlockQueue" type="StaticBody2D" parent="Camera2D"]
-position = Vector2(-570, -192)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/NewBlockQueue"]
-position = Vector2(-111, 140)
-scale = Vector2(0.628025, 1.14167)
-shape = SubResource("RectangleShape2D_3wdni")
-
-[node name="BlockSpawner" parent="Camera2D/NewBlockQueue" instance=ExtResource("5_74oay")]
-position = Vector2(-68, 17)
+[node name="BlockSpawner" parent="Camera2D" instance=ExtResource("5_74oay")]
+position = Vector2(-638, -175)
 spawn_objects = Array[ExtResource("6_xpr8c")]([SubResource("Resource_6716m"), SubResource("Resource_b3o7y"), SubResource("Resource_mwrdh")])
 spawn_object_probability = 0.5
 
