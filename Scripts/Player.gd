@@ -150,7 +150,7 @@ func die() -> void:
 		if highest_campfire == null:
 			highest_campfire = campfire
 			continue
-		if global_position.distance_to(campfire.global_position) > global_position.distance_to(highest_campfire.global_position):
+		if campfire.global_position.y < highest_campfire.global_position.y:
 			highest_campfire = campfire
 	
 	if highest_campfire:
