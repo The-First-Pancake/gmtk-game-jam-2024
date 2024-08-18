@@ -21,13 +21,14 @@ func _process(delta: float) -> void:
 	var slide_tween: Tween = get_tree().create_tween()
 	slide_tween.set_trans(Tween.TRANS_QUAD)
 	
-	if target.global_position.y < screen_top + top_trigger:
-		slide_tween.tween_property(self, "global_position", global_position - Vector2(0,step),.3)
-		is_sliding = true
-		await slide_tween.finished
-		is_sliding = false
-	if target.global_position.y > screen_bottom - bottom_trigger:
-		slide_tween.tween_property(self, "global_position", global_position + Vector2(0,step),.3)
-		is_sliding = true
-		await slide_tween.finished
-		is_sliding = false
+	if (is_instance_valid(target)):
+		if target.global_position.y < screen_top + top_trigger:
+			slide_tween.tween_property(self, "global_position", global_position - Vector2(0,step),.3)
+			is_sliding = true
+			await slide_tween.finished
+			is_sliding = false
+		if target.global_position.y > screen_bottom - bottom_trigger:
+			slide_tween.tween_property(self, "global_position", global_position + Vector2(0,step),.3)
+			is_sliding = true
+			await slide_tween.finished
+			is_sliding = false
