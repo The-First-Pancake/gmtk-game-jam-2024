@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://6dd2cbybvcqg"]
+[gd_scene load_steps=34 format=3 uid="uid://6dd2cbybvcqg"]
 
 [ext_resource type="Texture2D" uid="uid://bqfeqtdw7xcxo" path="res://Art/Sprites/Backgrounds/background.png" id="1_dtx2u"]
 [ext_resource type="PackedScene" uid="uid://dngf3odx0yf5k" path="res://Prefabs/player.tscn" id="2_hossx"]
@@ -16,8 +16,9 @@
 [ext_resource type="FontFile" uid="uid://ck4uibtfurjl4" path="res://Fonts/FFFFORWA.TTF" id="10_xbpyp"]
 [ext_resource type="Texture2D" uid="uid://5p0gmre6j1rp" path="res://Art/Sprites/water/water_texture.tres" id="11_y6mt6"]
 [ext_resource type="Texture2D" uid="uid://bs6m1kttcvgdo" path="res://Art/Sprites/water/Water_Depth.png" id="12_2m3xp"]
-[ext_resource type="PackedScene" uid="uid://b3c0skin4w372" path="res://Prefabs/idol.tscn" id="13_jfp1q"]
+[ext_resource type="PackedScene" path="res://Prefabs/idol.tscn" id="13_jfp1q"]
 [ext_resource type="Texture2D" uid="uid://cra8a72oqq7vi" path="res://Art/Sprites/Idol.png" id="13_pmlcy"]
+[ext_resource type="PackedScene" uid="uid://def2hxxjwwhvl" path="res://Prefabs/Door.tscn" id="19_owl44"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_sacac"]
 light_mode = 1
@@ -82,13 +83,20 @@ scale = Vector2(3.25556, 3.25556)
 texture = ExtResource("1_dtx2u")
 stretch_mode = 1
 
+[node name="Entrance Door" parent="." instance=ExtResource("19_owl44")]
+position = Vector2(1088, 916)
+is_exit = false
+
+[node name="Exit Door" parent="." instance=ExtResource("19_owl44")]
+position = Vector2(1672, 908)
+
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 position = Vector2(950, 150)
 rotation = -6.28319
 energy = 1.55
 
 [node name="Player" parent="." instance=ExtResource("2_hossx")]
-position = Vector2(1050, 950)
+position = Vector2(1019, 965)
 
 [node name="Floor" type="TextureRect" parent="."]
 texture_filter = 1

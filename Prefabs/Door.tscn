@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=3 uid="uid://def2hxxjwwhvl"]
+
+[ext_resource type="Script" path="res://Levels/Door.gd" id="1_4n4fl"]
+[ext_resource type="Texture2D" uid="uid://cfya30mohgthw" path="res://Art/Sprites/door/Door_Background.png" id="2_ed0te"]
+[ext_resource type="Texture2D" uid="uid://cvjveityc31tt" path="res://Art/Sprites/door/Door_Foreground.png" id="3_slp37"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_midbx"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_cjcuh"]
+light_mode = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e0y4u"]
+size = Vector2(3, 102)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_el28c"]
+size = Vector2(5, 218)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qkgs3"]
+size = Vector2(91, 151)
+
+[node name="Door" type="Area2D"]
+script = ExtResource("1_4n4fl")
+is_exit = true
+
+[node name="Door Background" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_midbx")
+position = Vector2(-4, 17)
+scale = Vector2(3.125, 3.125)
+texture = ExtResource("2_ed0te")
+
+[node name="Door Frame" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_cjcuh")
+position = Vector2(0, -6)
+scale = Vector2(3.125, 3.125)
+texture = ExtResource("3_slp37")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 66)
+shape = SubResource("RectangleShape2D_e0y4u")
+
+[node name="Interior Wall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interior Wall"]
+position = Vector2(-94.5, 7)
+shape = SubResource("RectangleShape2D_el28c")
+
+[node name="Interior Wall2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interior Wall2"]
+position = Vector2(90, 7)
+shape = SubResource("RectangleShape2D_el28c")
+
+[node name="Exit Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit Hitbox"]
+position = Vector2(-0.5, 41.5)
+shape = SubResource("RectangleShape2D_qkgs3")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="Exit Hitbox" to="." method="_on_exit_hitbox_body_exited"]
