@@ -60,6 +60,7 @@ func refresh_spawn_object_counts() -> void:
 
 func _spawned_block_picked_up() -> void:
 	spawn_timer.start()
+	spawned_block.reparent(get_tree().root)
 	spawned_block.disconnect("picked_up", _spawned_block_picked_up)
 
 func _spawn_timer_finished() -> void:

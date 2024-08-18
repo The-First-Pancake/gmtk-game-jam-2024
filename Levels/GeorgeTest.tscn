@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://fee5nvfuba0j"]
+[gd_scene load_steps=14 format=3 uid="uid://fee5nvfuba0j"]
 
 [ext_resource type="PackedScene" uid="uid://ctlx3qylqphyo" path="res://Prefabs/BlockSpawner.tscn" id="3_faxmf"]
 [ext_resource type="PackedScene" uid="uid://dngf3odx0yf5k" path="res://Prefabs/player.tscn" id="3_qudki"]
@@ -7,12 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://r1kjk04fwuou" path="res://Prefabs/Hold.tscn" id="5_8fyq4"]
 [ext_resource type="PackedScene" uid="uid://bkatak76uuoli" path="res://Prefabs/Campfire.tscn" id="6_rgih4"]
 [ext_resource type="PackedScene" uid="uid://dhrgrpwwax6i8" path="res://Prefabs/Spikes.tscn" id="7_5cl6t"]
+[ext_resource type="Script" path="res://Scripts/CameraController.gd" id="8_fc5ov"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_atmmq"]
 size = Vector2(617, 834)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1lx0t"]
-size = Vector2(704.047, 438)
+size = Vector2(704.047, 825.13)
 
 [sub_resource type="Resource" id="Resource_6716m"]
 script = ExtResource("4_mwb6v")
@@ -27,12 +28,12 @@ spawn_count = 2
 [sub_resource type="Resource" id="Resource_mwrdh"]
 script = ExtResource("4_mwb6v")
 spawn_prefab = ExtResource("7_5cl6t")
-spawn_count = 100
+spawn_count = 10
 
 [node name="GeorgeTest" type="Node2D"]
 
 [node name="Floor" type="StaticBody2D" parent="."]
-position = Vector2(1200, 1050)
+position = Vector2(1500, 1100)
 scale = Vector2(1.96232, 0.0292254)
 
 [node name="Default" type="Sprite2D" parent="Floor"]
@@ -42,22 +43,31 @@ texture = ExtResource("4_r2vew")
 position = Vector2(-0.5, -2)
 shape = SubResource("RectangleShape2D_atmmq")
 
-[node name="NewBlockQueue" type="StaticBody2D" parent="."]
-position = Vector2(318, 483)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NewBlockQueue"]
-position = Vector2(-58.4564, 0)
-scale = Vector2(0.628025, 1.14167)
-shape = SubResource("RectangleShape2D_1lx0t")
-
-[node name="BlockSpawner" parent="NewBlockQueue" instance=ExtResource("3_faxmf")]
-spawn_objects = Array[ExtResource("4_mwb6v")]([SubResource("Resource_6716m"), SubResource("Resource_b3o7y"), SubResource("Resource_mwrdh")])
-spawn_object_probability = 0.9
-
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 position = Vector2(950, 150)
 rotation = -6.28319
 energy = 1.55
 
 [node name="Player" parent="." instance=ExtResource("3_qudki")]
-position = Vector2(1050, 950)
+position = Vector2(1400, 1000)
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
+position = Vector2(1250, 700)
+script = ExtResource("8_fc5ov")
+target = NodePath("../Player")
+step = 300.0
+top_trigger = 200.0
+bottom_trigger = 200.0
+
+[node name="NewBlockQueue" type="StaticBody2D" parent="Camera2D"]
+position = Vector2(-570, -192)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/NewBlockQueue"]
+position = Vector2(-58.4564, 220.987)
+scale = Vector2(0.628025, 1.14167)
+shape = SubResource("RectangleShape2D_1lx0t")
+
+[node name="BlockSpawner" parent="Camera2D/NewBlockQueue" instance=ExtResource("3_faxmf")]
+position = Vector2(-68, 17)
+spawn_objects = Array[ExtResource("4_mwb6v")]([SubResource("Resource_6716m"), SubResource("Resource_b3o7y"), SubResource("Resource_mwrdh")])
+spawn_object_probability = 0.5
