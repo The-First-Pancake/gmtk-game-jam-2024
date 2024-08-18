@@ -1,0 +1,72 @@
+[gd_scene load_steps=14 format=3 uid="uid://c6nn0uh1ntg88"]
+
+[ext_resource type="Texture2D" uid="uid://bf4k2m7wu1y64" path="res://Art/Sprites/Default.jpg" id="1_83fvu"]
+[ext_resource type="PackedScene" uid="uid://ctlx3qylqphyo" path="res://Prefabs/BlockSpawner.tscn" id="2_bpi8i"]
+[ext_resource type="Script" path="res://Scripts/SpawnObject.gd" id="3_et5ok"]
+[ext_resource type="PackedScene" uid="uid://r1kjk04fwuou" path="res://Prefabs/Hold.tscn" id="4_0nrww"]
+[ext_resource type="PackedScene" uid="uid://bkatak76uuoli" path="res://Prefabs/Campfire.tscn" id="5_i3bgg"]
+[ext_resource type="PackedScene" uid="uid://dhrgrpwwax6i8" path="res://Prefabs/Spikes.tscn" id="6_tmb5j"]
+[ext_resource type="PackedScene" uid="uid://dngf3odx0yf5k" path="res://Prefabs/player.tscn" id="7_n6cbw"]
+[ext_resource type="Script" path="res://Scripts/CameraController.gd" id="8_vq7iu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_atmmq"]
+size = Vector2(617, 834)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1lx0t"]
+size = Vector2(704.047, 438)
+
+[sub_resource type="Resource" id="Resource_6716m"]
+script = ExtResource("3_et5ok")
+spawn_prefab = ExtResource("4_0nrww")
+spawn_count = 25
+
+[sub_resource type="Resource" id="Resource_b3o7y"]
+script = ExtResource("3_et5ok")
+spawn_prefab = ExtResource("5_i3bgg")
+spawn_count = 2
+
+[sub_resource type="Resource" id="Resource_mwrdh"]
+script = ExtResource("3_et5ok")
+spawn_prefab = ExtResource("6_tmb5j")
+spawn_count = 10
+
+[node name="Oliver Test 2" type="Node2D"]
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(1200, 1050)
+scale = Vector2(1.96232, 0.0292254)
+
+[node name="Default" type="Sprite2D" parent="Floor"]
+texture = ExtResource("1_83fvu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(-0.5, -2)
+shape = SubResource("RectangleShape2D_atmmq")
+
+[node name="NewBlockQueue" type="StaticBody2D" parent="."]
+position = Vector2(318, 483)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NewBlockQueue"]
+position = Vector2(-58.4564, 0)
+scale = Vector2(0.628025, 1.14167)
+shape = SubResource("RectangleShape2D_1lx0t")
+
+[node name="BlockSpawner" parent="NewBlockQueue" instance=ExtResource("2_bpi8i")]
+spawn_objects = Array[ExtResource("3_et5ok")]([SubResource("Resource_6716m"), SubResource("Resource_b3o7y"), SubResource("Resource_mwrdh")])
+spawn_object_probability = 1.0
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+position = Vector2(950, 150)
+rotation = -6.28319
+energy = 1.55
+
+[node name="Player" parent="." instance=ExtResource("7_n6cbw")]
+position = Vector2(1050, 950)
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
+position = Vector2(1170, 692)
+script = ExtResource("8_vq7iu")
+target = NodePath("../Player")
+step = 300.0
+top_trigger = 200.0
+bottom_trigger = 200.0
