@@ -15,6 +15,7 @@ var current_hold: Node2D = null
 var coyote_time: float = 0.1
 
 var terminal_velocity: float = 1500
+var idols_collected: int = 0
 
 var was_on_floor: bool = true
 
@@ -24,6 +25,9 @@ var campfires: Array[Campfire] = []
 @onready var top_hand_point: Marker2D = %"Top Hand Point" as Marker2D
 
 @onready var gravity_reduce_timer: Timer = %"Gravity Reduce Timer" as Timer
+
+func _ready() -> void:
+	GameManager.player = self
 
 func _process(delta: float) -> void:
 	if current_hold == null:
@@ -146,6 +150,7 @@ func try_squash() -> void:
 func die() -> void:
 	var highest_campfire: Campfire = null
 	for campfire: Campfire in campfires:
+		if campfire == null: continue
 		if campfire.is_lit == false: continue
 		if highest_campfire == null:
 			highest_campfire = campfire
@@ -182,6 +187,10 @@ func on_hitbix_hit(area: Area2D) -> void:
 		die()
 	if area.is_in_group("water"):
 		die()
+	if area.is_in_group("idol"):
+		area.queue_free()
+		idols_collected += 1
+		return
 	if area is Campfire:
 		if campfires.has(area): return #skip if we already have it
 		area.is_lit = true

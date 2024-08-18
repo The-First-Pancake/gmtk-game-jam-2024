@@ -1,11 +1,76 @@
-[gd_scene load_steps=3 format=3 uid="uid://cp76cuowe440"]
+[gd_scene load_steps=9 format=3 uid="uid://cp76cuowe440"]
 
 [ext_resource type="PackedScene" uid="uid://b1lrc4bb14deo" path="res://Prefabs/Blocks/L-Piece.tscn" id="1_1vwcw"]
-[ext_resource type="PackedScene" uid="uid://b1l3smfthr7o1" path="res://Prefabs/test_point.tscn" id="2_r5kbe"]
+[ext_resource type="Texture2D" uid="uid://41px2nbwnx3k" path="res://Art/Sprites/dust.png" id="1_ksdm6"]
+
+[sub_resource type="Gradient" id="Gradient_48vbe"]
+offsets = PackedFloat32Array(0, 0.352459, 1)
+colors = PackedColorArray(0.792989, 0.79033, 0.519528, 1, 0.969826, 0.818933, 0.579875, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_32qnw"]
+gradient = SubResource("Gradient_48vbe")
+
+[sub_resource type="Curve" id="Curve_8gp2b"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.0466667, 0.395604), 0.0, 0.0, 0, 0, Vector2(0.48, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_jcy54"]
+curve = SubResource("Curve_8gp2b")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5kbra"]
+particle_flag_disable_z = true
+angle_min = -131.6
+angle_max = 116.1
+direction = Vector3(5.365, -3.41, 0)
+spread = 48.539
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+angular_velocity_min = -30.97
+angular_velocity_max = 70.44
+gravity = Vector3(0, 0, 0)
+scale_min = 3.85
+scale_max = 5.21
+scale_curve = SubResource("CurveTexture_jcy54")
+color_ramp = SubResource("GradientTexture1D_32qnw")
+collision_mode = 1
+collision_friction = 0.25
+collision_bounce = 0.25
+collision_use_scale = true
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vajvk"]
+particle_flag_disable_z = true
+direction = Vector3(0, -100, 0)
+spread = 90.0
+initial_velocity_min = -14.7
+initial_velocity_max = 44.12
+gravity = Vector3(0, 0, 0)
 
 [node name="DeclanTest" type="Node2D"]
+position = Vector2(111, 124)
+
+[node name="CPUParticles2D" type="GPUParticles2D" parent="."]
+texture_filter = 1
+position = Vector2(832, 436)
+amount = 30
+process_material = SubResource("ParticleProcessMaterial_5kbra")
+texture = ExtResource("1_ksdm6")
+lifetime = 2.0
+randomness = 1.0
+collision_base_size = 72.53
+draw_order = 0
+
+[node name="CPUParticles2D2" type="GPUParticles2D" parent="."]
+position = Vector2(378, 342)
+emitting = false
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_vajvk")
+texture = ExtResource("1_ksdm6")
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+fixed_fps = 0
+collision_base_size = 0.0
+draw_order = 0
 
 [node name="PlaceableCharacterBody2d" parent="." instance=ExtResource("1_1vwcw")]
-position = Vector2(942, 485)
-
-[node name="test_point" parent="." instance=ExtResource("2_r5kbe")]
+position = Vector2(681, 481)

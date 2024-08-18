@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bspfor2ohamxb"]
+[gd_scene load_steps=5 format=3 uid="uid://c4safo4pwme48"]
 
 [ext_resource type="PackedScene" uid="uid://cxgaavewg0jbi" path="res://Prefabs/PlaceableCharacterBody2D.tscn" id="1_mkfor"]
 [ext_resource type="Texture2D" uid="uid://cjhbrhpjs4u1x" path="res://Art/Sprites/Tetronimoes/1x4_Piece.png" id="2_4mba4"]
