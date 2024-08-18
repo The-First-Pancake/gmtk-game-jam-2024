@@ -26,6 +26,9 @@ var campfires: Array[Campfire] = []
 
 @onready var gravity_reduce_timer: Timer = %"Gravity Reduce Timer" as Timer
 
+func _ready() -> void:
+	GameManager.player = self
+
 func _process(delta: float) -> void:
 	if current_hold == null:
 		# Add the gravity.
@@ -147,6 +150,7 @@ func try_squash() -> void:
 func die() -> void:
 	var highest_campfire: Campfire = null
 	for campfire: Campfire in campfires:
+		if campfire == null: continue
 		if campfire.is_lit == false: continue
 		if highest_campfire == null:
 			highest_campfire = campfire
