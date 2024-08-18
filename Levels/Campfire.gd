@@ -24,8 +24,21 @@ var is_lit: bool:
 func _ready() -> void:
 	is_lit = false
 	flag_sprite.play("wave")
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+	var parent: Node = get_parent()
+	if parent is Placeable:
+		parent.placed.connect(func() -> void:
+			if abs(global_rotation_degrees) > 20:
+				fall()
+		)
+	
+	
+func fall() -> void:
+	var gibs: Node2D = %Gibs as Node2D
+	if gibs == null: return
+	await get_tree().process_frame
+	gibs.process_mode = Node.PROCESS_MODE_INHERIT
+	gibs.reparent(get_parent())
+	
+	await get_tree().process_frame
+	gibs.visible = true
+	queue_free()

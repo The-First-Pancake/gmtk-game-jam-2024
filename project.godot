@@ -95,6 +95,10 @@ rotate_block={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_8="gibs"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

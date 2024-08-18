@@ -7,6 +7,8 @@ var state : int = PlaceState.QUEUED
 var hold_point_generator : HoldPointGenerator
 
 signal picked_up
+signal placed
+
 const DEFAULT_COLLISION_LAYER : int = 1
 const UNPLACED_COLLISION_LAYER : int = 2
 
@@ -58,6 +60,7 @@ func enter_falling() -> void:
 
 func enter_placed() -> void:
 	state = PlaceState.PLACED
+	placed.emit()
 	
 func check_for_collisions() -> bool:
 	var collision : KinematicCollision2D = move_and_collide(Vector2.ZERO, true, 0);

@@ -17,12 +17,7 @@ size = Vector2(1900, 100)
 
 [node name="OliverTest" type="Node2D"]
 
-[node name="Node2D" type="Node2D" parent="."]
-position = Vector2(972, 555)
-scale = Vector2(3.25556, 3.25556)
-
 [node name="Background" type="Sprite2D" parent="."]
-texture_filter = 1
 material = SubResource("CanvasItemMaterial_2ysom")
 position = Vector2(972, 555)
 scale = Vector2(3.25556, 3.25556)
@@ -114,8 +109,7 @@ position = Vector2(550, 582)
 position = Vector2(1448, 605)
 
 [node name="Campfire" parent="." instance=ExtResource("6_d0jtj")]
-position = Vector2(999, 551)
-rotation = -1.5708
+position = Vector2(1051, 488)
 
 [node name="Spikes2" parent="." instance=ExtResource("5_hdhvn")]
 position = Vector2(1495, 848)
@@ -138,10 +132,6 @@ position = Vector2(4, 3)
 
 [node name="PlaceableCharacterBody2d" parent="." instance=ExtResource("7_frb8m")]
 position = Vector2(1202, 453)
-
-[node name="Campfire2" parent="PlaceableCharacterBody2d" instance=ExtResource("6_d0jtj")]
-position = Vector2(-100, -104)
-rotation = -1.5708
 
 [node name="Player" parent="." instance=ExtResource("1_23dxn")]
 position = Vector2(643, 652)
