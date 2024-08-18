@@ -140,7 +140,7 @@ position = Vector2(4, 3)
 position = Vector2(1202, 453)
 
 [node name="Campfire2" parent="PlaceableCharacterBody2d" instance=ExtResource("6_d0jtj")]
-position = Vector2(-100, -104)
+position = Vector2(-101, -104)
 rotation = -1.5708
 
 [node name="Player" parent="." instance=ExtResource("1_23dxn")]
