@@ -3,6 +3,7 @@ extends Marker2D
 
 var spawn_timer : Timer
 
+@export var spawn_container : Node2D
 @export var block_prefabs : Array[PackedScene]
 @export var spawn_objects: Array[SpawnObject]
 @export var spawn_object_probability : float = 0.0
@@ -60,7 +61,7 @@ func refresh_spawn_object_counts() -> void:
 
 func _spawned_block_picked_up() -> void:
 	spawn_timer.start()
-	spawned_block.reparent(get_tree().current_scene)
+	spawned_block.reparent(spawn_container)
 	spawned_block.disconnect("picked_up", _spawned_block_picked_up)
 
 func _spawn_timer_finished() -> void:
