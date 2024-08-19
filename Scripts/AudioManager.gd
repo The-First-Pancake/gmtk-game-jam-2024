@@ -9,5 +9,9 @@ func _process(delta: float) -> void:
 	pass
 
 func PlayAudio(audio: AudioStreamPlayer) -> void:
-	var audio_dupe: AudioStreamPlayer = audio
+	var audio_dupe: AudioStreamPlayer = audio.duplicate()
+	add_child(audio_dupe)
 	audio_dupe.play()
+	audio_dupe.finished.connect(func() -> void:
+		audio_dupe.queue_free()
+	)

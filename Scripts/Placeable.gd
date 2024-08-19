@@ -14,6 +14,7 @@ const DEFAULT_COLLISION_LAYER : int = 1
 const UNPLACED_COLLISION_LAYER : int = 2
 
 @onready var impact_sound : AudioStreamPlayer = $BlockImpact01 as AudioStreamPlayer
+@onready var shatter_sound : AudioStreamPlayer = $Explosion3003 as AudioStreamPlayer
 
 func _ready() -> void:
 	hold_point_generator = $HoldPointGenerator
@@ -95,6 +96,7 @@ func check_for_collisions() -> bool:
 func destroy(collision_point_global : Vector2) -> void:
 	if (state != PlaceState.DESTROYED):
 		state = PlaceState.DESTROYED
+		AudioManager.PlayAudio(shatter_sound)
 		for child in get_children():
 			if child is Sprite2D:
 				continue
