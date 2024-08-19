@@ -25,7 +25,7 @@
 light_mode = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gljxb"]
-size = Vector2(334.4, 265.6)
+size = Vector2(459.2, 265.6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_375yt"]
 size = Vector2(344.96, 3752.8)
@@ -117,7 +117,7 @@ stretch_mode = 1
 [node name="StaticBody2D" type="StaticBody2D" parent="Cieling" groups=["terrain"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cieling/StaticBody2D"]
-position = Vector2(479.84, 132.32)
+position = Vector2(542.24, 132.32)
 shape = SubResource("RectangleShape2D_gljxb")
 debug_color = Color(0, 0.595, 0.7, 0)
 
@@ -204,10 +204,19 @@ label_settings = SubResource("LabelSettings_448k6")
 [node name="HeightUI" type="Label" parent="Camera2D/UI"]
 offset_left = -765.0
 offset_top = 18.0
-offset_right = -563.0
+offset_right = -675.0
 offset_bottom = 209.0
-text = "100m
-666m"
+text = "00
+66"
+label_settings = SubResource("LabelSettings_448k6")
+
+[node name="HeightUI2" type="Label" parent="Camera2D/UI"]
+offset_left = -667.0
+offset_top = 18.0
+offset_right = -577.0
+offset_bottom = 209.0
+text = "m
+m"
 label_settings = SubResource("LabelSettings_448k6")
 
 [node name="Idol" type="Sprite2D" parent="Camera2D/UI"]
@@ -272,6 +281,17 @@ z_index = -4096
 scroll_scale = Vector2(1, 0.5)
 
 [node name="Background" type="TextureRect" parent="Parallax2D"]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_sacac")
+offset_left = 410.0
+offset_top = -16345.0
+offset_right = 1050.0
+offset_bottom = -12660.0
+scale = Vector2(3, 5)
+texture = ExtResource("1_dtx2u")
+stretch_mode = 1
+
+[node name="Background2" type="TextureRect" parent="Parallax2D"]
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_sacac")
 offset_left = 410.0
