@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3dgw1fpl6k3x"]
+
+[ext_resource type="PackedScene" uid="uid://6dd2cbybvcqg" path="res://Levels/Template Level.tscn" id="1_8tfe6"]
+[ext_resource type="PackedScene" uid="uid://betjiy4umvrpf" path="res://Prefabs/Arrow.tscn" id="2_cwnox"]
+
+[node name="Template Level" instance=ExtResource("1_8tfe6")]
+
+[node name="Arrow" parent="." index="12" instance=ExtResource("2_cwnox")]
+position = Vector2(1425, 659)
