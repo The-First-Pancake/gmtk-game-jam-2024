@@ -50,9 +50,9 @@ func _process(delta: float) -> void:
 	targeting_arrow.visible = false
 	is_downsliding = is_on_wall() and velocity.y > 0
 	
-	if current_hold == null:
+	if !is_instance_valid(current_hold):
 		movement(delta)
-	if current_hold:
+	if is_instance_valid(current_hold):
 		holding_behavior()
 	
 	update_animations()
@@ -175,7 +175,7 @@ func update_animations() -> void:
 	
 	slide_particles.emitting = false
 	
-	if current_hold:
+	if is_instance_valid(current_hold):
 		footstep_animator.stop()
 		slide_sound.stop()
 		slide_sound_playing = false

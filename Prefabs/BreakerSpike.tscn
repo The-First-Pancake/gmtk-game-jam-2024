@@ -9,7 +9,7 @@ diffuse_texture = ExtResource("1_ux1es")
 normal_texture = ExtResource("2_bpo5l")
 texture_filter = 1
 
-[node name="BreakerSpike" type="Area2D" groups=["spike"]]
+[node name="BreakerSpike" type="Area2D"]
 rotation = 3.14159
 script = ExtResource("1_b3v11")
 
@@ -21,6 +21,7 @@ texture = SubResource("CanvasTexture_v5sg8")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(0.400001, 34.1)
 polygon = PackedVector2Array(-26, -20, 0, 31, 26, -20, 26, -32, -26, -32)
+disabled = true
 
 [node name="ShatterPoint" type="Marker2D" parent="."]
 position = Vector2(0.400001, 64.1)

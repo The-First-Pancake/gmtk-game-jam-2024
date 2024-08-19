@@ -30,11 +30,7 @@ spawn_count = 4
 
 [node name="Template Level" instance=ExtResource("1_8tfe6")]
 
-[node name="Background" parent="." index="0"]
-offset_top = -10482.0
-offset_bottom = -6797.0
-
-[node name="Exit Door" parent="." index="2"]
+[node name="Exit Door" parent="." index="1"]
 position = Vector2(1943, 69)
 
 [node name="BlockSpawner" parent="Camera2D" index="1"]
@@ -46,5 +42,5 @@ position = Vector2(728, 672)
 rotation = 0.0
 
 [node name="BreakerSpike" parent="." index="14" instance=ExtResource("7_y05uc")]
-position = Vector2(1642, 1035)
+position = Vector2(1643, 1034)
 rotation = 3.13774
