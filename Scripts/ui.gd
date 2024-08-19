@@ -6,9 +6,11 @@ extends Node2D
 var base_height : float = 0.0
 
 func _ready() -> void:
+	await get_tree().process_frame
 	base_height = GameManager.player.global_position.y / 50
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	idol_label.text = str(GameManager.player.idols_collected) + "/3"
-	height_label.text = str(int(base_height - GameManager.player.global_position.y / 50)) + "m\n600m"
+	if (is_instance_valid(GameManager.player)):
+		idol_label.text = str(GameManager.player.idols_collected) + "/3"
+		height_label.text = str(int(base_height - GameManager.player.global_position.y / 50)) + "m\n600m"

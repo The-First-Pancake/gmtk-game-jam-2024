@@ -16,5 +16,6 @@ texture = ExtResource("2_riihf")
 polygon = PackedVector2Array(15, 0, -45, 0, -45, -30, 45, -30, 45, 30, 15, 30)
 
 [node name="HoldPointGenerator" parent="." instance=ExtResource("3_5mqgh")]
+z_index = 2
 
 [connection signal="input_event" from="." to="." method="on_collision_input_event"]

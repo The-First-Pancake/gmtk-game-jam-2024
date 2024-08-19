@@ -8,6 +8,7 @@ var hold_point_generator : HoldPointGenerator
 
 signal picked_up
 signal placed
+signal falling
 
 const DEFAULT_COLLISION_LAYER : int = 1
 const UNPLACED_COLLISION_LAYER : int = 2
@@ -70,12 +71,11 @@ func enter_falling() -> void:
 			area_2d_child.set_collision_layer_value(UNPLACED_COLLISION_LAYER, false);
 	modulate.a = 1 # make solid
 	state = PlaceState.FALLING
+	falling.emit()
 
 func enter_placed(collision : KinematicCollision2D) -> void:
 	state = PlaceState.PLACED
-	
 	CameraController.instance.apply_shake()
-	
 	placed.emit()
 	
 func check_for_collisions() -> bool:

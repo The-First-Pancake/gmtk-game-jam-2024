@@ -1,0 +1,39 @@
+[gd_scene load_steps=8 format=3 uid="uid://dbsx7a6dnrba2"]
+
+[ext_resource type="Texture2D" uid="uid://877faua8cohc" path="res://Art/Sprites/arrow spitter/Arrow_Spitter.png" id="1_8oe8a"]
+[ext_resource type="Script" path="res://Scripts/arrow_spitter.gd" id="1_wqj1s"]
+[ext_resource type="Texture2D" uid="uid://ds8g7sxp3ncou" path="res://Art/Sprites/arrow spitter/Arrow_Spitter_Normal.png" id="2_d86ec"]
+[ext_resource type="PackedScene" uid="uid://betjiy4umvrpf" path="res://Prefabs/Arrow.tscn" id="2_i3f76"]
+[ext_resource type="AudioStream" uid="uid://qoar0l5a8mol" path="res://Sound/hawk-tuah_SRaUp2L.mp3" id="5_gb5oo"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_xq1l8"]
+diffuse_texture = ExtResource("1_8oe8a")
+normal_texture = ExtResource("2_d86ec")
+texture_filter = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wsqbg"]
+size = Vector2(10, 85)
+
+[node name="Arrow_Spitter" type="Area2D"]
+rotation = -1.5708
+script = ExtResource("1_wqj1s")
+arrow_prefab = ExtResource("2_i3f76")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(28.125, -1.5625)
+scale = Vector2(3.125, 3.125)
+texture = SubResource("CanvasTexture_xq1l8")
+
+[node name="SpitPoint" type="Marker2D" parent="."]
+position = Vector2(40, 22)
+
+[node name="SpitTimer" type="Timer" parent="."]
+
+[node name="Hawk-tuahSRaUp2l" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_gb5oo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(5, -2.5)
+shape = SubResource("RectangleShape2D_wsqbg")
+
+[connection signal="timeout" from="SpitTimer" to="." method="_on_spit_timer_timeout"]

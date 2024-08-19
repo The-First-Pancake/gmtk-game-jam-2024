@@ -52,19 +52,22 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3eewm"]
 radius = 1.59998
-height = 40.0
+height = 20.0
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ib3p1"]
 light_mode = 1
 
 [node name="Arrow" type="CharacterBody2D"]
 show_behind_parent = true
+collision_layer = 4
 script = ExtResource("1_6kdnr")
 speed = 500.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_vphad")
+position = Vector2(0, 46)
+rotation = 3.14159
 scale = Vector2(3.125, 3.125)
 sprite_frames = SubResource("SpriteFrames_blg8b")
 autoplay = "default"
@@ -72,11 +75,15 @@ frame_progress = 0.883034
 speed_scale = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 15)
+position = Vector2(0, 20)
+rotation = 3.14159
 shape = SubResource("CapsuleShape2D_3eewm")
 
 [node name="ArrowSingle" type="Sprite2D" parent="."]
 visible = false
+texture_filter = 1
 material = SubResource("CanvasItemMaterial_ib3p1")
+position = Vector2(0, 46)
+rotation = 3.14159
 scale = Vector2(3.125, 3.125)
 texture = ExtResource("3_bt6pd")

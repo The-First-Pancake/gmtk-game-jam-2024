@@ -1,13 +1,13 @@
 [gd_scene load_steps=16 format=3 uid="uid://ctlx3qylqphyo"]
 
 [ext_resource type="Script" path="res://Scripts/BlockSpawner.gd" id="1_b4ypx"]
-[ext_resource type="PackedScene" uid="uid://bspfor2ohamxb" path="res://Prefabs/Blocks/1x4-Piece.tscn" id="2_njfkm"]
+[ext_resource type="PackedScene" uid="uid://c4safo4pwme48" path="res://Prefabs/Blocks/1x4-Piece.tscn" id="2_njfkm"]
 [ext_resource type="PackedScene" uid="uid://bdyf8npx3i7xk" path="res://Prefabs/Blocks/2x2-Piece.tscn" id="3_y13gq"]
-[ext_resource type="PackedScene" uid="uid://tr5tvhxjw1ov" path="res://Prefabs/Blocks/L-Piece-Mirrored.tscn" id="4_bg7ku"]
+[ext_resource type="PackedScene" uid="uid://caudmtkjwca1i" path="res://Prefabs/Blocks/L-Piece-Mirrored.tscn" id="4_bg7ku"]
 [ext_resource type="PackedScene" uid="uid://b1lrc4bb14deo" path="res://Prefabs/Blocks/L-Piece.tscn" id="5_bix6h"]
 [ext_resource type="PackedScene" uid="uid://c7c8vai4olkeh" path="res://Prefabs/Blocks/T-Piece.tscn" id="6_6443k"]
-[ext_resource type="PackedScene" uid="uid://cggg3io864evw" path="res://Prefabs/Blocks/Z-Piece-Mirrored.tscn" id="7_f67qo"]
-[ext_resource type="PackedScene" uid="uid://cihssf8yq5orj" path="res://Prefabs/Blocks/Z-Piece.tscn" id="8_c41xu"]
+[ext_resource type="PackedScene" uid="uid://b60t64b6u40dy" path="res://Prefabs/Blocks/Z-Piece-Mirrored.tscn" id="7_f67qo"]
+[ext_resource type="PackedScene" uid="uid://cqrk66u8spi3" path="res://Prefabs/Blocks/Z-Piece.tscn" id="8_c41xu"]
 [ext_resource type="Script" path="res://Scripts/SpawnObject.gd" id="9_gkg5t"]
 [ext_resource type="PackedScene" uid="uid://r1kjk04fwuou" path="res://Prefabs/Hold.tscn" id="10_a5syx"]
 [ext_resource type="PackedScene" uid="uid://dhrgrpwwax6i8" path="res://Prefabs/Spikes.tscn" id="11_uu4ty"]
@@ -32,7 +32,7 @@ spawn_count = 0
 position = Vector2(-59.775, -197.903)
 script = ExtResource("1_b4ypx")
 block_prefabs = Array[PackedScene]([ExtResource("2_njfkm"), ExtResource("3_y13gq"), ExtResource("4_bg7ku"), ExtResource("5_bix6h"), ExtResource("6_6443k"), ExtResource("7_f67qo"), ExtResource("8_c41xu")])
-spawn_objects = Array[Resource]([SubResource("Resource_xvcvp"), SubResource("Resource_rl80j"), SubResource("Resource_hwvb2")])
+spawn_objects = Array[ExtResource("9_gkg5t")]([SubResource("Resource_xvcvp"), SubResource("Resource_rl80j"), SubResource("Resource_hwvb2")])
 
 [node name="SpawnTimer" type="Timer" parent="."]
 one_shot = true
