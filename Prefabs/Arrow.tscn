@@ -1,0 +1,71 @@
+[gd_scene load_steps=11 format=3 uid="uid://betjiy4umvrpf"]
+
+[ext_resource type="Script" path="res://Scripts/Arrows.gd" id="1_6kdnr"]
+[ext_resource type="Texture2D" uid="uid://d3xnvubmydavd" path="res://Art/Sprites/arrow.png" id="2_8r618"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vphad"]
+light_mode = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kxqyk"]
+atlas = ExtResource("2_8r618")
+region = Rect2(0, 0, 5, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tuujn"]
+atlas = ExtResource("2_8r618")
+region = Rect2(5, 0, 5, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_38ypm"]
+atlas = ExtResource("2_8r618")
+region = Rect2(10, 0, 5, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oo1k3"]
+atlas = ExtResource("2_8r618")
+region = Rect2(15, 0, 5, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8y3ck"]
+atlas = ExtResource("2_8r618")
+region = Rect2(20, 0, 5, 29)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_blg8b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kxqyk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tuujn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_38ypm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oo1k3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8y3ck")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3eewm"]
+radius = 1.59998
+height = 16.0
+
+[node name="Arrow" type="CharacterBody2D"]
+position = Vector2(1415, 600)
+scale = Vector2(3.125, 3.125)
+script = ExtResource("1_6kdnr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_vphad")
+sprite_frames = SubResource("SpriteFrames_blg8b")
+autoplay = "default"
+frame_progress = 0.883034
+speed_scale = 3.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6.39999)
+shape = SubResource("CapsuleShape2D_3eewm")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://fee5nvfuba0j"]
+[gd_scene load_steps=15 format=3 uid="uid://fee5nvfuba0j"]
 
 [ext_resource type="PackedScene" uid="uid://ctlx3qylqphyo" path="res://Prefabs/BlockSpawner.tscn" id="3_faxmf"]
 [ext_resource type="PackedScene" uid="uid://dngf3odx0yf5k" path="res://Prefabs/player.tscn" id="3_qudki"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bkatak76uuoli" path="res://Prefabs/Campfire.tscn" id="6_rgih4"]
 [ext_resource type="PackedScene" uid="uid://dhrgrpwwax6i8" path="res://Prefabs/Spikes.tscn" id="7_5cl6t"]
 [ext_resource type="Script" path="res://Scripts/CameraController.gd" id="8_fc5ov"]
+[ext_resource type="PackedScene" uid="uid://betjiy4umvrpf" path="res://Prefabs/Arrow.tscn" id="9_4gso2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_atmmq"]
 size = Vector2(617, 834)
@@ -71,3 +72,5 @@ shape = SubResource("RectangleShape2D_1lx0t")
 position = Vector2(-68, 17)
 spawn_objects = Array[ExtResource("4_mwb6v")]([SubResource("Resource_6716m"), SubResource("Resource_b3o7y"), SubResource("Resource_mwrdh")])
 spawn_object_probability = 0.5
+
+[node name="Arrow" parent="." instance=ExtResource("9_4gso2")]

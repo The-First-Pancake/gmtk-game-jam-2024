@@ -51,6 +51,7 @@ spike=""
 water=""
 idol=""
 terrain=""
+player=""
 
 [input]
 
