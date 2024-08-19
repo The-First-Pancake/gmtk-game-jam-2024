@@ -5,7 +5,7 @@ var level_idx : int = 1;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if (GameManager.game_progress_state['max_level_reached'] >= level_idx):
+	if true: #(GameManager.game_progress_state['max_level_reached'] >= level_idx):
 		show()
 	$IdolUI.text = "Level " + str(level_idx)
 	if (GameManager.game_progress_state['level_states'][level_idx]['completed']):

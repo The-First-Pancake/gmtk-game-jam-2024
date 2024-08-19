@@ -28,7 +28,6 @@ func check_if_blocked() -> void:
 				queue_free()
 
 func _on_spit_timer_timeout() -> void:
-	$"Hawk-tuahSRaUp2l".play()
 	await get_tree().create_timer(0.5).timeout
 	var spawned_obj : Arrow = arrow_prefab.instantiate() as Arrow
 	add_child(spawned_obj)
