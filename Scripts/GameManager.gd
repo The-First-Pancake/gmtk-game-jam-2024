@@ -14,7 +14,8 @@ func _ready() -> void:
 		preload("res://Levels/LevelSelect.tscn"),
 		preload("res://Levels/World1/temple_1_intro.tscn"),
 		preload("res://Levels/World1/temple_2_spikes.tscn"),
-		preload("res://Levels/World1/temple_3_holds.tscn")
+		preload("res://Levels/World1/temple_3_holds.tscn"),
+		preload("res://Levels/World1/temple_4.tscn"),
 	]
 	for level in levels:
 		var level_dictionary_default : Dictionary = {
