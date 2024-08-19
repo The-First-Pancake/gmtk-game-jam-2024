@@ -29,37 +29,37 @@ position = Vector2(561, -3210)
 scale = Vector2(3.125, 3.125)
 texture = ExtResource("2_7cosh")
 
-[node name="PlaceableCharacterBody2d4" parent="." index="17" instance=ExtResource("2_pyrvr")]
+[node name="PlaceableCharacterBody2d4" parent="." index="16" instance=ExtResource("2_pyrvr")]
 position = Vector2(1400, -550)
 rotation = 1.5708
 
-[node name="PlaceableCharacterBody2d8" parent="." index="18" instance=ExtResource("2_pyrvr")]
+[node name="PlaceableCharacterBody2d8" parent="." index="17" instance=ExtResource("2_pyrvr")]
 position = Vector2(950, -1750)
 rotation = 1.5708
 
-[node name="PlaceableCharacterBody2d10" parent="." index="19" instance=ExtResource("2_pyrvr")]
+[node name="PlaceableCharacterBody2d10" parent="." index="18" instance=ExtResource("2_pyrvr")]
 position = Vector2(949, -1750)
 rotation = 1.5708
 
-[node name="PlaceableCharacterBody2d9" parent="." index="20" instance=ExtResource("2_pyrvr")]
+[node name="PlaceableCharacterBody2d9" parent="." index="19" instance=ExtResource("2_pyrvr")]
 position = Vector2(1350, -1750)
 rotation = 1.5708
 
-[node name="PlaceableCharacterBody2d6" parent="." index="21" instance=ExtResource("2_pyrvr")]
+[node name="PlaceableCharacterBody2d6" parent="." index="20" instance=ExtResource("2_pyrvr")]
 position = Vector2(1800, -550)
 rotation = 1.5708
 
-[node name="PlaceableCharacterBody2d5" parent="." index="22" instance=ExtResource("2_pyrvr")]
+[node name="PlaceableCharacterBody2d5" parent="." index="21" instance=ExtResource("2_pyrvr")]
 position = Vector2(1150, -700)
 
-[node name="PlaceableCharacterBody2d7" parent="." index="23" instance=ExtResource("2_pyrvr")]
+[node name="PlaceableCharacterBody2d7" parent="." index="22" instance=ExtResource("2_pyrvr")]
 position = Vector2(1600, -1200)
 
-[node name="PlaceableCharacterBody2d11" parent="." index="24" instance=ExtResource("2_pyrvr")]
+[node name="PlaceableCharacterBody2d11" parent="." index="23" instance=ExtResource("2_pyrvr")]
 position = Vector2(1600, -1600)
 
-[node name="PlaceableCharacterBody2d12" parent="." index="25" instance=ExtResource("2_pyrvr")]
+[node name="PlaceableCharacterBody2d12" parent="." index="24" instance=ExtResource("2_pyrvr")]
 position = Vector2(1150, -1100)
 
-[node name="2x2 Piiece2" parent="." index="26" instance=ExtResource("3_r5fou")]
+[node name="2x2 Piiece2" parent="." index="25" instance=ExtResource("3_r5fou")]
 position = Vector2(1350, -3050)

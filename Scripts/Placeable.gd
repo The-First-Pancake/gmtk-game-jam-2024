@@ -16,6 +16,8 @@ const UNPLACED_COLLISION_LAYER : int = 2
 @onready var impact_sound : AudioStreamPlayer = $BlockImpact01 as AudioStreamPlayer
 @onready var shatter_sound : AudioStreamPlayer = $Explosion3003 as AudioStreamPlayer
 
+static var currently_held_block: Placeable = null
+
 func _ready() -> void:
 	hold_point_generator = $HoldPointGenerator
 
@@ -43,7 +45,8 @@ func _physics_process(delta: float) -> void:
 func on_collision_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if (state == PlaceState.QUEUED):
 		if Input.is_action_just_pressed("drop_block"):
-			enter_placing()
+			if currently_held_block == null:
+				enter_placing()
 
 func enter_queued() -> void:
 	state = PlaceState.QUEUED
@@ -57,12 +60,14 @@ func enter_queued() -> void:
 			area_2d_child.set_collision_layer_value(UNPLACED_COLLISION_LAYER, true);
 
 func enter_placing() -> void:
+	currently_held_block = self
 	await get_tree().process_frame
 	picked_up.emit()
 	modulate.a = 0.5 # make transparent
 	state = PlaceState.PLACING 
 
 func enter_falling() -> void:
+	currently_held_block = null
 	set_collision_layer_value(DEFAULT_COLLISION_LAYER, true);
 	set_collision_layer_value(UNPLACED_COLLISION_LAYER, false);
 	# Deal with child nodes

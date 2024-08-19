@@ -22,39 +22,39 @@ position = Vector2(850, -1550)
 [node name="Idol3" parent="." index="14"]
 position = Vector2(1850, -2800)
 
-[node name="PlaceableCharacterBody2d2" parent="." index="16" instance=ExtResource("2_sc1g2")]
+[node name="PlaceableCharacterBody2d2" parent="." index="15" instance=ExtResource("2_sc1g2")]
 position = Vector2(1850, -50)
 rotation = 1.5708
 
-[node name="PlaceableCharacterBody2d3" parent="." index="17" instance=ExtResource("2_sc1g2")]
+[node name="PlaceableCharacterBody2d3" parent="." index="16" instance=ExtResource("2_sc1g2")]
 position = Vector2(1450, -50)
 rotation = 1.5708
 
-[node name="PlaceableCharacterBody2d4" parent="." index="18" instance=ExtResource("2_sc1g2")]
+[node name="PlaceableCharacterBody2d4" parent="." index="17" instance=ExtResource("2_sc1g2")]
 position = Vector2(900, -1700)
 rotation = 1.5708
 
-[node name="PlaceableCharacterBody2d5" parent="." index="19" instance=ExtResource("2_sc1g2")]
+[node name="PlaceableCharacterBody2d5" parent="." index="18" instance=ExtResource("2_sc1g2")]
 position = Vector2(1300, -1700)
 rotation = 1.5708
 
-[node name="2x2 Piiece" parent="." index="20" instance=ExtResource("3_7qaxh")]
+[node name="2x2 Piiece" parent="." index="19" instance=ExtResource("3_7qaxh")]
 position = Vector2(1950, -3050)
 
-[node name="2x2 Piiece2" parent="." index="21" instance=ExtResource("3_7qaxh")]
+[node name="2x2 Piiece2" parent="." index="20" instance=ExtResource("3_7qaxh")]
 position = Vector2(1750, -3050)
 
-[node name="2x2 Piiece3" parent="." index="22" instance=ExtResource("3_7qaxh")]
+[node name="2x2 Piiece3" parent="." index="21" instance=ExtResource("3_7qaxh")]
 position = Vector2(1550, -3050)
 
-[node name="2x2 Piiece4" parent="." index="23" instance=ExtResource("3_7qaxh")]
+[node name="2x2 Piiece4" parent="." index="22" instance=ExtResource("3_7qaxh")]
 position = Vector2(1350, -3050)
 
-[node name="2x2 Piiece5" parent="." index="24" instance=ExtResource("3_7qaxh")]
+[node name="2x2 Piiece5" parent="." index="23" instance=ExtResource("3_7qaxh")]
 position = Vector2(1150, -3050)
 
-[node name="2x2 Piiece6" parent="." index="25" instance=ExtResource("3_7qaxh")]
+[node name="2x2 Piiece6" parent="." index="24" instance=ExtResource("3_7qaxh")]
 position = Vector2(1100, -1550)
 
-[node name="2x2 Piiece7" parent="." index="26" instance=ExtResource("3_7qaxh")]
+[node name="2x2 Piiece7" parent="." index="25" instance=ExtResource("3_7qaxh")]
 position = Vector2(1100, -1350)
