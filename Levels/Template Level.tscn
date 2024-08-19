@@ -89,6 +89,17 @@ scale = Vector2(3, 5)
 texture = ExtResource("1_dtx2u")
 stretch_mode = 1
 
+[node name="Background2" type="TextureRect" parent="Parallax2D"]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_sacac")
+offset_left = 340.0
+offset_top = -16345.0
+offset_right = 980.0
+offset_bottom = -12660.0
+scale = Vector2(3, 5)
+texture = ExtResource("1_dtx2u")
+stretch_mode = 1
+
 [node name="Entrance Door" parent="." instance=ExtResource("19_owl44")]
 position = Vector2(1088, 916)
 is_exit = false

@@ -36,6 +36,7 @@ var campfires: Array[Campfire] = []
 @onready var grab_sound: AudioStreamPlayer = $Audio/Footstep1012 as AudioStreamPlayer
 @onready var idol_get_sound: AudioStreamPlayer = $Audio/IdolGet as AudioStreamPlayer
 @onready var music_main: AudioStreamPlayer = $Audio/MusicMain as AudioStreamPlayer
+@onready var griddy_sound: AudioStreamPlayer = $Audio/Griddy as AudioStreamPlayer
 
 @onready var gravity_reduce_timer: Timer = %"Gravity Reduce Timer" as Timer
 @onready var targeting_arrow: Sprite2D = $"Targeting Arrow"
@@ -171,6 +172,8 @@ func holding_behavior() -> void:
 @onready var footstep_animator: AnimationPlayer = $"Sprite Animator/AnimationPlayer" as AnimationPlayer
 var slide_sound_playing : bool = false
 var grab_sound_playing : bool = false
+var griddy_sound_playing : bool = false
+var main_music_playing : bool = false
 
 func update_animations() -> void:
 	if sprite_animator.animation != "idle" and sprite_animator.animation != "dance":
@@ -182,6 +185,7 @@ func update_animations() -> void:
 		footstep_animator.stop()
 		slide_sound.stop()
 		slide_sound_playing = false
+		griddy_sound_playing = false
 		var holding_cieling: bool = abs(angle_difference(current_hold.global_rotation, deg_to_rad(180))) < deg_to_rad(1)
 		if holding_cieling:
 			sprite_animator.play("hang_top")
@@ -198,11 +202,22 @@ func update_animations() -> void:
 			sprite_animator.play("walk")
 			footstep_animator.play("footsteps")
 		else:
-			footstep_animator.stop()
 			if griddy_timer.time_left == 0:
 				sprite_animator.play("dance")
+				footstep_animator.play("footsteps")
+				if griddy_sound_playing == false:
+					main_music_playing = false
+					music_main.stop()
+					griddy_sound.play()
+					griddy_sound_playing = true
 			else:
+				griddy_sound_playing = false
 				sprite_animator.play("idle")
+				griddy_sound.stop()
+				if main_music_playing == false:
+					music_main.play()
+					main_music_playing = true
+				footstep_animator.stop()
 	elif is_downsliding:
 		grab_sound_playing = false
 		if slide_sound_playing == false:
