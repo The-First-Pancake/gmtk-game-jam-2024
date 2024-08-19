@@ -13,10 +13,12 @@ func _ready() -> void:
 		door_frame.z_index = lower_layer
 		interior_wall.process_mode = Node.PROCESS_MODE_DISABLED
 		interior_wall_2.process_mode = Node.PROCESS_MODE_DISABLED
+		GameManager.exit_door = self
 	else:
 		door_frame.z_index = top_layer
 		interior_wall.process_mode = Node.PROCESS_MODE_INHERIT
 		interior_wall_2.process_mode = Node.PROCESS_MODE_INHERIT
+		GameManager.entrance_door = self
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:

@@ -1,0 +1,110 @@
+[gd_scene load_steps=13 format=3 uid="uid://b3d1ywvp6mjol"]
+
+[ext_resource type="Script" path="res://Scripts/LevelWeenie.gd" id="1_13nni"]
+[ext_resource type="Texture2D" uid="uid://cm1bxb5y7kb" path="res://Art/Sprites/UI/ui_throbber.png" id="2_u6lqa"]
+[ext_resource type="FontFile" uid="uid://ck4uibtfurjl4" path="res://Fonts/FFFFORWA.TTF" id="3_1r1pr"]
+[ext_resource type="Texture2D" uid="uid://cra8a72oqq7vi" path="res://Art/Sprites/Idol.png" id="4_55eog"]
+[ext_resource type="Texture2D" uid="uid://c7n6srd7l27kh" path="res://Art/Sprites/fire_small.png" id="5_mawvm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cat1a"]
+radius = 98.0204
+
+[sub_resource type="LabelSettings" id="LabelSettings_d7721"]
+font = ExtResource("3_1r1pr")
+font_size = 60
+font_color = Color(0.7, 0.588, 0.42, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8is8u"]
+atlas = ExtResource("5_mawvm")
+region = Rect2(0, 0, 3, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_udlu0"]
+atlas = ExtResource("5_mawvm")
+region = Rect2(3, 0, 3, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_deems"]
+atlas = ExtResource("5_mawvm")
+region = Rect2(6, 0, 3, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_auh6p"]
+atlas = ExtResource("5_mawvm")
+region = Rect2(9, 0, 3, 6)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8jjmw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8is8u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_udlu0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_deems")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_auh6p")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[node name="LevelWeenie" type="Area2D"]
+visible = false
+script = ExtResource("1_13nni")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_cat1a")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3.125, 3.125)
+texture = ExtResource("2_u6lqa")
+
+[node name="IdolUI" type="Label" parent="."]
+offset_left = -120.0
+offset_top = 120.0
+offset_right = 135.0
+offset_bottom = 258.0
+text = "Level 1"
+label_settings = SubResource("LabelSettings_d7721")
+horizontal_alignment = 1
+
+[node name="Idol 1" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-58.125, 231.312)
+scale = Vector2(3.125, 3.125)
+texture = ExtResource("4_55eog")
+
+[node name="Idol 2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-2.125, 231.312)
+scale = Vector2(3.125, 3.125)
+texture = ExtResource("4_55eog")
+
+[node name="Idol 3" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(50.875, 231.312)
+scale = Vector2(3.125, 3.125)
+texture = ExtResource("4_55eog")
+
+[node name="CompletedFlames" type="Node2D" parent="."]
+visible = false
+
+[node name="flame" type="AnimatedSprite2D" parent="CompletedFlames"]
+position = Vector2(-18, -4)
+scale = Vector2(3.15, 3.15)
+sprite_frames = SubResource("SpriteFrames_8jjmw")
+autoplay = "default"
+frame_progress = 0.832069
+
+[node name="flame2" type="AnimatedSprite2D" parent="CompletedFlames"]
+position = Vector2(19, -4)
+scale = Vector2(3.15, 3.15)
+sprite_frames = SubResource("SpriteFrames_8jjmw")
+autoplay = "default"
+frame_progress = 0.601985
+
+[connection signal="input_event" from="." to="." method="on_collision_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

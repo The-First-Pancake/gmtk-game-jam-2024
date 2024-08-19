@@ -200,12 +200,21 @@ text = "0/3"
 label_settings = SubResource("LabelSettings_448k6")
 
 [node name="HeightUI" type="Label" parent="Camera2D/UI"]
-offset_left = -765.0
+offset_left = -754.0
 offset_top = 18.0
-offset_right = -563.0
-offset_bottom = 209.0
-text = "100m
-666m"
+offset_right = -664.0
+offset_bottom = 187.0
+text = "00
+00"
+label_settings = SubResource("LabelSettings_448k6")
+
+[node name="HeightUnitsUI" type="Label" parent="Camera2D/UI"]
+offset_left = -663.0
+offset_top = 18.0
+offset_right = -573.0
+offset_bottom = 187.0
+text = "m
+m"
 label_settings = SubResource("LabelSettings_448k6")
 
 [node name="Idol" type="Sprite2D" parent="Camera2D/UI"]

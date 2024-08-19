@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvr1x1nd1id31"]
+
+[ext_resource type="Script" path="res://Scripts/LevelSelect.gd" id="1_7k26d"]
+[ext_resource type="Texture2D" uid="uid://bqfeqtdw7xcxo" path="res://Art/Sprites/Backgrounds/background.png" id="1_24j1o"]
+[ext_resource type="PackedScene" uid="uid://b3d1ywvp6mjol" path="res://Prefabs/LevelWeenie.tscn" id="3_66fh1"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_pwuex"]
+light_mode = 1
+
+[node name="LevelSelect" type="Node2D"]
+position = Vector2(11, -5)
+script = ExtResource("1_7k26d")
+weenie_prefab = ExtResource("3_66fh1")
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+z_index = -4096
+scroll_scale = Vector2(0.5, 0.5)
+
+[node name="Background" type="TextureRect" parent="Parallax2D"]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_pwuex")
+offset_left = -4.0
+offset_top = -16301.0
+offset_right = 636.0
+offset_bottom = -12616.0
+scale = Vector2(3, 5)
+texture = ExtResource("1_24j1o")
+stretch_mode = 1
