@@ -263,15 +263,15 @@ position = Vector2(1460, 994)
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
 z_index = -4096
-scroll_scale = Vector2(0.25, 0.25)
+scroll_scale = Vector2(0.5, 0.5)
 
 [node name="Background" type="TextureRect" parent="Parallax2D"]
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_sacac")
-offset_left = 347.0
-offset_top = -10481.0
-offset_right = 987.0
-offset_bottom = -6796.0
-scale = Vector2(3.25556, 3.25556)
+offset_left = 340.0
+offset_top = -16345.0
+offset_right = 980.0
+offset_bottom = -12660.0
+scale = Vector2(3, 5)
 texture = ExtResource("1_dtx2u")
 stretch_mode = 1

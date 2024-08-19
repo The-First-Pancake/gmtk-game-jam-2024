@@ -6,6 +6,8 @@ extends Area2D
 @onready var flame_sprite: AnimatedSprite2D = %"Flame Sprite" as AnimatedSprite2D
 @onready var point_light_2d: PointLight2D = $PointLight2D
 @onready var flag_sprite: AnimatedSprite2D = $"Flag Sprite"
+@onready var light_sound: AudioStreamPlayer = $CampfireLight as AudioStreamPlayer
+@onready var extinguish_sound: AudioStreamPlayer = $CampfireExtinguish as AudioStreamPlayer
 
 
 var is_lit: bool:
@@ -17,6 +19,7 @@ var is_lit: bool:
 		flame_sprite.visible = val
 		if val == true:
 			flame_sprite.play("ignite")
+			AudioManager.PlayAudio(light_sound)
 			await flame_sprite.animation_looped
 			flame_sprite.play("burning")
 	get:
@@ -44,6 +47,7 @@ func fall() -> void:
 	queue_free()
 
 func extinguish() -> void:
+	AudioManager.PlayAudio(extinguish_sound)
 	is_lit = false
 
 func _on_area_entered(area: Area2D) -> void:

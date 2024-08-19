@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://dngf3odx0yf5k"]
+[gd_scene load_steps=57 format=3 uid="uid://dngf3odx0yf5k"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_auxp4"]
 [ext_resource type="Texture2D" uid="uid://bapsbp2dcsltk" path="res://Art/Player/Player_canvas_texture.tres" id="2_g2orv"]
@@ -6,6 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://b5b0kd0nmc5bm" path="res://Art/Player/Player_Jump_texture.tres" id="3_qdxci"]
 [ext_resource type="Texture2D" uid="uid://c44dsqli58hcu" path="res://Art/Sprites/dust_3.png" id="3_xrsng"]
 [ext_resource type="Texture2D" uid="uid://btgsw0dup1f24" path="res://Art/Sprites/dir_arrow.png" id="4_gmgjr"]
+[ext_resource type="AudioStream" uid="uid://twr8jfm4radr" path="res://Sound/footsteps/footstep_randomizer.tres" id="7_74rht"]
+[ext_resource type="AudioStream" uid="uid://8pfpyir3qcto" path="res://Sound/Jump__012.wav" id="8_jf1wr"]
+[ext_resource type="AudioStream" uid="uid://d28jyydwyj1n5" path="res://Sound/Ouch__035.wav" id="10_8tu8o"]
+[ext_resource type="AudioStream" uid="uid://bhlrjli14k6s5" path="res://Sound/sliding_01.wav" id="11_h6hsx"]
+[ext_resource type="AudioStream" uid="uid://cikovhlxkux2e" path="res://Sound/Punch1__021.wav" id="11_hf57o"]
+[ext_resource type="AudioStream" uid="uid://1l1hnp6thcfk" path="res://Sound/Ouch__006.wav" id="12_8gy5e"]
+[ext_resource type="AudioStream" uid="uid://owoo0sg3cpg4" path="res://Sound/Footstep1__012.wav" id="13_nhxjg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_04ng4"]
 atlas = ExtResource("2_uqpry")
@@ -254,6 +261,75 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="Animation" id="Animation_yppde"]
+resource_name = "Audio"
+length = 0.26667
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite Animator/AudioPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("7_74rht")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("7_74rht")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("7_74rht")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("7_74rht")
+}],
+"times": PackedFloat32Array(0.0333333, 0.1, 0.166667, 0.233333)
+}
+tracks/0/use_blend = true
+
+[sub_resource type="Animation" id="Animation_468yt"]
+resource_name = "footsteps"
+length = 1.00001
+step = 0.125
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite Animator/AudioPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("7_74rht")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("7_74rht")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("7_74rht")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("7_74rht")
+}],
+"times": PackedFloat32Array(0.125, 0.375, 0.625, 0.875)
+}
+tracks/0/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yw46v"]
+_data = {
+"Audio": SubResource("Animation_yppde"),
+"footsteps": SubResource("Animation_468yt")
+}
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0b81x"]
 radius = 21.0
 height = 78.0
@@ -317,9 +393,17 @@ unique_name_in_owner = true
 z_index = 1
 scale = Vector2(3.125, 3.125)
 sprite_frames = SubResource("SpriteFrames_2xloi")
-animation = &"die"
+animation = &"dance"
 autoplay = "idle"
-frame_progress = 0.705689
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite Animator"]
+deterministic = true
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_yw46v")
+}
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="Sprite Animator"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 9)
@@ -374,6 +458,7 @@ debug_color = Color(0, 0.6, 0.701961, 0.0784314)
 z_as_relative = false
 material = SubResource("CanvasItemMaterial_m3i5l")
 position = Vector2(20, 37)
+emitting = false
 amount = 15
 process_material = SubResource("ParticleProcessMaterial_tjqx7")
 texture = ExtResource("3_xrsng")
@@ -424,5 +509,27 @@ modulate = Color(1, 1, 1, 0.25098)
 scale = Vector2(2, 2)
 texture = ExtResource("4_gmgjr")
 offset = Vector2(0, -33.525)
+
+[node name="Audio" type="Node2D" parent="."]
+
+[node name="Jump012" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("8_jf1wr")
+
+[node name="Ouch035" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("10_8tu8o")
+
+[node name="Punch1021" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("11_hf57o")
+volume_db = -7.496
+pitch_scale = 1.14
+
+[node name="Sliding01" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("11_h6hsx")
+
+[node name="Ouch006" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("12_8gy5e")
+
+[node name="Footstep1012" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("13_nhxjg")
 
 [connection signal="area_entered" from="Hitbox" to="." method="on_hitbix_hit"]

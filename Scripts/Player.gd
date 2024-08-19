@@ -29,6 +29,12 @@ var campfires: Array[Campfire] = []
 @onready var land_particles: GPUParticles2D = $"Land Particles" as GPUParticles2D
 @onready var hold_release_particles: GPUParticles2D = $"Hold Release Particles" as GPUParticles2D
 
+@onready var jump_sound: AudioStreamPlayer = $Audio/Jump012 as AudioStreamPlayer
+@onready var land_sound: AudioStreamPlayer = $Audio/Punch1021 as AudioStreamPlayer
+@onready var slide_sound: AudioStreamPlayer = $Audio/Sliding01 as AudioStreamPlayer
+@onready var die_sound: AudioStreamPlayer = $Audio/Ouch006 as AudioStreamPlayer
+@onready var grab_sound: AudioStreamPlayer = $Audio/Footstep1012 as AudioStreamPlayer
+
 @onready var gravity_reduce_timer: Timer = %"Gravity Reduce Timer" as Timer
 @onready var targeting_arrow: Sprite2D = $"Targeting Arrow"
 
@@ -92,9 +98,11 @@ func movement(delta: float) -> void:
 	
 	if !was_on_floor and is_on_floor():
 		land_particles.restart()
+		land_sound.play()
 	
 	if (is_on_floor() or has_recently_left_ground) and Input.is_action_just_pressed("jump"):
 		jump_particles.restart()
+		jump_sound.play()
 		was_on_floor = false
 		velocity.y = jump_velocity
 	else:
@@ -145,6 +153,7 @@ func holding_behavior() -> void:
 	
 	if Input.is_action_just_released("jump"):
 		hold_release_particles.restart()
+		jump_sound.play()
 		if abs(aim_dir.y) == 0:
 			velocity = leap_velocity * aim_dir
 			gravity_reduce_timer.wait_time = 0.15
@@ -156,30 +165,54 @@ func holding_behavior() -> void:
 
 @onready var sprite_animator: AnimatedSprite2D = %"Sprite Animator" as AnimatedSprite2D
 @onready var griddy_timer: Timer = %"Griddy Timer" as Timer
+@onready var footstep_animator: AnimationPlayer = $"Sprite Animator/AnimationPlayer" as AnimationPlayer
+var slide_sound_playing : bool = false
+var grab_sound_playing : bool = false
 
 func update_animations() -> void:
 	if sprite_animator.animation != "idle" and sprite_animator.animation != "dance":
 		griddy_timer.start()
 	
 	slide_particles.emitting = false
+	
 	if current_hold:
+		footstep_animator.stop()
+		slide_sound.stop()
+		slide_sound_playing = false
 		var holding_cieling: bool = abs(angle_difference(current_hold.global_rotation, deg_to_rad(180))) < deg_to_rad(1)
 		if holding_cieling:
 			sprite_animator.play("hang_top")
 		else:
 			sprite_animator.play("hang_side")
+		if grab_sound_playing == false:
+			grab_sound.play()
+			grab_sound_playing = true
 	elif is_on_floor():
+		slide_sound.stop()
+		slide_sound_playing = false
+		grab_sound_playing = false
 		if abs(velocity.x) > 10:
 			sprite_animator.play("walk")
+			footstep_animator.play("footsteps")
 		else:
+			footstep_animator.stop()
 			if griddy_timer.time_left == 0:
 				sprite_animator.play("dance")
 			else:
 				sprite_animator.play("idle")
 	elif is_downsliding:
+		grab_sound_playing = false
+		if slide_sound_playing == false:
+			slide_sound.play()
+			slide_sound_playing = true
+		footstep_animator.stop()
 		sprite_animator.play("downslide")
 		slide_particles.emitting = true
 	else:
+		slide_sound.stop()
+		slide_sound_playing = false
+		grab_sound_playing = false
+		footstep_animator.stop()
 		if abs(velocity.x) > 750:
 			sprite_animator.play("jump_reach")
 		else:
@@ -200,6 +233,9 @@ func die() -> void:
 	dying = true
 	current_hold = null
 	sprite_animator.play("die")
+	slide_sound.stop()
+	footstep_animator.stop()
+	die_sound.play()
 	
 	var tween: Tween = get_tree().create_tween()
 	tween.set_trans(Tween.TRANS_QUAD)

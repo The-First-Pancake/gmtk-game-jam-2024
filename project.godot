@@ -20,6 +20,7 @@ config/icon="res://Art/Logos/first_pancake_logo.svg"
 [autoload]
 
 GameManager="*res://Scripts/GameManager.gd"
+AudioManager="*res://Scripts/AudioManager.gd"
 
 [debug]
 
