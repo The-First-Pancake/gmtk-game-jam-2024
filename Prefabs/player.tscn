@@ -1,7 +1,8 @@
-[gd_scene load_steps=28 format=3 uid="uid://dngf3odx0yf5k"]
+[gd_scene load_steps=37 format=3 uid="uid://dngf3odx0yf5k"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_auxp4"]
 [ext_resource type="Texture2D" uid="uid://bapsbp2dcsltk" path="res://Art/Player/Player_canvas_texture.tres" id="2_g2orv"]
+[ext_resource type="Texture2D" uid="uid://c44dsqli58hcu" path="res://Art/Sprites/dust_3.png" id="3_xrsng"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mbl1n"]
 atlas = ExtResource("2_g2orv")
@@ -195,7 +196,48 @@ radius = 38.0132
 radius = 13.0
 height = 70.0
 
-[node name="Player" type="CharacterBody2D" groups=["player"]]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_m3i5l"]
+light_mode = 1
+
+[sub_resource type="Curve" id="Curve_6c0sx"]
+_data = [Vector2(0, 0.56044), 0.0, 0.0, 0, 0, Vector2(0.0466667, 1), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_42t66"]
+curve = SubResource("Curve_6c0sx")
+
+[sub_resource type="Gradient" id="Gradient_87cxs"]
+colors = PackedColorArray(0.61, 0.605222, 0.3233, 1, 0.84, 0.72576, 0.4368, 0.576471)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_u77ko"]
+gradient = SubResource("Gradient_87cxs")
+
+[sub_resource type="Curve" id="Curve_tpu5v"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.1, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.747253), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_f64ds"]
+curve = SubResource("Curve_tpu5v")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tjqx7"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+angle_min = -567.9
+angle_max = 567.9
+direction = Vector3(-1, -1, 0)
+spread = 49.045
+initial_velocity_min = 28.07
+initial_velocity_max = 28.07
+angular_velocity_min = -121.69
+angular_velocity_max = 121.69
+gravity = Vector3(0, 0, 0)
+scale_min = 0.65
+scale_max = 1.15
+scale_curve = SubResource("CurveTexture_f64ds")
+color_ramp = SubResource("GradientTexture1D_u77ko")
+alpha_curve = SubResource("CurveTexture_42t66")
+
+[node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_auxp4")
 
 [node name="Sprite Animator" type="AnimatedSprite2D" parent="."]
@@ -203,7 +245,7 @@ unique_name_in_owner = true
 z_index = 1
 scale = Vector2(3.125, 3.125)
 sprite_frames = SubResource("SpriteFrames_2xloi")
-animation = &"idle"
+animation = &"hang_side"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 9)
@@ -248,5 +290,54 @@ one_shot = true
 position = Vector2(0, 9)
 shape = SubResource("CapsuleShape2D_018a7")
 debug_color = Color(0, 0.6, 0.701961, 0.0784314)
+
+[node name="Slide Particles" type="GPUParticles2D" parent="."]
+z_as_relative = false
+material = SubResource("CanvasItemMaterial_m3i5l")
+position = Vector2(20, 37)
+amount = 15
+process_material = SubResource("ParticleProcessMaterial_tjqx7")
+texture = ExtResource("3_xrsng")
+fixed_fps = 0
+draw_order = 0
+
+[node name="Hold Release Particles" type="GPUParticles2D" parent="."]
+z_as_relative = false
+material = SubResource("CanvasItemMaterial_m3i5l")
+position = Vector2(20, 37)
+emitting = false
+amount = 5
+process_material = SubResource("ParticleProcessMaterial_tjqx7")
+texture = ExtResource("3_xrsng")
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 0
+draw_order = 0
+
+[node name="Jump Particles" type="GPUParticles2D" parent="."]
+z_as_relative = false
+material = SubResource("CanvasItemMaterial_m3i5l")
+position = Vector2(1, 51)
+emitting = false
+amount = 3
+process_material = SubResource("ParticleProcessMaterial_tjqx7")
+texture = ExtResource("3_xrsng")
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 0
+draw_order = 0
+
+[node name="Land Particles" type="GPUParticles2D" parent="."]
+z_as_relative = false
+material = SubResource("CanvasItemMaterial_m3i5l")
+position = Vector2(1, 51)
+emitting = false
+amount = 3
+process_material = SubResource("ParticleProcessMaterial_tjqx7")
+texture = ExtResource("3_xrsng")
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 0
+draw_order = 0
 
 [connection signal="area_entered" from="Hitbox" to="." method="on_hitbix_hit"]

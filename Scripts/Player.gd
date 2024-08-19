@@ -24,6 +24,11 @@ var campfires: Array[Campfire] = []
 @onready var side_hand_point: Marker2D = %"Side Hand Point" as Marker2D
 @onready var top_hand_point: Marker2D = %"Top Hand Point" as Marker2D
 
+@onready var slide_particles: GPUParticles2D = $"Slide Particles" as GPUParticles2D
+@onready var jump_particles: GPUParticles2D = $"Jump Particles" as GPUParticles2D
+@onready var land_particles: GPUParticles2D = $"Land Particles" as GPUParticles2D
+@onready var hold_release_particles: GPUParticles2D = $"Hold Release Particles" as GPUParticles2D
+
 @onready var gravity_reduce_timer: Timer = %"Gravity Reduce Timer" as Timer
 
 func _ready() -> void:
@@ -82,7 +87,11 @@ func movement(delta: float) -> void:
 	
 	var has_recently_left_ground: bool = coyote_timer.time_left != 0
 	
+	if !was_on_floor and is_on_floor():
+		land_particles.restart()
+	
 	if (is_on_floor() or has_recently_left_ground) and Input.is_action_just_pressed("jump"):
+		jump_particles.restart()
 		was_on_floor = false
 		velocity.y = jump_velocity
 	else:
@@ -124,6 +133,7 @@ func holding_behavior() -> void:
 			transform.x.x = 1
 	
 	if Input.is_action_just_released("jump"):
+		hold_release_particles.restart()
 		if abs(aim_dir.y) == 0:
 			velocity = leap_velocity * aim_dir
 			gravity_reduce_timer.wait_time = 0.15
@@ -136,7 +146,7 @@ func holding_behavior() -> void:
 @onready var sprite_animator: AnimatedSprite2D = %"Sprite Animator" as AnimatedSprite2D
 
 func update_animations() -> void:
-	
+	slide_particles.emitting = false
 	if current_hold:
 		var holding_cieling: bool = abs(angle_difference(current_hold.global_rotation, deg_to_rad(180))) < deg_to_rad(1)
 		if holding_cieling:
@@ -144,16 +154,16 @@ func update_animations() -> void:
 		else:
 			sprite_animator.play("hang_side")
 	elif is_on_floor():
+
 		if abs(velocity.x) > 10:
 			sprite_animator.play("walk")
 		else:
 			sprite_animator.play("idle")
 	elif is_downsliding:
 		sprite_animator.play("downslide")
+		slide_particles.emitting = true
 	else:
 		sprite_animator.play("jump")
-		
-		
 
 func try_squash() -> void:
 	if is_on_floor():
