@@ -1,10 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://b3d1ywvp6mjol"]
+[gd_scene load_steps=13 format=3 uid="uid://b3q4i4rqf26xp"]
 
 [ext_resource type="Script" path="res://Scripts/LevelWeenie.gd" id="1_13nni"]
 [ext_resource type="Texture2D" uid="uid://cm1bxb5y7kb" path="res://Art/Sprites/UI/ui_throbber.png" id="2_u6lqa"]
 [ext_resource type="FontFile" uid="uid://ck4uibtfurjl4" path="res://Fonts/FFFFORWA.TTF" id="3_1r1pr"]
 [ext_resource type="Texture2D" uid="uid://cra8a72oqq7vi" path="res://Art/Sprites/Idol.png" id="4_55eog"]
-[ext_resource type="Texture2D" uid="uid://c7n6srd7l27kh" path="res://Art/Sprites/fire_small.png" id="5_mawvm"]
+[ext_resource type="Texture2D" uid="uid://dcxkuua4cd4st" path="res://Art/Sprites/fire_small.png" id="5_mawvm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cat1a"]
 radius = 98.0204
