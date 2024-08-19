@@ -40,6 +40,7 @@ func _ready() -> void:
 var is_downsliding: bool
 
 func _process(delta: float) -> void:
+	if dying: return
 	targeting_arrow.visible = false
 	is_downsliding = is_on_wall() and velocity.y > 0
 	
@@ -193,7 +194,25 @@ func try_squash() -> void:
 	if is_on_floor():
 		die()
 
+var dying: bool = false
 func die() -> void:
+	if dying:return
+	dying = true
+	current_hold = null
+	sprite_animator.play("die")
+	
+	var tween: Tween = get_tree().create_tween()
+	tween.set_trans(Tween.TRANS_QUAD)
+	tween.tween_property(self, "global_position:y", global_position.y - 80, 0.3)
+	await tween.finished
+	
+	tween = get_tree().create_tween()
+	tween.set_trans(Tween.TRANS_QUAD)
+	tween.tween_property(self, "global_position:y", global_position.y + 600, 0.5)
+	await tween.finished
+
+	
+	
 	var highest_campfire: Campfire = null
 	for campfire: Campfire in campfires:
 		if campfire == null: continue
@@ -211,7 +230,8 @@ func die() -> void:
 		print("you die for real")
 		get_tree().reload_current_scene()
 		queue_free()
-		
+	
+	dying = false
 
 func apply_gravity(delta: float) -> void:
 	if is_on_floor(): return

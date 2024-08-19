@@ -2,7 +2,6 @@ class_name CameraController
 extends Camera2D
 
 static var instance: CameraController
-@export var target: Node2D
 @export var step: float
 @export var top_trigger: float
 @export var bottom_trigger: float
@@ -29,22 +28,27 @@ func _process(delta: float) -> void:
 	var screen_top: float = global_position.y - get_viewport_rect().size.y/2
 	var screen_bottom: float = global_position.y + get_viewport_rect().size.y/2
 	
-	var slide_tween: Tween = get_tree().create_tween()
-	slide_tween.set_trans(Tween.TRANS_QUAD)
 	
-	if (is_instance_valid(target)):
-		if target.global_position.y < screen_top + top_trigger:
-			slide_tween.tween_property(self, "global_position", global_position - Vector2(0,step),.3)
-			is_sliding = true
-			await slide_tween.finished
-			is_sliding = false
-		if target.global_position.y > screen_bottom - bottom_trigger:
-			slide_tween.tween_property(self, "global_position", global_position + Vector2(0,step),.3)
-			is_sliding = true
-			await slide_tween.finished
-			is_sliding = false
 	
 	if shake_strength > 0:
 		shake_strength = lerpf(shake_strength,0,shake_fade * delta)
 		
 	offset = random_offset()
+	
+	if !GameManager.player: return
+	if GameManager.player.dying: return
+	if GameManager.player.global_position.y < screen_top + top_trigger:
+		var slide_tween: Tween = get_tree().create_tween()
+		slide_tween.set_trans(Tween.TRANS_QUAD)
+		slide_tween.tween_property(self, "global_position", global_position - Vector2(0,step),.3)
+		is_sliding = true
+		await slide_tween.finished
+		is_sliding = false
+	if GameManager.player.global_position.y > screen_bottom - bottom_trigger:
+		var slide_tween: Tween = get_tree().create_tween()
+		slide_tween.set_trans(Tween.TRANS_QUAD)
+		slide_tween.tween_property(self, "global_position", global_position + Vector2(0,step),.3)
+		is_sliding = true
+		await slide_tween.finished
+		is_sliding = false
+	
