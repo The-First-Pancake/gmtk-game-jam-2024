@@ -25,7 +25,7 @@
 light_mode = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gljxb"]
-size = Vector2(330.24, 265.6)
+size = Vector2(334.4, 265.6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_375yt"]
 size = Vector2(344.96, 3752.8)
@@ -88,9 +88,9 @@ energy = 1.55
 [node name="Floor" type="TextureRect" parent="."]
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_4c02t")
-offset_left = 875.0
+offset_left = 852.0
 offset_top = 1034.0
-offset_right = 1207.0
+offset_right = 1186.0
 offset_bottom = 1300.0
 scale = Vector2(3.125, 3.125)
 texture = ExtResource("3_yibs3")
@@ -99,7 +99,7 @@ stretch_mode = 1
 [node name="StaticBody2D" type="StaticBody2D" parent="Floor" groups=["terrain"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/StaticBody2D"]
-position = Vector2(165.44, 132.48)
+position = Vector2(167.52, 132.48)
 shape = SubResource("RectangleShape2D_gljxb")
 debug_color = Color(0, 0.595, 0.7, 0)
 
@@ -124,9 +124,9 @@ debug_color = Color(0, 0.595, 0.7, 0)
 [node name="Left Wall" type="TextureRect" parent="."]
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_4c02t")
-offset_left = -355.0
+offset_left = -383.0
 offset_top = -10528.0
-offset_right = -9.0
+offset_right = -37.0
 offset_bottom = -6612.0
 scale = Vector2(3.125, 3.125)
 texture = ExtResource("3_yibs3")
@@ -135,25 +135,25 @@ stretch_mode = 1
 [node name="StaticBody2D" type="StaticBody2D" parent="Left Wall" groups=["terrain"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Left Wall/StaticBody2D"]
-position = Vector2(173.76, 1869.76)
+position = Vector2(173.44, 1869.76)
 shape = SubResource("RectangleShape2D_375yt")
 debug_color = Color(0, 0.595, 0.7, 0)
 
-[node name="Left Wall2" type="TextureRect" parent="."]
+[node name="Right Wall" type="TextureRect" parent="."]
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_4c02t")
-offset_left = 2047.0
+offset_left = 2052.0
 offset_top = -10524.0
-offset_right = 2243.0
+offset_right = 2248.0
 offset_bottom = -6608.0
 scale = Vector2(3.125, 3.125)
 texture = ExtResource("3_yibs3")
 stretch_mode = 1
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Left Wall2" groups=["terrain"]]
+[node name="StaticBody2D" type="StaticBody2D" parent="Right Wall" groups=["terrain"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Left Wall2/StaticBody2D"]
-position = Vector2(135.96, 1876.56)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right Wall/StaticBody2D"]
+position = Vector2(136.28, 1876.56)
 shape = SubResource("RectangleShape2D_hvw07")
 debug_color = Color(0, 0.595, 0.7, 0)
 
@@ -278,14 +278,14 @@ position = Vector2(1460, 994)
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
 z_index = -4096
-scroll_scale = Vector2(0.5, 0.5)
+scroll_scale = Vector2(1, 0.5)
 
 [node name="Background" type="TextureRect" parent="Parallax2D"]
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_sacac")
-offset_left = 340.0
+offset_left = 410.0
 offset_top = -16345.0
-offset_right = 980.0
+offset_right = 1050.0
 offset_bottom = -12660.0
 scale = Vector2(3, 5)
 texture = ExtResource("1_dtx2u")
