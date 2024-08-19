@@ -1,6 +1,6 @@
 [gd_scene load_steps=48 format=3 uid="uid://bkatak76uuoli"]
 
-[ext_resource type="Script" path="res://Levels/Campfire.gd" id="1_bl4yb"]
+[ext_resource type="Script" path="res://Scripts/Campfire.gd" id="1_bl4yb"]
 [ext_resource type="Texture2D" uid="uid://bm87e6wnpph3s" path="res://Art/Sprites/fire/fire_sticks.png" id="3_cwdr7"]
 [ext_resource type="Texture2D" uid="uid://bnicl785vxsj" path="res://Art/Sprites/fire/stick.png" id="3_kyv5v"]
 [ext_resource type="Texture2D" uid="uid://bdfduqoo423pn" path="res://Art/Sprites/fire/flag.png" id="4_lil2o"]
@@ -360,7 +360,7 @@ frame_progress = 0.379668
 
 [node name="CampfireLight" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_5ixnm")
-volume_db = -10.306
+volume_db = -20.452
 pitch_scale = 0.82
 
 [node name="CampfireExtinguish" type="AudioStreamPlayer" parent="."]

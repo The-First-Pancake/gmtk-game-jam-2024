@@ -13,6 +13,8 @@ signal falling
 const DEFAULT_COLLISION_LAYER : int = 1
 const UNPLACED_COLLISION_LAYER : int = 2
 
+@onready var impact_sound : AudioStreamPlayer = $BlockImpact01 as AudioStreamPlayer
+
 func _ready() -> void:
 	hold_point_generator = $HoldPointGenerator
 	enter_queued()
@@ -76,6 +78,7 @@ func enter_falling() -> void:
 func enter_placed() -> void:
 	state = PlaceState.PLACED
 	CameraController.instance.apply_shake()
+	impact_sound.play()
 	placed.emit()
 	
 func check_for_collisions() -> bool:
