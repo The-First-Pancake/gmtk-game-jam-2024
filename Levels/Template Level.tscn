@@ -259,6 +259,12 @@ shape = SubResource("RectangleShape2D_84vdb")
 debug_color = Color(0, 0.595, 0.7, 0)
 
 [node name="Idol" parent="." instance=ExtResource("13_jfp1q")]
+position = Vector2(1314, 989)
+
+[node name="Idol2" parent="." instance=ExtResource("13_jfp1q")]
+position = Vector2(1382, 992)
+
+[node name="Idol3" parent="." instance=ExtResource("13_jfp1q")]
 position = Vector2(1460, 994)
 
 [node name="Parallax2D" type="Parallax2D" parent="."]

@@ -1,6 +1,8 @@
 extends Node
 
 var player : Player = null
+var entrance_door : Door = null
+var exit_door : Door = null
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
