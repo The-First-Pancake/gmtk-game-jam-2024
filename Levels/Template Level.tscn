@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://6dd2cbybvcqg"]
+[gd_scene load_steps=36 format=3 uid="uid://6dd2cbybvcqg"]
 
 [ext_resource type="Texture2D" uid="uid://bqfeqtdw7xcxo" path="res://Art/Sprites/Backgrounds/background.png" id="1_dtx2u"]
 [ext_resource type="PackedScene" uid="uid://dngf3odx0yf5k" path="res://Prefabs/player.tscn" id="2_hossx"]
@@ -21,8 +21,14 @@
 [ext_resource type="PackedScene" uid="uid://def2hxxjwwhvl" path="res://Prefabs/Door.tscn" id="19_owl44"]
 [ext_resource type="AudioStream" uid="uid://twgpbnyr1add" path="res://Sound/music_main.wav" id="20_myd6s"]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_sacac"]
+light_mode = 1
+
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4c02t"]
 light_mode = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qulcn"]
+size = Vector2(336, 265.6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gljxb"]
 size = Vector2(459.2, 265.6)
@@ -65,13 +71,24 @@ spawn_count = 10
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1wnnk"]
 light_mode = 1
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_84vdb"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j4yru"]
 size = Vector2(1474, 709)
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_sacac"]
-light_mode = 1
-
 [node name="Template Level" type="Node2D"]
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+scroll_scale = Vector2(1, 0.5)
+
+[node name="Background" type="TextureRect" parent="Parallax2D"]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_sacac")
+offset_left = 410.0
+offset_top = -16345.0
+offset_right = 1050.0
+offset_bottom = -12660.0
+scale = Vector2(3, 5)
+texture = ExtResource("1_dtx2u")
+stretch_mode = 1
 
 [node name="Entrance Door" parent="." instance=ExtResource("19_owl44")]
 position = Vector2(1088, 916)
@@ -99,8 +116,8 @@ stretch_mode = 1
 [node name="StaticBody2D" type="StaticBody2D" parent="Floor" groups=["terrain"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/StaticBody2D"]
-position = Vector2(167.52, 132.48)
-shape = SubResource("RectangleShape2D_gljxb")
+position = Vector2(167.36, 132.48)
+shape = SubResource("RectangleShape2D_qulcn")
 debug_color = Color(0, 0.595, 0.7, 0)
 
 [node name="Cieling" type="TextureRect" parent="."]
@@ -264,7 +281,7 @@ stretch_mode = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Water/Water Kill Area"]
 position = Vector2(254, 308.5)
-shape = SubResource("RectangleShape2D_84vdb")
+shape = SubResource("RectangleShape2D_j4yru")
 debug_color = Color(0, 0.595, 0.7, 0)
 
 [node name="Idol" parent="." instance=ExtResource("13_jfp1q")]
@@ -275,32 +292,6 @@ position = Vector2(1524, 998)
 
 [node name="Idol3" parent="." instance=ExtResource("13_jfp1q")]
 position = Vector2(1403, 1005)
-
-[node name="Parallax2D" type="Parallax2D" parent="."]
-z_index = -4096
-scroll_scale = Vector2(1, 0.5)
-
-[node name="Background" type="TextureRect" parent="Parallax2D"]
-texture_filter = 1
-material = SubResource("CanvasItemMaterial_sacac")
-offset_left = 410.0
-offset_top = -16345.0
-offset_right = 1050.0
-offset_bottom = -12660.0
-scale = Vector2(3, 5)
-texture = ExtResource("1_dtx2u")
-stretch_mode = 1
-
-[node name="Background2" type="TextureRect" parent="Parallax2D"]
-texture_filter = 1
-material = SubResource("CanvasItemMaterial_sacac")
-offset_left = 410.0
-offset_top = -16345.0
-offset_right = 1050.0
-offset_bottom = -12660.0
-scale = Vector2(3, 5)
-texture = ExtResource("1_dtx2u")
-stretch_mode = 1
 
 [node name="MusicMain" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("20_myd6s")
