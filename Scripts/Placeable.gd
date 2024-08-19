@@ -17,7 +17,6 @@ const UNPLACED_COLLISION_LAYER : int = 2
 
 func _ready() -> void:
 	hold_point_generator = $HoldPointGenerator
-	enter_queued()
 
 func _physics_process(delta: float) -> void:
 	if (state == PlaceState.PLACING):
