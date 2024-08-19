@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://6dd2cbybvcqg"]
+[gd_scene load_steps=35 format=3 uid="uid://6dd2cbybvcqg"]
 
 [ext_resource type="Texture2D" uid="uid://bqfeqtdw7xcxo" path="res://Art/Sprites/Backgrounds/background.png" id="1_dtx2u"]
 [ext_resource type="PackedScene" uid="uid://dngf3odx0yf5k" path="res://Prefabs/player.tscn" id="2_hossx"]
@@ -290,13 +290,5 @@ position = Vector2(1460, 994)
 [node name="Idol2" parent="." instance=ExtResource("13_jfp1q")]
 position = Vector2(1524, 998)
 
-[node name="Background" type="TextureRect" parent="Parallax2D"]
-texture_filter = 1
-material = SubResource("CanvasItemMaterial_sacac")
-offset_left = 340.0
-offset_top = -16345.0
-offset_right = 980.0
-offset_bottom = -12660.0
-scale = Vector2(3, 5)
-texture = ExtResource("1_dtx2u")
-stretch_mode = 1
+[node name="Idol3" parent="." instance=ExtResource("13_jfp1q")]
+position = Vector2(1600, 1000)
