@@ -16,6 +16,8 @@ func _ready() -> void:
 		preload("res://Levels/World1/temple_2_spikes.tscn"),
 		preload("res://Levels/World1/temple_3_holds.tscn"),
 		preload("res://Levels/World1/temple_4.tscn"),
+		preload("res://Levels/World1/temple_5_overhangs.tscn"),
+		preload("res://Levels/World1/temple_6_overhangs_xtreme.tscn")
 	]
 	for level in levels:
 		var level_dictionary_default : Dictionary = {
@@ -26,6 +28,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("restart"):
+		get_tree().reload_current_scene()
 	if Input.is_action_just_pressed("ui_cancel"):
 		if get_tree().current_scene.name == "LevelSelect":
 			get_tree().quit()

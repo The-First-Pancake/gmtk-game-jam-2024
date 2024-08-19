@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8ofjhklhy6o"]
+
+[ext_resource type="PackedScene" uid="uid://6dd2cbybvcqg" path="res://Levels/Template Level.tscn" id="1_f2c2y"]
+[ext_resource type="Texture2D" uid="uid://c0lrrkts2q73h" path="res://Art/Sprites/idol clue.png" id="2_7cosh"]
+[ext_resource type="PackedScene" uid="uid://c4safo4pwme48" path="res://Prefabs/Blocks/1x4-Piece.tscn" id="2_pyrvr"]
+[ext_resource type="PackedScene" uid="uid://bdyf8npx3i7xk" path="res://Prefabs/Blocks/2x2-Piece.tscn" id="3_r5fou"]
+
+[node name="Template Level" instance=ExtResource("1_f2c2y")]
+
+[node name="Exit Door" parent="." index="2"]
+position = Vector2(1350, -3268)
+
+[node name="Cieling" parent="." index="5"]
+offset_top = -11276.0
+offset_bottom = -11010.0
+
+[node name="Idol" parent="." index="12"]
+position = Vector2(1350, -3900)
+
+[node name="Idol2" parent="." index="13"]
+position = Vector2(1900, -350)
+
+[node name="Idol3" parent="." index="14"]
+position = Vector2(850, -1900)
+
+[node name="IdolClue" type="Sprite2D" parent="." index="15"]
+modulate = Color(0, 0, 0, 0.294118)
+position = Vector2(561, -3210)
+scale = Vector2(3.125, 3.125)
+texture = ExtResource("2_7cosh")
+
+[node name="PlaceableCharacterBody2d4" parent="." index="17" instance=ExtResource("2_pyrvr")]
+position = Vector2(1400, -550)
+rotation = 1.5708
+
+[node name="PlaceableCharacterBody2d8" parent="." index="18" instance=ExtResource("2_pyrvr")]
+position = Vector2(950, -1750)
+rotation = 1.5708
+
+[node name="PlaceableCharacterBody2d10" parent="." index="19" instance=ExtResource("2_pyrvr")]
+position = Vector2(949, -1750)
+rotation = 1.5708
+
+[node name="PlaceableCharacterBody2d9" parent="." index="20" instance=ExtResource("2_pyrvr")]
+position = Vector2(1350, -1750)
+rotation = 1.5708
+
+[node name="PlaceableCharacterBody2d6" parent="." index="21" instance=ExtResource("2_pyrvr")]
+position = Vector2(1800, -550)
+rotation = 1.5708
+
+[node name="PlaceableCharacterBody2d5" parent="." index="22" instance=ExtResource("2_pyrvr")]
+position = Vector2(1150, -700)
+
+[node name="PlaceableCharacterBody2d7" parent="." index="23" instance=ExtResource("2_pyrvr")]
+position = Vector2(1600, -1200)
+
+[node name="PlaceableCharacterBody2d11" parent="." index="24" instance=ExtResource("2_pyrvr")]
+position = Vector2(1600, -1600)
+
+[node name="PlaceableCharacterBody2d12" parent="." index="25" instance=ExtResource("2_pyrvr")]
+position = Vector2(1150, -1100)
+
+[node name="2x2 Piiece2" parent="." index="26" instance=ExtResource("3_r5fou")]
+position = Vector2(1350, -3050)
