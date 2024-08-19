@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://6dd2cbybvcqg"]
+[gd_scene load_steps=34 format=3 uid="uid://6dd2cbybvcqg"]
 
 [ext_resource type="Texture2D" uid="uid://bqfeqtdw7xcxo" path="res://Art/Sprites/Backgrounds/background.png" id="1_dtx2u"]
 [ext_resource type="PackedScene" uid="uid://dngf3odx0yf5k" path="res://Prefabs/player.tscn" id="2_hossx"]
@@ -19,7 +19,6 @@
 [ext_resource type="PackedScene" uid="uid://b3c0skin4w372" path="res://Prefabs/idol.tscn" id="13_jfp1q"]
 [ext_resource type="Texture2D" uid="uid://cra8a72oqq7vi" path="res://Art/Sprites/Idol.png" id="13_pmlcy"]
 [ext_resource type="PackedScene" uid="uid://def2hxxjwwhvl" path="res://Prefabs/Door.tscn" id="19_owl44"]
-[ext_resource type="AudioStream" uid="uid://twgpbnyr1add" path="res://Sound/music_main.wav" id="20_myd6s"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_sacac"]
 light_mode = 1
@@ -254,6 +253,7 @@ modulate = Color(1, 1, 1, 0.882353)
 z_index = 1000
 position = Vector2(1147, 1293)
 script = ExtResource("10_7kdmf")
+rise_speed = 16.0
 
 [node name="Top Water" type="TextureRect" parent="Water"]
 texture_filter = 1
@@ -290,9 +290,13 @@ position = Vector2(1460, 994)
 [node name="Idol2" parent="." instance=ExtResource("13_jfp1q")]
 position = Vector2(1524, 998)
 
-[node name="Idol3" parent="." instance=ExtResource("13_jfp1q")]
-position = Vector2(1403, 1005)
-
-[node name="MusicMain" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("20_myd6s")
-volume_db = -10.78
+[node name="Background" type="TextureRect" parent="Parallax2D"]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_sacac")
+offset_left = 340.0
+offset_top = -16345.0
+offset_right = 980.0
+offset_bottom = -12660.0
+scale = Vector2(3, 5)
+texture = ExtResource("1_dtx2u")
+stretch_mode = 1

@@ -61,4 +61,5 @@ func _on_body_entered(body: Node2D) -> void:
 			return
 	if body is Placeable:
 		if body != get_parent():
+			AudioManager.PlayAudio(extinguish_sound)
 			fall()
