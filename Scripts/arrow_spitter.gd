@@ -1,5 +1,6 @@
 extends Area2D
 @export var arrow_prefab : PackedScene
+@export var fire_rate : float = 1
 
 func _ready() -> void:
 	var parent: Node = get_parent()
@@ -7,7 +8,7 @@ func _ready() -> void:
 		parent.placed.connect(check_if_blocked)
 		parent.falling.connect($SpitTimer.start)
 	else:
-		$SpitTimer.start()
+		$SpitTimer.start(fire_rate)
 
 func _on_body_entered(body: Node2D) -> void:
 	check_if_blocked()
