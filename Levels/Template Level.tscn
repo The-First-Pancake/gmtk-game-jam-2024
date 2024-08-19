@@ -16,12 +16,9 @@
 [ext_resource type="FontFile" uid="uid://ck4uibtfurjl4" path="res://Fonts/FFFFORWA.TTF" id="10_xbpyp"]
 [ext_resource type="Texture2D" uid="uid://5p0gmre6j1rp" path="res://Art/Sprites/water/water_texture.tres" id="11_y6mt6"]
 [ext_resource type="Texture2D" uid="uid://bs6m1kttcvgdo" path="res://Art/Sprites/water/Water_Depth.png" id="12_2m3xp"]
-[ext_resource type="PackedScene" path="res://Prefabs/idol.tscn" id="13_jfp1q"]
+[ext_resource type="PackedScene" uid="uid://b3c0skin4w372" path="res://Prefabs/idol.tscn" id="13_jfp1q"]
 [ext_resource type="Texture2D" uid="uid://cra8a72oqq7vi" path="res://Art/Sprites/Idol.png" id="13_pmlcy"]
 [ext_resource type="PackedScene" uid="uid://def2hxxjwwhvl" path="res://Prefabs/Door.tscn" id="19_owl44"]
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_sacac"]
-light_mode = 1
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4c02t"]
 light_mode = 1
@@ -70,18 +67,10 @@ light_mode = 1
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_84vdb"]
 size = Vector2(1474, 709)
 
-[node name="Template Level" type="Node2D"]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_sacac"]
+light_mode = 1
 
-[node name="Background" type="TextureRect" parent="."]
-texture_filter = 1
-material = SubResource("CanvasItemMaterial_sacac")
-offset_left = 347.0
-offset_top = -10481.0
-offset_right = 987.0
-offset_bottom = -6796.0
-scale = Vector2(3.25556, 3.25556)
-texture = ExtResource("1_dtx2u")
-stretch_mode = 1
+[node name="Template Level" type="Node2D"]
 
 [node name="Entrance Door" parent="." instance=ExtResource("19_owl44")]
 position = Vector2(1088, 916)
@@ -270,3 +259,18 @@ debug_color = Color(0, 0.595, 0.7, 0)
 
 [node name="Idol" parent="." instance=ExtResource("13_jfp1q")]
 position = Vector2(1460, 994)
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+z_index = -4096
+scroll_scale = Vector2(0.25, 0.25)
+
+[node name="Background" type="TextureRect" parent="Parallax2D"]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_sacac")
+offset_left = 347.0
+offset_top = -10481.0
+offset_right = 987.0
+offset_bottom = -6796.0
+scale = Vector2(3.25556, 3.25556)
+texture = ExtResource("1_dtx2u")
+stretch_mode = 1
