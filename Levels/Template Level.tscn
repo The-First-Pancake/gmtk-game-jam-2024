@@ -180,9 +180,10 @@ modulate = Color(0.56, 0.56, 0.56, 1)
 z_as_relative = false
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_rc0ob")
-position = Vector2(-688, -297)
+position = Vector2(-790, -400)
 scale = Vector2(3.125, 3.125)
 texture = ExtResource("5_aae1a")
+centered = false
 
 [node name="UiFrame" type="Sprite2D" parent="Camera2D/UI"]
 texture_filter = 1

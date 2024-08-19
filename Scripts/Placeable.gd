@@ -1,7 +1,7 @@
 class_name Placeable
 extends CharacterBody2D
 
-enum PlaceState {QUEUED, PLACING, FALLING, PLACED}
+enum PlaceState {QUEUED, PLACING, FALLING, PLACED, DESTROYED}
 @export var grid_size : float = 50
 var state : int = PlaceState.QUEUED
 var hold_point_generator : HoldPointGenerator
@@ -36,7 +36,7 @@ func _physics_process(delta: float) -> void:
 					var player : Player = collision.get_collider() as Player
 					player.try_squash()
 			elif (collision.get_angle(up_direction) < deg_to_rad(45) and collision.get_angle(up_direction) > deg_to_rad(-45)):
-				enter_placed(collision)
+				enter_placed()
 
 func on_collision_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if (state == PlaceState.QUEUED):
@@ -73,7 +73,7 @@ func enter_falling() -> void:
 	state = PlaceState.FALLING
 	falling.emit()
 
-func enter_placed(collision : KinematicCollision2D) -> void:
+func enter_placed() -> void:
 	state = PlaceState.PLACED
 	CameraController.instance.apply_shake()
 	placed.emit()
@@ -89,3 +89,16 @@ func check_for_collisions() -> bool:
 		modulate.r = 1
 		modulate.b = 1
 	return is_instance_valid(collision)
+	
+func destroy(collision_point_global : Vector2) -> void:
+	if (state != PlaceState.DESTROYED):
+		state = PlaceState.DESTROYED
+		for child in get_children():
+			if child is Sprite2D:
+				continue
+			if child is CollisionPolygon2D:
+				continue
+			else: 
+				child.queue_free()
+		enter_placed()
+		$Sprite2D/ShardEmitter.shatter(collision_point_global)

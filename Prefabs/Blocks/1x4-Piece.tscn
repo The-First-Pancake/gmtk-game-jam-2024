@@ -13,6 +13,7 @@ texture_filter = 1
 safe_margin = 8.0
 
 [node name="Sprite2D" parent="." index="0"]
+position = Vector2(-50, -200)
 texture = SubResource("CanvasTexture_jdlda")
 
 [node name="CollisionPolygon2D" parent="." index="1"]

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dohp3cgpxnwcp"]
+
+[ext_resource type="Script" path="res://Scripts/ShardEmitter.gd" id="1_qo6oe"]
+
+[node name="ShardEmitter" type="Node2D"]
+script = ExtResource("1_qo6oe")
+nbr_of_shards = 1
+min_impulse = 10.0
+max_impulse = 100.0
+
+[node name="DeleteTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="DeleteTimer" to="." method="_on_DeleteTimer_timeout"]

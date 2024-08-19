@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://fee5nvfuba0j"]
+[gd_scene load_steps=18 format=3 uid="uid://fee5nvfuba0j"]
 
 [ext_resource type="PackedScene" uid="uid://ctlx3qylqphyo" path="res://Prefabs/BlockSpawner.tscn" id="3_faxmf"]
 [ext_resource type="PackedScene" uid="uid://dngf3odx0yf5k" path="res://Prefabs/player.tscn" id="3_qudki"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://dhrgrpwwax6i8" path="res://Prefabs/Spikes.tscn" id="7_5cl6t"]
 [ext_resource type="Script" path="res://Scripts/CameraController.gd" id="8_fc5ov"]
 [ext_resource type="PackedScene" uid="uid://betjiy4umvrpf" path="res://Prefabs/Arrow.tscn" id="9_4gso2"]
+[ext_resource type="Texture2D" uid="uid://cm1bxb5y7kb" path="res://Art/Sprites/UI/ui_throbber.png" id="10_ypojy"]
+[ext_resource type="PackedScene" uid="uid://dohp3cgpxnwcp" path="res://Prefabs/ShardEmitter.tscn" id="11_whx2q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_atmmq"]
 size = Vector2(617, 834)
@@ -30,6 +32,9 @@ spawn_count = 2
 script = ExtResource("4_mwb6v")
 spawn_prefab = ExtResource("7_5cl6t")
 spawn_count = 10
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_fawdt"]
+light_mode = 1
 
 [node name="GeorgeTest" type="Node2D"]
 
@@ -74,3 +79,16 @@ spawn_objects = Array[ExtResource("4_mwb6v")]([SubResource("Resource_6716m"), Su
 spawn_object_probability = 0.5
 
 [node name="Arrow" parent="." instance=ExtResource("9_4gso2")]
+
+[node name="UiThrobber" type="Sprite2D" parent="."]
+modulate = Color(0.56, 0.56, 0.56, 1)
+z_as_relative = false
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_fawdt")
+position = Vector2(1440, 565)
+scale = Vector2(3.125, 3.125)
+texture = ExtResource("10_ypojy")
+centered = false
+
+[node name="ShardEmitter" parent="UiThrobber" instance=ExtResource("11_whx2q")]
+display_triangles = true

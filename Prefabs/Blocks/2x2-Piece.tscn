@@ -12,6 +12,7 @@ texture_filter = 1
 [node name="2x2 Piiece" instance=ExtResource("1_q0m3r")]
 
 [node name="Sprite2D" parent="." index="0"]
+position = Vector2(-100, -100)
 texture = SubResource("CanvasTexture_jivrq")
 
 [node name="CollisionPolygon2D" parent="." index="1"]

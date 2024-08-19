@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://hetb2cu4cbew"]
+
+[ext_resource type="Script" path="res://Scripts/BreakerSpike.gd" id="1_b3v11"]
+[ext_resource type="Texture2D" uid="uid://bhjcqf0cult3o" path="res://Art/Sprites/breaker spike/Breaker_Spike.png" id="1_ux1es"]
+[ext_resource type="Texture2D" uid="uid://bm64bp0o1vqey" path="res://Art/Sprites/breaker spike/Breaker_Spike_Normal.png" id="2_bpo5l"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_v5sg8"]
+diffuse_texture = ExtResource("1_ux1es")
+normal_texture = ExtResource("2_bpo5l")
+texture_filter = 1
+
+[node name="BreakerSpike" type="Area2D" groups=["spike"]]
+rotation = 3.14159
+script = ExtResource("1_b3v11")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.400001, 34.1)
+scale = Vector2(3.125, 3.125)
+texture = SubResource("CanvasTexture_v5sg8")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0.400001, 34.1)
+polygon = PackedVector2Array(-26, -20, 0, 31, 26, -20, 26, -32, -26, -32)
+
+[node name="ShatterPoint" type="Marker2D" parent="."]
+position = Vector2(0.400001, 64.1)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

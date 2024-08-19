@@ -13,7 +13,6 @@ texture_filter = 1
 radius = 21.3776
 
 [node name="Idol" type="Area2D" groups=["idol"]]
-position = Vector2(1457, 996)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("CanvasItemMaterial_0pk8k")
