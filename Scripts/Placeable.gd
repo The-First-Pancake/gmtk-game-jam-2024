@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 enum PlaceState {QUEUED, PLACING, FALLING, PLACED, DESTROYED}
 @export var grid_size : float = 50
-var state : int = PlaceState.QUEUED
+var state : int = PlaceState.PLACED
 var hold_point_generator : HoldPointGenerator
 
 signal picked_up
