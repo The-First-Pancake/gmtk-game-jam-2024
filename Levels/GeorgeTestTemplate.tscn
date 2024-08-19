@@ -6,4 +6,7 @@
 [node name="Template Level" instance=ExtResource("1_8tfe6")]
 
 [node name="Arrow" parent="." index="12" instance=ExtResource("2_cwnox")]
-position = Vector2(1425, 659)
+show_behind_parent = false
+position = Vector2(1967, 963)
+rotation = 1.5708
+scale = Vector2(1.00257, 0.998333)
