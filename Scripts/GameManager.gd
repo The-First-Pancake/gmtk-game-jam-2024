@@ -26,7 +26,10 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
-		get_tree().quit()
+		if get_tree().current_scene.name == "LevelSelect":
+			get_tree().quit()
+		else:
+			load_level(0)
 	if Input.is_action_just_pressed("fullscreen"):
 		if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
