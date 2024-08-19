@@ -30,6 +30,7 @@ var campfires: Array[Campfire] = []
 @onready var hold_release_particles: GPUParticles2D = $"Hold Release Particles" as GPUParticles2D
 
 @onready var gravity_reduce_timer: Timer = %"Gravity Reduce Timer" as Timer
+@onready var targeting_arrow: Sprite2D = $"Targeting Arrow"
 
 func _ready() -> void:
 	GameManager.player = self
@@ -39,6 +40,7 @@ func _ready() -> void:
 var is_downsliding: bool
 
 func _process(delta: float) -> void:
+	targeting_arrow.visible = false
 	is_downsliding = is_on_wall() and velocity.y > 0
 	
 	if current_hold == null:
@@ -117,7 +119,15 @@ func movement(delta: float) -> void:
 
 func holding_behavior() -> void:
 	var aim_dir: Vector2 = Input.get_vector("move_left","move_right","move_up","move_down")
-		
+	
+	#targeting arrow
+	if aim_dir != Vector2.ZERO:
+		targeting_arrow.visible = true
+		if transform.x.x == 1:
+			targeting_arrow.global_rotation = aim_dir.angle() + PI/2
+		else:
+			targeting_arrow.global_rotation = aim_dir.angle() - PI/2
+	
 	var holding_cieling: bool = abs(angle_difference(current_hold.global_rotation, deg_to_rad(180))) < deg_to_rad(1)
 	if holding_cieling:
 		global_position = current_hold.global_position - (top_hand_point.global_position - global_position)
@@ -144,8 +154,12 @@ func holding_behavior() -> void:
 	
 
 @onready var sprite_animator: AnimatedSprite2D = %"Sprite Animator" as AnimatedSprite2D
+@onready var griddy_timer: Timer = %"Griddy Timer" as Timer
 
 func update_animations() -> void:
+	if sprite_animator.animation != "idle" and sprite_animator.animation != "dance":
+		griddy_timer.start()
+	
 	slide_particles.emitting = false
 	if current_hold:
 		var holding_cieling: bool = abs(angle_difference(current_hold.global_rotation, deg_to_rad(180))) < deg_to_rad(1)
@@ -154,16 +168,26 @@ func update_animations() -> void:
 		else:
 			sprite_animator.play("hang_side")
 	elif is_on_floor():
-
 		if abs(velocity.x) > 10:
 			sprite_animator.play("walk")
 		else:
-			sprite_animator.play("idle")
+			if griddy_timer.time_left == 0:
+				sprite_animator.play("dance")
+			else:
+				sprite_animator.play("idle")
 	elif is_downsliding:
 		sprite_animator.play("downslide")
 		slide_particles.emitting = true
 	else:
-		sprite_animator.play("jump")
+		if abs(velocity.x) > 750:
+			sprite_animator.play("jump_reach")
+		else:
+			if abs(velocity.y) < 200:
+				sprite_animator.play("jump_hang")
+			elif velocity.y > 0:
+				sprite_animator.play("jump_decend")
+			else:
+				sprite_animator.play("jump_up")
 
 func try_squash() -> void:
 	if is_on_floor():

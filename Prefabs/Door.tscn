@@ -11,7 +11,7 @@ light_mode = 1
 light_mode = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e0y4u"]
-size = Vector2(3, 102)
+size = Vector2(3, 224)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_el28c"]
 size = Vector2(5, 218)
@@ -36,7 +36,7 @@ scale = Vector2(3.125, 3.125)
 texture = ExtResource("3_slp37")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 66)
+position = Vector2(-0.5, 5)
 shape = SubResource("RectangleShape2D_e0y4u")
 
 [node name="Interior Wall" type="StaticBody2D" parent="."]

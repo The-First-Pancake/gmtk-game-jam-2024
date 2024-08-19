@@ -16,7 +16,7 @@
 [ext_resource type="FontFile" uid="uid://ck4uibtfurjl4" path="res://Fonts/FFFFORWA.TTF" id="10_xbpyp"]
 [ext_resource type="Texture2D" uid="uid://5p0gmre6j1rp" path="res://Art/Sprites/water/water_texture.tres" id="11_y6mt6"]
 [ext_resource type="Texture2D" uid="uid://bs6m1kttcvgdo" path="res://Art/Sprites/water/Water_Depth.png" id="12_2m3xp"]
-[ext_resource type="PackedScene" uid="uid://b3c0skin4w372" path="res://Prefabs/idol.tscn" id="13_jfp1q"]
+[ext_resource type="PackedScene" path="res://Prefabs/idol.tscn" id="13_jfp1q"]
 [ext_resource type="Texture2D" uid="uid://cra8a72oqq7vi" path="res://Art/Sprites/Idol.png" id="13_pmlcy"]
 [ext_resource type="PackedScene" uid="uid://def2hxxjwwhvl" path="res://Prefabs/Door.tscn" id="19_owl44"]
 

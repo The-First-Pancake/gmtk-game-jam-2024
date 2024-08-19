@@ -1,8 +1,27 @@
-[gd_scene load_steps=37 format=3 uid="uid://dngf3odx0yf5k"]
+[gd_scene load_steps=47 format=3 uid="uid://dngf3odx0yf5k"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_auxp4"]
 [ext_resource type="Texture2D" uid="uid://bapsbp2dcsltk" path="res://Art/Player/Player_canvas_texture.tres" id="2_g2orv"]
+[ext_resource type="Texture2D" uid="uid://cmpjljnlwij5k" path="res://Art/Player/Player_dance_texture.tres" id="2_uqpry"]
+[ext_resource type="Texture2D" uid="uid://b5b0kd0nmc5bm" path="res://Art/Player/Player_Jump_texture.tres" id="3_qdxci"]
 [ext_resource type="Texture2D" uid="uid://c44dsqli58hcu" path="res://Art/Sprites/dust_3.png" id="3_xrsng"]
+[ext_resource type="Texture2D" uid="uid://btgsw0dup1f24" path="res://Art/Sprites/dir_arrow.png" id="4_gmgjr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_04ng4"]
+atlas = ExtResource("2_uqpry")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fab3e"]
+atlas = ExtResource("2_uqpry")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smpln"]
+atlas = ExtResource("2_uqpry")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8x2wi"]
+atlas = ExtResource("2_uqpry")
+region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mbl1n"]
 atlas = ExtResource("2_g2orv")
@@ -64,9 +83,21 @@ region = Rect2(64, 0, 32, 32)
 atlas = ExtResource("2_g2orv")
 region = Rect2(96, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_u8gch"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_rsd4w"]
+atlas = ExtResource("3_qdxci")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ccdv"]
+atlas = ExtResource("3_qdxci")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n26ns"]
 atlas = ExtResource("2_g2orv")
 region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pn6n5"]
+atlas = ExtResource("3_qdxci")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_21f8h"]
 atlas = ExtResource("2_g2orv")
@@ -86,6 +117,23 @@ region = Rect2(224, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2xloi"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_04ng4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fab3e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smpln")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8x2wi")
+}],
+"loop": true,
+"name": &"dance",
+"speed": 6.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_mbl1n")
@@ -158,10 +206,34 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_u8gch")
+"texture": SubResource("AtlasTexture_rsd4w")
 }],
 "loop": true,
-"name": &"jump",
+"name": &"jump_decend",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ccdv")
+}],
+"loop": true,
+"name": &"jump_hang",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n26ns")
+}],
+"loop": true,
+"name": &"jump_reach",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pn6n5")
+}],
+"loop": true,
+"name": &"jump_up",
 "speed": 5.0
 }, {
 "frames": [{
@@ -245,7 +317,9 @@ unique_name_in_owner = true
 z_index = 1
 scale = Vector2(3.125, 3.125)
 sprite_frames = SubResource("SpriteFrames_2xloi")
-animation = &"hang_side"
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.349266
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 9)
@@ -282,6 +356,11 @@ one_shot = true
 
 [node name="Gravity Reduce Timer" type="Timer" parent="."]
 unique_name_in_owner = true
+one_shot = true
+
+[node name="Griddy Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 10.0
 one_shot = true
 
 [node name="Hitbox" type="Area2D" parent="."]
@@ -339,5 +418,11 @@ one_shot = true
 explosiveness = 1.0
 fixed_fps = 0
 draw_order = 0
+
+[node name="Targeting Arrow" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.25098)
+scale = Vector2(2, 2)
+texture = ExtResource("4_gmgjr")
+offset = Vector2(0, -33.525)
 
 [connection signal="area_entered" from="Hitbox" to="." method="on_hitbix_hit"]
