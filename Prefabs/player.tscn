@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://dngf3odx0yf5k"]
+[gd_scene load_steps=59 format=3 uid="uid://dngf3odx0yf5k"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_auxp4"]
 [ext_resource type="Texture2D" uid="uid://bapsbp2dcsltk" path="res://Art/Player/Player_canvas_texture.tres" id="2_g2orv"]
@@ -13,6 +13,8 @@
 [ext_resource type="AudioStream" uid="uid://cikovhlxkux2e" path="res://Sound/Punch1__021.wav" id="11_hf57o"]
 [ext_resource type="AudioStream" uid="uid://1l1hnp6thcfk" path="res://Sound/Ouch__006.wav" id="12_8gy5e"]
 [ext_resource type="AudioStream" uid="uid://owoo0sg3cpg4" path="res://Sound/Footstep1__012.wav" id="13_nhxjg"]
+[ext_resource type="AudioStream" uid="uid://cjr376ab0hf1" path="res://Sound/Pickup__013.wav" id="14_yhk5c"]
+[ext_resource type="AudioStream" uid="uid://twgpbnyr1add" path="res://Sound/music_main.wav" id="15_gqcg7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_04ng4"]
 atlas = ExtResource("2_uqpry")
@@ -531,5 +533,13 @@ stream = ExtResource("12_8gy5e")
 
 [node name="Footstep1012" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("13_nhxjg")
+
+[node name="IdolGet" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("14_yhk5c")
+volume_db = -1.902
+
+[node name="MusicMain" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("15_gqcg7")
+volume_db = -10.0
 
 [connection signal="area_entered" from="Hitbox" to="." method="on_hitbix_hit"]

@@ -34,12 +34,15 @@ var campfires: Array[Campfire] = []
 @onready var slide_sound: AudioStreamPlayer = $Audio/Sliding01 as AudioStreamPlayer
 @onready var die_sound: AudioStreamPlayer = $Audio/Ouch006 as AudioStreamPlayer
 @onready var grab_sound: AudioStreamPlayer = $Audio/Footstep1012 as AudioStreamPlayer
+@onready var idol_get_sound: AudioStreamPlayer = $Audio/IdolGet as AudioStreamPlayer
+@onready var music_main: AudioStreamPlayer = $Audio/MusicMain as AudioStreamPlayer
 
 @onready var gravity_reduce_timer: Timer = %"Gravity Reduce Timer" as Timer
 @onready var targeting_arrow: Sprite2D = $"Targeting Arrow"
 
 func _ready() -> void:
 	GameManager.player = self
+	music_main.play()
 	await get_tree().create_timer(0.3).timeout
 	velocity.x = 900
 
@@ -291,6 +294,7 @@ func on_hitbix_hit(area: Area2D) -> void:
 	if area.is_in_group("idol"):
 		area.queue_free()
 		idols_collected += 1
+		idol_get_sound.play()
 		return
 	if area is Campfire:
 		if campfires.has(area): return #skip if we already have it
