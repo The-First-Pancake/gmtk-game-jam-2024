@@ -229,69 +229,6 @@ layout_mode = 2
 scene_to_load = ExtResource("4_ptxlh")
 override_text = "Level 666"
 
-[node name="Reset Save" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-modulate = Color(1, 0.92981, 0.550781, 1)
-custom_minimum_size = Vector2(220, 330)
-layout_mode = 2
-theme_override_constants/separation = 10
-script = ExtResource("5_14hdt")
-
-[node name="Level Icon" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/Reset Save"]
-custom_minimum_size = Vector2(220, 220)
-layout_mode = 2
-texture = ExtResource("6_gtpwf")
-stretch_mode = 5
-
-[node name="Level Title" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Reset Save"]
-layout_mode = 2
-text = "Reset Save"
-label_settings = SubResource("LabelSettings_th2se")
-horizontal_alignment = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/Reset Save"]
-custom_minimum_size = Vector2(0, 52)
-layout_mode = 2
-theme_override_constants/separation = 25
-alignment = 1
-
-[node name="Idol 1" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/Reset Save/HBoxContainer"]
-visible = false
-layout_mode = 2
-texture = ExtResource("8_fxcsu")
-expand_mode = 2
-stretch_mode = 4
-
-[node name="Idol 2" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/Reset Save/HBoxContainer"]
-visible = false
-layout_mode = 2
-texture = ExtResource("8_fxcsu")
-expand_mode = 2
-stretch_mode = 4
-
-[node name="Idol 3" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/Reset Save/HBoxContainer"]
-visible = false
-layout_mode = 2
-texture = ExtResource("8_fxcsu")
-expand_mode = 2
-stretch_mode = 4
-
-[node name="CompletedFlames" type="Node2D" parent="MarginContainer/HBoxContainer/VBoxContainer/Reset Save"]
-visible = false
-
-[node name="flame" type="AnimatedSprite2D" parent="MarginContainer/HBoxContainer/VBoxContainer/Reset Save/CompletedFlames"]
-position = Vector2(87.1429, 101.429)
-scale = Vector2(3.15, 3.15)
-sprite_frames = SubResource("SpriteFrames_tav7h")
-autoplay = "default"
-frame_progress = 0.832069
-
-[node name="flame2" type="AnimatedSprite2D" parent="MarginContainer/HBoxContainer/VBoxContainer/Reset Save/CompletedFlames"]
-position = Vector2(132.857, 101.429)
-scale = Vector2(3.15, 3.15)
-sprite_frames = SubResource("SpriteFrames_tav7h")
-autoplay = "default"
-frame_progress = 0.601985
-
 [node name="Unlock All" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 modulate = Color(0.550781, 0.589386, 1, 1)
 custom_minimum_size = Vector2(220, 330)
@@ -355,6 +292,69 @@ sprite_frames = SubResource("SpriteFrames_tav7h")
 autoplay = "default"
 frame_progress = 0.601985
 
+[node name="Reset Save" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+modulate = Color(1, 0.92981, 0.550781, 1)
+custom_minimum_size = Vector2(220, 330)
+layout_mode = 2
+theme_override_constants/separation = 10
+script = ExtResource("5_14hdt")
+
+[node name="Level Icon" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/Reset Save"]
+custom_minimum_size = Vector2(220, 220)
+layout_mode = 2
+texture = ExtResource("6_gtpwf")
+stretch_mode = 5
+
+[node name="Level Title" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Reset Save"]
+layout_mode = 2
+text = "Reset Save"
+label_settings = SubResource("LabelSettings_th2se")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/Reset Save"]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="Idol 1" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/Reset Save/HBoxContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("8_fxcsu")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Idol 2" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/Reset Save/HBoxContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("8_fxcsu")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Idol 3" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/Reset Save/HBoxContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("8_fxcsu")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="CompletedFlames" type="Node2D" parent="MarginContainer/HBoxContainer/VBoxContainer/Reset Save"]
+visible = false
+
+[node name="flame" type="AnimatedSprite2D" parent="MarginContainer/HBoxContainer/VBoxContainer/Reset Save/CompletedFlames"]
+position = Vector2(87.1429, 101.429)
+scale = Vector2(3.15, 3.15)
+sprite_frames = SubResource("SpriteFrames_tav7h")
+autoplay = "default"
+frame_progress = 0.832069
+
+[node name="flame2" type="AnimatedSprite2D" parent="MarginContainer/HBoxContainer/VBoxContainer/Reset Save/CompletedFlames"]
+position = Vector2(132.857, 101.429)
+scale = Vector2(3.15, 3.15)
+sprite_frames = SubResource("SpriteFrames_tav7h")
+autoplay = "default"
+frame_progress = 0.601985
+
 [node name="Music Player" type="Node2D" parent="."]
 position = Vector2(1133, 681)
 script = ExtResource("12_8108v")
@@ -366,9 +366,9 @@ stream = ExtResource("13_oohv8")
 [connection signal="gui_input" from="MarginContainer/HBoxContainer/VBoxContainer/Endless" to="MarginContainer/HBoxContainer/VBoxContainer/Endless" method="_on_gui_input"]
 [connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/Endless" to="MarginContainer/HBoxContainer/VBoxContainer/Endless" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="MarginContainer/HBoxContainer/VBoxContainer/Endless" to="MarginContainer/HBoxContainer/VBoxContainer/Endless" method="_on_mouse_exited"]
-[connection signal="gui_input" from="MarginContainer/HBoxContainer/VBoxContainer/Reset Save" to="MarginContainer/HBoxContainer/VBoxContainer/Reset Save" method="_on_gui_input"]
-[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/Reset Save" to="MarginContainer/HBoxContainer/VBoxContainer/Reset Save" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="MarginContainer/HBoxContainer/VBoxContainer/Reset Save" to="MarginContainer/HBoxContainer/VBoxContainer/Reset Save" method="_on_mouse_exited"]
 [connection signal="gui_input" from="MarginContainer/HBoxContainer/VBoxContainer/Unlock All" to="MarginContainer/HBoxContainer/VBoxContainer/Unlock All" method="_on_gui_input"]
 [connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/Unlock All" to="MarginContainer/HBoxContainer/VBoxContainer/Unlock All" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="MarginContainer/HBoxContainer/VBoxContainer/Unlock All" to="MarginContainer/HBoxContainer/VBoxContainer/Unlock All" method="_on_mouse_exited"]
+[connection signal="gui_input" from="MarginContainer/HBoxContainer/VBoxContainer/Reset Save" to="MarginContainer/HBoxContainer/VBoxContainer/Reset Save" method="_on_gui_input"]
+[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/Reset Save" to="MarginContainer/HBoxContainer/VBoxContainer/Reset Save" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/HBoxContainer/VBoxContainer/Reset Save" to="MarginContainer/HBoxContainer/VBoxContainer/Reset Save" method="_on_mouse_exited"]
