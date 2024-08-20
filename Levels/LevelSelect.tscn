@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bjdpxtqaavny0"]
+[gd_scene load_steps=30 format=3 uid="uid://bjdpxtqaavny0"]
 
 [ext_resource type="Script" path="res://Scripts/LevelSelect.gd" id="1_7k26d"]
 [ext_resource type="Texture2D" uid="uid://bqfeqtdw7xcxo" path="res://Art/Sprites/Backgrounds/background.png" id="1_24j1o"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://Scripts/MusicPlayer.gd" id="12_8108v"]
 [ext_resource type="AudioStream" uid="uid://b7o0nfcidnbwd" path="res://Sound/Music/title_music.wav" id="13_oohv8"]
 [ext_resource type="Script" path="res://Levels/UnlockAll.gd" id="13_wubfr"]
+[ext_resource type="PackedScene" uid="uid://fq6lpryclmx1" path="res://Prefabs/cursor.tscn" id="16_w0v3b"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_pwuex"]
 light_mode = 1
@@ -364,6 +365,9 @@ script = ExtResource("12_8108v")
 unique_name_in_owner = true
 stream = ExtResource("13_oohv8")
 volume_db = -7.0
+
+[node name="Cursor" parent="." instance=ExtResource("16_w0v3b")]
+position = Vector2(1507, 669)
 
 [connection signal="gui_input" from="MarginContainer/HBoxContainer/VBoxContainer/Endless" to="MarginContainer/HBoxContainer/VBoxContainer/Endless" method="_on_gui_input"]
 [connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/Endless" to="MarginContainer/HBoxContainer/VBoxContainer/Endless" method="_on_mouse_entered"]

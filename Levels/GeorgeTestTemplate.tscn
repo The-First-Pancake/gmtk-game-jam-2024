@@ -28,7 +28,7 @@ script = ExtResource("2_h2nwq")
 spawn_prefab = ExtResource("7_y05uc")
 spawn_count = 4
 
-[node name="Template Level" instance=ExtResource("1_8tfe6")]
+[node name="Template Level2" instance=ExtResource("1_8tfe6")]
 
 [node name="Exit Door" parent="." index="2"]
 position = Vector2(1943, 69)
