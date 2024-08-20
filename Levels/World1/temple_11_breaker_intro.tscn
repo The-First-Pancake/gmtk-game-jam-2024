@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://cwr06a2yerm2q"]
+
+[ext_resource type="PackedScene" uid="uid://6dd2cbybvcqg" path="res://Levels/Template Level.tscn" id="1_vxill"]
+[ext_resource type="PackedScene" uid="uid://c4safo4pwme48" path="res://Prefabs/Blocks/1x4-Piece.tscn" id="2_r8fog"]
+[ext_resource type="PackedScene" uid="uid://hetb2cu4cbew" path="res://Prefabs/BreakerSpike.tscn" id="3_5a57g"]
+
+[node name="Template Level" instance=ExtResource("1_vxill")]
+
+[node name="Exit Door" parent="." index="2"]
+position = Vector2(1750, -3268)
+
+[node name="Cieling" parent="." index="5"]
+offset_top = -11276.0
+offset_bottom = -11010.0
+
+[node name="Idol" parent="." index="12"]
+position = Vector2(1750, -450)
+
+[node name="Idol2" parent="." index="13"]
+position = Vector2(900, -1500)
+
+[node name="Idol3" parent="." index="14"]
+position = Vector2(900, -3300)
+
+[node name="PlaceableCharacterBody2d" parent="." index="15" instance=ExtResource("2_r8fog")]
+position = Vector2(1750, -3100)
+rotation = 1.5708
+
+[node name="BreakerSpike" parent="." index="16" instance=ExtResource("3_5a57g")]
+position = Vector2(1872, 1034)
+
+[node name="BreakerSpike3" parent="." index="17" instance=ExtResource("3_5a57g")]
+position = Vector2(1772, 1034)
+
+[node name="BreakerSpike5" parent="." index="18" instance=ExtResource("3_5a57g")]
+position = Vector2(1672, 1034)
+
+[node name="BreakerSpike8" parent="." index="19" instance=ExtResource("3_5a57g")]
+position = Vector2(1572, 1034)
+
+[node name="BreakerSpike10" parent="." index="20" instance=ExtResource("3_5a57g")]
+position = Vector2(1472, 1034)
+
+[node name="BreakerSpike12" parent="." index="21" instance=ExtResource("3_5a57g")]
+position = Vector2(1372, 1034)
+
+[node name="BreakerSpike14" parent="." index="22" instance=ExtResource("3_5a57g")]
+position = Vector2(1272, 1034)

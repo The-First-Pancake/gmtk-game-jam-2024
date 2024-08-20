@@ -17,9 +17,11 @@ const UNPLACED_COLLISION_LAYER : int = 2
 @onready var shatter_sound : AudioStreamPlayer = $Explosion3003 as AudioStreamPlayer
 
 static var currently_held_block: Placeable = null
+var destroy_semaphore : Semaphore = Semaphore.new()
 
 func _ready() -> void:
 	hold_point_generator = $HoldPointGenerator
+	destroy_semaphore.post()
 
 func _physics_process(delta: float) -> void:
 	if (state == PlaceState.PLACING):
@@ -99,15 +101,16 @@ func check_for_collisions() -> bool:
 	return is_instance_valid(collision)
 	
 func destroy(collision_point_global : Vector2) -> void:
-	if (state != PlaceState.DESTROYED):
-		state = PlaceState.DESTROYED
-		AudioManager.PlayAudio(shatter_sound)
-		for child in get_children():
-			if child is Sprite2D:
-				continue
-			if child is CollisionPolygon2D:
-				continue
-			else: 
-				child.queue_free()
-		enter_placed()
-		$Sprite2D/ShardEmitter.shatter(collision_point_global)
+	if destroy_semaphore.try_wait():
+		if (state != PlaceState.DESTROYED):
+			state = PlaceState.DESTROYED
+			AudioManager.PlayAudio(shatter_sound)
+			for child in get_children():
+				if child is Sprite2D:
+					continue
+				if child is CollisionPolygon2D:
+					continue
+				else: 
+					child.queue_free()
+			enter_placed()
+			$Sprite2D/ShardEmitter.shatter(collision_point_global)
