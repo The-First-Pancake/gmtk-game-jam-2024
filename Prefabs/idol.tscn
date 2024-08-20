@@ -16,8 +16,10 @@ radius = 21.3776
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("CanvasItemMaterial_0pk8k")
+position = Vector2(-0.125, -19.6875)
 scale = Vector2(3.125, 3.125)
 texture = SubResource("CanvasTexture_pk2ol")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.125, -19.6875)
 shape = SubResource("CircleShape2D_h72c8")

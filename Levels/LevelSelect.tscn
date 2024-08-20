@@ -1,8 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://dkkns7jwrd842"]
+[gd_scene load_steps=25 format=3 uid="uid://dkkns7jwrd842"]
 
 [ext_resource type="Script" path="res://Scripts/LevelSelect.gd" id="1_7k26d"]
 [ext_resource type="Texture2D" uid="uid://bqfeqtdw7xcxo" path="res://Art/Sprites/Backgrounds/background.png" id="1_24j1o"]
 [ext_resource type="PackedScene" uid="uid://b3q4i4rqf26xp" path="res://Prefabs/LevelWeenie.tscn" id="3_66fh1"]
+[ext_resource type="Script" path="res://Scripts/LevelWeenie.gd" id="4_a2yic"]
+[ext_resource type="PackedScene" uid="uid://vcyac1bxeyct" path="res://Levels/Endless Level.tscn" id="4_hscby"]
 [ext_resource type="PackedScene" uid="uid://7amxmfedeq7u" path="res://Levels/World1/temple_66_hell.tscn" id="4_ptxlh"]
 [ext_resource type="Script" path="res://Levels/Reset_Save.gd" id="5_14hdt"]
 [ext_resource type="Texture2D" uid="uid://cm1bxb5y7kb" path="res://Art/Sprites/UI/ui_throbber.png" id="6_gtpwf"]
@@ -48,6 +50,47 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_auh6p")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_th2se"]
+font = ExtResource("7_rccux")
+font_size = 35
+font_color = Color(0.7, 0.588, 0.42, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ingc"]
+atlas = ExtResource("9_wrau7")
+region = Rect2(0, 0, 3, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7owo"]
+atlas = ExtResource("9_wrau7")
+region = Rect2(3, 0, 3, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0lk1t"]
+atlas = ExtResource("9_wrau7")
+region = Rect2(6, 0, 3, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_decim"]
+atlas = ExtResource("9_wrau7")
+region = Rect2(9, 0, 3, 6)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tav7h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ingc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b7owo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0lk1t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_decim")
 }],
 "loop": true,
 "name": &"default",
@@ -109,10 +152,68 @@ layout_mode = 2
 theme_override_constants/separation = 190
 alignment = 1
 
-[node name="LevelWeenie" parent="MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("3_66fh1")]
+[node name="LevelWeenie" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 modulate = Color(0.84375, 1, 0.868164, 1)
+custom_minimum_size = Vector2(220, 330)
 layout_mode = 2
+theme_override_constants/separation = 10
+script = ExtResource("4_a2yic")
+scene_to_load = ExtResource("4_hscby")
 override_text = "Endless"
+endless = true
+
+[node name="Level Icon" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/LevelWeenie"]
+custom_minimum_size = Vector2(220, 220)
+layout_mode = 2
+texture = ExtResource("6_gtpwf")
+stretch_mode = 5
+
+[node name="Level Title" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/LevelWeenie"]
+layout_mode = 2
+text = "Level 1"
+label_settings = SubResource("LabelSettings_d7721")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/LevelWeenie"]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="Idol 1" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/LevelWeenie/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("8_fxcsu")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="High Score Idol" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/LevelWeenie/HBoxContainer"]
+layout_mode = 2
+text = "000 "
+label_settings = SubResource("LabelSettings_d7721")
+horizontal_alignment = 1
+
+[node name="High Score Height" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/LevelWeenie/HBoxContainer"]
+layout_mode = 2
+text = "000  m"
+label_settings = SubResource("LabelSettings_d7721")
+horizontal_alignment = 1
+
+[node name="CompletedFlames" type="Node2D" parent="MarginContainer/HBoxContainer/VBoxContainer/LevelWeenie"]
+position = Vector2(9, 1)
+
+[node name="flame" type="AnimatedSprite2D" parent="MarginContainer/HBoxContainer/VBoxContainer/LevelWeenie/CompletedFlames"]
+position = Vector2(87.1429, 101.429)
+scale = Vector2(3.15, 3.15)
+sprite_frames = SubResource("SpriteFrames_8jjmw")
+autoplay = "default"
+frame_progress = 0.832069
+
+[node name="flame2" type="AnimatedSprite2D" parent="MarginContainer/HBoxContainer/VBoxContainer/LevelWeenie/CompletedFlames"]
+position = Vector2(132.857, 101.429)
+scale = Vector2(3.15, 3.15)
+sprite_frames = SubResource("SpriteFrames_8jjmw")
+autoplay = "default"
+frame_progress = 0.601985
 
 [node name="LevelWeenie2" parent="MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("3_66fh1")]
 modulate = Color(1, 0.550781, 0.550781, 1)
@@ -124,6 +225,7 @@ override_text = "Level 666"
 modulate = Color(1, 0.92981, 0.550781, 1)
 custom_minimum_size = Vector2(220, 330)
 layout_mode = 2
+theme_override_constants/separation = 10
 script = ExtResource("5_14hdt")
 
 [node name="Level Icon" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/LevelWeenie3"]
@@ -135,7 +237,7 @@ stretch_mode = 5
 [node name="Level Title" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/LevelWeenie3"]
 layout_mode = 2
 text = "Reset Save"
-label_settings = SubResource("LabelSettings_d7721")
+label_settings = SubResource("LabelSettings_th2se")
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/LevelWeenie3"]
@@ -171,17 +273,20 @@ visible = false
 [node name="flame" type="AnimatedSprite2D" parent="MarginContainer/HBoxContainer/VBoxContainer/LevelWeenie3/CompletedFlames"]
 position = Vector2(87.1429, 101.429)
 scale = Vector2(3.15, 3.15)
-sprite_frames = SubResource("SpriteFrames_8jjmw")
+sprite_frames = SubResource("SpriteFrames_tav7h")
 autoplay = "default"
 frame_progress = 0.832069
 
 [node name="flame2" type="AnimatedSprite2D" parent="MarginContainer/HBoxContainer/VBoxContainer/LevelWeenie3/CompletedFlames"]
 position = Vector2(132.857, 101.429)
 scale = Vector2(3.15, 3.15)
-sprite_frames = SubResource("SpriteFrames_8jjmw")
+sprite_frames = SubResource("SpriteFrames_tav7h")
 autoplay = "default"
 frame_progress = 0.601985
 
+[connection signal="gui_input" from="MarginContainer/HBoxContainer/VBoxContainer/LevelWeenie" to="MarginContainer/HBoxContainer/VBoxContainer/LevelWeenie" method="_on_gui_input"]
+[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/LevelWeenie" to="MarginContainer/HBoxContainer/VBoxContainer/LevelWeenie" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/HBoxContainer/VBoxContainer/LevelWeenie" to="MarginContainer/HBoxContainer/VBoxContainer/LevelWeenie" method="_on_mouse_exited"]
 [connection signal="gui_input" from="MarginContainer/HBoxContainer/VBoxContainer/LevelWeenie3" to="MarginContainer/HBoxContainer/VBoxContainer/LevelWeenie3" method="_on_gui_input"]
 [connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/LevelWeenie3" to="MarginContainer/HBoxContainer/VBoxContainer/LevelWeenie3" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="MarginContainer/HBoxContainer/VBoxContainer/LevelWeenie3" to="MarginContainer/HBoxContainer/VBoxContainer/LevelWeenie3" method="_on_mouse_exited"]

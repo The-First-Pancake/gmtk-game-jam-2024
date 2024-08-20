@@ -21,26 +21,16 @@ var exit_door : Door = null
 	]
 
 var current_level : PackedScene = null
-var game_progress_state : Dictionary = {"max_level_reached" = 1,
-										"level_states" = []}
-
-var level_select_scene: PackedScene = preload("uid://dkkns7jwrd842")
+var level_select_scene: PackedScene = preload("res://Levels/LevelSelect.tscn")
 const SAVE_PATH: String = "user://save.tres"
 var current_save: GameSave = null
 
 func _ready() -> void:
 	if ResourceLoader.exists(SAVE_PATH):
 		current_save = ResourceLoader.load(SAVE_PATH) as GameSave
-		print(current_save.endless_high_score)
+		print(current_save.endless_high_height)
 	else:
 		setup_new_save()
-	
-	for level in levels:
-		var level_dictionary_default : Dictionary = {
-			"completed" = false,
-			"idols" = 0,
-		}
-		game_progress_state["level_states"].append(level_dictionary_default)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

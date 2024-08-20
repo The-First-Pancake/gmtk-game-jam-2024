@@ -11,6 +11,7 @@ var spawn_timer : Timer
 var spawned_block : Placeable
 var spawned_object_counts : Array[int] = []
 var total_objects_to_spawn : int = 0
+var appended_spawns : int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -18,6 +19,19 @@ func _ready() -> void:
 	spawned_object_counts.resize(len(spawn_objects))
 	refresh_spawn_object_counts()
 	generate_and_spawn_block()
+
+func add_spawn_object(object : SpawnObject) -> void:
+	spawn_objects.append(object)
+	spawned_object_counts.append(0)
+	appended_spawns += 1
+	refresh_spawn_object_counts()
+
+func clear_added_spawns() -> void:
+	for i in appended_spawns:
+		spawn_objects.remove_at(spawn_objects.size()-1)
+		spawned_object_counts.remove_at(spawned_object_counts.size()-1)
+		appended_spawns -= 1
+	refresh_spawn_object_counts()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

@@ -281,6 +281,7 @@ func die() -> void:
 		#respawn
 		global_position = highest_campfire.global_position
 	else:
+		GameManager.save_game()
 		print("you die for real")
 		get_tree().reload_current_scene()
 		queue_free()

@@ -2,7 +2,8 @@ class_name GameSave
 extends Resource
 
 @export var levels_complete: Array[LevelCompleteData] = []
-@export var endless_high_score: int = 0
+@export var endless_high_height: int = 0
+@export var endless_high_idols: int = 0
 
 func is_level_complete(level: PackedScene) -> bool:
 	for level_data: LevelCompleteData in levels_complete:

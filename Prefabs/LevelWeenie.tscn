@@ -52,6 +52,7 @@ custom_minimum_size = Vector2(220, 330)
 offset_right = 220.0
 offset_bottom = 329.0
 scale = Vector2(0.7, 0.7)
+theme_override_constants/separation = 10
 script = ExtResource("1_13nni")
 
 [node name="Level Icon" type="TextureRect" parent="."]

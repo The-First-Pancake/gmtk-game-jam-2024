@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 const max_roation_on_hit = 10
 @export var speed : float = 300.0
+var lifetime : float = 5.0
 
 func _physics_process(delta: float) -> void:
 	if (speed != 0):
@@ -25,3 +26,5 @@ func stick_in_object() -> void:
 	# rotate a bit
 	var rotate_amount : float = randf_range(-1, 1) * max_roation_on_hit
 	rotate(deg_to_rad(rotate_amount))
+	await get_tree().create_timer(lifetime).timeout
+	queue_free()

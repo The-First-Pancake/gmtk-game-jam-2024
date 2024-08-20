@@ -5,6 +5,7 @@ var level_idx : int = 1;
 
 @export var scene_to_load: PackedScene
 @export var override_text: String = ""
+@export var endless: bool = false
 
 @onready var idol_1: TextureRect = $"HBoxContainer/Idol 1"
 @onready var idol_2: TextureRect = $"HBoxContainer/Idol 2"
@@ -23,7 +24,7 @@ func _ready() -> void:
 	else:
 		level_title.text = "Level " + str(level_idx)
 		
-	if (GameManager.current_save.is_level_complete(scene_to_load)):
+	if (GameManager.current_save.is_level_complete(scene_to_load) or endless):
 		completed_flames.show()
 	var idols_collected : int = GameManager.current_save.how_many_idols(scene_to_load)
 	if (idols_collected >= 1):
@@ -35,7 +36,13 @@ func _ready() -> void:
 		idol_1.show()
 		idol_2.show()
 		idol_3.show()
-	
+
+	if (endless):
+		var high_score_idol: Label = $"HBoxContainer/High Score Idol"
+		var high_score_height: Label = $"HBoxContainer/High Score Height"
+		high_score_idol.text = "%02d"%GameManager.current_save.endless_high_idols
+		high_score_height.text = "%03d"%GameManager.current_save.endless_high_height
+
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

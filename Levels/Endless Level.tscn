@@ -1,0 +1,363 @@
+[gd_scene load_steps=51 format=3 uid="uid://vcyac1bxeyct"]
+
+[ext_resource type="Texture2D" uid="uid://bqfeqtdw7xcxo" path="res://Art/Sprites/Backgrounds/background.png" id="1_ahsb1"]
+[ext_resource type="PackedScene" uid="uid://def2hxxjwwhvl" path="res://Prefabs/Door.tscn" id="2_d4khg"]
+[ext_resource type="Texture2D" uid="uid://c8stqjg8ba3bf" path="res://Art/Sprites/side_column_right.png" id="3_gqlh8"]
+[ext_resource type="PackedScene" uid="uid://dngf3odx0yf5k" path="res://Prefabs/player.tscn" id="4_irwxl"]
+[ext_resource type="Script" path="res://Scripts/CameraController.gd" id="5_h6pdm"]
+[ext_resource type="Script" path="res://Scripts/ui_endless.gd" id="6_gswen"]
+[ext_resource type="Texture2D" uid="uid://cm1bxb5y7kb" path="res://Art/Sprites/UI/ui_throbber.png" id="7_u8im4"]
+[ext_resource type="Texture2D" uid="uid://b3oj42r81wxap" path="res://Art/Sprites/UI/ui_frame.png" id="8_kfuov"]
+[ext_resource type="FontFile" uid="uid://ck4uibtfurjl4" path="res://Fonts/FFFFORWA.TTF" id="9_5r8lm"]
+[ext_resource type="Texture2D" uid="uid://cra8a72oqq7vi" path="res://Art/Sprites/Idol.png" id="10_adrqh"]
+[ext_resource type="Script" path="res://Scripts/EndlessRandomizers.gd" id="11_5te7k"]
+[ext_resource type="PackedScene" uid="uid://ctlx3qylqphyo" path="res://Prefabs/BlockSpawner.tscn" id="11_o15bl"]
+[ext_resource type="PackedScene" uid="uid://c4safo4pwme48" path="res://Prefabs/Blocks/1x4-Piece.tscn" id="12_liuyp"]
+[ext_resource type="Script" path="res://Scripts/SpawnObject.gd" id="12_x7t8k"]
+[ext_resource type="PackedScene" uid="uid://bdyf8npx3i7xk" path="res://Prefabs/Blocks/2x2-Piece.tscn" id="13_b1ltq"]
+[ext_resource type="PackedScene" uid="uid://r1kjk04fwuou" path="res://Prefabs/Hold.tscn" id="13_h3ssj"]
+[ext_resource type="PackedScene" uid="uid://bkatak76uuoli" path="res://Prefabs/Campfire.tscn" id="14_01ldm"]
+[ext_resource type="PackedScene" uid="uid://caudmtkjwca1i" path="res://Prefabs/Blocks/L-Piece-Mirrored.tscn" id="14_nvupw"]
+[ext_resource type="PackedScene" uid="uid://dhrgrpwwax6i8" path="res://Prefabs/Spikes.tscn" id="15_35aio"]
+[ext_resource type="PackedScene" uid="uid://b1lrc4bb14deo" path="res://Prefabs/Blocks/L-Piece.tscn" id="15_ixg1q"]
+[ext_resource type="PackedScene" uid="uid://c7c8vai4olkeh" path="res://Prefabs/Blocks/T-Piece.tscn" id="16_i16r8"]
+[ext_resource type="Script" path="res://Scripts/WaterLevel.gd" id="16_iu2dh"]
+[ext_resource type="PackedScene" uid="uid://b60t64b6u40dy" path="res://Prefabs/Blocks/Z-Piece-Mirrored.tscn" id="17_51m63"]
+[ext_resource type="Texture2D" uid="uid://5p0gmre6j1rp" path="res://Art/Sprites/water/water_texture.tres" id="17_w61jd"]
+[ext_resource type="Texture2D" uid="uid://bs6m1kttcvgdo" path="res://Art/Sprites/water/Water_Depth.png" id="18_d27y8"]
+[ext_resource type="PackedScene" uid="uid://cqrk66u8spi3" path="res://Prefabs/Blocks/Z-Piece.tscn" id="18_geqs0"]
+[ext_resource type="PackedScene" uid="uid://b3c0skin4w372" path="res://Prefabs/idol.tscn" id="19_j6m1q"]
+[ext_resource type="Texture2D" uid="uid://dg585ad1tpgdc" path="res://Art/Sprites/Rope_Hook.png" id="20_cwwkg"]
+[ext_resource type="PackedScene" uid="uid://dbsx7a6dnrba2" path="res://Prefabs/ArrowSpitter.tscn" id="21_kdoe7"]
+[ext_resource type="Script" path="res://Scripts/Rope.gd" id="21_yotb3"]
+[ext_resource type="PackedScene" uid="uid://hetb2cu4cbew" path="res://Prefabs/BreakerSpike.tscn" id="22_weo7f"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_sacac"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4c02t"]
+light_mode = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qulcn"]
+size = Vector2(336, 265.6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_375yt"]
+size = Vector2(297.6, 18646.6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hvw07"]
+size = Vector2(671.36, 16975.8)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_rc0ob"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ymr2b"]
+light_mode = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_448k6"]
+font = ExtResource("9_5r8lm")
+font_size = 60
+font_color = Color(0.28, 0.2352, 0.168, 1)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_lftag"]
+light_mode = 1
+
+[sub_resource type="Resource" id="Resource_6f78n"]
+script = ExtResource("12_x7t8k")
+spawn_prefab = ExtResource("15_35aio")
+spawn_count = 5
+
+[sub_resource type="Resource" id="Resource_lpbvl"]
+script = ExtResource("12_x7t8k")
+spawn_prefab = ExtResource("21_kdoe7")
+spawn_count = 5
+
+[sub_resource type="Resource" id="Resource_kfj65"]
+script = ExtResource("12_x7t8k")
+spawn_prefab = ExtResource("22_weo7f")
+spawn_count = 5
+
+[sub_resource type="Resource" id="Resource_6716m"]
+script = ExtResource("12_x7t8k")
+spawn_prefab = ExtResource("13_h3ssj")
+spawn_count = 10
+
+[sub_resource type="Resource" id="Resource_b3o7y"]
+script = ExtResource("12_x7t8k")
+spawn_prefab = ExtResource("14_01ldm")
+spawn_count = 2
+
+[sub_resource type="Resource" id="Resource_p0i3i"]
+script = ExtResource("12_x7t8k")
+spawn_prefab = ExtResource("19_j6m1q")
+spawn_count = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1wnnk"]
+light_mode = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j4yru"]
+size = Vector2(1474, 709)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_br2ev"]
+size = Vector2(1350, 1110)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_e7s6v"]
+light_mode = 1
+
+[node name="Endless Level" type="Node2D"]
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+scroll_scale = Vector2(1, 0.5)
+
+[node name="Background" type="TextureRect" parent="Parallax2D"]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_sacac")
+offset_left = 410.0
+offset_top = -51850.0
+offset_right = 1050.0
+offset_bottom = -41064.0
+scale = Vector2(3, 5)
+texture = ExtResource("1_ahsb1")
+stretch_mode = 1
+
+[node name="Background2" type="TextureRect" parent="Parallax2D"]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_sacac")
+offset_left = 340.0
+offset_top = -16345.0
+offset_right = 980.0
+offset_bottom = -12660.0
+scale = Vector2(3, 5)
+texture = ExtResource("1_ahsb1")
+stretch_mode = 1
+
+[node name="Entrance Door" parent="." instance=ExtResource("2_d4khg")]
+position = Vector2(1088, 916)
+is_exit = false
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+position = Vector2(950, 150)
+rotation = -6.28319
+energy = 1.55
+
+[node name="Floor" type="TextureRect" parent="."]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_4c02t")
+offset_left = 852.0
+offset_top = 1034.0
+offset_right = 1186.0
+offset_bottom = 1300.0
+scale = Vector2(3.125, 3.125)
+texture = ExtResource("3_gqlh8")
+stretch_mode = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Floor" groups=["terrain"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/StaticBody2D"]
+position = Vector2(167.36, 132.48)
+shape = SubResource("RectangleShape2D_qulcn")
+debug_color = Color(0, 0.595, 0.7, 0)
+
+[node name="Left Wall" type="TextureRect" parent="."]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_4c02t")
+offset_left = -383.0
+offset_top = -50900.0
+offset_right = -37.0
+offset_bottom = -34065.0
+scale = Vector2(3.125, 3.125)
+texture = ExtResource("3_gqlh8")
+stretch_mode = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Left Wall" groups=["terrain"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left Wall/StaticBody2D"]
+position = Vector2(202.56, 9328)
+shape = SubResource("RectangleShape2D_375yt")
+debug_color = Color(0, 0.595, 0.7, 0)
+
+[node name="Right Wall" type="TextureRect" parent="."]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_4c02t")
+offset_left = 2052.0
+offset_top = -51100.0
+offset_right = 2248.0
+offset_bottom = -34200.0
+scale = Vector2(3.125, 3.125)
+texture = ExtResource("3_gqlh8")
+stretch_mode = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Right Wall" groups=["terrain"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right Wall/StaticBody2D"]
+position = Vector2(335.68, 8488.08)
+shape = SubResource("RectangleShape2D_hvw07")
+debug_color = Color(0, 0.595, 0.7, 0)
+
+[node name="Player" parent="." instance=ExtResource("4_irwxl")]
+position = Vector2(1019, 984)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+z_index = 1000
+position = Vector2(1133, 681)
+script = ExtResource("5_h6pdm")
+step = 300.0
+top_trigger = 300.0
+bottom_trigger = 200.0
+
+[node name="UI" type="Node2D" parent="Camera2D" node_paths=PackedStringArray("idol_label", "idol_high_label", "height_label")]
+z_as_relative = false
+script = ExtResource("6_gswen")
+idol_label = NodePath("IdolUI")
+idol_high_label = NodePath("IdolHighUI")
+height_label = NodePath("HeightUI")
+
+[node name="UiThrobber" type="Sprite2D" parent="Camera2D/UI"]
+modulate = Color(0.56, 0.56, 0.56, 1)
+z_as_relative = false
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_rc0ob")
+position = Vector2(-790, -400)
+scale = Vector2(3.125, 3.125)
+texture = ExtResource("7_u8im4")
+centered = false
+
+[node name="UiFrame" type="Sprite2D" parent="Camera2D/UI"]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_ymr2b")
+position = Vector2(-673, 203)
+scale = Vector2(3.125, 3.125)
+texture = ExtResource("8_kfuov")
+
+[node name="IdolUI" type="Label" parent="Camera2D/UI"]
+offset_left = -780.0
+offset_top = 319.0
+offset_right = -690.0
+offset_bottom = 457.0
+text = "00"
+label_settings = SubResource("LabelSettings_448k6")
+
+[node name="IdolHighUI" type="Label" parent="Camera2D/UI"]
+offset_left = -654.0
+offset_top = 319.0
+offset_right = -564.0
+offset_bottom = 457.0
+text = "00"
+label_settings = SubResource("LabelSettings_448k6")
+
+[node name="HeightUI" type="Label" parent="Camera2D/UI"]
+offset_left = -783.0
+offset_top = 19.0
+offset_right = -651.0
+offset_bottom = 210.0
+text = "000
+666"
+label_settings = SubResource("LabelSettings_448k6")
+
+[node name="HeightUI2" type="Label" parent="Camera2D/UI"]
+offset_left = -633.0
+offset_top = 19.0
+offset_right = -543.0
+offset_bottom = 210.0
+text = "m
+HI"
+label_settings = SubResource("LabelSettings_448k6")
+
+[node name="Idol" type="Sprite2D" parent="Camera2D/UI"]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_lftag")
+position = Vector2(-672, 250)
+scale = Vector2(6, 6)
+texture = ExtResource("10_adrqh")
+
+[node name="EndlessRandomizer" type="Node2D" parent="Camera2D"]
+script = ExtResource("11_5te7k")
+block_prefabs = Array[PackedScene]([ExtResource("12_liuyp"), ExtResource("13_b1ltq"), ExtResource("14_nvupw"), ExtResource("15_ixg1q"), ExtResource("16_i16r8"), ExtResource("17_51m63"), ExtResource("18_geqs0")])
+dangers = Array[ExtResource("12_x7t8k")]([SubResource("Resource_6f78n"), SubResource("Resource_lpbvl"), SubResource("Resource_kfj65")])
+y_level_switch = 10
+
+[node name="BlockSpawner" parent="Camera2D/EndlessRandomizer" node_paths=PackedStringArray("spawn_container") instance=ExtResource("11_o15bl")]
+z_as_relative = false
+position = Vector2(-688, -299)
+spawn_container = NodePath("../../../BlockContainer")
+spawn_objects = Array[ExtResource("12_x7t8k")]([SubResource("Resource_6716m"), SubResource("Resource_b3o7y"), SubResource("Resource_p0i3i")])
+spawn_object_probability = 0.5
+
+[node name="BlockContainer" type="Node2D" parent="."]
+
+[node name="Wtf Lol" type="Label" parent="."]
+offset_left = 1050.0
+offset_top = -50800.0
+offset_right = 1750.0
+offset_bottom = -49513.0
+text = "
+
+
+
+bit.ly/4dGqsbq
+
+
+
+
+Honesty?
+You Freaky.
+
+
+
+You're Insane.
+How the hell did
+you make it here?
+"
+label_settings = SubResource("LabelSettings_448k6")
+
+[node name="Water" type="Node2D" parent="."]
+modulate = Color(1, 1, 1, 0.882353)
+z_index = 1000
+position = Vector2(1147, 1293)
+script = ExtResource("16_iu2dh")
+rise_speed = 16.0
+
+[node name="Top Water" type="TextureRect" parent="Water"]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_1wnnk")
+offset_left = -1497.0
+offset_top = -137.0
+offset_right = -534.0
+offset_bottom = -105.0
+scale = Vector2(3.125, 3.125)
+texture = ExtResource("17_w61jd")
+stretch_mode = 1
+
+[node name="Deep Water" type="TextureRect" parent="Water"]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_1wnnk")
+offset_left = -1498.0
+offset_top = -37.0
+offset_right = -535.0
+offset_bottom = 191.0
+scale = Vector2(3.125, 3.125)
+texture = ExtResource("18_d27y8")
+stretch_mode = 1
+
+[node name="Water Kill Area" type="Area2D" parent="Water" groups=["water"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Water/Water Kill Area"]
+position = Vector2(254, 308.5)
+shape = SubResource("RectangleShape2D_j4yru")
+debug_color = Color(0, 0.595, 0.7, 0)
+
+[node name="Water Destroy Area" type="Area2D" parent="Water"]
+position = Vector2(3, 7)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Water/Water Destroy Area"]
+position = Vector2(253, 2007)
+shape = SubResource("RectangleShape2D_br2ev")
+
+[node name="RopeHook" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_e7s6v")
+position = Vector2(2844, 1052)
+scale = Vector2(3.125, 3.125)
+texture = ExtResource("20_cwwkg")
+offset = Vector2(0, -186.98)
+script = ExtResource("21_yotb3")
+
+[connection signal="body_entered" from="Water/Water Destroy Area" to="Water" method="_on_water_destroy_area_body_entered"]
