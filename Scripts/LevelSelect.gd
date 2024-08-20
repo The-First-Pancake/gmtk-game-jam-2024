@@ -1,22 +1,16 @@
 class_name LevelSelect
-extends Node2D
+extends Control
 
 @export var weenie_prefab : PackedScene
+@onready var weenie_container: HFlowContainer = %"Weenie Container"
 
-const weenie_size_x : int = 300
-const weenie_size_y : int = 320
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	for i in GameManager.levels.size():
-		if (i != 0):
+	var i: int = 0
+	for level: PackedScene in GameManager.levels:
 			var spawned_obj : LevelWeenie = weenie_prefab.instantiate() as LevelWeenie
+			i += 1
 			spawned_obj.level_idx = i
-			add_child(spawned_obj)
-			var x_pos : int = int(weenie_size_x * ((i -1) % 6)) + 280
-			var y_pos : int = ((i - 1) / 6) * weenie_size_y + 150
-			spawned_obj.global_position = Vector2(x_pos, y_pos)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+			spawned_obj.scene_to_load = level
+			weenie_container.add_child(spawned_obj)

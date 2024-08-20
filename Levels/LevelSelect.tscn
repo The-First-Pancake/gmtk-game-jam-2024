@@ -1,28 +1,187 @@
-[gd_scene load_steps=5 format=3 uid="uid://dkkns7jwrd842"]
+[gd_scene load_steps=17 format=3 uid="uid://dkkns7jwrd842"]
 
 [ext_resource type="Script" path="res://Scripts/LevelSelect.gd" id="1_7k26d"]
 [ext_resource type="Texture2D" uid="uid://bqfeqtdw7xcxo" path="res://Art/Sprites/Backgrounds/background.png" id="1_24j1o"]
 [ext_resource type="PackedScene" uid="uid://b3q4i4rqf26xp" path="res://Prefabs/LevelWeenie.tscn" id="3_66fh1"]
+[ext_resource type="PackedScene" uid="uid://7amxmfedeq7u" path="res://Levels/World1/temple_66_hell.tscn" id="4_ptxlh"]
+[ext_resource type="Script" path="res://Levels/Reset_Save.gd" id="5_14hdt"]
+[ext_resource type="Texture2D" uid="uid://cm1bxb5y7kb" path="res://Art/Sprites/UI/ui_throbber.png" id="6_gtpwf"]
+[ext_resource type="FontFile" uid="uid://ck4uibtfurjl4" path="res://Fonts/FFFFORWA.TTF" id="7_rccux"]
+[ext_resource type="Texture2D" uid="uid://cra8a72oqq7vi" path="res://Art/Sprites/Idol.png" id="8_fxcsu"]
+[ext_resource type="Texture2D" uid="uid://dcxkuua4cd4st" path="res://Art/Sprites/fire_small.png" id="9_wrau7"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_pwuex"]
 light_mode = 1
 
-[node name="LevelSelect" type="Node2D"]
-position = Vector2(11, -5)
+[sub_resource type="LabelSettings" id="LabelSettings_d7721"]
+font = ExtResource("7_rccux")
+font_size = 35
+font_color = Color(0.7, 0.588, 0.42, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8is8u"]
+atlas = ExtResource("9_wrau7")
+region = Rect2(0, 0, 3, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_udlu0"]
+atlas = ExtResource("9_wrau7")
+region = Rect2(3, 0, 3, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_deems"]
+atlas = ExtResource("9_wrau7")
+region = Rect2(6, 0, 3, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_auh6p"]
+atlas = ExtResource("9_wrau7")
+region = Rect2(9, 0, 3, 6)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8jjmw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8is8u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_udlu0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_deems")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_auh6p")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[node name="LevelSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_7k26d")
 weenie_prefab = ExtResource("3_66fh1")
 
-[node name="Parallax2D" type="Parallax2D" parent="."]
-z_index = -4096
-scroll_scale = Vector2(0.5, 0.5)
-
-[node name="Background" type="TextureRect" parent="Parallax2D"]
+[node name="Background" type="TextureRect" parent="."]
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_pwuex")
-offset_left = -1861.0
-offset_top = -1245.0
-offset_right = 72.0
-offset_bottom = -505.0
-scale = Vector2(3, 5)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -36.0
+offset_top = -22.0
+offset_right = -1316.0
+offset_bottom = -742.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3.125, 3.125)
 texture = ExtResource("1_24j1o")
 stretch_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="HBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Weenie Container" type="HFlowContainer" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 30
+theme_override_constants/v_separation = 20
+alignment = 1
+
+[node name="VBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 190
+alignment = 1
+
+[node name="LevelWeenie" parent="MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("3_66fh1")]
+modulate = Color(0.84375, 1, 0.868164, 1)
+layout_mode = 2
+override_text = "Endless"
+
+[node name="LevelWeenie2" parent="MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("3_66fh1")]
+modulate = Color(1, 0.550781, 0.550781, 1)
+layout_mode = 2
+scene_to_load = ExtResource("4_ptxlh")
+override_text = "Level 666"
+
+[node name="LevelWeenie3" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+modulate = Color(1, 0.92981, 0.550781, 1)
+custom_minimum_size = Vector2(220, 330)
+layout_mode = 2
+script = ExtResource("5_14hdt")
+
+[node name="Level Icon" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/LevelWeenie3"]
+custom_minimum_size = Vector2(220, 220)
+layout_mode = 2
+texture = ExtResource("6_gtpwf")
+stretch_mode = 5
+
+[node name="Level Title" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/LevelWeenie3"]
+layout_mode = 2
+text = "Reset Save"
+label_settings = SubResource("LabelSettings_d7721")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/LevelWeenie3"]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="Idol 1" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/LevelWeenie3/HBoxContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("8_fxcsu")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Idol 2" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/LevelWeenie3/HBoxContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("8_fxcsu")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Idol 3" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/LevelWeenie3/HBoxContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("8_fxcsu")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="CompletedFlames" type="Node2D" parent="MarginContainer/HBoxContainer/VBoxContainer/LevelWeenie3"]
+visible = false
+
+[node name="flame" type="AnimatedSprite2D" parent="MarginContainer/HBoxContainer/VBoxContainer/LevelWeenie3/CompletedFlames"]
+position = Vector2(87.1429, 101.429)
+scale = Vector2(3.15, 3.15)
+sprite_frames = SubResource("SpriteFrames_8jjmw")
+autoplay = "default"
+frame_progress = 0.832069
+
+[node name="flame2" type="AnimatedSprite2D" parent="MarginContainer/HBoxContainer/VBoxContainer/LevelWeenie3/CompletedFlames"]
+position = Vector2(132.857, 101.429)
+scale = Vector2(3.15, 3.15)
+sprite_frames = SubResource("SpriteFrames_8jjmw")
+autoplay = "default"
+frame_progress = 0.601985
+
+[connection signal="gui_input" from="MarginContainer/HBoxContainer/VBoxContainer/LevelWeenie3" to="MarginContainer/HBoxContainer/VBoxContainer/LevelWeenie3" method="_on_gui_input"]
+[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/LevelWeenie3" to="MarginContainer/HBoxContainer/VBoxContainer/LevelWeenie3" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/HBoxContainer/VBoxContainer/LevelWeenie3" to="MarginContainer/HBoxContainer/VBoxContainer/LevelWeenie3" method="_on_mouse_exited"]

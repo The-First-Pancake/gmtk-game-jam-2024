@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b3q4i4rqf26xp"]
+[gd_scene load_steps=12 format=3 uid="uid://b3q4i4rqf26xp"]
 
 [ext_resource type="Script" path="res://Scripts/LevelWeenie.gd" id="1_13nni"]
 [ext_resource type="Texture2D" uid="uid://cm1bxb5y7kb" path="res://Art/Sprites/UI/ui_throbber.png" id="2_u6lqa"]
@@ -6,12 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://cra8a72oqq7vi" path="res://Art/Sprites/Idol.png" id="4_55eog"]
 [ext_resource type="Texture2D" uid="uid://dcxkuua4cd4st" path="res://Art/Sprites/fire_small.png" id="5_mawvm"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_cat1a"]
-radius = 98.0204
-
 [sub_resource type="LabelSettings" id="LabelSettings_d7721"]
 font = ExtResource("3_1r1pr")
-font_size = 60
+font_size = 35
 font_color = Color(0.7, 0.588, 0.42, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8is8u"]
@@ -50,62 +47,69 @@ animations = [{
 "speed": 7.0
 }]
 
-[node name="LevelWeenie" type="Area2D"]
-visible = false
+[node name="LevelWeenie" type="VBoxContainer"]
+custom_minimum_size = Vector2(220, 330)
+offset_right = 220.0
+offset_bottom = 329.0
 scale = Vector2(0.7, 0.7)
 script = ExtResource("1_13nni")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_cat1a")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(3.125, 3.125)
+[node name="Level Icon" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(220, 220)
+layout_mode = 2
 texture = ExtResource("2_u6lqa")
+stretch_mode = 5
 
-[node name="IdolUI" type="Label" parent="."]
-offset_left = -120.0
-offset_top = 120.0
-offset_right = 135.0
-offset_bottom = 258.0
+[node name="Level Title" type="Label" parent="."]
+layout_mode = 2
 text = "Level 1"
 label_settings = SubResource("LabelSettings_d7721")
 horizontal_alignment = 1
 
-[node name="Idol 1" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(-58.125, 231.312)
-scale = Vector2(3.125, 3.125)
-texture = ExtResource("4_55eog")
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+theme_override_constants/separation = 25
+alignment = 1
 
-[node name="Idol 2" type="Sprite2D" parent="."]
+[node name="Idol 1" type="TextureRect" parent="HBoxContainer"]
 visible = false
-position = Vector2(-2.125, 231.312)
-scale = Vector2(3.125, 3.125)
+layout_mode = 2
 texture = ExtResource("4_55eog")
+expand_mode = 2
+stretch_mode = 4
 
-[node name="Idol 3" type="Sprite2D" parent="."]
+[node name="Idol 2" type="TextureRect" parent="HBoxContainer"]
 visible = false
-position = Vector2(50.875, 231.312)
-scale = Vector2(3.125, 3.125)
+layout_mode = 2
 texture = ExtResource("4_55eog")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Idol 3" type="TextureRect" parent="HBoxContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("4_55eog")
+expand_mode = 2
+stretch_mode = 4
 
 [node name="CompletedFlames" type="Node2D" parent="."]
 visible = false
 
 [node name="flame" type="AnimatedSprite2D" parent="CompletedFlames"]
-position = Vector2(-18, -4)
+position = Vector2(87.1429, 101.429)
 scale = Vector2(3.15, 3.15)
 sprite_frames = SubResource("SpriteFrames_8jjmw")
 autoplay = "default"
 frame_progress = 0.832069
 
 [node name="flame2" type="AnimatedSprite2D" parent="CompletedFlames"]
-position = Vector2(19, -4)
+position = Vector2(132.857, 101.429)
 scale = Vector2(3.15, 3.15)
 sprite_frames = SubResource("SpriteFrames_8jjmw")
 autoplay = "default"
 frame_progress = 0.601985
 
-[connection signal="input_event" from="." to="." method="on_collision_input_event"]
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

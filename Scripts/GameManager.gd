@@ -4,14 +4,7 @@ var player : Player = null
 var entrance_door : Door = null
 var exit_door : Door = null
 
-var levels : Array[PackedScene]
-var current_level : int = 0
-var game_progress_state : Dictionary = {"max_level_reached" = 1,
-										"level_states" = []}
-
-func _ready() -> void:
-	levels = [
-		preload("res://Levels/LevelSelect.tscn"),
+@onready var levels : Array[PackedScene] = [
 		preload("res://Levels/World1/temple_1_intro.tscn"),
 		preload("res://Levels/World1/temple_2_spikes.tscn"),
 		preload("res://Levels/World1/temple_3_holds.tscn"),
@@ -25,8 +18,23 @@ func _ready() -> void:
 		preload("res://Levels/World1/temple_11_breaker_intro.tscn"),
 		preload("res://Levels/World1/temple_12_breaker_dropper.tscn"),
 		preload("res://Levels/World1/temple_13_reverse_breaker.tscn"),
-		preload("res://Levels/World1/temple_66_hell.tscn")
 	]
+
+var current_level : PackedScene = null
+var game_progress_state : Dictionary = {"max_level_reached" = 1,
+										"level_states" = []}
+
+var level_select_scene: PackedScene = preload("uid://dkkns7jwrd842")
+const SAVE_PATH: String = "user://save.tres"
+var current_save: GameSave = null
+
+func _ready() -> void:
+	if ResourceLoader.exists(SAVE_PATH):
+		current_save = ResourceLoader.load(SAVE_PATH) as GameSave
+		print(current_save.endless_high_score)
+	else:
+		setup_new_save()
+	
 	for level in levels:
 		var level_dictionary_default : Dictionary = {
 			"completed" = false,
@@ -36,13 +44,15 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("skip_level"):
+		level_complete()
 	if Input.is_action_just_pressed("restart"):
 		get_tree().reload_current_scene()
 	if Input.is_action_just_pressed("ui_cancel"):
 		if get_tree().current_scene.name == "LevelSelect":
 			get_tree().quit()
 		else:
-			load_level(0)
+			load_level_from_packed(level_select_scene)
 	if Input.is_action_just_pressed("fullscreen"):
 		if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
@@ -50,18 +60,18 @@ func _process(delta: float) -> void:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 
 func level_complete() -> void:
-	game_progress_state['level_states'][current_level]['completed'] = true
-	game_progress_state['level_states'][current_level]['idols'] = player.idols_collected
-	load_next_scene()
-	
-func load_level(idx : int) -> void:
-	if (idx >= levels.size()):
-		idx = 0 # always go back to level selected if end reached
-	current_level = idx;
-	get_tree().change_scene_to_packed(levels[idx])
+	current_save.complete_level(current_level, player.idols_collected) 
+	save_game()
+	load_level_from_packed(level_select_scene)
 
-func load_next_scene() -> void:
-	current_level += 1
-	if (current_level > game_progress_state["max_level_reached"]):
-		game_progress_state["max_level_reached"] = current_level
-	load_level(current_level)
+func load_level_from_packed(scene: PackedScene) -> void:
+	current_level = scene
+	get_tree().change_scene_to_packed(scene)
+
+func setup_new_save() -> void:
+	print("Resetting Save")
+	current_save = load("uid://c6sx65edmv72k")
+	save_game()
+
+func save_game() -> void:
+	ResourceSaver.save(current_save, SAVE_PATH)

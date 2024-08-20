@@ -1,25 +1,40 @@
 class_name LevelWeenie
-extends Area2D
+extends Control
 
 var level_idx : int = 1;
+
+@export var scene_to_load: PackedScene
+@export var override_text: String = ""
+
+@onready var idol_1: TextureRect = $"HBoxContainer/Idol 1"
+@onready var idol_2: TextureRect = $"HBoxContainer/Idol 2"
+@onready var idol_3: TextureRect = $"HBoxContainer/Idol 3"
+
+@onready var level_title: Label = $"Level Title"
+@onready var completed_flames: Node2D = $CompletedFlames
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if true: #(GameManager.game_progress_state['max_level_reached'] >= level_idx):
 		show()
-	$IdolUI.text = "Level " + str(level_idx)
-	if (GameManager.game_progress_state['level_states'][level_idx]['completed']):
-		$CompletedFlames.show()
-	var idols_collected : int = GameManager.game_progress_state['level_states'][level_idx]['idols']
+	if override_text != "":
+		level_title.text = override_text
+	else:
+		level_title.text = "Level " + str(level_idx)
+		
+	if (GameManager.current_save.is_level_complete(scene_to_load)):
+		completed_flames.show()
+	var idols_collected : int = GameManager.current_save.how_many_idols(scene_to_load)
 	if (idols_collected >= 1):
-		$"Idol 1".show()
+		idol_1.show()
 	if (idols_collected >= 2):
-		$"Idol 1".show()
-		$"Idol 2".show()
+		idol_1.show()
+		idol_2.show()
 	if (idols_collected >= 3):
-		$"Idol 1".show()
-		$"Idol 2".show()
-		$"Idol 3".show()
+		idol_1.show()
+		idol_2.show()
+		idol_3.show()
 	
 	pass # Replace with function body.
 
@@ -27,9 +42,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func on_collision_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if Input.is_action_just_pressed("drop_block"):
-			GameManager.load_level(level_idx)
 
 func _on_mouse_entered() -> void:
 	modulate.r /= 2
@@ -40,3 +52,8 @@ func _on_mouse_exited() -> void:
 	modulate.r *= 2
 	modulate.g *= 2
 	modulate.b *= 2
+
+
+func _on_gui_input(event: InputEvent) -> void:
+	if event.is_action_pressed("drop_block"):
+		GameManager.load_level_from_packed(scene_to_load)
