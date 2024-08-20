@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bfx23axoevfvh"]
+[gd_scene load_steps=20 format=3 uid="uid://bfx23axoevfvh"]
 
 [ext_resource type="Script" path="res://Scripts/CameraController.gd" id="1_1wwk0"]
 [ext_resource type="Texture2D" uid="uid://cen2ir6mxe6q1" path="res://Art/Logos/splash_wide.png" id="2_xmtac"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bag2p1wkyreqw" path="res://Art/Logos/button_play_hover.png" id="12_4dqt6"]
 [ext_resource type="Texture2D" uid="uid://dieyklmjt683r" path="res://Art/Logos/button_play_press.png" id="13_sfpxd"]
 [ext_resource type="Texture2D" uid="uid://c46chrwfo1c27" path="res://Art/Logos/button_play_normal.png" id="14_lcmns"]
+[ext_resource type="Script" path="res://Scripts/start_game.gd" id="15_fa2f7"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wxx1c"]
 
@@ -44,7 +45,6 @@ scale = Vector2(0.555556, 0.555556)
 texture = ExtResource("2_xmtac")
 
 [node name="CappyNTappy" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(1100, 700)
 scale = Vector2(0.509259, 0.509259)
 texture = ExtResource("3_bhv66")
@@ -54,7 +54,6 @@ enter_delay = 0.25
 shake = true
 
 [node name="CappyNTappy2" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(1100, 700)
 scale = Vector2(0.509259, 0.509259)
 texture = ExtResource("5_4xpqi")
@@ -63,7 +62,6 @@ direction = Vector2(0, 1)
 enter_delay = 0.3
 
 [node name="CappyNTappy3" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(1100, 700)
 scale = Vector2(0.509259, 0.509259)
 texture = ExtResource("6_4knye")
@@ -73,13 +71,11 @@ enter_delay = 0.65
 shake = true
 
 [node name="SplashWide2" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(1150, 700)
 scale = Vector2(0.555556, 0.555556)
 texture = ExtResource("4_hbkag")
 
 [node name="TempleOfPeril" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(1100, 750)
 scale = Vector2(0.462963, 0.462963)
 texture = ExtResource("8_ohgge")
@@ -88,7 +84,6 @@ enter_delay = 1.0
 enter_time = 1.0
 
 [node name="TempleOfPeril2" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(1100, 750)
 scale = Vector2(0.462963, 0.462963)
 texture = ExtResource("9_f5l5f")
@@ -113,3 +108,6 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_wxx1c")
 theme_override_styles/hover = SubResource("StyleBoxTexture_ud14a")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_c50pt")
 theme_override_styles/normal = SubResource("StyleBoxTexture_j6d3a")
+script = ExtResource("15_fa2f7")
+
+[connection signal="button_down" from="Button" to="Button" method="_on_button_down"]
