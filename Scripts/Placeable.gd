@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 enum PlaceState {QUEUED, PLACING, FALLING, PLACED, DESTROYED}
 @export var grid_size : float = 50
-var state : int = PlaceState.PLACED
+@export var state : int = PlaceState.PLACED
 var hold_point_generator : HoldPointGenerator
 
 signal picked_up
@@ -20,6 +20,8 @@ static var currently_held_block: Placeable = null
 var destroy_semaphore : Semaphore = Semaphore.new()
 
 func _ready() -> void:
+	if (state == PlaceState.FALLING):
+		enter_falling()
 	hold_point_generator = $HoldPointGenerator
 	destroy_semaphore.post()
 
