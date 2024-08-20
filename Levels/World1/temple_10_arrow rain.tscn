@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://d1iy60hbanyjr"]
+[gd_scene load_steps=8 format=3 uid="uid://d1iy60hbanyjr"]
 
 [ext_resource type="PackedScene" uid="uid://6dd2cbybvcqg" path="res://Levels/Template Level.tscn" id="1_v0i14"]
 [ext_resource type="PackedScene" uid="uid://c4safo4pwme48" path="res://Prefabs/Blocks/1x4-Piece.tscn" id="2_r7x6o"]
 [ext_resource type="PackedScene" uid="uid://bi6dqttan0e3f" path="res://Prefabs/ArrowSpitter-right.tscn" id="3_6adkx"]
-[ext_resource type="PackedScene" path="res://Prefabs/ArrowSpitter.tscn" id="4_sevu7"]
+[ext_resource type="PackedScene" uid="uid://dbsx7a6dnrba2" path="res://Prefabs/ArrowSpitter.tscn" id="4_sevu7"]
 [ext_resource type="PackedScene" uid="uid://dhrgrpwwax6i8" path="res://Prefabs/Spikes.tscn" id="5_slinm"]
 [ext_resource type="PackedScene" uid="uid://r1kjk04fwuou" path="res://Prefabs/Hold.tscn" id="6_iyacb"]
+[ext_resource type="AudioStream" uid="uid://bs0ib4ihh3wc1" path="res://Sound/Music/Chill Level Music gmtk game jam 2024.wav" id="7_j4s4t"]
 
 [node name="Template Level" instance=ExtResource("1_v0i14")]
 
@@ -147,3 +148,6 @@ rotation = 1.5708
 [node name="Hold2" parent="." index="45" instance=ExtResource("6_iyacb")]
 position = Vector2(1250, -1150)
 rotation = -1.5708
+
+[node name="Music" parent="Music Player" index="0"]
+stream = ExtResource("7_j4s4t")
