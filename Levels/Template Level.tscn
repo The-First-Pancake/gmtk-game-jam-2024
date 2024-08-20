@@ -323,5 +323,6 @@ script = ExtResource("21_xxhgi")
 [node name="Music Player" type="Node2D" parent="."]
 script = ExtResource("22_y5d0p")
 
-[node name="TitleMusic" type="AudioStreamPlayer" parent="Music Player"]
+[node name="Music" type="AudioStreamPlayer" parent="Music Player"]
+unique_name_in_owner = true
 stream = ExtResource("23_cdry0")

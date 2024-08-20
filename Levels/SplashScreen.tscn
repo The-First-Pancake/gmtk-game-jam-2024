@@ -97,11 +97,9 @@ shake = true
 position = Vector2(1133, 681)
 script = ExtResource("6_e8hx0")
 
-[node name="TitleMusic" type="AudioStreamPlayer" parent="Music Player"]
+[node name="Music" type="AudioStreamPlayer" parent="Music Player"]
+unique_name_in_owner = true
 stream = ExtResource("7_32xas")
-
-[node name="Jump012" type="AudioStreamPlayer" parent="Music Player"]
-stream = ExtResource("12_gncmx")
 
 [node name="Button" type="Button" parent="."]
 offset_left = 1600.0
@@ -113,5 +111,8 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_ud14a")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_c50pt")
 theme_override_styles/normal = SubResource("StyleBoxTexture_j6d3a")
 script = ExtResource("15_fa2f7")
+
+[node name="Button Press Sound" type="AudioStreamPlayer" parent="Button"]
+stream = ExtResource("12_gncmx")
 
 [connection signal="button_down" from="Button" to="Button" method="_on_button_down"]

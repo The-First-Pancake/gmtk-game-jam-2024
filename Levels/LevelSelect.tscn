@@ -290,7 +290,8 @@ frame_progress = 0.601985
 position = Vector2(1133, 681)
 script = ExtResource("12_8108v")
 
-[node name="TitleMusic" type="AudioStreamPlayer" parent="Music Player"]
+[node name="Music" type="AudioStreamPlayer" parent="Music Player"]
+unique_name_in_owner = true
 stream = ExtResource("13_oohv8")
 
 [connection signal="gui_input" from="MarginContainer/HBoxContainer/VBoxContainer/LevelWeenie" to="MarginContainer/HBoxContainer/VBoxContainer/LevelWeenie" method="_on_gui_input"]

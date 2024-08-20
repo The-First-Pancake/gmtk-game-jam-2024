@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7q1mopvg26io"]
+
+[ext_resource type="Script" path="res://Scripts/VictoryScreen.gd" id="1_erwl0"]
+[ext_resource type="Texture2D" uid="uid://b5eqab7hoy7xr" path="res://Art/victory_screen.png" id="1_f4e1j"]
+[ext_resource type="Script" path="res://Scripts/MusicPlayer.gd" id="3_js87t"]
+[ext_resource type="AudioStream" uid="uid://bmr1xyk4esk4o" path="res://Sound/Music/dank little dungeon rife with funky little goblins.wav" id="4_uyrod"]
+
+[node name="Victory Screen" type="Node2D"]
+script = ExtResource("1_erwl0")
+
+[node name="Victory Splash" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(961, 541)
+scale = Vector2(4.51458, 4.51458)
+texture = ExtResource("1_f4e1j")
+
+[node name="Black cover" type="ColorRect" parent="."]
+offset_right = 1922.0
+offset_bottom = 1079.0
+color = Color(0, 0, 0, 1)
+
+[node name="Music Player" type="Node2D" parent="."]
+script = ExtResource("3_js87t")
+
+[node name="Music" type="AudioStreamPlayer" parent="Music Player"]
+unique_name_in_owner = true
+stream = ExtResource("4_uyrod")

@@ -1,6 +1,6 @@
 extends Button
 
-@onready var start_sound: AudioStreamPlayer = $"../Music Player/Jump012"
+@onready var start_sound: AudioStreamPlayer = $"Button Press Sound"
 
 func _on_button_down() -> void:
 	AudioManager.PlayAudio(start_sound)

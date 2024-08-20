@@ -51,11 +51,16 @@ func _process(delta: float) -> void:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 		else:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
-
+			
+var victory_screen_scene: PackedScene = preload("res://Levels/victory_screen.tscn")
 func level_complete() -> void:
-	current_save.complete_level(current_level, player.idols_collected) 
+	current_save.complete_level(current_level, player.idols_collected)
 	save_game()
-	load_level_from_packed(level_select_scene)
+	if current_level == levels.back():
+		load_level_from_packed(victory_screen_scene)
+	else:
+		load_level_from_packed(level_select_scene)
+	
 
 func load_level_from_packed(scene: PackedScene) -> void:
 	current_level = scene
