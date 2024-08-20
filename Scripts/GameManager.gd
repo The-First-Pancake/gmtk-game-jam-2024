@@ -73,3 +73,7 @@ func setup_new_save() -> void:
 
 func save_game() -> void:
 	ResourceSaver.save(current_save, SAVE_PATH)
+
+func complete_all_levels() -> void:
+	for level: PackedScene in levels:
+		current_save.complete_level(level,0)

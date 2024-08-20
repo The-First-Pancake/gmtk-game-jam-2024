@@ -16,18 +16,28 @@ var level_idx : int = 1;
 @onready var level_title: Label = $"Level Title"
 @onready var completed_flames: Node2D = $CompletedFlames
 
+var unlocked: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if true: #(GameManager.game_progress_state['max_level_reached'] >= level_idx):
-		show()
+	if level_idx == 1:
+		unlocked = true
+	else:
+		var previous_level: PackedScene = GameManager.levels[level_idx-2]
+		if GameManager.current_save.is_level_complete(previous_level):
+			unlocked = true
+		
 	if override_text != "":
 		level_title.text = override_text
 	else:
 		level_title.text = "Level " + str(level_idx)
 		
 	if (GameManager.current_save.is_level_complete(scene_to_load) or endless):
+		unlocked = true
 		completed_flames.show()
+		
+	visible = unlocked
+	
 	var idols_collected : int = GameManager.current_save.how_many_idols(scene_to_load)
 	if (idols_collected >= 1):
 		idol_1.show()
