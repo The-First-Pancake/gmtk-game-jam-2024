@@ -198,6 +198,9 @@ func update_animations() -> void:
 		slide_sound_playing = false
 		grab_sound_playing = false
 		if abs(velocity.x) > 10:
+			if AudioManager.current_music.stream_paused == true:
+				AudioManager.current_music.stream_paused = false
+				griddy_sound.stop()
 			sprite_animator.play("walk")
 			footstep_animator.play("footsteps")
 		else:
@@ -226,6 +229,9 @@ func update_animations() -> void:
 		slide_sound_playing = false
 		grab_sound_playing = false
 		footstep_animator.stop()
+		if AudioManager.current_music.stream_paused == true:
+			AudioManager.current_music.stream_paused = false
+			griddy_sound.stop()
 		if abs(velocity.x) > 750:
 			sprite_animator.play("jump_reach")
 		else:
