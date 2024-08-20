@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dhrgrpwwax6i8" path="res://Prefabs/Spikes.tscn" id="5_2opmn"]
 [ext_resource type="PackedScene" uid="uid://cqrk66u8spi3" path="res://Prefabs/Blocks/Z-Piece.tscn" id="5_wjv2m"]
 [ext_resource type="PackedScene" uid="uid://c7c8vai4olkeh" path="res://Prefabs/Blocks/T-Piece.tscn" id="6_kb5xa"]
-[ext_resource type="PackedScene" uid="uid://dbsx7a6dnrba2" path="res://Prefabs/ArrowSpitter.tscn" id="7_cqoqo"]
+[ext_resource type="PackedScene" path="res://Prefabs/ArrowSpitter.tscn" id="7_cqoqo"]
 [ext_resource type="PackedScene" uid="uid://bdyf8npx3i7xk" path="res://Prefabs/Blocks/2x2-Piece.tscn" id="8_mfjac"]
 
 [sub_resource type="Resource" id="Resource_6716m"]
@@ -50,16 +50,16 @@ position = Vector2(1250, -750)
 position = Vector2(1550, -750)
 
 [node name="BreakerSpike" parent="." index="15" instance=ExtResource("3_5a57g")]
-position = Vector2(1872, 1034)
+position = Vector2(1850, 1051)
 
 [node name="BreakerSpike3" parent="." index="16" instance=ExtResource("3_5a57g")]
-position = Vector2(1772, 1034)
+position = Vector2(1750, 1052)
 
 [node name="BreakerSpike5" parent="." index="17" instance=ExtResource("3_5a57g")]
-position = Vector2(1672, 1034)
+position = Vector2(1650, 1052)
 
 [node name="BreakerSpike8" parent="." index="18" instance=ExtResource("3_5a57g")]
-position = Vector2(1572, 1034)
+position = Vector2(1550, 1052)
 
 [node name="BreakerSpike9" parent="." index="19" instance=ExtResource("3_5a57g")]
 position = Vector2(1350, -900)
@@ -80,13 +80,13 @@ position = Vector2(850, -800)
 position = Vector2(1450, -800)
 
 [node name="BreakerSpike10" parent="." index="25" instance=ExtResource("3_5a57g")]
-position = Vector2(1472, 1034)
+position = Vector2(1450, 1052)
 
 [node name="BreakerSpike12" parent="." index="26" instance=ExtResource("3_5a57g")]
-position = Vector2(1372, 1034)
+position = Vector2(1350, 1052)
 
 [node name="BreakerSpike14" parent="." index="27" instance=ExtResource("3_5a57g")]
-position = Vector2(1272, 1034)
+position = Vector2(1250, 1052)
 
 [node name="PlaceableCharacterBody2d2" parent="." index="29" instance=ExtResource("4_wgcho")]
 position = Vector2(850, -500)

@@ -106,7 +106,7 @@ texture = ExtResource("1_dtx2u")
 stretch_mode = 1
 
 [node name="Entrance Door" parent="." instance=ExtResource("19_owl44")]
-position = Vector2(1088, 916)
+position = Vector2(1088, 931)
 is_exit = false
 
 [node name="Exit Door" parent="." instance=ExtResource("19_owl44")]
@@ -121,9 +121,9 @@ energy = 1.55
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_4c02t")
 offset_left = 852.0
-offset_top = 1034.0
+offset_top = 1050.0
 offset_right = 1186.0
-offset_bottom = 1300.0
+offset_bottom = 1316.0
 scale = Vector2(3.125, 3.125)
 texture = ExtResource("3_yibs3")
 stretch_mode = 1
@@ -131,7 +131,7 @@ stretch_mode = 1
 [node name="StaticBody2D" type="StaticBody2D" parent="Floor" groups=["terrain"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/StaticBody2D"]
-position = Vector2(167.36, 132.48)
+position = Vector2(167.36, 132.8)
 shape = SubResource("RectangleShape2D_qulcn")
 debug_color = Color(0, 0.595, 0.7, 0)
 
@@ -190,7 +190,7 @@ shape = SubResource("RectangleShape2D_hvw07")
 debug_color = Color(0, 0.595, 0.7, 0)
 
 [node name="Player" parent="." instance=ExtResource("2_hossx")]
-position = Vector2(1019, 984)
+position = Vector2(1019, 1002)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 z_index = 1000

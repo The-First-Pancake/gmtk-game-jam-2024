@@ -22,9 +22,10 @@ func _ready() -> void:
 		preload("res://Levels/World1/temple_8_arrows.tscn"),
 		preload("res://Levels/World1/temple_9_arrows_on_holds.tscn"),
 		preload("res://Levels/World1/temple_10_arrow rain.tscn"),
-		preload("res://Levels/World1/temple_9_breaker_intro.tscn"),
-		preload("res://Levels/World1/temple_10_reverse_breaker.tscn"),
 		preload("res://Levels/World1/temple_11_breaker_intro.tscn"),
+		preload("res://Levels/World1/temple_12_breaker_dropper.tscn"),
+		preload("res://Levels/World1/temple_13_reverse_breaker.tscn"),
+		preload("res://Levels/World1/temple_66_hell.tscn")
 	]
 	for level in levels:
 		var level_dictionary_default : Dictionary = {

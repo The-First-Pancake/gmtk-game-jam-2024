@@ -1,0 +1,148 @@
+[gd_scene load_steps=14 format=3 uid="uid://7amxmfedeq7u"]
+
+[ext_resource type="PackedScene" uid="uid://6dd2cbybvcqg" path="res://Levels/Template Level.tscn" id="1_ycs33"]
+[ext_resource type="Script" path="res://Scripts/SpawnObject.gd" id="2_8tngy"]
+[ext_resource type="PackedScene" uid="uid://r1kjk04fwuou" path="res://Prefabs/Hold.tscn" id="3_2dg56"]
+[ext_resource type="PackedScene" uid="uid://bkatak76uuoli" path="res://Prefabs/Campfire.tscn" id="4_5qjo6"]
+[ext_resource type="PackedScene" uid="uid://hetb2cu4cbew" path="res://Prefabs/BreakerSpike.tscn" id="4_j4vyl"]
+[ext_resource type="PackedScene" uid="uid://dhrgrpwwax6i8" path="res://Prefabs/Spikes.tscn" id="5_4krjc"]
+[ext_resource type="PackedScene" uid="uid://c4safo4pwme48" path="res://Prefabs/Blocks/1x4-Piece.tscn" id="5_sry7q"]
+[ext_resource type="PackedScene" path="res://Prefabs/ArrowSpitter.tscn" id="7_t561k"]
+
+[sub_resource type="Resource" id="Resource_6716m"]
+script = ExtResource("2_8tngy")
+spawn_prefab = ExtResource("3_2dg56")
+spawn_count = 10
+
+[sub_resource type="Resource" id="Resource_b3o7y"]
+script = ExtResource("2_8tngy")
+spawn_prefab = ExtResource("4_5qjo6")
+spawn_count = 2
+
+[sub_resource type="Resource" id="Resource_mwrdh"]
+script = ExtResource("2_8tngy")
+spawn_prefab = ExtResource("5_4krjc")
+spawn_count = 10
+
+[sub_resource type="Resource" id="Resource_hb8f8"]
+script = ExtResource("2_8tngy")
+spawn_prefab = ExtResource("4_j4vyl")
+spawn_count = 2
+
+[sub_resource type="Resource" id="Resource_mfh2x"]
+script = ExtResource("2_8tngy")
+spawn_prefab = ExtResource("7_t561k")
+spawn_count = 2
+
+[node name="Template Level" instance=ExtResource("1_ycs33")]
+
+[node name="Exit Door" parent="." index="2"]
+position = Vector2(1250, -4868)
+
+[node name="Cieling" parent="." index="5"]
+offset_top = -11276.0
+offset_bottom = -11010.0
+
+[node name="BlockSpawner" parent="Camera2D" index="1"]
+spawn_objects = Array[ExtResource("2_8tngy")]([SubResource("Resource_6716m"), SubResource("Resource_b3o7y"), SubResource("Resource_mwrdh"), SubResource("Resource_hb8f8"), SubResource("Resource_mfh2x")])
+
+[node name="Idol" parent="." index="12"]
+position = Vector2(1250, -7400)
+
+[node name="Idol2" parent="." index="13"]
+position = Vector2(800, -450)
+
+[node name="Idol3" parent="." index="14"]
+position = Vector2(1950, -2650)
+
+[node name="PlaceableCharacterBody2d" parent="." index="16" instance=ExtResource("5_sry7q")]
+position = Vector2(1250, -4700)
+rotation = 1.5708
+
+[node name="PlaceableCharacterBody2d2" parent="." index="17" instance=ExtResource("5_sry7q")]
+position = Vector2(900, -2800)
+rotation = 1.5708
+
+[node name="PlaceableCharacterBody2d3" parent="." index="18" instance=ExtResource("5_sry7q")]
+position = Vector2(1100, -2900)
+rotation = 1.5708
+
+[node name="PlaceableCharacterBody2d5" parent="." index="19" instance=ExtResource("5_sry7q")]
+position = Vector2(1650, -2900)
+rotation = 1.5708
+
+[node name="PlaceableCharacterBody2d4" parent="." index="20" instance=ExtResource("5_sry7q")]
+position = Vector2(1850, -2800)
+rotation = 1.5708
+
+[node name="Arrow_Spitter" parent="." index="21" instance=ExtResource("7_t561k")]
+position = Vector2(698, -450)
+rotation = 0.0
+
+[node name="Arrow_Spitter2" parent="." index="22" instance=ExtResource("7_t561k")]
+position = Vector2(697, -1850)
+rotation = 0.0
+
+[node name="Arrow_Spitter3" parent="." index="23" instance=ExtResource("7_t561k")]
+position = Vector2(1357, -4652)
+rotation = 1.5708
+
+[node name="BreakerSpike" parent="." index="24" instance=ExtResource("4_j4vyl")]
+position = Vector2(1651, 1052)
+
+[node name="BreakerSpike2" parent="." index="25" instance=ExtResource("4_j4vyl")]
+position = Vector2(1550, 1051)
+
+[node name="BreakerSpike5" parent="." index="26" instance=ExtResource("4_j4vyl")]
+position = Vector2(900, 1052)
+
+[node name="BreakerSpike6" parent="." index="27" instance=ExtResource("4_j4vyl")]
+position = Vector2(1000, 1052)
+
+[node name="BreakerSpike7" parent="." index="28" instance=ExtResource("4_j4vyl")]
+position = Vector2(1100, 1052)
+
+[node name="BreakerSpike8" parent="." index="29" instance=ExtResource("4_j4vyl")]
+position = Vector2(1200, 1051)
+
+[node name="BreakerSpike3" parent="." index="30" instance=ExtResource("4_j4vyl")]
+position = Vector2(1850, 1051)
+
+[node name="BreakerSpike4" parent="." index="31" instance=ExtResource("4_j4vyl")]
+position = Vector2(1750, 1051)
+
+[node name="BreakerSpike9" parent="." index="32" instance=ExtResource("4_j4vyl")]
+position = Vector2(1600, -2950)
+
+[node name="BreakerSpike10" parent="." index="33" instance=ExtResource("4_j4vyl")]
+position = Vector2(1500, -2950)
+
+[node name="BreakerSpike11" parent="." index="34" instance=ExtResource("4_j4vyl")]
+position = Vector2(950, -2950)
+
+[node name="BreakerSpike19" parent="." index="35" instance=ExtResource("4_j4vyl")]
+position = Vector2(750, -2850)
+
+[node name="BreakerSpike20" parent="." index="36" instance=ExtResource("4_j4vyl")]
+position = Vector2(850, -2850)
+
+[node name="BreakerSpike12" parent="." index="37" instance=ExtResource("4_j4vyl")]
+position = Vector2(1050, -2950)
+
+[node name="BreakerSpike13" parent="." index="38" instance=ExtResource("4_j4vyl")]
+position = Vector2(1150, -2950)
+
+[node name="BreakerSpike14" parent="." index="39" instance=ExtResource("4_j4vyl")]
+position = Vector2(1250, -2950)
+
+[node name="BreakerSpike15" parent="." index="40" instance=ExtResource("4_j4vyl")]
+position = Vector2(1800, -2950)
+
+[node name="BreakerSpike17" parent="." index="41" instance=ExtResource("4_j4vyl")]
+position = Vector2(1900, -2850)
+
+[node name="BreakerSpike18" parent="." index="42" instance=ExtResource("4_j4vyl")]
+position = Vector2(2000, -2850)
+
+[node name="BreakerSpike16" parent="." index="43" instance=ExtResource("4_j4vyl")]
+position = Vector2(1700, -2950)
