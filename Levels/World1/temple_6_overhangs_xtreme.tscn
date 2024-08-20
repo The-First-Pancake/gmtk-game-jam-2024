@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dxpih7jbwswu"]
+[gd_scene load_steps=5 format=3 uid="uid://b8ofjhklhy6o"]
 
 [ext_resource type="PackedScene" uid="uid://6dd2cbybvcqg" path="res://Levels/Template Level.tscn" id="1_f2c2y"]
 [ext_resource type="Texture2D" uid="uid://c0lrrkts2q73h" path="res://Art/Sprites/idol clue.png" id="2_7cosh"]
@@ -14,20 +14,21 @@ position = Vector2(1350, -3268)
 offset_top = -11276.0
 offset_bottom = -11010.0
 
-[node name="Idol" parent="." index="12"]
-position = Vector2(1350, -3900)
-
-[node name="Idol2" parent="." index="13"]
-position = Vector2(1900, -350)
-
-[node name="Idol3" parent="." index="14"]
-position = Vector2(850, -1900)
-
-[node name="IdolClue" type="Sprite2D" parent="." index="15"]
-modulate = Color(0, 0, 0, 0.294118)
-position = Vector2(561, -3210)
+[node name="IdolClue" type="Sprite2D" parent="." index="8"]
+modulate = Color(0.22, 0.22, 0.22, 0.294118)
+self_modulate = Color(1, 0.684833, 0.39, 1)
+position = Vector2(950, -3350)
 scale = Vector2(3.125, 3.125)
 texture = ExtResource("2_7cosh")
+
+[node name="Idol" parent="." index="13"]
+position = Vector2(1350, -3900)
+
+[node name="Idol2" parent="." index="14"]
+position = Vector2(1900, -350)
+
+[node name="Idol3" parent="." index="15"]
+position = Vector2(850, -1900)
 
 [node name="PlaceableCharacterBody2d4" parent="." index="16" instance=ExtResource("2_pyrvr")]
 position = Vector2(1400, -550)

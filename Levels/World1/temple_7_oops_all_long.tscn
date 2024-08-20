@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bhw8owhdmmapa"]
+[gd_scene load_steps=16 format=3 uid="uid://bhw8owhdmmapa"]
 
 [ext_resource type="PackedScene" uid="uid://6dd2cbybvcqg" path="res://Levels/Template Level.tscn" id="1_sdp6r"]
 [ext_resource type="Script" path="res://Scripts/SpawnObject.gd" id="2_6wj6x"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dhrgrpwwax6i8" path="res://Prefabs/Spikes.tscn" id="6_dsxgq"]
 [ext_resource type="PackedScene" uid="uid://caudmtkjwca1i" path="res://Prefabs/Blocks/L-Piece-Mirrored.tscn" id="9_qo082"]
 [ext_resource type="PackedScene" uid="uid://cqrk66u8spi3" path="res://Prefabs/Blocks/Z-Piece.tscn" id="11_bkrlc"]
+[ext_resource type="AudioStream" uid="uid://bs0ib4ihh3wc1" path="res://Sound/Music/Chill Level Music gmtk game jam 2024.wav" id="12_umudb"]
 
 [sub_resource type="Resource" id="Resource_dc5oc"]
 script = ExtResource("2_6wj6x")
@@ -152,3 +153,6 @@ position = Vector2(750, -900)
 
 [node name="2x2 Piiece2" parent="." index="43" instance=ExtResource("4_4fcrj")]
 position = Vector2(1350, -3050)
+
+[node name="Music" parent="Music Player" index="0"]
+stream = ExtResource("12_umudb")

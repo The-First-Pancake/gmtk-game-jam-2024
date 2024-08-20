@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cetdx52yqt2jy"]
+[gd_scene load_steps=14 format=3 uid="uid://cetdx52yqt2jy"]
 
 [ext_resource type="PackedScene" uid="uid://6dd2cbybvcqg" path="res://Levels/Template Level.tscn" id="1_ai21b"]
 [ext_resource type="PackedScene" uid="uid://cqrk66u8spi3" path="res://Prefabs/Blocks/Z-Piece.tscn" id="2_uqgpm"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bdyf8npx3i7xk" path="res://Prefabs/Blocks/2x2-Piece.tscn" id="9_i6e5t"]
 [ext_resource type="PackedScene" uid="uid://c4safo4pwme48" path="res://Prefabs/Blocks/1x4-Piece.tscn" id="10_uwfru"]
 [ext_resource type="PackedScene" uid="uid://bkatak76uuoli" path="res://Prefabs/Campfire.tscn" id="11_icgcv"]
+[ext_resource type="AudioStream" uid="uid://bs0ib4ihh3wc1" path="res://Sound/Music/Chill Level Music gmtk game jam 2024.wav" id="12_xttfj"]
 
 [sub_resource type="Resource" id="Resource_xd867"]
 script = ExtResource("7_7omhc")
@@ -447,3 +448,6 @@ rotation = 1.5708
 [node name="PlaceableCharacterBody2d68" parent="." index="95" instance=ExtResource("3_xds0s")]
 position = Vector2(1000, -2950)
 rotation = -1.5708
+
+[node name="Music" parent="Music Player" index="0"]
+stream = ExtResource("12_xttfj")

@@ -32,7 +32,7 @@
 [ext_resource type="Script" path="res://Scripts/Rope.gd" id="21_yotb3"]
 [ext_resource type="PackedScene" uid="uid://hetb2cu4cbew" path="res://Prefabs/BreakerSpike.tscn" id="22_weo7f"]
 [ext_resource type="Script" path="res://Scripts/MusicPlayer.gd" id="32_41nv7"]
-[ext_resource type="AudioStream" uid="uid://twgpbnyr1add" path="res://Sound/Music/music_main.wav" id="33_ckuqr"]
+[ext_resource type="AudioStream" uid="uid://bjoyy3kjn3bpj" path="res://Sound/Music/Uptempo Not Crazy Level Music.wav" id="33_043hb"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_sacac"]
 light_mode = 1
@@ -365,7 +365,8 @@ script = ExtResource("21_yotb3")
 [node name="Music Player" type="Node2D" parent="."]
 script = ExtResource("32_41nv7")
 
-[node name="TitleMusic" type="AudioStreamPlayer" parent="Music Player"]
-stream = ExtResource("33_ckuqr")
+[node name="Music" type="AudioStreamPlayer" parent="Music Player"]
+unique_name_in_owner = true
+stream = ExtResource("33_043hb")
 
 [connection signal="body_entered" from="Water/Water Destroy Area" to="Water" method="_on_water_destroy_area_body_entered"]

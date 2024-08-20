@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://7amxmfedeq7u"]
+[gd_scene load_steps=15 format=3 uid="uid://7amxmfedeq7u"]
 
 [ext_resource type="PackedScene" uid="uid://6dd2cbybvcqg" path="res://Levels/Template Level.tscn" id="1_ycs33"]
 [ext_resource type="Script" path="res://Scripts/SpawnObject.gd" id="2_8tngy"]
@@ -7,7 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://hetb2cu4cbew" path="res://Prefabs/BreakerSpike.tscn" id="4_j4vyl"]
 [ext_resource type="PackedScene" uid="uid://dhrgrpwwax6i8" path="res://Prefabs/Spikes.tscn" id="5_4krjc"]
 [ext_resource type="PackedScene" uid="uid://c4safo4pwme48" path="res://Prefabs/Blocks/1x4-Piece.tscn" id="5_sry7q"]
-[ext_resource type="PackedScene" path="res://Prefabs/ArrowSpitter.tscn" id="7_t561k"]
+[ext_resource type="PackedScene" uid="uid://dbsx7a6dnrba2" path="res://Prefabs/ArrowSpitter.tscn" id="7_t561k"]
+[ext_resource type="AudioStream" uid="uid://bjoyy3kjn3bpj" path="res://Sound/Music/Uptempo Not Crazy Level Music.wav" id="9_3x5qn"]
 
 [sub_resource type="Resource" id="Resource_6716m"]
 script = ExtResource("2_8tngy")
@@ -146,3 +147,6 @@ position = Vector2(2000, -2850)
 
 [node name="BreakerSpike16" parent="." index="43" instance=ExtResource("4_j4vyl")]
 position = Vector2(1700, -2950)
+
+[node name="Music" parent="Music Player" index="0"]
+stream = ExtResource("9_3x5qn")

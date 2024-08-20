@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://6dd2cbybvcqg" path="res://Levels/Template Level.tscn" id="1_8tfe6"]
 [ext_resource type="Script" path="res://Scripts/SpawnObject.gd" id="2_h2nwq"]
-[ext_resource type="PackedScene" path="res://Prefabs/ArrowSpitter.tscn" id="2_oi3tm"]
+[ext_resource type="PackedScene" uid="uid://dbsx7a6dnrba2" path="res://Prefabs/ArrowSpitter.tscn" id="2_oi3tm"]
 [ext_resource type="PackedScene" uid="uid://r1kjk04fwuou" path="res://Prefabs/Hold.tscn" id="3_k3spf"]
 [ext_resource type="PackedScene" uid="uid://bkatak76uuoli" path="res://Prefabs/Campfire.tscn" id="4_55j5p"]
 [ext_resource type="PackedScene" uid="uid://dhrgrpwwax6i8" path="res://Prefabs/Spikes.tscn" id="5_sjo0f"]
@@ -30,7 +30,7 @@ spawn_count = 4
 
 [node name="Template Level" instance=ExtResource("1_8tfe6")]
 
-[node name="Exit Door" parent="." index="1"]
+[node name="Exit Door" parent="." index="2"]
 position = Vector2(1943, 69)
 
 [node name="BlockSpawner" parent="Camera2D" index="1"]
@@ -44,3 +44,6 @@ rotation = 0.0
 [node name="BreakerSpike" parent="." index="14" instance=ExtResource("7_y05uc")]
 position = Vector2(1643, 1034)
 rotation = 3.13774
+
+[node name="Music" parent="Music Player" index="0"]
+stream = null
