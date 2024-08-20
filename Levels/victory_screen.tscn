@@ -79,6 +79,7 @@ script = ExtResource("3_js87t")
 [node name="Music" type="AudioStreamPlayer" parent="Music Player"]
 unique_name_in_owner = true
 stream = ExtResource("4_uyrod")
+volume_db = -5.0
 
 [node name="DeclanCredit" type="Sprite2D" parent="."]
 position = Vector2(1699, 626)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://cge4flojubrju"]
+[gd_scene load_steps=3 format=3 uid="uid://bgygxndvon4hm"]
 
 [ext_resource type="PackedScene" uid="uid://6dd2cbybvcqg" path="res://Levels/Template Level.tscn" id="1_sy0s0"]
 [ext_resource type="PackedScene" uid="uid://c4safo4pwme48" path="res://Prefabs/Blocks/1x4-Piece.tscn" id="2_35457"]
@@ -24,3 +24,6 @@ position = Vector2(900, -3300)
 [node name="PlaceableCharacterBody2d" parent="." index="15" instance=ExtResource("2_35457")]
 position = Vector2(1750, -3100)
 rotation = 1.5708
+
+[node name="Music" parent="Music Player" index="0"]
+volume_db = -7.0

@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dhrgrpwwax6i8" path="res://Prefabs/Spikes.tscn" id="5_2opmn"]
 [ext_resource type="PackedScene" uid="uid://cqrk66u8spi3" path="res://Prefabs/Blocks/Z-Piece.tscn" id="5_wjv2m"]
 [ext_resource type="PackedScene" uid="uid://c7c8vai4olkeh" path="res://Prefabs/Blocks/T-Piece.tscn" id="6_kb5xa"]
-[ext_resource type="PackedScene" path="res://Prefabs/ArrowSpitter.tscn" id="7_cqoqo"]
+[ext_resource type="PackedScene" uid="uid://dbsx7a6dnrba2" path="res://Prefabs/ArrowSpitter.tscn" id="7_cqoqo"]
 [ext_resource type="PackedScene" uid="uid://bdyf8npx3i7xk" path="res://Prefabs/Blocks/2x2-Piece.tscn" id="8_mfjac"]
 
 [sub_resource type="Resource" id="Resource_6716m"]
@@ -159,3 +159,6 @@ rotation = -1.5708
 [node name="2x2 Piiece" parent="." index="46" instance=ExtResource("8_mfjac")]
 position = Vector2(1500, 250)
 state = 2
+
+[node name="Music" parent="Music Player" index="0"]
+volume_db = -7.0

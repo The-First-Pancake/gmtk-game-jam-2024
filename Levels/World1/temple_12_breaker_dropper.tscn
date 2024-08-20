@@ -48,3 +48,6 @@ position = Vector2(1000, -1050)
 [node name="PlaceableCharacterBody2d3" parent="." index="18" instance=ExtResource("3_v627j")]
 position = Vector2(900, -1050)
 rotation = 3.14159
+
+[node name="Music" parent="Music Player" index="0"]
+volume_db = -7.0

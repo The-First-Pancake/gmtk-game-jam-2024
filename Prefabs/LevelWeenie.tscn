@@ -114,6 +114,7 @@ frame_progress = 0.601985
 
 [node name="StartGameFx" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_2gplh")
+volume_db = -5.0
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

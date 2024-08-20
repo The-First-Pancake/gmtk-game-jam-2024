@@ -63,3 +63,6 @@ position = Vector2(1742, 956)
 
 [node name="2x2 Piiece" parent="." index="17" instance=ExtResource("2_a3p81")]
 position = Vector2(1400, -136)
+
+[node name="Music" parent="Music Player" index="0"]
+volume_db = -7.0

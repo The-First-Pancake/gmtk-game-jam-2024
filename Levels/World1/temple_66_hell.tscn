@@ -150,3 +150,4 @@ position = Vector2(1700, -2950)
 
 [node name="Music" parent="Music Player" index="0"]
 stream = ExtResource("9_3x5qn")
+volume_db = -7.0

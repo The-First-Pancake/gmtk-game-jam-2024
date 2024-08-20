@@ -106,6 +106,7 @@ script = ExtResource("6_e8hx0")
 [node name="Music" type="AudioStreamPlayer" parent="Music Player"]
 unique_name_in_owner = true
 stream = ExtResource("7_32xas")
+volume_db = -7.0
 
 [node name="Button" type="Button" parent="."]
 offset_left = 1600.0
@@ -120,6 +121,7 @@ script = ExtResource("15_fa2f7")
 
 [node name="Button Press Sound" type="AudioStreamPlayer" parent="Button"]
 stream = ExtResource("12_gncmx")
+volume_db = -5.0
 
 [node name="Label" type="Label" parent="."]
 offset_left = 200.0

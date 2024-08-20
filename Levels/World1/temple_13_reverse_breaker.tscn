@@ -451,3 +451,4 @@ rotation = -1.5708
 
 [node name="Music" parent="Music Player" index="0"]
 stream = ExtResource("12_xttfj")
+volume_db = -5.0
