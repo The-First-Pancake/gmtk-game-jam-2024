@@ -28,7 +28,7 @@ texture = ExtResource("3_ac0j4")
 
 [node name="GlyphHookRelease" type="Sprite2D" parent="Glyphs" index="2"]
 modulate = Color(0.29, 0.231082, 0.1363, 0.294118)
-position = Vector2(34, 0)
+position = Vector2(32, 0)
 scale = Vector2(3.125, 3.125)
 texture = ExtResource("4_87wrk")
 
