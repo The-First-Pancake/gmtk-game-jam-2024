@@ -1,0 +1,50 @@
+[gd_scene load_steps=9 format=3 uid="uid://mvlbswmkxjca"]
+
+[ext_resource type="PackedScene" uid="uid://6dd2cbybvcqg" path="res://Levels/Template Level.tscn" id="1_ge7sx"]
+[ext_resource type="PackedScene" uid="uid://c4safo4pwme48" path="res://Prefabs/Blocks/1x4-Piece.tscn" id="2_5a6n2"]
+[ext_resource type="Script" path="res://Scripts/SpawnObject.gd" id="2_dcvft"]
+[ext_resource type="PackedScene" uid="uid://b1lrc4bb14deo" path="res://Prefabs/Blocks/L-Piece.tscn" id="3_v627j"]
+[ext_resource type="PackedScene" uid="uid://hetb2cu4cbew" path="res://Prefabs/BreakerSpike.tscn" id="4_houk3"]
+[ext_resource type="PackedScene" uid="uid://r1kjk04fwuou" path="res://Prefabs/Hold.tscn" id="6_kqt5v"]
+
+[sub_resource type="Resource" id="Resource_fa0pl"]
+script = ExtResource("2_dcvft")
+spawn_prefab = ExtResource("6_kqt5v")
+spawn_count = 10
+
+[sub_resource type="Resource" id="Resource_bl7r2"]
+script = ExtResource("2_dcvft")
+spawn_prefab = ExtResource("4_houk3")
+spawn_count = 2
+
+[node name="Template Level" instance=ExtResource("1_ge7sx")]
+
+[node name="Exit Door" parent="." index="2"]
+position = Vector2(900, -2350)
+
+[node name="Cieling" parent="." index="5"]
+offset_top = -11276.0
+offset_bottom = -11010.0
+
+[node name="BlockSpawner" parent="Camera2D" index="1"]
+spawn_objects = Array[ExtResource("2_dcvft")]([SubResource("Resource_fa0pl"), SubResource("Resource_bl7r2")])
+
+[node name="Idol" parent="." index="12"]
+position = Vector2(1850, -300)
+
+[node name="Idol2" parent="." index="13"]
+position = Vector2(950, -1050)
+
+[node name="Idol3" parent="." index="14"]
+position = Vector2(1650, -2700)
+
+[node name="PlaceableCharacterBody2d" parent="." index="16" instance=ExtResource("2_5a6n2")]
+position = Vector2(900, -2200)
+rotation = 1.5708
+
+[node name="PlaceableCharacterBody2d2" parent="." index="17" instance=ExtResource("3_v627j")]
+position = Vector2(1000, -1050)
+
+[node name="PlaceableCharacterBody2d3" parent="." index="18" instance=ExtResource("3_v627j")]
+position = Vector2(900, -1050)
+rotation = 3.14159
