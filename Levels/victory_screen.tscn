@@ -1,9 +1,42 @@
-[gd_scene load_steps=5 format=3 uid="uid://c7q1mopvg26io"]
+[gd_scene load_steps=16 format=3 uid="uid://baxl51db3t1i"]
 
 [ext_resource type="Script" path="res://Scripts/VictoryScreen.gd" id="1_erwl0"]
 [ext_resource type="Texture2D" uid="uid://b5eqab7hoy7xr" path="res://Art/victory_screen.png" id="1_f4e1j"]
+[ext_resource type="Texture2D" uid="uid://b73lc3ti6aya0" path="res://Art/Logos/victory_screen_cutout.png" id="3_jpm4w"]
 [ext_resource type="Script" path="res://Scripts/MusicPlayer.gd" id="3_js87t"]
 [ext_resource type="AudioStream" uid="uid://bmr1xyk4esk4o" path="res://Sound/Music/dank little dungeon rife with funky little goblins.wav" id="4_uyrod"]
+[ext_resource type="Texture2D" uid="uid://cme5nn7et837s" path="res://Art/declan_credit.png" id="6_8nops"]
+[ext_resource type="Script" path="res://Scripts/text_animation.gd" id="7_fk7vd"]
+[ext_resource type="Texture2D" uid="uid://bhj26p7eauk4a" path="res://Art/extra_credit.png" id="8_h5mn4"]
+[ext_resource type="Texture2D" uid="uid://cd2g7mxg82wbf" path="res://Art/george_credit.png" id="8_i0nwr"]
+[ext_resource type="Texture2D" uid="uid://ce1w4jc1lhxdd" path="res://Art/james_credit.png" id="9_s8qx7"]
+[ext_resource type="Texture2D" uid="uid://c4x7gtuvj0inr" path="res://Art/micah_credit.png" id="10_hp2le"]
+[ext_resource type="Texture2D" uid="uid://86aav2k6p7y" path="res://Art/oliver_credit.png" id="11_b42qp"]
+
+[sub_resource type="Curve" id="Curve_b7w8u"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.12619, 1), 0.0, 0.0, 0, 0, Vector2(0.211905, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_0qtfl"]
+curve = SubResource("Curve_b7w8u")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_m71yt"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(68.38, 1, 1)
+emission_shape = 3
+emission_box_extents = Vector3(4.345, 1, 1)
+angular_velocity_min = -132.63
+angular_velocity_max = 82.11
+radial_velocity_min = 20.15
+radial_velocity_max = 20.15
+gravity = Vector3(0, 98, 0)
+scale_min = 2.94
+scale_max = 2.94
+color = Color(0.610124, 0.650166, 0.667411, 1)
+alpha_curve = SubResource("CurveTexture_0qtfl")
+turbulence_enabled = true
+turbulence_influence_min = 0.032
+turbulence_influence_max = 0.032
 
 [node name="Victory Screen" type="Node2D"]
 script = ExtResource("1_erwl0")
@@ -14,7 +47,28 @@ position = Vector2(961, 541)
 scale = Vector2(4.51458, 4.51458)
 texture = ExtResource("1_f4e1j")
 
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(950, -100)
+amount = 318
+process_material = SubResource("ParticleProcessMaterial_m71yt")
+lifetime = 67.45
+preprocess = 17.95
+
+[node name="Victory Splash2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(961, 541)
+scale = Vector2(4.51458, 4.51458)
+texture = ExtResource("3_jpm4w")
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
+position = Vector2(950, -100)
+amount = 318
+process_material = SubResource("ParticleProcessMaterial_m71yt")
+lifetime = 67.45
+preprocess = 17.95
+
 [node name="Black cover" type="ColorRect" parent="."]
+visible = false
 offset_right = 1922.0
 offset_bottom = 1079.0
 color = Color(0, 0, 0, 1)
@@ -25,3 +79,49 @@ script = ExtResource("3_js87t")
 [node name="Music" type="AudioStreamPlayer" parent="Music Player"]
 unique_name_in_owner = true
 stream = ExtResource("4_uyrod")
+
+[node name="DeclanCredit" type="Sprite2D" parent="."]
+position = Vector2(1699, 626)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("6_8nops")
+script = ExtResource("7_fk7vd")
+direction = Vector2(-1, 0)
+enter_delay = 0.5
+
+[node name="ExtraCredit" type="Sprite2D" parent="."]
+position = Vector2(1699, 926)
+scale = Vector2(0.765, 0.765)
+texture = ExtResource("8_h5mn4")
+script = ExtResource("7_fk7vd")
+enter_delay = 0.6
+
+[node name="GeorgeCredit" type="Sprite2D" parent="."]
+position = Vector2(1699, 262)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("8_i0nwr")
+script = ExtResource("7_fk7vd")
+direction = Vector2(0, 1)
+enter_delay = 0.4
+
+[node name="JamesCredit" type="Sprite2D" parent="."]
+position = Vector2(230, 986)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("9_s8qx7")
+script = ExtResource("7_fk7vd")
+enter_delay = 0.3
+
+[node name="MicahCredit" type="Sprite2D" parent="."]
+position = Vector2(231, 621)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("10_hp2le")
+script = ExtResource("7_fk7vd")
+direction = Vector2(1, 0)
+enter_delay = 0.2
+
+[node name="OliverCredit" type="Sprite2D" parent="."]
+position = Vector2(230, 258)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("11_b42qp")
+script = ExtResource("7_fk7vd")
+direction = Vector2(0, 1)
+enter_delay = 0.1

@@ -9,7 +9,7 @@ func _ready() -> void:
 	var tween: Tween = get_tree().create_tween()
 	tween.tween_property(black_cover, "modulate", Color.TRANSPARENT, 1)
 	await tween.finished
-	await get_tree().create_timer(5).timeout
+	await get_tree().create_timer(15).timeout
 	print("ya")
 	tween = get_tree().create_tween()
 	tween.tween_property(black_cover, "modulate", Color.WHITE, 1)
