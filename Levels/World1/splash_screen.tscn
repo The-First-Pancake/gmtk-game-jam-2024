@@ -1,0 +1,115 @@
+[gd_scene load_steps=19 format=3 uid="uid://bfx23axoevfvh"]
+
+[ext_resource type="Script" path="res://Scripts/CameraController.gd" id="1_1wwk0"]
+[ext_resource type="Texture2D" uid="uid://cen2ir6mxe6q1" path="res://Art/Logos/splash_wide.png" id="2_xmtac"]
+[ext_resource type="Texture2D" uid="uid://caev0mlo587q8" path="res://Art/Logos/cappy_logo.png" id="3_bhv66"]
+[ext_resource type="Texture2D" uid="uid://qt2dvlp4wp4l" path="res://Art/Logos/splash_wide_cutout.png" id="4_hbkag"]
+[ext_resource type="Script" path="res://Scripts/text_animation.gd" id="4_maahe"]
+[ext_resource type="Texture2D" uid="uid://b3sbft701rdw0" path="res://Art/Logos/amp_logo.png" id="5_4xpqi"]
+[ext_resource type="Texture2D" uid="uid://domg2irqksxev" path="res://Art/Logos/tappy_logo.png" id="6_4knye"]
+[ext_resource type="Script" path="res://Levels/World1/title_screen.gd" id="6_e8hx0"]
+[ext_resource type="AudioStream" uid="uid://b7o0nfcidnbwd" path="res://Sound/title_music.wav" id="7_32xas"]
+[ext_resource type="Texture2D" uid="uid://t881d103ovb2" path="res://Art/Logos/temple_of_logo.png" id="8_ohgge"]
+[ext_resource type="Texture2D" uid="uid://pd15bogxobpb" path="res://Art/Logos/peril_logo.png" id="9_f5l5f"]
+[ext_resource type="Texture2D" uid="uid://bag2p1wkyreqw" path="res://Art/Logos/button_play_hover.png" id="12_4dqt6"]
+[ext_resource type="Texture2D" uid="uid://dieyklmjt683r" path="res://Art/Logos/button_play_press.png" id="13_sfpxd"]
+[ext_resource type="Texture2D" uid="uid://c46chrwfo1c27" path="res://Art/Logos/button_play_normal.png" id="14_lcmns"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wxx1c"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ud14a"]
+texture = ExtResource("12_4dqt6")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c50pt"]
+texture = ExtResource("13_sfpxd")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j6d3a"]
+texture = ExtResource("14_lcmns")
+
+[node name="Template Level" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+z_index = 1000
+position = Vector2(1133, 681)
+script = ExtResource("1_1wwk0")
+step = 300.0
+top_trigger = 300.0
+bottom_trigger = 200.0
+
+[node name="BlockContainer" type="Node2D" parent="."]
+
+[node name="SplashWide" type="Sprite2D" parent="."]
+position = Vector2(1150, 700)
+scale = Vector2(0.555556, 0.555556)
+texture = ExtResource("2_xmtac")
+
+[node name="CappyNTappy" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1100, 700)
+scale = Vector2(0.509259, 0.509259)
+texture = ExtResource("3_bhv66")
+script = ExtResource("4_maahe")
+direction = Vector2(1, 0)
+enter_delay = 0.25
+shake = true
+
+[node name="CappyNTappy2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1100, 700)
+scale = Vector2(0.509259, 0.509259)
+texture = ExtResource("5_4xpqi")
+script = ExtResource("4_maahe")
+direction = Vector2(0, 1)
+enter_delay = 0.3
+
+[node name="CappyNTappy3" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1100, 700)
+scale = Vector2(0.509259, 0.509259)
+texture = ExtResource("6_4knye")
+script = ExtResource("4_maahe")
+direction = Vector2(-1, 0)
+enter_delay = 0.65
+shake = true
+
+[node name="SplashWide2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1150, 700)
+scale = Vector2(0.555556, 0.555556)
+texture = ExtResource("4_hbkag")
+
+[node name="TempleOfPeril" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1100, 750)
+scale = Vector2(0.462963, 0.462963)
+texture = ExtResource("8_ohgge")
+script = ExtResource("4_maahe")
+enter_delay = 1.0
+enter_time = 1.0
+
+[node name="TempleOfPeril2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1100, 750)
+scale = Vector2(0.462963, 0.462963)
+texture = ExtResource("9_f5l5f")
+script = ExtResource("4_maahe")
+enter_delay = 1.0
+enter_time = 1.0
+shake = true
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(1133, 681)
+script = ExtResource("6_e8hx0")
+
+[node name="TitleMusic" type="AudioStreamPlayer" parent="Node2D"]
+stream = ExtResource("7_32xas")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 1600.0
+offset_top = 1000.0
+offset_right = 2028.0
+offset_bottom = 1140.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wxx1c")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ud14a")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_c50pt")
+theme_override_styles/normal = SubResource("StyleBoxTexture_j6d3a")
