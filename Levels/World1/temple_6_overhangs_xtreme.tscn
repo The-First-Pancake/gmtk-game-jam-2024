@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://b8ofjhklhy6o"]
+[gd_scene load_steps=5 format=3 uid="uid://dxpih7jbwswu"]
 
 [ext_resource type="PackedScene" uid="uid://6dd2cbybvcqg" path="res://Levels/Template Level.tscn" id="1_f2c2y"]
 [ext_resource type="Texture2D" uid="uid://c0lrrkts2q73h" path="res://Art/Sprites/idol clue.png" id="2_7cosh"]
