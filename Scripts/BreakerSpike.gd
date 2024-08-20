@@ -14,7 +14,7 @@ func enable_collider() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if get_parent().state == Placeable.PlaceState.PLACED: enable_collider()
 
 func _on_body_entered(body: Node2D) -> void:
 	if (body is Placeable and (body != get_parent())):
