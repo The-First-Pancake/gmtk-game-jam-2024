@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bfx23axoevfvh"]
+[gd_scene load_steps=21 format=3 uid="uid://c1n23ueu3dwlh"]
 
 [ext_resource type="Script" path="res://Scripts/CameraController.gd" id="1_1wwk0"]
 [ext_resource type="Texture2D" uid="uid://cen2ir6mxe6q1" path="res://Art/Logos/splash_wide.png" id="2_xmtac"]
@@ -8,10 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://b3sbft701rdw0" path="res://Art/Logos/amp_logo.png" id="5_4xpqi"]
 [ext_resource type="Texture2D" uid="uid://domg2irqksxev" path="res://Art/Logos/tappy_logo.png" id="6_4knye"]
 [ext_resource type="Script" path="res://Scripts/MusicPlayer.gd" id="6_e8hx0"]
-[ext_resource type="AudioStream" uid="uid://b7o0nfcidnbwd" path="res://Sound/title_music.wav" id="7_32xas"]
+[ext_resource type="AudioStream" uid="uid://b7o0nfcidnbwd" path="res://Sound/Music/title_music.wav" id="7_32xas"]
 [ext_resource type="Texture2D" uid="uid://t881d103ovb2" path="res://Art/Logos/temple_of_logo.png" id="8_ohgge"]
 [ext_resource type="Texture2D" uid="uid://pd15bogxobpb" path="res://Art/Logos/peril_logo.png" id="9_f5l5f"]
 [ext_resource type="Texture2D" uid="uid://bag2p1wkyreqw" path="res://Art/Logos/button_play_hover.png" id="12_4dqt6"]
+[ext_resource type="AudioStream" uid="uid://8pfpyir3qcto" path="res://Sound/Jump__012.wav" id="12_gncmx"]
 [ext_resource type="Texture2D" uid="uid://dieyklmjt683r" path="res://Art/Logos/button_play_press.png" id="13_sfpxd"]
 [ext_resource type="Texture2D" uid="uid://c46chrwfo1c27" path="res://Art/Logos/button_play_normal.png" id="14_lcmns"]
 [ext_resource type="Script" path="res://Scripts/start_game.gd" id="15_fa2f7"]
@@ -98,6 +99,9 @@ script = ExtResource("6_e8hx0")
 
 [node name="TitleMusic" type="AudioStreamPlayer" parent="Music Player"]
 stream = ExtResource("7_32xas")
+
+[node name="Jump012" type="AudioStreamPlayer" parent="Music Player"]
+stream = ExtResource("12_gncmx")
 
 [node name="Button" type="Button" parent="."]
 offset_left = 1600.0

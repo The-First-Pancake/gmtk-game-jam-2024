@@ -22,7 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://dg585ad1tpgdc" path="res://Art/Sprites/Rope_Hook.png" id="20_71uq3"]
 [ext_resource type="Script" path="res://Scripts/Rope.gd" id="21_xxhgi"]
 [ext_resource type="Script" path="res://Scripts/MusicPlayer.gd" id="22_y5d0p"]
-[ext_resource type="AudioStream" uid="uid://twgpbnyr1add" path="res://Sound/music_main.wav" id="23_cdry0"]
+[ext_resource type="AudioStream" uid="uid://twgpbnyr1add" path="res://Sound/Music/music_main.wav" id="23_cdry0"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_sacac"]
 light_mode = 1

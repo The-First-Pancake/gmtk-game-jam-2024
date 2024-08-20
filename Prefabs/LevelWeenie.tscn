@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://b3q4i4rqf26xp"]
+[gd_scene load_steps=13 format=3 uid="uid://b3q4i4rqf26xp"]
 
 [ext_resource type="Script" path="res://Scripts/LevelWeenie.gd" id="1_13nni"]
 [ext_resource type="Texture2D" uid="uid://cm1bxb5y7kb" path="res://Art/Sprites/UI/ui_throbber.png" id="2_u6lqa"]
 [ext_resource type="FontFile" uid="uid://ck4uibtfurjl4" path="res://Fonts/FFFFORWA.TTF" id="3_1r1pr"]
 [ext_resource type="Texture2D" uid="uid://cra8a72oqq7vi" path="res://Art/Sprites/Idol.png" id="4_55eog"]
 [ext_resource type="Texture2D" uid="uid://dcxkuua4cd4st" path="res://Art/Sprites/fire_small.png" id="5_mawvm"]
+[ext_resource type="AudioStream" uid="uid://dlhhob0gaa3fn" path="res://Sound/Start Game FX.wav" id="6_2gplh"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_d7721"]
 font = ExtResource("3_1r1pr")
@@ -110,6 +111,9 @@ scale = Vector2(3.15, 3.15)
 sprite_frames = SubResource("SpriteFrames_8jjmw")
 autoplay = "default"
 frame_progress = 0.601985
+
+[node name="StartGameFx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_2gplh")
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://vcyac1bxeyct"]
+[gd_scene load_steps=53 format=3 uid="uid://cfckjpuscavie"]
 
 [ext_resource type="Texture2D" uid="uid://bqfeqtdw7xcxo" path="res://Art/Sprites/Backgrounds/background.png" id="1_ahsb1"]
 [ext_resource type="PackedScene" uid="uid://def2hxxjwwhvl" path="res://Prefabs/Door.tscn" id="2_d4khg"]
@@ -31,6 +31,8 @@
 [ext_resource type="PackedScene" uid="uid://dbsx7a6dnrba2" path="res://Prefabs/ArrowSpitter.tscn" id="21_kdoe7"]
 [ext_resource type="Script" path="res://Scripts/Rope.gd" id="21_yotb3"]
 [ext_resource type="PackedScene" uid="uid://hetb2cu4cbew" path="res://Prefabs/BreakerSpike.tscn" id="22_weo7f"]
+[ext_resource type="Script" path="res://Scripts/MusicPlayer.gd" id="32_41nv7"]
+[ext_resource type="AudioStream" uid="uid://twgpbnyr1add" path="res://Sound/Music/music_main.wav" id="33_ckuqr"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_sacac"]
 light_mode = 1
@@ -359,5 +361,11 @@ scale = Vector2(3.125, 3.125)
 texture = ExtResource("20_cwwkg")
 offset = Vector2(0, -186.98)
 script = ExtResource("21_yotb3")
+
+[node name="Music Player" type="Node2D" parent="."]
+script = ExtResource("32_41nv7")
+
+[node name="TitleMusic" type="AudioStreamPlayer" parent="Music Player"]
+stream = ExtResource("33_ckuqr")
 
 [connection signal="body_entered" from="Water/Water Destroy Area" to="Water" method="_on_water_destroy_area_body_entered"]

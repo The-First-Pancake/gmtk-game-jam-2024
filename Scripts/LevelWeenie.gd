@@ -11,6 +11,8 @@ var level_idx : int = 1;
 @onready var idol_2: TextureRect = $"HBoxContainer/Idol 2"
 @onready var idol_3: TextureRect = $"HBoxContainer/Idol 3"
 
+@onready var start_sound: AudioStreamPlayer = $StartGameFx
+
 @onready var level_title: Label = $"Level Title"
 @onready var completed_flames: Node2D = $CompletedFlames
 
@@ -62,5 +64,6 @@ func _on_mouse_exited() -> void:
 
 
 func _on_gui_input(event: InputEvent) -> void:
-	if event.is_action_pressed("drop_block"):
+	if event.is_action_pressed("drop_block"):	
+		AudioManager.PlayAudio(start_sound)
 		GameManager.load_level_from_packed(scene_to_load)

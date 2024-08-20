@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bs0ib4ihh3wc1"
+path="res://.godot/imported/Chill Level Music gmtk game jam 2024.wav-c88431e40dc3f3238333c0f4e84593ab.sample"
+
+[deps]
+
+source_file="res://Sound/Music/Chill Level Music gmtk game jam 2024.wav"
+dest_files=["res://.godot/imported/Chill Level Music gmtk game jam 2024.wav-c88431e40dc3f3238333c0f4e84593ab.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=455100
+edit/loop_end=4054113
+compress/mode=0

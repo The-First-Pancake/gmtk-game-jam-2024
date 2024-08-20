@@ -1,10 +1,10 @@
-[gd_scene load_steps=27 format=3 uid="uid://dkkns7jwrd842"]
+[gd_scene load_steps=27 format=3 uid="uid://bjdpxtqaavny0"]
 
 [ext_resource type="Script" path="res://Scripts/LevelSelect.gd" id="1_7k26d"]
 [ext_resource type="Texture2D" uid="uid://bqfeqtdw7xcxo" path="res://Art/Sprites/Backgrounds/background.png" id="1_24j1o"]
 [ext_resource type="PackedScene" uid="uid://b3q4i4rqf26xp" path="res://Prefabs/LevelWeenie.tscn" id="3_66fh1"]
 [ext_resource type="Script" path="res://Scripts/LevelWeenie.gd" id="4_a2yic"]
-[ext_resource type="PackedScene" path="res://Levels/Endless Level.tscn" id="4_hscby"]
+[ext_resource type="PackedScene" uid="uid://cfckjpuscavie" path="res://Levels/Endless Level.tscn" id="4_hscby"]
 [ext_resource type="PackedScene" uid="uid://7amxmfedeq7u" path="res://Levels/World1/temple_66_hell.tscn" id="4_ptxlh"]
 [ext_resource type="Script" path="res://Levels/Reset_Save.gd" id="5_14hdt"]
 [ext_resource type="Texture2D" uid="uid://cm1bxb5y7kb" path="res://Art/Sprites/UI/ui_throbber.png" id="6_gtpwf"]
@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cra8a72oqq7vi" path="res://Art/Sprites/Idol.png" id="8_fxcsu"]
 [ext_resource type="Texture2D" uid="uid://dcxkuua4cd4st" path="res://Art/Sprites/fire_small.png" id="9_wrau7"]
 [ext_resource type="Script" path="res://Scripts/MusicPlayer.gd" id="12_8108v"]
-[ext_resource type="AudioStream" uid="uid://b7o0nfcidnbwd" path="res://Sound/title_music.wav" id="13_oohv8"]
+[ext_resource type="AudioStream" uid="uid://b7o0nfcidnbwd" path="res://Sound/Music/title_music.wav" id="13_oohv8"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_pwuex"]
 light_mode = 1
