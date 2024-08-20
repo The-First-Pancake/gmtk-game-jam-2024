@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c1n23ueu3dwlh"]
+[gd_scene load_steps=23 format=3 uid="uid://c1n23ueu3dwlh"]
 
 [ext_resource type="Script" path="res://Scripts/CameraController.gd" id="1_1wwk0"]
 [ext_resource type="Texture2D" uid="uid://cen2ir6mxe6q1" path="res://Art/Logos/splash_wide.png" id="2_xmtac"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://dieyklmjt683r" path="res://Art/Logos/button_play_press.png" id="13_sfpxd"]
 [ext_resource type="Texture2D" uid="uid://c46chrwfo1c27" path="res://Art/Logos/button_play_normal.png" id="14_lcmns"]
 [ext_resource type="Script" path="res://Scripts/start_game.gd" id="15_fa2f7"]
+[ext_resource type="FontFile" uid="uid://cgi4dy0exfybn" path="res://Art/Fonts/FFFFORWA.TTF" id="17_qiu6a"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wxx1c"]
 
@@ -27,6 +28,11 @@ texture = ExtResource("13_sfpxd")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j6d3a"]
 texture = ExtResource("14_lcmns")
+
+[sub_resource type="LabelSettings" id="LabelSettings_ex5la"]
+font = ExtResource("17_qiu6a")
+font_size = 31
+font_color = Color(0.282353, 0.235294, 0.152941, 1)
 
 [node name="SplashScreen" type="Node2D"]
 
@@ -114,5 +120,13 @@ script = ExtResource("15_fa2f7")
 
 [node name="Button Press Sound" type="AudioStreamPlayer" parent="Button"]
 stream = ExtResource("12_gncmx")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 200.0
+offset_top = 1154.0
+offset_right = 533.0
+offset_bottom = 1211.0
+text = "ESC to quit"
+label_settings = SubResource("LabelSettings_ex5la")
 
 [connection signal="button_down" from="Button" to="Button" method="_on_button_down"]

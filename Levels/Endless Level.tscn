@@ -28,7 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://cqrk66u8spi3" path="res://Prefabs/Blocks/Z-Piece.tscn" id="18_geqs0"]
 [ext_resource type="PackedScene" uid="uid://b3c0skin4w372" path="res://Prefabs/idol.tscn" id="19_j6m1q"]
 [ext_resource type="Texture2D" uid="uid://dg585ad1tpgdc" path="res://Art/Sprites/Rope_Hook.png" id="20_cwwkg"]
-[ext_resource type="PackedScene" uid="uid://dbsx7a6dnrba2" path="res://Prefabs/ArrowSpitter.tscn" id="21_kdoe7"]
+[ext_resource type="PackedScene" path="res://Prefabs/ArrowSpitter.tscn" id="21_kdoe7"]
 [ext_resource type="Script" path="res://Scripts/Rope.gd" id="21_yotb3"]
 [ext_resource type="PackedScene" uid="uid://hetb2cu4cbew" path="res://Prefabs/BreakerSpike.tscn" id="22_weo7f"]
 [ext_resource type="Script" path="res://Scripts/MusicPlayer.gd" id="32_41nv7"]
