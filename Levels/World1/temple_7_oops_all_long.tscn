@@ -1,15 +1,31 @@
-[gd_scene load_steps=7 format=3 uid="uid://bhw8owhdmmapa"]
+[gd_scene load_steps=15 format=3 uid="uid://bhw8owhdmmapa"]
 
 [ext_resource type="PackedScene" uid="uid://6dd2cbybvcqg" path="res://Levels/Template Level.tscn" id="1_sdp6r"]
 [ext_resource type="Script" path="res://Scripts/SpawnObject.gd" id="2_6wj6x"]
-[ext_resource type="Texture2D" uid="uid://c0lrrkts2q73h" path="res://Art/Sprites/idol clue.png" id="2_hbl6o"]
+[ext_resource type="PackedScene" uid="uid://c4safo4pwme48" path="res://Prefabs/Blocks/1x4-Piece.tscn" id="2_sxolh"]
+[ext_resource type="PackedScene" uid="uid://b1lrc4bb14deo" path="res://Prefabs/Blocks/L-Piece.tscn" id="3_g40tp"]
 [ext_resource type="PackedScene" uid="uid://bkatak76uuoli" path="res://Prefabs/Campfire.tscn" id="3_k3abb"]
 [ext_resource type="PackedScene" uid="uid://bdyf8npx3i7xk" path="res://Prefabs/Blocks/2x2-Piece.tscn" id="4_4fcrj"]
+[ext_resource type="PackedScene" uid="uid://c7c8vai4olkeh" path="res://Prefabs/Blocks/T-Piece.tscn" id="4_xebfx"]
+[ext_resource type="PackedScene" uid="uid://r1kjk04fwuou" path="res://Prefabs/Hold.tscn" id="5_xt33w"]
+[ext_resource type="PackedScene" uid="uid://dhrgrpwwax6i8" path="res://Prefabs/Spikes.tscn" id="6_dsxgq"]
+[ext_resource type="PackedScene" uid="uid://caudmtkjwca1i" path="res://Prefabs/Blocks/L-Piece-Mirrored.tscn" id="9_qo082"]
+[ext_resource type="PackedScene" uid="uid://cqrk66u8spi3" path="res://Prefabs/Blocks/Z-Piece.tscn" id="11_bkrlc"]
 
 [sub_resource type="Resource" id="Resource_dc5oc"]
 script = ExtResource("2_6wj6x")
 spawn_prefab = ExtResource("3_k3abb")
 spawn_count = 1
+
+[sub_resource type="Resource" id="Resource_qwmcm"]
+script = ExtResource("2_6wj6x")
+spawn_prefab = ExtResource("5_xt33w")
+spawn_count = 10
+
+[sub_resource type="Resource" id="Resource_00i5c"]
+script = ExtResource("2_6wj6x")
+spawn_prefab = ExtResource("6_dsxgq")
+spawn_count = 3
 
 [node name="Template Level" instance=ExtResource("1_sdp6r")]
 
@@ -20,24 +36,119 @@ position = Vector2(1350, -3268)
 offset_top = -11276.0
 offset_bottom = -11010.0
 
-[node name="BlockSpawner" parent="Camera2D" index="1"]
-spawn_objects = Array[ExtResource("2_6wj6x")]([SubResource("Resource_dc5oc")])
-spawn_object_probability = 1.0
+[node name="PlaceableCharacterBody2d3" parent="." index="9" instance=ExtResource("2_sxolh")]
+position = Vector2(1650, 550)
 
-[node name="Idol" parent="." index="12"]
+[node name="PlaceableCharacterBody2d4" parent="." index="10" instance=ExtResource("2_sxolh")]
+position = Vector2(1850, 550)
+
+[node name="PlaceableCharacterBody2d5" parent="." index="11" instance=ExtResource("3_g40tp")]
+position = Vector2(1750, 950)
+rotation = 1.57079
+
+[node name="PlaceableCharacterBody2d6" parent="." index="12" instance=ExtResource("3_g40tp")]
+position = Vector2(1750, 850)
+rotation = -1.57079
+
+[node name="Hold" parent="." index="13" instance=ExtResource("5_xt33w")]
+position = Vector2(1800, 400)
+rotation = -1.57079
+
+[node name="Hold2" parent="." index="14" instance=ExtResource("5_xt33w")]
+position = Vector2(1700, 600)
+rotation = 1.5708
+
+[node name="Spikes" parent="." index="15" instance=ExtResource("6_dsxgq")]
+position = Vector2(1650, 350)
+
+[node name="Spikes2" parent="." index="16" instance=ExtResource("6_dsxgq")]
+position = Vector2(1850, 350)
+
+[node name="PlaceableCharacterBody2d7" parent="." index="17" instance=ExtResource("2_sxolh")]
+position = Vector2(900, -1050)
+rotation = 1.57079
+
+[node name="PlaceableCharacterBody2d8" parent="." index="18" instance=ExtResource("2_sxolh")]
+position = Vector2(900, -800)
+rotation = 1.57079
+
+[node name="PlaceableCharacterBody2d9" parent="." index="19" instance=ExtResource("3_g40tp")]
+position = Vector2(800, -1250)
+rotation = -3.14159
+
+[node name="PlaceableCharacterBody2d10" parent="." index="20" instance=ExtResource("9_qo082")]
+position = Vector2(800, -600)
+
+[node name="PlaceableCharacterBody2d11" parent="." index="21" instance=ExtResource("2_sxolh")]
+position = Vector2(2000, -2300)
+
+[node name="PlaceableCharacterBody2d12" parent="." index="22" instance=ExtResource("2_sxolh")]
+position = Vector2(1800, -2300)
+
+[node name="PlaceableCharacterBody2d13" parent="." index="23" instance=ExtResource("3_g40tp")]
+position = Vector2(1900, -2600)
+rotation = 1.57079
+
+[node name="PlaceableCharacterBody2d14" parent="." index="24" instance=ExtResource("3_g40tp")]
+position = Vector2(1900, -2700)
+rotation = -1.57079
+
+[node name="PlaceableCharacterBody2d15" parent="." index="25" instance=ExtResource("4_xebfx")]
+position = Vector2(1900, -1850)
+rotation = -1.57079
+
+[node name="Hold4" parent="." index="26" instance=ExtResource("5_xt33w")]
+position = Vector2(1800, -2100)
+rotation = -3.14159
+
+[node name="Hold5" parent="." index="27" instance=ExtResource("5_xt33w")]
+position = Vector2(2000, -2100)
+rotation = -3.14159
+
+[node name="Hold6" parent="." index="28" instance=ExtResource("5_xt33w")]
+position = Vector2(1850, -2200)
+rotation = 1.5708
+
+[node name="Hold7" parent="." index="29" instance=ExtResource("5_xt33w")]
+position = Vector2(1950, -2350)
+rotation = -1.57079
+
+[node name="Spikes4" parent="." index="30" instance=ExtResource("6_dsxgq")]
+position = Vector2(1900, -2500)
+rotation = -3.14159
+
+[node name="Spikes5" parent="." index="31" instance=ExtResource("6_dsxgq")]
+position = Vector2(1800, -1950)
+
+[node name="Spikes6" parent="." index="32" instance=ExtResource("6_dsxgq")]
+position = Vector2(2000, -1950)
+
+[node name="Hold3" parent="." index="33" instance=ExtResource("5_xt33w")]
+position = Vector2(1100, -800)
+rotation = 1.57079
+
+[node name="Spikes3" parent="." index="34" instance=ExtResource("6_dsxgq")]
+position = Vector2(1100, -1050)
+rotation = 1.57079
+
+[node name="PlaceableCharacterBody2d" parent="." index="35" instance=ExtResource("11_bkrlc")]
+position = Vector2(1850, -1700)
+
+[node name="PlaceableCharacterBody2d2" parent="." index="36" instance=ExtResource("2_sxolh")]
+position = Vector2(2000, -1650)
+
+[node name="BlockSpawner" parent="Camera2D" index="1"]
+block_prefabs = Array[PackedScene]([ExtResource("2_sxolh")])
+spawn_objects = Array[ExtResource("2_6wj6x")]([SubResource("Resource_dc5oc"), SubResource("Resource_qwmcm"), SubResource("Resource_00i5c")])
+
+[node name="Idol" parent="." index="40"]
 position = Vector2(1900, -2400)
 
-[node name="Idol2" parent="." index="13"]
+[node name="Idol2" parent="." index="41"]
 position = Vector2(1750, 681)
 
-[node name="Idol3" parent="." index="14"]
+[node name="Idol3" parent="." index="42"]
 position = Vector2(750, -900)
 
-[node name="IdolClue" type="Sprite2D" parent="." index="15"]
-modulate = Color(0, 0, 0, 0.294118)
-position = Vector2(561, -3210)
-scale = Vector2(3.125, 3.125)
-texture = ExtResource("2_hbl6o")
-
-[node name="2x2 Piiece2" parent="." index="16" instance=ExtResource("4_4fcrj")]
+[node name="2x2 Piiece2" parent="." index="43" instance=ExtResource("4_4fcrj")]
 position = Vector2(1350, -3050)
