@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dkkns7jwrd842"]
+[gd_scene load_steps=27 format=3 uid="uid://dkkns7jwrd842"]
 
 [ext_resource type="Script" path="res://Scripts/LevelSelect.gd" id="1_7k26d"]
 [ext_resource type="Texture2D" uid="uid://bqfeqtdw7xcxo" path="res://Art/Sprites/Backgrounds/background.png" id="1_24j1o"]
@@ -11,6 +11,8 @@
 [ext_resource type="FontFile" uid="uid://ck4uibtfurjl4" path="res://Fonts/FFFFORWA.TTF" id="7_rccux"]
 [ext_resource type="Texture2D" uid="uid://cra8a72oqq7vi" path="res://Art/Sprites/Idol.png" id="8_fxcsu"]
 [ext_resource type="Texture2D" uid="uid://dcxkuua4cd4st" path="res://Art/Sprites/fire_small.png" id="9_wrau7"]
+[ext_resource type="Script" path="res://Scripts/MusicPlayer.gd" id="12_8108v"]
+[ext_resource type="AudioStream" uid="uid://b7o0nfcidnbwd" path="res://Sound/title_music.wav" id="13_oohv8"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_pwuex"]
 light_mode = 1
@@ -283,6 +285,13 @@ scale = Vector2(3.15, 3.15)
 sprite_frames = SubResource("SpriteFrames_tav7h")
 autoplay = "default"
 frame_progress = 0.601985
+
+[node name="Music Player" type="Node2D" parent="."]
+position = Vector2(1133, 681)
+script = ExtResource("12_8108v")
+
+[node name="TitleMusic" type="AudioStreamPlayer" parent="Music Player"]
+stream = ExtResource("13_oohv8")
 
 [connection signal="gui_input" from="MarginContainer/HBoxContainer/VBoxContainer/LevelWeenie" to="MarginContainer/HBoxContainer/VBoxContainer/LevelWeenie" method="_on_gui_input"]
 [connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/LevelWeenie" to="MarginContainer/HBoxContainer/VBoxContainer/LevelWeenie" method="_on_mouse_entered"]

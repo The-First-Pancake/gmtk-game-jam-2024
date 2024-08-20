@@ -27,7 +27,7 @@ texture = ExtResource("13_sfpxd")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j6d3a"]
 texture = ExtResource("14_lcmns")
 
-[node name="Template Level" type="Node2D"]
+[node name="SplashScreen" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 z_index = 1000

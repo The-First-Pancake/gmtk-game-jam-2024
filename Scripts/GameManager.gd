@@ -22,6 +22,7 @@ var exit_door : Door = null
 
 var current_level : PackedScene = null
 var level_select_scene: PackedScene = preload("res://Levels/LevelSelect.tscn")
+var splash_screen_scene: PackedScene = preload("res://Levels/SplashScreen.tscn")
 const SAVE_PATH: String = "user://save.tres"
 var current_save: GameSave = null
 
@@ -40,6 +41,8 @@ func _process(delta: float) -> void:
 		get_tree().reload_current_scene()
 	if Input.is_action_just_pressed("ui_cancel"):
 		if get_tree().current_scene.name == "LevelSelect":
+			load_level_from_packed(splash_screen_scene)
+		elif get_tree().current_scene.name == "SplashScreen":
 			get_tree().quit()
 		else:
 			load_level_from_packed(level_select_scene)
