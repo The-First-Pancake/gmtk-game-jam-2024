@@ -35,15 +35,14 @@ var campfires: Array[Campfire] = []
 @onready var die_sound: AudioStreamPlayer = $Audio/Ouch006 as AudioStreamPlayer
 @onready var grab_sound: AudioStreamPlayer = $Audio/Footstep1012 as AudioStreamPlayer
 @onready var idol_get_sound: AudioStreamPlayer = $Audio/IdolGet as AudioStreamPlayer
-@onready var music_main: AudioStreamPlayer = $Audio/MusicMain as AudioStreamPlayer
 @onready var griddy_sound: AudioStreamPlayer = $Audio/Griddy as AudioStreamPlayer
+
 
 @onready var gravity_reduce_timer: Timer = %"Gravity Reduce Timer" as Timer
 @onready var targeting_arrow: Sprite2D = $"Targeting Arrow"
 
 func _ready() -> void:
 	GameManager.player = self
-	music_main.play()
 	await get_tree().create_timer(0.3).timeout
 	velocity.x = 900
 
@@ -205,18 +204,14 @@ func update_animations() -> void:
 			if griddy_timer.time_left == 0:
 				sprite_animator.play("dance")
 				footstep_animator.play("footsteps")
-				if griddy_sound_playing == false:
-					main_music_playing = false
-					music_main.stop()
+				if griddy_sound.playing == false:
+					AudioManager.current_music.stream_paused = true
 					griddy_sound.play()
-					griddy_sound_playing = true
 			else:
-				griddy_sound_playing = false
 				sprite_animator.play("idle")
-				griddy_sound.stop()
-				if main_music_playing == false:
-					music_main.play()
-					main_music_playing = true
+				if AudioManager.current_music.stream_paused == true:
+					AudioManager.current_music.stream_paused = false
+					griddy_sound.stop()
 				footstep_animator.stop()
 	elif is_downsliding:
 		grab_sound_playing = false

@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://Scripts/text_animation.gd" id="4_maahe"]
 [ext_resource type="Texture2D" uid="uid://b3sbft701rdw0" path="res://Art/Logos/amp_logo.png" id="5_4xpqi"]
 [ext_resource type="Texture2D" uid="uid://domg2irqksxev" path="res://Art/Logos/tappy_logo.png" id="6_4knye"]
-[ext_resource type="Script" path="res://Levels/World1/title_screen.gd" id="6_e8hx0"]
+[ext_resource type="Script" path="res://Scripts/MusicPlayer.gd" id="6_e8hx0"]
 [ext_resource type="AudioStream" uid="uid://b7o0nfcidnbwd" path="res://Sound/title_music.wav" id="7_32xas"]
 [ext_resource type="Texture2D" uid="uid://t881d103ovb2" path="res://Art/Logos/temple_of_logo.png" id="8_ohgge"]
 [ext_resource type="Texture2D" uid="uid://pd15bogxobpb" path="res://Art/Logos/peril_logo.png" id="9_f5l5f"]
@@ -92,11 +92,11 @@ enter_delay = 1.0
 enter_time = 1.0
 shake = true
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="Music Player" type="Node2D" parent="."]
 position = Vector2(1133, 681)
 script = ExtResource("6_e8hx0")
 
-[node name="TitleMusic" type="AudioStreamPlayer" parent="Node2D"]
+[node name="TitleMusic" type="AudioStreamPlayer" parent="Music Player"]
 stream = ExtResource("7_32xas")
 
 [node name="Button" type="Button" parent="."]
