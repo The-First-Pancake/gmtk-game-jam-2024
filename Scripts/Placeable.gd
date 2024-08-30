@@ -29,8 +29,11 @@ func _physics_process(delta: float) -> void:
 	if (state == PlaceState.PLACING):
 		var mouse_pos : Vector2 = get_global_mouse_position()
 		global_position = Vector2(int(mouse_pos.x / grid_size) * grid_size, int(mouse_pos.y / grid_size) * grid_size)
-		if (Input.is_action_just_pressed("rotate_block")):
+		if (Input.is_action_just_pressed("rotate_block_right")):
 			rotation += deg_to_rad(90)
+			return
+		if (Input.is_action_just_pressed("rotate_block_left")):
+			rotation -= deg_to_rad(90)
 			return
 		if (!check_for_collisions() and Input.is_action_just_pressed("drop_block")):
 			enter_falling()
@@ -45,8 +48,6 @@ func _physics_process(delta: float) -> void:
 					player.try_squash()
 			elif (collision.get_angle(up_direction) < deg_to_rad(45) and collision.get_angle(up_direction) > deg_to_rad(-45)):
 				enter_placed()
-
-func on_collision_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if (state == PlaceState.QUEUED):
 		if Input.is_action_just_pressed("drop_block"):
 			if currently_held_block == null:

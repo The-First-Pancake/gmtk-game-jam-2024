@@ -1,27 +1,23 @@
 extends Node2D
 
 var mouse_pos : Vector2 = Vector2()
-var mouse_speed : float = 10
+var mouse_speed : float = 25
 
 func _ready() -> void:
+	mouse_pos = get_global_mouse_position()
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	pass
 
 func _process(delta: float) -> void:
 	var mouse_rel : Vector2 = Vector2.ZERO
-	if Input.is_action_pressed("controller_mouse_up"):
-		mouse_rel += Vector2.UP * mouse_speed
-	elif Input.is_action_pressed("controller_mouse_down"):
-		mouse_rel += Vector2.DOWN * mouse_speed
-	elif Input.is_action_pressed("controller_mouse_left"):
-		mouse_rel += Vector2.LEFT * mouse_speed
-	elif Input.is_action_pressed("controller_mouse_right"):
-		mouse_rel += Vector2.RIGHT * mouse_speed
-	if (Input.is_action_just_pressed("drop_block")):
-		fake_press()
+	var move_dir : Vector2 = Input.get_vector("controller_mouse_left","controller_mouse_right",
+											  "controller_mouse_up","controller_mouse_down")
+	mouse_rel += move_dir * mouse_speed
 	if mouse_rel != Vector2.ZERO:
 		Input.warp_mouse(mouse_pos + mouse_rel)
 	global_position = get_global_mouse_position()
+	if (Input.is_action_just_pressed("drop_block")):
+		fake_press()
 
 func fake_press() -> void:
 	var a : InputEventMouseButton = InputEventMouseButton.new()
