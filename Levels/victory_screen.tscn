@@ -56,7 +56,7 @@ preprocess = 17.95
 
 [node name="Victory Splash2" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(961, 541)
+position = Vector2(961, 645)
 scale = Vector2(4.51458, 4.51458)
 texture = ExtResource("3_jpm4w")
 
