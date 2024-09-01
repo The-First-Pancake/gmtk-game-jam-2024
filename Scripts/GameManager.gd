@@ -69,7 +69,7 @@ func load_level_from_packed(scene: PackedScene) -> void:
 
 func setup_new_save() -> void:
 	print("Resetting Save")
-	current_save = load("uid://c6sx65edmv72k")
+	current_save = load("res://Levels/Game Saves/Starting_Save.tres").duplicate()
 	save_game()
 
 func save_game() -> void:
