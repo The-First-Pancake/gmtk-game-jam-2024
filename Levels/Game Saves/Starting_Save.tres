@@ -1,6 +1,10 @@
-[gd_resource type="Resource" script_class="GameSave" load_steps=2 format=3 uid="uid://c6sx65edmv72k"]
+[gd_resource type="Resource" script_class="GameSave" load_steps=3 format=3 uid="uid://c6sx65edmv72k"]
 
+[ext_resource type="Script" path="res://Levels/Game Saves/LevelCompeteData.gd" id="1_1bwng"]
 [ext_resource type="Script" path="res://Levels/Game Saves/GameSave.gd" id="1_1uafu"]
 
 [resource]
 script = ExtResource("1_1uafu")
+levels_complete = Array[ExtResource("1_1bwng")]([])
+endless_high_height = 0
+endless_high_idols = 0

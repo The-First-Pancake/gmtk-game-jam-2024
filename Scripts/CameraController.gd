@@ -29,7 +29,6 @@ func _process(delta: float) -> void:
 	var screen_bottom: float = global_position.y + get_viewport_rect().size.y/2
 	
 	
-	
 	if shake_strength > 0:
 		shake_strength = lerpf(shake_strength,0,shake_fade * delta)
 		

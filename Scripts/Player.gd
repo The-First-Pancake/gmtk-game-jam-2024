@@ -66,7 +66,7 @@ func movement(delta: float) -> void:
 	apply_gravity(delta)
 	
 	#grab holds
-	if Input.is_action_pressed("grab_hold"):
+	if Input.is_action_just_pressed("grab_hold") or (Input.is_action_pressed("grab_hold") and velocity.y > 0):
 		var mid_air_hold_detector: Area2D = %"Mid-Air Hold Detector" as Area2D
 		var grounded_hold_detector_2: Area2D = %"Grounded Hold Detector2" as Area2D
 		

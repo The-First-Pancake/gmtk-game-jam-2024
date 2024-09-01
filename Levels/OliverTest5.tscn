@@ -1,11 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://cq8y8541n2cg0"]
+[gd_scene load_steps=5 format=3 uid="uid://cq8y8541n2cg0"]
 
 [ext_resource type="PackedScene" uid="uid://6dd2cbybvcqg" path="res://Levels/Template Level.tscn" id="1_tpik0"]
 [ext_resource type="Texture2D" uid="uid://nrkjss2x4yjn" path="res://Art/Sprites/pirahna.png" id="2_edj6i"]
-[ext_resource type="Script" path="res://Levels/Pirahna.gd" id="2_f5d8i"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_p0d8g"]
-size = Vector2(2100, 225)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oun4q"]
 radius = 1.9465
@@ -15,15 +11,6 @@ light_mode = 1
 
 [node name="Template Level" instance=ExtResource("1_tpik0")]
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Water/Piranah Swim Area" index="0"]
-shape = SubResource("RectangleShape2D_p0d8g")
-debug_color = Color(0, 0.191406, 0.7, 0)
-
-[node name="Pirahna9" type="Area2D" parent="Water/Piranah Swim Area" index="1"]
-position = Vector2(-115, -157)
-scale = Vector2(3.125, 3.125)
-script = ExtResource("2_f5d8i")
-
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Water/Piranah Swim Area/Pirahna" index="0"]
 shape = SubResource("CircleShape2D_oun4q")
 
@@ -31,5 +18,3 @@ shape = SubResource("CircleShape2D_oun4q")
 unique_name_in_owner = true
 material = SubResource("CanvasItemMaterial_gy11q")
 texture = ExtResource("2_edj6i")
-
-[node name="Piranah Swim Area2" type="Area2D" parent="Water" index="3"]

@@ -78,3 +78,4 @@ func save_game() -> void:
 func complete_all_levels() -> void:
 	for level: PackedScene in levels:
 		current_save.complete_level(level,0)
+	save_game()
