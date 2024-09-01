@@ -1,7 +1,9 @@
 class_name Pirahna
 extends Area2D
 
-var speed: float = 300
+var speed: float = 225 #pixels/sec
+var angular_vel: float = 20 #radians/sec
+var angular_accel: float = 0.25 #does not have units
 var swim_dir: Vector2 = Vector2(1,0)
 @onready var swim_area: Area2D = $".."
 var noise_gen: FastNoiseLite = FastNoiseLite.new()
@@ -22,8 +24,7 @@ func _process(delta: float) -> void:
 	var is_above_waterline: bool = !is_submerged and global_position.y < swim_area.global_position.y
 	
 	if is_submerged:
-		var rand_angle: float = noise_gen.get_noise_1d(Time.get_ticks_msec()/5 + noise_offset) * 50
-		print(rand_angle)
+		var rand_angle: float = noise_gen.get_noise_1d(Time.get_ticks_msec()*angular_accel + noise_offset) * angular_vel
 		swim_dir = swim_dir.rotated(rand_angle * delta)
 	else:
 		var angle_to_home: float = (swim_area.global_position - global_position).angle()
@@ -31,7 +32,6 @@ func _process(delta: float) -> void:
 			angle_to_home = Vector2.DOWN.angle()
 		var new_angle: float = rotate_toward(swim_dir.angle(), angle_to_home, delta * 5)
 		swim_dir = Vector2.from_angle(new_angle)
-	print(is_submerged, was_submerged)
 	if was_submerged != is_submerged and is_above_waterline:
 		var splash: CPUParticles2D = splash_particles.instantiate()
 		swim_area.add_child(splash)

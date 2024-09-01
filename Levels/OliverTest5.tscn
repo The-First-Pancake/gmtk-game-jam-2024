@@ -15,21 +15,21 @@ light_mode = 1
 
 [node name="Template Level" instance=ExtResource("1_tpik0")]
 
-[node name="Piranah Swim Area" type="Area2D" parent="Water" index="3"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Water/Piranah Swim Area" index="0"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Water/Piranah Swim Area" index="0"]
 shape = SubResource("RectangleShape2D_p0d8g")
 debug_color = Color(0, 0.191406, 0.7, 0)
 
-[node name="Pirahna" type="Area2D" parent="Water/Piranah Swim Area" index="1"]
+[node name="Pirahna9" type="Area2D" parent="Water/Piranah Swim Area" index="1"]
 position = Vector2(-115, -157)
 scale = Vector2(3.125, 3.125)
 script = ExtResource("2_f5d8i")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Water/Piranah Swim Area/Pirahna" index="0"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Water/Piranah Swim Area/Pirahna" index="0"]
 shape = SubResource("CircleShape2D_oun4q")
 
-[node name="Pirahna Sprite" type="Sprite2D" parent="Water/Piranah Swim Area/Pirahna" index="1"]
+[node name="Pirahna Sprite2" type="Sprite2D" parent="Water/Piranah Swim Area/Pirahna" index="1"]
 unique_name_in_owner = true
 material = SubResource("CanvasItemMaterial_gy11q")
 texture = ExtResource("2_edj6i")
+
+[node name="Piranah Swim Area2" type="Area2D" parent="Water" index="3"]

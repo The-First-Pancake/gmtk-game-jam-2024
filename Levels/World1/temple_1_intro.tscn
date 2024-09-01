@@ -44,7 +44,7 @@ scale = Vector2(6.25, 6.25)
 texture = ExtResource("6_jk0d0")
 
 [node name="Exit Door" parent="." index="3"]
-position = Vector2(1402, -314)
+position = Vector2(1402, -364)
 
 [node name="DirectionalLight2D" parent="." index="4"]
 position = Vector2(950, 186)
@@ -93,7 +93,7 @@ position = Vector2(1750, 954)
 position = Vector2(2844, 1088)
 
 [node name="2x2 Piiece" parent="." index="17" instance=ExtResource("2_a3p81")]
-position = Vector2(1400, -100)
+position = Vector2(1400, -150)
 
 [node name="Music" parent="Music Player" index="0"]
 volume_db = -7.0
