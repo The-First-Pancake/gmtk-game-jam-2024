@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://cah82i8ualvd0"]
+
+[ext_resource type="Script" path="res://Levels/Pirahna.gd" id="1_22lyg"]
+[ext_resource type="Texture2D" uid="uid://nrkjss2x4yjn" path="res://Art/Sprites/pirahna.png" id="2_hjh2j"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tq1j2"]
+radius = 1.9465
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_rxbkt"]
+light_mode = 1
+
+[node name="Pirahna" type="Area2D"]
+position = Vector2(-115, -157)
+scale = Vector2(3.125, 3.125)
+script = ExtResource("1_22lyg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_tq1j2")
+
+[node name="Pirahna Sprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+material = SubResource("CanvasItemMaterial_rxbkt")
+texture = ExtResource("2_hjh2j")

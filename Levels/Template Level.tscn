@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://6dd2cbybvcqg"]
+[gd_scene load_steps=43 format=3 uid="uid://6dd2cbybvcqg"]
 
 [ext_resource type="Texture2D" uid="uid://bqfeqtdw7xcxo" path="res://Art/Sprites/Backgrounds/background.png" id="1_dtx2u"]
 [ext_resource type="PackedScene" uid="uid://dngf3odx0yf5k" path="res://Prefabs/player.tscn" id="2_hossx"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://b3c0skin4w372" path="res://Prefabs/idol.tscn" id="13_jfp1q"]
 [ext_resource type="Texture2D" uid="uid://cra8a72oqq7vi" path="res://Art/Sprites/Idol.png" id="13_pmlcy"]
 [ext_resource type="PackedScene" uid="uid://def2hxxjwwhvl" path="res://Prefabs/Door.tscn" id="19_owl44"]
+[ext_resource type="PackedScene" uid="uid://cah82i8ualvd0" path="res://Prefabs/Pirahnas/pirahna.tscn" id="19_q2wtl"]
 [ext_resource type="Texture2D" uid="uid://dg585ad1tpgdc" path="res://Art/Sprites/Rope_Hook.png" id="20_71uq3"]
 [ext_resource type="Script" path="res://Scripts/Rope.gd" id="21_xxhgi"]
 [ext_resource type="PackedScene" path="res://Prefabs/cursor.tscn" id="22_v0byj"]
@@ -71,6 +72,9 @@ spawn_count = 2
 script = ExtResource("6_xpr8c")
 spawn_prefab = ExtResource("9_teir6")
 spawn_count = 10
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x6sbg"]
+size = Vector2(2100, 219.255)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1wnnk"]
 light_mode = 1
@@ -274,6 +278,37 @@ z_index = 1000
 position = Vector2(1147, 1293)
 script = ExtResource("10_7kdmf")
 rise_speed = 16.0
+
+[node name="Piranah Swim Area" type="Area2D" parent="Water"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Water/Piranah Swim Area"]
+position = Vector2(0, -2.62744)
+shape = SubResource("RectangleShape2D_x6sbg")
+debug_color = Color(0, 0.191406, 0.7, 0)
+
+[node name="Pirahna" parent="Water/Piranah Swim Area" instance=ExtResource("19_q2wtl")]
+position = Vector2(-147, 7)
+
+[node name="Pirahna2" parent="Water/Piranah Swim Area" instance=ExtResource("19_q2wtl")]
+position = Vector2(503, 7)
+
+[node name="Pirahna3" parent="Water/Piranah Swim Area" instance=ExtResource("19_q2wtl")]
+position = Vector2(-547, 57)
+
+[node name="Pirahna4" parent="Water/Piranah Swim Area" instance=ExtResource("19_q2wtl")]
+position = Vector2(853, 7)
+
+[node name="Pirahna5" parent="Water/Piranah Swim Area" instance=ExtResource("19_q2wtl")]
+position = Vector2(-847, 7)
+
+[node name="Pirahna6" parent="Water/Piranah Swim Area" instance=ExtResource("19_q2wtl")]
+position = Vector2(-847, 7)
+
+[node name="Pirahna7" parent="Water/Piranah Swim Area" instance=ExtResource("19_q2wtl")]
+position = Vector2(-847, 7)
+
+[node name="Pirahna8" parent="Water/Piranah Swim Area" instance=ExtResource("19_q2wtl")]
+position = Vector2(-847, 7)
 
 [node name="Top Water" type="TextureRect" parent="Water"]
 texture_filter = 1

@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://b74mnev8ysgmf"]
+
+[ext_resource type="Texture2D" uid="uid://b3fs2kki36uai" path="res://Art/Sprites/dust_2.png" id="1_kon3h"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_bkvbf"]
+light_mode = 1
+
+[sub_resource type="Curve" id="Curve_li8h5"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.490141, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_0d52w"]
+colors = PackedColorArray(1, 1, 1, 1, 0.1122, 0.33, 0.27192, 1)
+
+[sub_resource type="Gradient" id="Gradient_62n7w"]
+colors = PackedColorArray(1, 1, 1, 1, 0.85, 0.85, 0.85, 1)
+
+[node name="Splash Particles" type="CPUParticles2D"]
+material = SubResource("CanvasItemMaterial_bkvbf")
+emitting = false
+lifetime = 1.25
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 0.5
+texture = ExtResource("1_kon3h")
+emission_shape = 3
+emission_rect_extents = Vector2(10, 1)
+direction = Vector2(0, -1)
+gravity = Vector2(0, 490)
+initial_velocity_min = 150.0
+initial_velocity_max = 350.0
+angle_min = -180.0
+angle_max = 180.0
+scale_amount_curve = SubResource("Curve_li8h5")
+color = Color(0.690196, 0.713726, 0.545098, 1)
+color_ramp = SubResource("Gradient_0d52w")
+color_initial_ramp = SubResource("Gradient_62n7w")
+hue_variation_min = -0.1
+hue_variation_max = 0.1
