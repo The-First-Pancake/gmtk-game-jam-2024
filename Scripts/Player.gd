@@ -66,7 +66,7 @@ func movement(delta: float) -> void:
 	apply_gravity(delta)
 	
 	#grab holds
-	if Input.is_action_just_pressed("jump") or (Input.is_action_pressed("jump") and is_downsliding):
+	if Input.is_action_pressed("grab_hold"):
 		var mid_air_hold_detector: Area2D = %"Mid-Air Hold Detector" as Area2D
 		var grounded_hold_detector_2: Area2D = %"Grounded Hold Detector2" as Area2D
 		
@@ -154,7 +154,7 @@ func holding_behavior() -> void:
 		elif abs(angle_difference(current_hold.global_rotation, deg_to_rad(270))) < deg_to_rad(1):
 			transform.x.x = 1
 	
-	if Input.is_action_just_released("jump"):
+	if Input.is_action_just_released("grab_hold"):
 		hold_release_particles.restart()
 		jump_sound.play()
 		if abs(aim_dir.y) == 0:
