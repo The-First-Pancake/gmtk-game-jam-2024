@@ -33,10 +33,6 @@ func clear_added_spawns() -> void:
 		appended_spawns -= 1
 	refresh_spawn_object_counts()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 func generate_and_spawn_block() -> void:
 	spawned_block = block_prefabs.pick_random().instantiate() as Placeable
 	add_child(spawned_block)

@@ -19,7 +19,7 @@ spawn_count = 5
 [node name="Template Level" instance=ExtResource("1_pp86u")]
 
 [node name="Exit Door" parent="." index="2"]
-position = Vector2(1350, -550)
+position = Vector2(1350, -567)
 
 [node name="BlockSpawner" parent="Camera2D" index="1"]
 position = Vector2(-683, -281)
@@ -36,7 +36,7 @@ position = Vector2(2000, 350)
 position = Vector2(1350, -150)
 
 [node name="2x2 Piiece" parent="." index="16" instance=ExtResource("5_q6opu")]
-position = Vector2(1350, -333)
+position = Vector2(1350, -350)
 
 [node name="Music" parent="Music Player" index="0"]
 volume_db = -7.0

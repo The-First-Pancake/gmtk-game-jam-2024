@@ -6,6 +6,8 @@ enum PlaceState {QUEUED, PLACING, FALLING, PLACED, DESTROYED}
 @export var state : int = PlaceState.PLACED
 var hold_point_generator : HoldPointGenerator
 
+const GRID_SIZE: float = 50
+
 signal picked_up
 signal placed
 signal falling
@@ -87,6 +89,7 @@ func enter_falling() -> void:
 
 func enter_placed() -> void:
 	state = PlaceState.PLACED
+	global_position = round(global_position / grid_size) * grid_size #Snap to the nearest grid space
 	CameraController.instance.apply_shake()
 	impact_sound.play()
 	placed.emit()

@@ -56,6 +56,9 @@ position = Vector2(1350, -500)
 [node name="2x2 Piiece2" parent="." index="15" instance=ExtResource("9_i6e5t")]
 position = Vector2(1350, -2950)
 
+[node name="Campfire5" parent="2x2 Piiece2" index="5" instance=ExtResource("11_icgcv")]
+position = Vector2(50, -100)
+
 [node name="PlaceableCharacterBody2d" parent="." index="16" instance=ExtResource("3_xds0s")]
 position = Vector2(1400, 850)
 rotation = 1.5708
@@ -322,30 +325,27 @@ rotation = 1.57079
 position = Vector2(-0.000244141, 99.9998)
 rotation = 1.5708
 
-[node name="Campfire5" parent="." index="70" instance=ExtResource("11_icgcv")]
-position = Vector2(1400, -3050)
-
-[node name="2x2 Piiece4" parent="." index="71" instance=ExtResource("9_i6e5t")]
+[node name="2x2 Piiece4" parent="." index="70" instance=ExtResource("9_i6e5t")]
 position = Vector2(1050, -1850)
 
-[node name="PlaceableCharacterBody2d18" parent="." index="72" instance=ExtResource("10_uwfru")]
+[node name="PlaceableCharacterBody2d18" parent="." index="71" instance=ExtResource("10_uwfru")]
 position = Vector2(1050, -2000)
 rotation = 1.5708
 
-[node name="PlaceableCharacterBody2d34" parent="." index="73" instance=ExtResource("4_jgxbk")]
+[node name="PlaceableCharacterBody2d34" parent="." index="72" instance=ExtResource("4_jgxbk")]
 position = Vector2(1450, -1800)
 
-[node name="PlaceableCharacterBody2d48" parent="." index="74" instance=ExtResource("3_xds0s")]
+[node name="PlaceableCharacterBody2d48" parent="." index="73" instance=ExtResource("3_xds0s")]
 position = Vector2(1350, -2000)
 
 [node name="BreakerSpike" parent="PlaceableCharacterBody2d48" index="5" instance=ExtResource("8_8yufu")]
 position = Vector2(50, -150)
 
-[node name="PlaceableCharacterBody2d49" parent="." index="75" instance=ExtResource("6_udgby")]
+[node name="PlaceableCharacterBody2d49" parent="." index="74" instance=ExtResource("6_udgby")]
 position = Vector2(1600, -1950)
 rotation = 1.5708
 
-[node name="PlaceableCharacterBody2d50" parent="." index="76" instance=ExtResource("5_1r8jc")]
+[node name="PlaceableCharacterBody2d50" parent="." index="75" instance=ExtResource("5_1r8jc")]
 position = Vector2(1750, -2100)
 rotation = 3.14159
 
@@ -353,10 +353,10 @@ rotation = 3.14159
 position = Vector2(50, 150)
 rotation = 0.0
 
-[node name="PlaceableCharacterBody2d51" parent="." index="77" instance=ExtResource("5_1r8jc")]
+[node name="PlaceableCharacterBody2d51" parent="." index="76" instance=ExtResource("5_1r8jc")]
 position = Vector2(1250, -2300)
 
-[node name="PlaceableCharacterBody2d52" parent="." index="78" instance=ExtResource("3_xds0s")]
+[node name="PlaceableCharacterBody2d52" parent="." index="77" instance=ExtResource("3_xds0s")]
 position = Vector2(1000, -2150)
 rotation = -1.5708
 
@@ -368,32 +368,32 @@ rotation = 4.71239
 position = Vector2(100, -100)
 rotation = 4.71239
 
-[node name="PlaceableCharacterBody2d53" parent="." index="79" instance=ExtResource("3_xds0s")]
+[node name="PlaceableCharacterBody2d53" parent="." index="78" instance=ExtResource("3_xds0s")]
 position = Vector2(1550, -2200)
 
-[node name="2x2 Piiece12" parent="." index="80" instance=ExtResource("9_i6e5t")]
+[node name="2x2 Piiece12" parent="." index="79" instance=ExtResource("9_i6e5t")]
 position = Vector2(1150, -2450)
 
 [node name="BreakerSpike" parent="2x2 Piiece12" index="5" instance=ExtResource("8_8yufu")]
 position = Vector2(-50, -100)
 
-[node name="PlaceableCharacterBody2d54" parent="." index="81" instance=ExtResource("5_1r8jc")]
+[node name="PlaceableCharacterBody2d54" parent="." index="80" instance=ExtResource("5_1r8jc")]
 position = Vector2(1050, -2300)
 rotation = -3.14159
 
-[node name="PlaceableCharacterBody2d55" parent="." index="82" instance=ExtResource("6_udgby")]
+[node name="PlaceableCharacterBody2d55" parent="." index="81" instance=ExtResource("6_udgby")]
 position = Vector2(950, -2500)
 
 [node name="BreakerSpike" parent="PlaceableCharacterBody2d55" index="5" instance=ExtResource("8_8yufu")]
 position = Vector2(50, -150)
 
-[node name="PlaceableCharacterBody2d56" parent="." index="83" instance=ExtResource("6_udgby")]
+[node name="PlaceableCharacterBody2d56" parent="." index="82" instance=ExtResource("6_udgby")]
 position = Vector2(1450, -2400)
 
-[node name="PlaceableCharacterBody2d57" parent="." index="84" instance=ExtResource("4_jgxbk")]
+[node name="PlaceableCharacterBody2d57" parent="." index="83" instance=ExtResource("4_jgxbk")]
 position = Vector2(1750, -2300)
 
-[node name="PlaceableCharacterBody2d58" parent="." index="85" instance=ExtResource("5_1r8jc")]
+[node name="PlaceableCharacterBody2d58" parent="." index="84" instance=ExtResource("5_1r8jc")]
 position = Vector2(1650, -2500)
 rotation = -3.14159
 
@@ -401,31 +401,31 @@ rotation = -3.14159
 position = Vector2(50, 150)
 rotation = 0.0
 
-[node name="PlaceableCharacterBody2d59" parent="." index="86" instance=ExtResource("10_uwfru")]
+[node name="PlaceableCharacterBody2d59" parent="." index="85" instance=ExtResource("10_uwfru")]
 position = Vector2(1300, -2650)
 
-[node name="PlaceableCharacterBody2d60" parent="." index="87" instance=ExtResource("10_uwfru")]
+[node name="PlaceableCharacterBody2d60" parent="." index="86" instance=ExtResource("10_uwfru")]
 position = Vector2(1400, -2650)
 
-[node name="PlaceableCharacterBody2d61" parent="." index="88" instance=ExtResource("3_xds0s")]
+[node name="PlaceableCharacterBody2d61" parent="." index="87" instance=ExtResource("3_xds0s")]
 position = Vector2(950, -2700)
 
-[node name="PlaceableCharacterBody2d62" parent="." index="89" instance=ExtResource("5_1r8jc")]
+[node name="PlaceableCharacterBody2d62" parent="." index="88" instance=ExtResource("5_1r8jc")]
 position = Vector2(1150, -2700)
 
 [node name="BreakerSpike" parent="PlaceableCharacterBody2d62" index="5" instance=ExtResource("8_8yufu")]
 position = Vector2(-50, -50)
 
-[node name="PlaceableCharacterBody2d64" parent="." index="90" instance=ExtResource("5_1r8jc")]
+[node name="PlaceableCharacterBody2d64" parent="." index="89" instance=ExtResource("5_1r8jc")]
 position = Vector2(1750, -2600)
 
-[node name="PlaceableCharacterBody2d65" parent="." index="91" instance=ExtResource("3_xds0s")]
+[node name="PlaceableCharacterBody2d65" parent="." index="90" instance=ExtResource("3_xds0s")]
 position = Vector2(1550, -2700)
 
 [node name="BreakerSpike" parent="PlaceableCharacterBody2d65" index="5" instance=ExtResource("8_8yufu")]
 position = Vector2(50, -150)
 
-[node name="PlaceableCharacterBody2d66" parent="." index="92" instance=ExtResource("3_xds0s")]
+[node name="PlaceableCharacterBody2d66" parent="." index="91" instance=ExtResource("3_xds0s")]
 position = Vector2(1600, -2950)
 rotation = 1.5708
 
@@ -433,11 +433,11 @@ rotation = 1.5708
 position = Vector2(-100, -100)
 rotation = 1.5708
 
-[node name="PlaceableCharacterBody2d67" parent="." index="93" instance=ExtResource("3_xds0s")]
+[node name="PlaceableCharacterBody2d67" parent="." index="92" instance=ExtResource("3_xds0s")]
 position = Vector2(1750, -2900)
 rotation = -3.14159
 
-[node name="PlaceableCharacterBody2d63" parent="." index="94" instance=ExtResource("3_xds0s")]
+[node name="PlaceableCharacterBody2d63" parent="." index="93" instance=ExtResource("3_xds0s")]
 position = Vector2(1100, -2950)
 rotation = 1.5708
 
@@ -445,7 +445,7 @@ rotation = 1.5708
 position = Vector2(-100, 100)
 rotation = 1.5708
 
-[node name="PlaceableCharacterBody2d68" parent="." index="95" instance=ExtResource("3_xds0s")]
+[node name="PlaceableCharacterBody2d68" parent="." index="94" instance=ExtResource("3_xds0s")]
 position = Vector2(1000, -2950)
 rotation = -1.5708
 

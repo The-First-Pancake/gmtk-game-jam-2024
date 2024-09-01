@@ -6,7 +6,7 @@ func _ready() -> void:
 	if parent is Placeable:
 		parent.placed.connect(check_if_blocked)
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(_body: Node2D) -> void:
 	check_if_blocked()
 
 func check_if_blocked() -> void:

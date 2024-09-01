@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://c46chrwfo1c27" path="res://Art/Logos/button_play_normal.png" id="14_lcmns"]
 [ext_resource type="Script" path="res://Scripts/start_game.gd" id="15_fa2f7"]
 [ext_resource type="FontFile" uid="uid://cgi4dy0exfybn" path="res://Art/Fonts/FFFFORWA.TTF" id="17_qiu6a"]
-[ext_resource type="PackedScene" uid="uid://fq6lpryclmx1" path="res://Prefabs/cursor.tscn" id="18_b26jo"]
+[ext_resource type="PackedScene" path="res://Prefabs/cursor.tscn" id="18_b26jo"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wxx1c"]
 
@@ -133,6 +133,5 @@ text = "ESC to quit"
 label_settings = SubResource("LabelSettings_ex5la")
 
 [node name="Cursor" parent="." instance=ExtResource("18_b26jo")]
-modulate = Color(1, 1, 1, 1)
 
 [connection signal="button_down" from="Button" to="Button" method="_on_button_down"]

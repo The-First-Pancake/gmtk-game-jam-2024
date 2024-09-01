@@ -43,7 +43,8 @@ func _process(delta: float) -> void:
 		if get_tree().current_scene.name == "LevelSelect":
 			load_level_from_packed(splash_screen_scene)
 		elif get_tree().current_scene.name == "SplashScreen":
-			get_tree().quit()
+			if OS.get_name() != "Web":
+				get_tree().quit()
 		else:
 			load_level_from_packed(level_select_scene)
 	if Input.is_action_just_pressed("fullscreen"):

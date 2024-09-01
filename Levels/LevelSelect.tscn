@@ -15,7 +15,7 @@
 [ext_resource type="Script" path="res://Scripts/MusicPlayer.gd" id="12_8108v"]
 [ext_resource type="AudioStream" uid="uid://b7o0nfcidnbwd" path="res://Sound/Music/title_music.wav" id="13_oohv8"]
 [ext_resource type="Script" path="res://Levels/UnlockAll.gd" id="13_wubfr"]
-[ext_resource type="PackedScene" uid="uid://fq6lpryclmx1" path="res://Prefabs/cursor.tscn" id="16_w0v3b"]
+[ext_resource type="PackedScene" path="res://Prefabs/cursor.tscn" id="16_w0v3b"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_pwuex"]
 light_mode = 1

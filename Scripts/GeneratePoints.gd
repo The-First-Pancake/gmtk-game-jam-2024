@@ -20,9 +20,6 @@ func _ready() -> void:
 func get_generated_points() -> PackedVector2Array:
 	return generated_points
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 	
 func placeTestPoints(points: PackedVector2Array) -> void:
 	for point in points:
