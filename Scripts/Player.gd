@@ -37,7 +37,6 @@ var campfires: Array[Campfire] = []
 @onready var idol_get_sound: AudioStreamPlayer = $Audio/IdolGet as AudioStreamPlayer
 @onready var griddy_sound: AudioStreamPlayer = $Audio/Griddy as AudioStreamPlayer
 
-
 @onready var gravity_reduce_timer: Timer = %"Gravity Reduce Timer" as Timer
 @onready var targeting_arrow: Sprite2D = $"Targeting Arrow"
 
@@ -89,6 +88,7 @@ func movement(delta: float) -> void:
 		if closest_hold:
 			velocity = Vector2.ZERO
 			current_hold = closest_hold
+			AudioManager.PlayAudio(grab_sound)
 			return
 	
 	# Handle jump.
@@ -101,11 +101,11 @@ func movement(delta: float) -> void:
 	
 	if !was_on_floor and is_on_floor():
 		land_particles.restart()
-		land_sound.play()
+		AudioManager.PlayAudio(land_sound)
 	
 	if (is_on_floor() or has_recently_left_ground) and Input.is_action_just_pressed("jump"):
 		jump_particles.restart()
-		jump_sound.play()
+		AudioManager.PlayAudio(jump_sound)
 		was_on_floor = false
 		velocity.y = jump_velocity
 	else:
@@ -156,7 +156,7 @@ func holding_behavior() -> void:
 	
 	if Input.is_action_just_released("grab_hold"):
 		hold_release_particles.restart()
-		jump_sound.play()
+		AudioManager.PlayAudio(jump_sound)
 		if abs(aim_dir.y) == 0:
 			velocity = leap_velocity * aim_dir
 			gravity_reduce_timer.wait_time = 0.15
@@ -169,8 +169,8 @@ func holding_behavior() -> void:
 @onready var sprite_animator: AnimatedSprite2D = %"Sprite Animator" as AnimatedSprite2D
 @onready var griddy_timer: Timer = %"Griddy Timer" as Timer
 @onready var footstep_animator: AnimationPlayer = $"Sprite Animator/AnimationPlayer" as AnimationPlayer
-var slide_sound_playing : bool = false
-var grab_sound_playing : bool = false
+
+var slide_sound_playing : AudioStreamPlayer = null
 var griddy_sound_playing : bool = false
 var main_music_playing : bool = false
 
@@ -182,21 +182,17 @@ func update_animations() -> void:
 	
 	if is_instance_valid(current_hold):
 		footstep_animator.stop()
-		slide_sound.stop()
-		slide_sound_playing = false
+		if is_instance_valid(slide_sound_playing):
+			slide_sound_playing.queue_free()
 		griddy_sound_playing = false
 		var holding_cieling: bool = abs(angle_difference(current_hold.global_rotation, deg_to_rad(180))) < deg_to_rad(1)
 		if holding_cieling:
 			sprite_animator.play("hang_top")
 		else:
 			sprite_animator.play("hang_side")
-		if grab_sound_playing == false:
-			grab_sound.play()
-			grab_sound_playing = true
 	elif is_on_floor():
-		slide_sound.stop()
-		slide_sound_playing = false
-		grab_sound_playing = false
+		if is_instance_valid(slide_sound_playing):
+			slide_sound_playing.queue_free()
 		if abs(velocity.x) > 10:
 			if AudioManager.current_music.stream_paused == true:
 				AudioManager.current_music.stream_paused = false
@@ -217,17 +213,14 @@ func update_animations() -> void:
 					griddy_sound.stop()
 				footstep_animator.stop()
 	elif is_downsliding:
-		grab_sound_playing = false
-		if slide_sound_playing == false:
-			slide_sound.play()
-			slide_sound_playing = true
+		if not is_instance_valid(slide_sound_playing):
+			slide_sound_playing = AudioManager.PlayAudio(slide_sound)
 		footstep_animator.stop()
 		sprite_animator.play("downslide")
 		slide_particles.emitting = true
 	else:
-		slide_sound.stop()
-		slide_sound_playing = false
-		grab_sound_playing = false
+		if (is_instance_valid(slide_sound_playing)):
+			slide_sound_playing.queue_free()
 		footstep_animator.stop()
 		if AudioManager.current_music.stream_paused == true:
 			AudioManager.current_music.stream_paused = false
@@ -252,9 +245,10 @@ func die() -> void:
 	dying = true
 	current_hold = null
 	sprite_animator.play("die")
-	slide_sound.stop()
+	if (is_instance_valid(slide_sound_playing)):
+			slide_sound_playing.queue_free()
 	footstep_animator.stop()
-	die_sound.play()
+	AudioManager.PlayAudio(die_sound)
 	
 	var tween: Tween = get_tree().create_tween()
 	tween.set_trans(Tween.TRANS_QUAD)
@@ -311,7 +305,7 @@ func on_hitbix_hit(area: Area2D) -> void:
 	if area.is_in_group("idol"):
 		area.queue_free()
 		idols_collected += 1
-		idol_get_sound.play()
+		AudioManager.PlayAudio(idol_get_sound)
 		return
 	if area is Campfire:
 		if campfires.has(area): return #skip if we already have it

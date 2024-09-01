@@ -91,7 +91,7 @@ func enter_placed() -> void:
 	state = PlaceState.PLACED
 	global_position = round(global_position / grid_size) * grid_size #Snap to the nearest grid space
 	CameraController.instance.apply_shake()
-	impact_sound.play()
+	AudioManager.PlayAudio(impact_sound)
 	placed.emit()
 	
 func check_for_collisions() -> bool:
