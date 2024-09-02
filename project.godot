@@ -36,7 +36,7 @@ window/size/window_width_override=960
 window/size/window_height_override=540
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
-mouse_cursor/custom_image="res://Art/Sprites/cursor-pointer-3.png"
+mouse_cursor/custom_image="res://Art/Sprites/cursor-pointer-1.png"
 
 [file_customization]
 
