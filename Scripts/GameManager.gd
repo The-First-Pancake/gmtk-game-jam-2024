@@ -28,8 +28,12 @@ const SAVE_PATH: String = "user://save.tres"
 var current_save: GameSave = null
 
 func _ready() -> void:
+	var silentwolf_api_file: FileAccess = FileAccess.open("res://Keys/SilentwolfAPI.txt", FileAccess.READ)
+	if !silentwolf_api_file:
+		push_error("No API key for silentwolf found. Add folder to resources called 'Keys' and put SilentwolfAPI.txt into it")
+	var silentwolf_api_key: String = silentwolf_api_file.get_as_text()
 	SilentWolf.configure({
-		"api_key": "ooJtAiIZNYaCxiFTCcFhf74ADYWD8Yjv8wxJRswd",
+		"api_key": silentwolf_api_key,
 		"game_id": "Cappy&Tappy",
 		"log_level": 1
 	})

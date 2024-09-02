@@ -116,7 +116,7 @@ placeholder_text = "Enter Your Name Here"
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 51
-text = "Submit"
+text = "Submit Score"
 
 [node name="Leaderboard Container" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
