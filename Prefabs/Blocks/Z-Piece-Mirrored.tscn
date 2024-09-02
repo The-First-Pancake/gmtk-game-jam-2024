@@ -11,9 +11,9 @@ texture_filter = 1
 
 [node name="PlaceableCharacterBody2d" instance=ExtResource("1_5qe82")]
 
-[node name="Sprite2D" parent="." index="0"]
+[node name="Sprite2D" parent="." index="2"]
 position = Vector2(-100, -150)
 texture = SubResource("CanvasTexture_a81vx")
 
-[node name="CollisionPolygon2D" parent="." index="1"]
+[node name="CollisionPolygon2D" parent="." index="3"]
 polygon = PackedVector2Array(99, 49, 0, 49, -1, 149, -99, 149, -99, -49, 1, -49, 1, -149, 99, -149)

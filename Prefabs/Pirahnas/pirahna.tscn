@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cah82i8ualvd0"]
 
-[ext_resource type="Script" path="res://Levels/Pirahna.gd" id="1_22lyg"]
+[ext_resource type="Script" path="res://Scripts/Pirahna.gd" id="1_22lyg"]
 [ext_resource type="Texture2D" uid="uid://nrkjss2x4yjn" path="res://Art/Sprites/pirahna.png" id="2_hjh2j"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tq1j2"]

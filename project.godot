@@ -21,6 +21,7 @@ config/icon="res://Art/Logos/Player Icon-export.png"
 
 GameManager="*res://Scripts/GameManager.gd"
 AudioManager="*res://Scripts/AudioManager.gd"
+SilentWolf="*res://addons/silent_wolf/SilentWolf.gd"
 
 [debug]
 

@@ -9,7 +9,7 @@ func _ready() -> void:
 	regenerate_block_spawner()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var player_position : int = -(GameManager.player.global_position.y / 50)
 	if (player_position > last_threshold + y_level_switch):
 		last_threshold = player_position

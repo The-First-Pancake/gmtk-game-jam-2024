@@ -10,7 +10,6 @@ var level_idx : int = 1;
 @onready var idol_1: TextureRect = $"HBoxContainer/Idol 1"
 @onready var idol_2: TextureRect = $"HBoxContainer/Idol 2"
 @onready var idol_3: TextureRect = $"HBoxContainer/Idol 3"
-
 @onready var start_sound: AudioStreamPlayer = $StartGameFx
 
 @onready var level_title: Label = $"Level Title"
@@ -57,9 +56,6 @@ func _ready() -> void:
 
 	pass # Replace with function body.
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 
 func _on_mouse_entered() -> void:

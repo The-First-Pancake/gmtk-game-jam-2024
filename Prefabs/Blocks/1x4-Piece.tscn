@@ -12,9 +12,9 @@ texture_filter = 1
 [node name="PlaceableCharacterBody2d" instance=ExtResource("1_mkfor")]
 safe_margin = 8.0
 
-[node name="Sprite2D" parent="." index="0"]
+[node name="Sprite2D" parent="." index="2"]
 position = Vector2(-50, -200)
 texture = SubResource("CanvasTexture_jdlda")
 
-[node name="CollisionPolygon2D" parent="." index="1"]
+[node name="CollisionPolygon2D" parent="." index="3"]
 polygon = PackedVector2Array(-49, 199, -49, -199, 49, -199, 49, 199)

@@ -23,8 +23,6 @@ const SHARD : PackedScene = preload("res://Prefabs/Shard.tscn")
 var triangles : Array[PackedVector2Array] = []
 var shards : Array[Node2D] = []
 
-func _ready() -> void:
-	$DeleteTimer.timeout.connect(_on_DeleteTimer_timeout)
 
 func add_shards() -> void:
 	for s in shards:

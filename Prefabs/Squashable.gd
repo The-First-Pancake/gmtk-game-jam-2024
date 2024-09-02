@@ -17,7 +17,6 @@ func _ready() -> void:
 		squashable_parent.get_parent().placed.connect(check_for_squash)
 
 func check_for_squash() -> void:
-	print(1)
 	var parent: Node = squashable_parent.get_parent()
 	if parent is Placeable:
 		if parent.state != parent.PlaceState.PLACED:

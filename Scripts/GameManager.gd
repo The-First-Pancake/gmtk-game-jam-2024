@@ -23,10 +23,17 @@ var exit_door : Door = null
 var current_level : PackedScene = null
 var level_select_scene: PackedScene = preload("res://Levels/LevelSelect.tscn")
 var splash_screen_scene: PackedScene = preload("res://Levels/SplashScreen.tscn")
+var leaderboard_scene: PackedScene = preload("res://Levels/Leaderboard.tscn")
 const SAVE_PATH: String = "user://save.tres"
 var current_save: GameSave = null
 
 func _ready() -> void:
+	SilentWolf.configure({
+		"api_key": "ooJtAiIZNYaCxiFTCcFhf74ADYWD8Yjv8wxJRswd",
+		"game_id": "Cappy&Tappy",
+		"log_level": 1
+	})
+
 	if ResourceLoader.exists(SAVE_PATH):
 		current_save = ResourceLoader.load(SAVE_PATH) as GameSave
 		print(current_save.endless_high_height)
@@ -34,11 +41,13 @@ func _ready() -> void:
 		setup_new_save()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("skip_level"):
-		level_complete()
-	if Input.is_action_just_pressed("restart"):
-		get_tree().reload_current_scene()
+		if get_tree().current_scene is not Control: #don't allow restart in menus
+			level_complete()
+	if Input.is_action_just_pressed("restart"): 
+		if get_tree().current_scene is not Control: #don't allow restart in menus
+			get_tree().reload_current_scene()
 	if Input.is_action_just_pressed("ui_cancel"):
 		if get_tree().current_scene.name == "LevelSelect":
 			load_level_from_packed(splash_screen_scene)
@@ -54,6 +63,7 @@ func _process(delta: float) -> void:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 			
 var victory_screen_scene: PackedScene = preload("res://Levels/victory_screen.tscn")
+
 func level_complete() -> void:
 	current_save.complete_level(current_level, player.idols_collected)
 	save_game()
@@ -62,7 +72,6 @@ func level_complete() -> void:
 	else:
 		load_level_from_packed(level_select_scene)
 	
-
 func load_level_from_packed(scene: PackedScene) -> void:
 	current_level = scene
 	get_tree().change_scene_to_packed(scene)
@@ -79,3 +88,16 @@ func complete_all_levels() -> void:
 	for level: PackedScene in levels:
 		current_save.complete_level(level,0)
 	save_game()
+
+
+var endless_run_height: int = 0
+var endless_run_idols: int = 0
+
+func player_die() -> void:
+	if get_tree().current_scene.name == "Endless Level":
+		current_save.endless_high_height = max(endless_run_height, current_save.endless_high_height)
+		current_save.endless_high_idols = max(endless_run_idols, current_save.endless_high_idols)
+		
+		load_level_from_packed(leaderboard_scene)
+	else:
+		get_tree().reload_current_scene()
