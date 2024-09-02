@@ -1,25 +1,18 @@
 extends Node
 
 
-func PlayAudio(audio: AudioStreamPlayer) -> AudioStreamPlayer:
+func PlayAudio(audio: AudioStreamPlayer, vibrate_controller_idx: int = 0) -> AudioStreamPlayer:
 	var audio_dupe: AudioStreamPlayer = audio.duplicate()
 	add_child(audio_dupe)
 	audio_dupe.play()
-
-	var audio_haptics_dupe: AudioStreamPlayer = audio.duplicate()
-	add_child(audio_haptics_dupe)
-	audio_haptics_dupe.bus = "AudioHaptics"
-	audio_haptics_dupe.volume_db = 20
-	audio_haptics_dupe.play()
-	
 	audio_dupe.finished.connect(func() -> void:
 		audio_dupe.queue_free()
 	)
-	
 	audio_dupe.tree_exited.connect(func() -> void:
-		audio_haptics_dupe.queue_free()
+		Input.stop_joy_vibration(vibrate_controller_idx)
 	)
-	
+	if vibrate_controller_idx >= 0:
+		Input.start_joy_vibration(vibrate_controller_idx, 0.5, 0, 0)
 	return audio_dupe
 
 var current_music: AudioStreamPlayer = null
