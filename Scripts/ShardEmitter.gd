@@ -42,7 +42,7 @@ func shatter(impact_point_global : Vector2) -> void:
 
 		#add random break points
 		for i in nbr_of_shards:
-			var p : Vector2 = _rect.position + Vector2(randi_range(0, _rect.size.x), randi_range(0, _rect.size.y))
+			var p : Vector2 = _rect.position + Vector2(randf_range(0, _rect.size.x), randf_range(0, _rect.size.y))
 			#move outer points onto rectangle edges
 			if p.x < _rect.position.x + threshold:
 				p.x = _rect.position.x

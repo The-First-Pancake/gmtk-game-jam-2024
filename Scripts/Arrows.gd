@@ -5,7 +5,7 @@ const max_roation_on_hit = 10
 @export var speed : float = 300.0
 var lifetime : float = 5.0
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if (speed != 0):
 		velocity = speed * Vector2.UP.rotated(global_rotation)
 		move_and_slide()

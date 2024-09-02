@@ -11,4 +11,4 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	var noise_gen: FastNoiseLite = FastNoiseLite.new()
 	noise_gen.noise_type = FastNoiseLite.TYPE_PERLIN
-	energy = initial_energy - initial_energy * percent_variance * noise_gen.get_noise_1d(Time.get_ticks_msec()/2)
+	energy = initial_energy - initial_energy * percent_variance * noise_gen.get_noise_1d(float(Time.get_ticks_msec())/2)

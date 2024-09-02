@@ -1,8 +1,8 @@
 class_name Door
 extends Area2D
 
-var top_layer: float = 10
-var lower_layer: float = 0
+var top_layer: int = 10
+var lower_layer: int = 0
 @export var is_exit: bool = false
 @onready var door_frame: Sprite2D = $"Door Frame" as Sprite2D
 @onready var interior_wall: StaticBody2D = $"Interior Wall"

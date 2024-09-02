@@ -7,9 +7,7 @@ var level_idx : int = 1;
 @export var override_text: String = ""
 @export var endless: bool = false
 
-@onready var idol_1: TextureRect = $"HBoxContainer/Idol 1"
-@onready var idol_2: TextureRect = $"HBoxContainer/Idol 2"
-@onready var idol_3: TextureRect = $"HBoxContainer/Idol 3"
+
 @onready var start_sound: AudioStreamPlayer = $StartGameFx
 
 @onready var level_title: Label = $"Level Title"
@@ -36,17 +34,20 @@ func _ready() -> void:
 		completed_flames.show()
 		
 	visible = unlocked
-	
-	var idols_collected : int = GameManager.current_save.how_many_idols(scene_to_load)
-	if (idols_collected >= 1):
-		idol_1.show()
-	if (idols_collected >= 2):
-		idol_1.show()
-		idol_2.show()
-	if (idols_collected >= 3):
-		idol_1.show()
-		idol_2.show()
-		idol_3.show()
+	if (!endless):
+		var idol_1: TextureRect = $"HBoxContainer/Idol 1"
+		var idol_2: TextureRect = $"HBoxContainer/Idol 2"
+		var idol_3: TextureRect = $"HBoxContainer/Idol 3"
+		var idols_collected : int = GameManager.current_save.how_many_idols(scene_to_load)
+		if (idols_collected >= 1):
+			idol_1.show()
+		if (idols_collected >= 2):
+			idol_1.show()
+			idol_2.show()
+		if (idols_collected >= 3):
+			idol_1.show()
+			idol_2.show()
+			idol_3.show()
 
 	if (endless):
 		var high_score_idol: Label = $"HBoxContainer/High Score Idol"

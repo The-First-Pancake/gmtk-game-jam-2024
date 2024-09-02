@@ -6,7 +6,3 @@ func _ready() -> void:
 	await get_tree().process_frame
 	var title_music : AudioStreamPlayer = %Music as AudioStreamPlayer
 	AudioManager.PlayMusic(title_music)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

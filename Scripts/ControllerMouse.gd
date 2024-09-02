@@ -8,7 +8,7 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	pass
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var mouse_rel : Vector2 = Vector2.ZERO
 	var move_dir : Vector2 = Input.get_vector("controller_mouse_left","controller_mouse_right",
 											  "controller_mouse_up","controller_mouse_down")

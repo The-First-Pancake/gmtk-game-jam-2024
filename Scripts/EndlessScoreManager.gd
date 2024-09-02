@@ -15,7 +15,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	var player: Player = GameManager.player
-	var player_height : int = base_height - int(player.global_position.y / 50)
+	var player_height : int = base_height - floor(player.global_position.y / 50)
 	max_height_this_run = max(max_height_this_run, player_height)
 	GameManager.endless_run_height = max_height_this_run
 	GameManager.endless_run_idols = player.idols_collected
