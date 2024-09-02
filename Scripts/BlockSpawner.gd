@@ -4,12 +4,16 @@ extends Marker2D
 var spawn_timer : Timer
 
 @export var spawn_container : Node2D
-@export var block_prefabs : Array[PackedScene]
+@export var block_prefabs : Array[PackedScene] :
+	set(_block_prefabs):
+		block_prefabs = _block_prefabs
+		refresh_block_bag()
 @export var spawn_objects: Array[SpawnObject]
 @export var spawn_object_probability : float = 0.0
 
 var spawned_block : Placeable
 var spawned_object_counts : Array[int] = []
+var block_bag : Array[PackedScene]
 var total_objects_to_spawn : int = 0
 var appended_spawns : int = 0
 
@@ -17,6 +21,7 @@ var appended_spawns : int = 0
 func _ready() -> void:
 	spawn_timer = $SpawnTimer as Timer
 	spawned_object_counts.resize(len(spawn_objects))
+	refresh_block_bag()
 	refresh_spawn_object_counts()
 	generate_and_spawn_block()
 
@@ -34,7 +39,9 @@ func clear_added_spawns() -> void:
 	refresh_spawn_object_counts()
 
 func generate_and_spawn_block() -> void:
-	spawned_block = block_prefabs.pick_random().instantiate() as Placeable
+	if (block_bag.size() == 0):
+		refresh_block_bag()
+	spawned_block = block_bag.pop_front().instantiate() as Placeable
 	add_child(spawned_block)
 	spawned_block.global_position = global_position
 	spawned_block.connect("picked_up", _spawned_block_picked_up)
@@ -68,6 +75,15 @@ func refresh_spawn_object_counts() -> void:
 	for i in len(spawn_objects):
 		spawned_object_counts[i] = spawn_objects[i].spawn_count
 		total_objects_to_spawn += spawn_objects[i].spawn_count
+
+func refresh_block_bag() -> void:
+	block_bag.clear()
+	# tetris 2 of each block
+	for block in block_prefabs:
+		block_bag.append(block)
+		block_bag.append(block)
+	block_bag.shuffle()
+	
 
 func _spawned_block_picked_up() -> void:
 	spawn_timer.start()

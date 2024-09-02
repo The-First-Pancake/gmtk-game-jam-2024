@@ -32,7 +32,7 @@
 [ext_resource type="Script" path="res://Scripts/Rope.gd" id="21_yotb3"]
 [ext_resource type="PackedScene" uid="uid://hetb2cu4cbew" path="res://Prefabs/BreakerSpike.tscn" id="22_weo7f"]
 [ext_resource type="Script" path="res://Scripts/MusicPlayer.gd" id="32_41nv7"]
-[ext_resource type="PackedScene" path="res://Prefabs/cursor.tscn" id="32_iamwq"]
+[ext_resource type="PackedScene" uid="uid://fq6lpryclmx1" path="res://Prefabs/cursor.tscn" id="32_iamwq"]
 [ext_resource type="AudioStream" uid="uid://bjoyy3kjn3bpj" path="res://Sound/Music/Uptempo Not Crazy Level Music.wav" id="33_043hb"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_sacac"]
