@@ -90,14 +90,18 @@ func complete_all_levels() -> void:
 	save_game()
 
 
-var endless_run_height: int = 0
-var endless_run_idols: int = 0
+var endless_run_height: int = 0:
+	set(new_val):
+		endless_run_height = new_val
+		current_save.endless_high_height = max(new_val, current_save.endless_high_height)
+var endless_run_idols: int = 0:
+	set(new_val):
+		endless_run_idols = new_val
+		current_save.endless_high_idols = max(new_val, current_save.endless_high_idols)
 
 func player_die() -> void:
 	if get_tree().current_scene.name == "Endless Level":
-		current_save.endless_high_height = max(endless_run_height, current_save.endless_high_height)
-		current_save.endless_high_idols = max(endless_run_idols, current_save.endless_high_idols)
-		
+		save_game()
 		load_level_from_packed(leaderboard_scene)
 	else:
 		get_tree().reload_current_scene()

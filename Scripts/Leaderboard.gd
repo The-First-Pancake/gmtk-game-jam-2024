@@ -27,11 +27,9 @@ func refresh_board() -> void:
 		if child == loading_label:
 			continue
 		child.queue_free()
-	print("abe")
+	#TODO failsafe for if we don't connect
 	var sw_result: Dictionary = await SilentWolf.Scores.get_scores(10).sw_get_scores_complete
-	print("tabe")
 	
-	print(sw_result)
 	var i: int = 0
 	for score_entry: Dictionary in sw_result.scores:
 		i += 1
