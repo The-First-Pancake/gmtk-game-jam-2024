@@ -1,18 +1,17 @@
 extends Node
 
 
-func PlayAudio(audio: AudioStreamPlayer, vibrate_controller_idx: int = 0) -> AudioStreamPlayer:
+func PlayAudio(audio: AudioStreamPlayer, is_haptics: bool = true) -> AudioStreamPlayer:
 	var audio_dupe: AudioStreamPlayer = audio.duplicate()
 	add_child(audio_dupe)
+	if is_haptics:
+		audio_dupe.bus = "Haptics"
 	audio_dupe.play()
+
 	audio_dupe.finished.connect(func() -> void:
 		audio_dupe.queue_free()
 	)
-	audio_dupe.tree_exited.connect(func() -> void:
-		Input.stop_joy_vibration(vibrate_controller_idx)
-	)
-	if vibrate_controller_idx >= 0:
-		Input.start_joy_vibration(vibrate_controller_idx, 0.5, 0, 0)
+
 	return audio_dupe
 
 var current_music: AudioStreamPlayer = null
@@ -28,3 +27,10 @@ func PlayMusic(audio: AudioStreamPlayer) -> void:
 	audio_dupe.finished.connect(func() -> void:
 		audio_dupe.queue_free()
 	)
+
+func _process(delta: float) -> void:
+	var haptics_mag : float = db_to_linear(AudioServer.get_bus_peak_volume_left_db(AudioServer.get_bus_index("Haptics"), 0))
+	if (haptics_mag > 0.01):
+		Input.start_joy_vibration(0, haptics_mag, haptics_mag)
+	else:
+		Input.stop_joy_vibration(0)
