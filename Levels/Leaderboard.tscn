@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://cangbjogya6b3"]
+[gd_scene load_steps=13 format=3 uid="uid://cangbjogya6b3"]
 
 [ext_resource type="Script" path="res://Scripts/Leaderboard.gd" id="1_o07ta"]
 [ext_resource type="Texture2D" uid="uid://bqfeqtdw7xcxo" path="res://Art/Sprites/Backgrounds/background.png" id="3_bylc3"]
 [ext_resource type="Texture2D" uid="uid://cra8a72oqq7vi" path="res://Art/Sprites/Idol.png" id="3_r7ohp"]
-[ext_resource type="FontFile" uid="uid://ck4uibtfurjl4" path="res://Fonts/FFFFORWA.TTF" id="4_y3vag"]
+[ext_resource type="FontFile" uid="uid://ck4uibtfurjl4" path="res://Fonts/BlockyPixelFont.TTF" id="4_y3vag"]
+[ext_resource type="FontVariation" uid="uid://btbr0dkcrkg1g" path="res://Fonts/CenteredPixelFont.tres" id="5_1nslo"]
 [ext_resource type="PackedScene" uid="uid://bd754qqva43i1" path="res://Prefabs/leaderboard_entry.tscn" id="5_j83hf"]
 [ext_resource type="Script" path="res://Scripts/MusicPlayer.gd" id="14_17obq"]
 [ext_resource type="AudioStream" uid="uid://b7o0nfcidnbwd" path="res://Sound/Music/title_music.wav" id="15_7peww"]
@@ -70,6 +71,7 @@ theme_override_constants/margin_right = 100
 [node name="Player Entry" type="VBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/separation = 50
 alignment = 1
 
 [node name="Stats" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/Player Entry"]
@@ -107,14 +109,17 @@ horizontal_alignment = 1
 
 [node name="Name Entry" type="TextEdit" parent="MarginContainer/HBoxContainer/MarginContainer/Player Entry"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 50)
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
-theme_override_font_sizes/font_size = 26
+theme_override_fonts/font = ExtResource("5_1nslo")
+theme_override_font_sizes/font_size = 30
 placeholder_text = "Enter Your Name Here"
 
 [node name="Score Submit Button" type="Button" parent="MarginContainer/HBoxContainer/MarginContainer/Player Entry"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_y3vag")
 theme_override_font_sizes/font_size = 51
 text = "Submit Score"
 
@@ -138,11 +143,13 @@ vertical_alignment = 1
 
 [node name="Continue button" type="Button" parent="."]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
 offset_left = 150.0
-offset_top = 950.0
+offset_top = 928.0
 offset_right = 858.0
-offset_bottom = 1028.0
+offset_bottom = 1048.0
+theme_override_fonts/font = ExtResource("4_y3vag")
 theme_override_font_sizes/font_size = 51
 text = "Continue"
 

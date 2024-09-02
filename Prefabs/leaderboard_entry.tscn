@@ -1,12 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://bd754qqva43i1"]
+[gd_scene load_steps=6 format=3 uid="uid://bd754qqva43i1"]
 
 [ext_resource type="Script" path="res://Scripts/LeaderboardEntry.gd" id="1_byykr"]
+[ext_resource type="FontFile" uid="uid://ck4uibtfurjl4" path="res://Fonts/BlockyPixelFont.TTF" id="2_yrprq"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7ktlc"]
-font_size = 50
+font = ExtResource("2_yrprq")
+font_size = 40
 
-[sub_resource type="LabelSettings" id="LabelSettings_sdqk3"]
-font_size = 50
+[sub_resource type="LabelSettings" id="LabelSettings_qta36"]
+font = ExtResource("2_yrprq")
+font_size = 35
+
+[sub_resource type="LabelSettings" id="LabelSettings_aean0"]
+font = ExtResource("2_yrprq")
+font_size = 35
 
 [node name="LeaderboardEntry" type="MarginContainer"]
 script = ExtResource("1_byykr")
@@ -15,30 +22,37 @@ script = ExtResource("1_byykr")
 layout_mode = 2
 color = Color(0, 0, 0, 0.498039)
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 5
 
-[node name="Place Label" type="Label" parent="HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Place Label" type="Label" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "#"
 label_settings = SubResource("LabelSettings_7ktlc")
 horizontal_alignment = 1
 
-[node name="Name Label" type="Label" parent="HBoxContainer"]
+[node name="Name Label" type="Label" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Name"
-label_settings = SubResource("LabelSettings_7ktlc")
-horizontal_alignment = 1
+label_settings = SubResource("LabelSettings_qta36")
 vertical_alignment = 1
 
-[node name="Score Label" type="Label" parent="HBoxContainer"]
+[node name="Score Label" type="Label" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Score (m)
-"
-label_settings = SubResource("LabelSettings_sdqk3")
+text = "Score (m)"
+label_settings = SubResource("LabelSettings_aean0")
 horizontal_alignment = 1
+vertical_alignment = 1

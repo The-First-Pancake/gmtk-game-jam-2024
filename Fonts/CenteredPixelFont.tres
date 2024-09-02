@@ -1,0 +1,7 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://btbr0dkcrkg1g"]
+
+[ext_resource type="FontFile" uid="uid://ck4uibtfurjl4" path="res://Fonts/BlockyPixelFont.TTF" id="1_6rpp3"]
+
+[resource]
+base_font = ExtResource("1_6rpp3")
+spacing_top = 5

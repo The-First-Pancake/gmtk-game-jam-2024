@@ -13,7 +13,7 @@
 [ext_resource type="Script" path="res://Scripts/WaterLevel.gd" id="10_7kdmf"]
 [ext_resource type="Texture2D" uid="uid://b3oj42r81wxap" path="res://Art/Sprites/UI/ui_frame.png" id="10_ixs36"]
 [ext_resource type="Script" path="res://Scripts/ui.gd" id="10_wtk1j"]
-[ext_resource type="FontFile" uid="uid://ck4uibtfurjl4" path="res://Fonts/FFFFORWA.TTF" id="10_xbpyp"]
+[ext_resource type="FontFile" uid="uid://ck4uibtfurjl4" path="res://Fonts/BlockyPixelFont.TTF" id="10_xbpyp"]
 [ext_resource type="Texture2D" uid="uid://5p0gmre6j1rp" path="res://Art/Sprites/water/water_texture.tres" id="11_y6mt6"]
 [ext_resource type="Texture2D" uid="uid://bs6m1kttcvgdo" path="res://Art/Sprites/water/Water_Depth.png" id="12_2m3xp"]
 [ext_resource type="PackedScene" uid="uid://b3c0skin4w372" path="res://Prefabs/idol.tscn" id="13_jfp1q"]

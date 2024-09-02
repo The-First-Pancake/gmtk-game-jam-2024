@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://Scripts/EndlessScoreManager.gd" id="6_gswen"]
 [ext_resource type="Texture2D" uid="uid://cm1bxb5y7kb" path="res://Art/Sprites/UI/ui_throbber.png" id="7_u8im4"]
 [ext_resource type="Texture2D" uid="uid://b3oj42r81wxap" path="res://Art/Sprites/UI/ui_frame.png" id="8_kfuov"]
-[ext_resource type="FontFile" uid="uid://ck4uibtfurjl4" path="res://Fonts/FFFFORWA.TTF" id="9_5r8lm"]
+[ext_resource type="FontFile" uid="uid://ck4uibtfurjl4" path="res://Fonts/BlockyPixelFont.TTF" id="9_5r8lm"]
 [ext_resource type="Texture2D" uid="uid://cra8a72oqq7vi" path="res://Art/Sprites/Idol.png" id="10_adrqh"]
 [ext_resource type="Script" path="res://Scripts/EndlessRandomizers.gd" id="11_5te7k"]
 [ext_resource type="PackedScene" uid="uid://ctlx3qylqphyo" path="res://Prefabs/BlockSpawner.tscn" id="11_o15bl"]

@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://7amxmfedeq7u" path="res://Levels/World1/temple_66_hell.tscn" id="4_ptxlh"]
 [ext_resource type="Script" path="res://Scripts/Reset_Save.gd" id="5_14hdt"]
 [ext_resource type="Texture2D" uid="uid://cm1bxb5y7kb" path="res://Art/Sprites/UI/ui_throbber.png" id="6_gtpwf"]
-[ext_resource type="FontFile" uid="uid://ck4uibtfurjl4" path="res://Fonts/FFFFORWA.TTF" id="7_rccux"]
+[ext_resource type="FontFile" uid="uid://ck4uibtfurjl4" path="res://Fonts/BlockyPixelFont.TTF" id="7_rccux"]
 [ext_resource type="Texture2D" uid="uid://cra8a72oqq7vi" path="res://Art/Sprites/Idol.png" id="8_fxcsu"]
 [ext_resource type="Texture2D" uid="uid://dcxkuua4cd4st" path="res://Art/Sprites/fire_small.png" id="9_wrau7"]
 [ext_resource type="AudioStream" uid="uid://dlhhob0gaa3fn" path="res://Sound/Start Game FX.wav" id="10_rcq0l"]

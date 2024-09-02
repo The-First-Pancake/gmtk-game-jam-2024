@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://ck4uibtfurjl4"
-path="res://.godot/imported/FFFFORWA.TTF-9dc73c9e51806d94b64cdb267541a86c.fontdata"
+path="res://.godot/imported/BlockyPixelFont.TTF-88369b65e5798d8117d0464d0e94abb0.fontdata"
 
 [deps]
 
-source_file="res://Fonts/FFFFORWA.TTF"
-dest_files=["res://.godot/imported/FFFFORWA.TTF-9dc73c9e51806d94b64cdb267541a86c.fontdata"]
+source_file="res://Fonts/BlockyPixelFont.TTF"
+dest_files=["res://.godot/imported/BlockyPixelFont.TTF-88369b65e5798d8117d0464d0e94abb0.fontdata"]
 
 [params]
 
