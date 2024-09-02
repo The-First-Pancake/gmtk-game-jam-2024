@@ -45,6 +45,7 @@ func generate_and_spawn_block() -> void:
 	add_child(spawned_block)
 	spawned_block.global_position = global_position
 	spawned_block.connect("picked_up", _spawned_block_picked_up)
+	spawned_block.enter_queued() # force entering the queued again to force physics layers
 	generate_and_spawn_hold_objects(spawned_block)
 	spawned_block.enter_queued() # force entering the queued again to force physics layers
 
