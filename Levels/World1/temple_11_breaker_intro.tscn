@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dhrgrpwwax6i8" path="res://Prefabs/Spikes.tscn" id="5_2opmn"]
 [ext_resource type="PackedScene" uid="uid://cqrk66u8spi3" path="res://Prefabs/Blocks/Z-Piece.tscn" id="5_wjv2m"]
 [ext_resource type="PackedScene" uid="uid://c7c8vai4olkeh" path="res://Prefabs/Blocks/T-Piece.tscn" id="6_kb5xa"]
-[ext_resource type="PackedScene" uid="uid://dbsx7a6dnrba2" path="res://Prefabs/ArrowSpitter.tscn" id="7_cqoqo"]
+[ext_resource type="PackedScene" uid="uid://cn5g0kaav20lj" path="res://Prefabs/ArrowSpitter.tscn" id="7_cqoqo"]
 [ext_resource type="PackedScene" uid="uid://bdyf8npx3i7xk" path="res://Prefabs/Blocks/2x2-Piece.tscn" id="8_mfjac"]
 
 [sub_resource type="Resource" id="Resource_6716m"]
@@ -132,31 +132,27 @@ rotation = 3.14159
 position = Vector2(900, -2150)
 rotation = 1.5708
 
+[node name="Arrow_Spitter" parent="PlaceableCharacterBody2d12" index="5" instance=ExtResource("7_cqoqo")]
+position = Vector2(49.9998, -50.0002)
+rotation = 0.0
+
 [node name="PlaceableCharacterBody2d13" parent="." index="40" instance=ExtResource("2_r8fog")]
 position = Vector2(1400, -2150)
 rotation = 1.5708
 
-[node name="Arrow_Spitter" parent="." index="41" instance=ExtResource("7_cqoqo")]
-position = Vector2(950, -2100)
-rotation = 1.5708
+[node name="Arrow_Spitter3" parent="PlaceableCharacterBody2d13" index="5" instance=ExtResource("7_cqoqo")]
+position = Vector2(50.0005, 150)
+rotation = 0.0
 
-[node name="Arrow_Spitter3" parent="." index="42" instance=ExtResource("7_cqoqo")]
-position = Vector2(1250, -2100)
-rotation = 1.5708
+[node name="Arrow_Spitter2" parent="PlaceableCharacterBody2d13" index="6" instance=ExtResource("7_cqoqo")]
+position = Vector2(49.9995, -150)
+rotation = 0.0
 
-[node name="Arrow_Spitter4" parent="." index="43" instance=ExtResource("7_cqoqo")]
-position = Vector2(1250, -2100)
-rotation = 1.5708
-
-[node name="Arrow_Spitter2" parent="." index="44" instance=ExtResource("7_cqoqo")]
-position = Vector2(1550, -2100)
-rotation = 1.5708
-
-[node name="PlaceableCharacterBody2d14" parent="." index="45" instance=ExtResource("6_kb5xa")]
+[node name="PlaceableCharacterBody2d14" parent="." index="41" instance=ExtResource("6_kb5xa")]
 position = Vector2(1150, -2200)
 rotation = -1.5708
 
-[node name="2x2 Piiece" parent="." index="46" instance=ExtResource("8_mfjac")]
+[node name="2x2 Piiece" parent="." index="42" instance=ExtResource("8_mfjac")]
 position = Vector2(1500, 250)
 state = 2
 

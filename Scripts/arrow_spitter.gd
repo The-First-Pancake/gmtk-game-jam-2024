@@ -6,6 +6,8 @@ func _ready() -> void:
 	var parent: Node = get_parent()
 	if parent is Placeable:
 		parent.falling.connect($SpitTimer.start)
+		if parent.state == parent.PlaceState.PLACED:
+			$SpitTimer.start()
 	else:
 		$SpitTimer.start(fire_rate)
 
