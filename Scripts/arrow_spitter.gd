@@ -5,7 +5,9 @@ extends Area2D
 func _ready() -> void:
 	var parent: Node = get_parent()
 	if parent is Placeable:
-		parent.falling.connect($SpitTimer.start)
+		parent.falling.connect(func() -> void:
+			$SpitTimer.start(fire_rate)
+		)
 		if parent.state == parent.PlaceState.PLACED:
 			$SpitTimer.start(fire_rate)
 	else:
