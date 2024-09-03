@@ -124,7 +124,7 @@ script = ExtResource("15_fa2f7")
 stream = ExtResource("12_gncmx")
 volume_db = -5.0
 
-[node name="Label" type="Label" parent="."]
+[node name="Esc to Quit" type="Label" parent="."]
 offset_left = 200.0
 offset_top = 1154.0
 offset_right = 533.0

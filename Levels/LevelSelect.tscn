@@ -1,10 +1,11 @@
-[gd_scene load_steps=31 format=3 uid="uid://bjdpxtqaavny0"]
+[gd_scene load_steps=32 format=3 uid="uid://bjdpxtqaavny0"]
 
 [ext_resource type="Script" path="res://Scripts/LevelSelect.gd" id="1_7k26d"]
 [ext_resource type="Texture2D" uid="uid://bqfeqtdw7xcxo" path="res://Art/Sprites/Backgrounds/background.png" id="1_24j1o"]
 [ext_resource type="PackedScene" uid="uid://b3q4i4rqf26xp" path="res://Prefabs/LevelWeenie.tscn" id="3_66fh1"]
 [ext_resource type="Script" path="res://Scripts/LevelWeenie.gd" id="4_a2yic"]
 [ext_resource type="PackedScene" uid="uid://cfckjpuscavie" path="res://Levels/Endless Level.tscn" id="4_hscby"]
+[ext_resource type="FontVariation" uid="uid://btbr0dkcrkg1g" path="res://Fonts/CenteredPixelFont.tres" id="4_lwxxi"]
 [ext_resource type="PackedScene" uid="uid://7amxmfedeq7u" path="res://Levels/World1/temple_66_hell.tscn" id="4_ptxlh"]
 [ext_resource type="Script" path="res://Scripts/Reset_Save.gd" id="5_14hdt"]
 [ext_resource type="Texture2D" uid="uid://cm1bxb5y7kb" path="res://Art/Sprites/UI/ui_throbber.png" id="6_gtpwf"]
@@ -146,10 +147,10 @@ theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
-[node name="HBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="Weenie Container" type="HFlowContainer" parent="MarginContainer/HBoxContainer"]
+[node name="Weenie Container" type="HFlowContainer" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 615.81)
 layout_mode = 2
@@ -158,12 +159,12 @@ theme_override_constants/h_separation = 30
 theme_override_constants/v_separation = 20
 alignment = 1
 
-[node name="VBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 190
 alignment = 1
 
-[node name="Endless" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Endless" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 modulate = Color(0.84375, 1, 0.868164, 1)
 custom_minimum_size = Vector2(220, 330)
 layout_mode = 2
@@ -173,201 +174,230 @@ scene_to_load = ExtResource("4_hscby")
 override_text = "Endless"
 endless = true
 
-[node name="Level Icon" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/Endless"]
-custom_minimum_size = Vector2(220, 220)
+[node name="Level Icon" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/Endless"]
+custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 texture = ExtResource("6_gtpwf")
 stretch_mode = 5
 
-[node name="Level Title" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Endless"]
+[node name="Level Title" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/Endless"]
 layout_mode = 2
 text = "Level 1"
 label_settings = SubResource("LabelSettings_d7721")
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/Endless"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/Endless"]
 custom_minimum_size = Vector2(0, 52)
 layout_mode = 2
 theme_override_constants/separation = 25
 alignment = 1
 
-[node name="Idol 1" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/Endless/HBoxContainer"]
+[node name="Idol 1" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/Endless/HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("8_fxcsu")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="High Score Idol" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Endless/HBoxContainer"]
+[node name="High Score Idol" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/Endless/HBoxContainer"]
 layout_mode = 2
 text = "00"
 label_settings = SubResource("LabelSettings_d7721")
 horizontal_alignment = 1
 
-[node name="High Score Height" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Endless/HBoxContainer"]
+[node name="High Score Height" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/Endless/HBoxContainer"]
 layout_mode = 2
 text = "000"
 label_settings = SubResource("LabelSettings_d7721")
 horizontal_alignment = 1
 
-[node name="High Score Height2" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Endless/HBoxContainer"]
+[node name="High Score Height2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/Endless/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "m"
 label_settings = SubResource("LabelSettings_0j0m7")
 horizontal_alignment = 1
 
-[node name="CompletedFlames" type="Node2D" parent="MarginContainer/HBoxContainer/VBoxContainer/Endless"]
+[node name="CompletedFlames" type="Node2D" parent="MarginContainer/VBoxContainer/HBoxContainer/Endless"]
 position = Vector2(38, 2)
 
-[node name="flame" type="AnimatedSprite2D" parent="MarginContainer/HBoxContainer/VBoxContainer/Endless/CompletedFlames"]
+[node name="flame" type="AnimatedSprite2D" parent="MarginContainer/VBoxContainer/HBoxContainer/Endless/CompletedFlames"]
 position = Vector2(87.1429, 101.429)
 scale = Vector2(3.15, 3.15)
 sprite_frames = SubResource("SpriteFrames_8jjmw")
 autoplay = "default"
 frame_progress = 0.832069
 
-[node name="flame2" type="AnimatedSprite2D" parent="MarginContainer/HBoxContainer/VBoxContainer/Endless/CompletedFlames"]
+[node name="flame2" type="AnimatedSprite2D" parent="MarginContainer/VBoxContainer/HBoxContainer/Endless/CompletedFlames"]
 position = Vector2(132.857, 101.429)
 scale = Vector2(3.15, 3.15)
 sprite_frames = SubResource("SpriteFrames_8jjmw")
 autoplay = "default"
 frame_progress = 0.601985
 
-[node name="StartGameFx" type="AudioStreamPlayer" parent="MarginContainer/HBoxContainer/VBoxContainer/Endless"]
+[node name="StartGameFx" type="AudioStreamPlayer" parent="MarginContainer/VBoxContainer/HBoxContainer/Endless"]
 stream = ExtResource("10_rcq0l")
 volume_db = -5.0
 
-[node name="Level666" parent="MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("3_66fh1")]
+[node name="Level666" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_66fh1")]
 modulate = Color(1, 0.550781, 0.550781, 1)
 layout_mode = 2
 scene_to_load = ExtResource("4_ptxlh")
 override_text = "Level 666"
 
-[node name="Unlock All" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Unlock All" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 modulate = Color(0.550781, 0.589386, 1, 1)
 custom_minimum_size = Vector2(220, 330)
 layout_mode = 2
 theme_override_constants/separation = 10
 script = ExtResource("13_wubfr")
 
-[node name="Level Icon" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/Unlock All"]
-custom_minimum_size = Vector2(220, 220)
+[node name="Level Icon" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/Unlock All"]
+custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 texture = ExtResource("6_gtpwf")
 stretch_mode = 5
 
-[node name="Level Title" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Unlock All"]
+[node name="Level Title" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/Unlock All"]
 layout_mode = 2
 text = "Unlock All"
 label_settings = SubResource("LabelSettings_th2se")
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/Unlock All"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/Unlock All"]
 custom_minimum_size = Vector2(0, 52)
 layout_mode = 2
 theme_override_constants/separation = 25
 alignment = 1
 
-[node name="Idol 1" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/Unlock All/HBoxContainer"]
+[node name="Idol 1" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/Unlock All/HBoxContainer"]
 visible = false
 layout_mode = 2
 texture = ExtResource("8_fxcsu")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="Idol 2" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/Unlock All/HBoxContainer"]
+[node name="Idol 2" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/Unlock All/HBoxContainer"]
 visible = false
 layout_mode = 2
 texture = ExtResource("8_fxcsu")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="Idol 3" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/Unlock All/HBoxContainer"]
+[node name="Idol 3" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/Unlock All/HBoxContainer"]
 visible = false
 layout_mode = 2
 texture = ExtResource("8_fxcsu")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="CompletedFlames" type="Node2D" parent="MarginContainer/HBoxContainer/VBoxContainer/Unlock All"]
+[node name="CompletedFlames" type="Node2D" parent="MarginContainer/VBoxContainer/HBoxContainer/Unlock All"]
 visible = false
 
-[node name="flame" type="AnimatedSprite2D" parent="MarginContainer/HBoxContainer/VBoxContainer/Unlock All/CompletedFlames"]
+[node name="flame" type="AnimatedSprite2D" parent="MarginContainer/VBoxContainer/HBoxContainer/Unlock All/CompletedFlames"]
 position = Vector2(87.1429, 101.429)
 scale = Vector2(3.15, 3.15)
 sprite_frames = SubResource("SpriteFrames_tav7h")
 autoplay = "default"
 frame_progress = 0.832069
 
-[node name="flame2" type="AnimatedSprite2D" parent="MarginContainer/HBoxContainer/VBoxContainer/Unlock All/CompletedFlames"]
+[node name="flame2" type="AnimatedSprite2D" parent="MarginContainer/VBoxContainer/HBoxContainer/Unlock All/CompletedFlames"]
 position = Vector2(132.857, 101.429)
 scale = Vector2(3.15, 3.15)
 sprite_frames = SubResource("SpriteFrames_tav7h")
 autoplay = "default"
 frame_progress = 0.601985
 
-[node name="Reset Save" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Reset Save" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 modulate = Color(1, 0.92981, 0.550781, 1)
 custom_minimum_size = Vector2(220, 330)
 layout_mode = 2
 theme_override_constants/separation = 10
 script = ExtResource("5_14hdt")
 
-[node name="Level Icon" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/Reset Save"]
-custom_minimum_size = Vector2(220, 220)
+[node name="Level Icon" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/Reset Save"]
+custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 texture = ExtResource("6_gtpwf")
 stretch_mode = 5
 
-[node name="Level Title" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/Reset Save"]
+[node name="Level Title" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/Reset Save"]
 layout_mode = 2
 text = "Reset Save"
 label_settings = SubResource("LabelSettings_th2se")
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/Reset Save"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/Reset Save"]
 custom_minimum_size = Vector2(0, 52)
 layout_mode = 2
 theme_override_constants/separation = 25
 alignment = 1
 
-[node name="Idol 1" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/Reset Save/HBoxContainer"]
+[node name="Idol 1" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/Reset Save/HBoxContainer"]
 visible = false
 layout_mode = 2
 texture = ExtResource("8_fxcsu")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="Idol 2" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/Reset Save/HBoxContainer"]
+[node name="Idol 2" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/Reset Save/HBoxContainer"]
 visible = false
 layout_mode = 2
 texture = ExtResource("8_fxcsu")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="Idol 3" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/Reset Save/HBoxContainer"]
+[node name="Idol 3" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/Reset Save/HBoxContainer"]
 visible = false
 layout_mode = 2
 texture = ExtResource("8_fxcsu")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="CompletedFlames" type="Node2D" parent="MarginContainer/HBoxContainer/VBoxContainer/Reset Save"]
+[node name="CompletedFlames" type="Node2D" parent="MarginContainer/VBoxContainer/HBoxContainer/Reset Save"]
 visible = false
 
-[node name="flame" type="AnimatedSprite2D" parent="MarginContainer/HBoxContainer/VBoxContainer/Reset Save/CompletedFlames"]
+[node name="flame" type="AnimatedSprite2D" parent="MarginContainer/VBoxContainer/HBoxContainer/Reset Save/CompletedFlames"]
 position = Vector2(87.1429, 101.429)
 scale = Vector2(3.15, 3.15)
 sprite_frames = SubResource("SpriteFrames_tav7h")
 autoplay = "default"
 frame_progress = 0.832069
 
-[node name="flame2" type="AnimatedSprite2D" parent="MarginContainer/HBoxContainer/VBoxContainer/Reset Save/CompletedFlames"]
+[node name="flame2" type="AnimatedSprite2D" parent="MarginContainer/VBoxContainer/HBoxContainer/Reset Save/CompletedFlames"]
 position = Vector2(132.857, 101.429)
 scale = Vector2(3.15, 3.15)
 sprite_frames = SubResource("SpriteFrames_tav7h")
 autoplay = "default"
 frame_progress = 0.601985
+
+[node name="Socials" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+alignment = 2
+
+[node name="LinkButton2" type="LinkButton" parent="MarginContainer/VBoxContainer/Socials"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.698039, 0.321569, 0.231373, 1)
+theme_override_fonts/font = ExtResource("4_lwxxi")
+theme_override_font_sizes/font_size = 25
+text = "Youtube"
+uri = "https://www.youtube.com/@DaFirstPancake/videos"
+
+[node name="LinkButton" type="LinkButton" parent="MarginContainer/VBoxContainer/Socials"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.384314, 0.345098, 0.419608, 1)
+theme_override_fonts/font = ExtResource("4_lwxxi")
+theme_override_font_sizes/font_size = 25
+text = "Discord"
+uri = "https://discord.gg/ZXuGmGYHG9"
+
+[node name="LinkButton3" type="LinkButton" parent="MarginContainer/VBoxContainer/Socials"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.698039, 0.545098, 0.231373, 1)
+theme_override_fonts/font = ExtResource("4_lwxxi")
+theme_override_font_sizes/font_size = 25
+text = "Instagram"
+uri = "https://www.instagram.com/wearethefirstpancake/"
 
 [node name="Music Player" type="Node2D" parent="."]
 position = Vector2(1133, 681)
@@ -381,12 +411,12 @@ volume_db = -7.0
 [node name="Cursor" parent="." instance=ExtResource("16_w0v3b")]
 position = Vector2(1507, 669)
 
-[connection signal="gui_input" from="MarginContainer/HBoxContainer/VBoxContainer/Endless" to="MarginContainer/HBoxContainer/VBoxContainer/Endless" method="_on_gui_input"]
-[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/Endless" to="MarginContainer/HBoxContainer/VBoxContainer/Endless" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="MarginContainer/HBoxContainer/VBoxContainer/Endless" to="MarginContainer/HBoxContainer/VBoxContainer/Endless" method="_on_mouse_exited"]
-[connection signal="gui_input" from="MarginContainer/HBoxContainer/VBoxContainer/Unlock All" to="MarginContainer/HBoxContainer/VBoxContainer/Unlock All" method="_on_gui_input"]
-[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/Unlock All" to="MarginContainer/HBoxContainer/VBoxContainer/Unlock All" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="MarginContainer/HBoxContainer/VBoxContainer/Unlock All" to="MarginContainer/HBoxContainer/VBoxContainer/Unlock All" method="_on_mouse_exited"]
-[connection signal="gui_input" from="MarginContainer/HBoxContainer/VBoxContainer/Reset Save" to="MarginContainer/HBoxContainer/VBoxContainer/Reset Save" method="_on_gui_input"]
-[connection signal="mouse_entered" from="MarginContainer/HBoxContainer/VBoxContainer/Reset Save" to="MarginContainer/HBoxContainer/VBoxContainer/Reset Save" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="MarginContainer/HBoxContainer/VBoxContainer/Reset Save" to="MarginContainer/HBoxContainer/VBoxContainer/Reset Save" method="_on_mouse_exited"]
+[connection signal="gui_input" from="MarginContainer/VBoxContainer/HBoxContainer/Endless" to="MarginContainer/VBoxContainer/HBoxContainer/Endless" method="_on_gui_input"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/HBoxContainer/Endless" to="MarginContainer/VBoxContainer/HBoxContainer/Endless" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/HBoxContainer/Endless" to="MarginContainer/VBoxContainer/HBoxContainer/Endless" method="_on_mouse_exited"]
+[connection signal="gui_input" from="MarginContainer/VBoxContainer/HBoxContainer/Unlock All" to="MarginContainer/VBoxContainer/HBoxContainer/Unlock All" method="_on_gui_input"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/HBoxContainer/Unlock All" to="MarginContainer/VBoxContainer/HBoxContainer/Unlock All" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/HBoxContainer/Unlock All" to="MarginContainer/VBoxContainer/HBoxContainer/Unlock All" method="_on_mouse_exited"]
+[connection signal="gui_input" from="MarginContainer/VBoxContainer/HBoxContainer/Reset Save" to="MarginContainer/VBoxContainer/HBoxContainer/Reset Save" method="_on_gui_input"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/HBoxContainer/Reset Save" to="MarginContainer/VBoxContainer/HBoxContainer/Reset Save" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/HBoxContainer/Reset Save" to="MarginContainer/VBoxContainer/HBoxContainer/Reset Save" method="_on_mouse_exited"]
