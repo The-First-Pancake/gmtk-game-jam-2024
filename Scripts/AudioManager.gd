@@ -1,5 +1,20 @@
 extends Node
 
+func _ready() -> void:
+	AudioServer.set_bus_mute(0,GameManager.current_save.setting_mute)
+
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("Mute"):
+		GameManager.current_save.setting_mute = !GameManager.current_save.setting_mute
+		GameManager.save_game()
+		AudioServer.set_bus_mute(0,GameManager.current_save.setting_mute)
+	
+	var haptics_mag : float = db_to_linear(AudioServer.get_bus_peak_volume_left_db(AudioServer.get_bus_index("Haptics"), 0))
+	if (haptics_mag > 0.01):
+		Input.start_joy_vibration(0, haptics_mag, haptics_mag)
+	else:
+		Input.stop_joy_vibration(0)
 
 func PlayAudio(audio: AudioStreamPlayer, is_haptics: bool = true) -> AudioStreamPlayer:
 	var audio_dupe: AudioStreamPlayer = audio.duplicate()
@@ -27,10 +42,3 @@ func PlayMusic(audio: AudioStreamPlayer) -> void:
 	audio_dupe.finished.connect(func() -> void:
 		audio_dupe.queue_free()
 	)
-
-func _process(delta: float) -> void:
-	var haptics_mag : float = db_to_linear(AudioServer.get_bus_peak_volume_left_db(AudioServer.get_bus_index("Haptics"), 0))
-	if (haptics_mag > 0.01):
-		Input.start_joy_vibration(0, haptics_mag, haptics_mag)
-	else:
-		Input.stop_joy_vibration(0)
