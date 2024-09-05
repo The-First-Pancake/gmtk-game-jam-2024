@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://baxl51db3t1i"]
+[gd_scene load_steps=14 format=3 uid="uid://baxl51db3t1i"]
 
 [ext_resource type="Script" path="res://Scripts/VictoryScreen.gd" id="1_erwl0"]
 [ext_resource type="Texture2D" uid="uid://b5eqab7hoy7xr" path="res://Art/victory_screen.png" id="1_f4e1j"]
@@ -13,30 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://c4x7gtuvj0inr" path="res://Art/micah_credit.png" id="10_hp2le"]
 [ext_resource type="Texture2D" uid="uid://86aav2k6p7y" path="res://Art/oliver_credit.png" id="11_b42qp"]
 
-[sub_resource type="Curve" id="Curve_b7w8u"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.12619, 1), 0.0, 0.0, 0, 0, Vector2(0.211905, 0), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_0qtfl"]
-curve = SubResource("Curve_b7w8u")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_m71yt"]
-particle_flag_disable_z = true
-emission_shape_scale = Vector3(68.38, 1, 1)
-emission_shape = 3
-emission_box_extents = Vector3(4.345, 1, 1)
-angular_velocity_min = -132.63
-angular_velocity_max = 82.11
-radial_velocity_min = 20.15
-radial_velocity_max = 20.15
-gravity = Vector3(0, 98, 0)
-scale_min = 2.94
-scale_max = 2.94
-color = Color(0.610124, 0.650166, 0.667411, 1)
-alpha_curve = SubResource("CurveTexture_0qtfl")
-turbulence_enabled = true
-turbulence_influence_min = 0.032
-turbulence_influence_max = 0.032
+[sub_resource type="Gradient" id="Gradient_sbxf7"]
+offsets = PackedFloat32Array(0.0142857, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="Victory Screen" type="Node2D"]
 script = ExtResource("1_erwl0")
@@ -47,12 +26,26 @@ position = Vector2(961, 541)
 scale = Vector2(4.51458, 4.51458)
 texture = ExtResource("1_f4e1j")
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+[node name="GPUParticles2D" type="CPUParticles2D" parent="."]
 position = Vector2(950, -100)
-amount = 318
-process_material = SubResource("ParticleProcessMaterial_m71yt")
-lifetime = 67.45
+amount = 100
+lifetime = 20.0
 preprocess = 17.95
+fixed_fps = 30
+draw_order = 1
+emission_shape = 3
+emission_rect_extents = Vector2(400, 1)
+direction = Vector2(0, 1)
+spread = 5.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
+angular_velocity_min = -132.63
+angular_velocity_max = 82.11
+scale_amount_min = 2.94
+scale_amount_max = 2.94
+color = Color(0.610124, 0.650166, 0.667411, 1)
+color_ramp = SubResource("Gradient_sbxf7")
 
 [node name="Victory Splash2" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -60,12 +53,28 @@ position = Vector2(961, 645)
 scale = Vector2(4.51458, 4.51458)
 texture = ExtResource("3_jpm4w")
 
-[node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
+[node name="GPUParticles2D2" type="CPUParticles2D" parent="."]
 position = Vector2(950, -100)
-amount = 318
-process_material = SubResource("ParticleProcessMaterial_m71yt")
-lifetime = 67.45
+amount = 100
+lifetime = 20.0
 preprocess = 17.95
+fixed_fps = 30
+draw_order = 1
+emission_shape = 3
+emission_rect_extents = Vector2(400, 1)
+direction = Vector2(0, 1)
+spread = 5.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
+angular_velocity_min = -132.63
+angular_velocity_max = 82.11
+radial_accel_min = 10.0
+radial_accel_max = 10.0
+scale_amount_min = 2.94
+scale_amount_max = 2.94
+color = Color(0.610124, 0.650166, 0.667411, 1)
+color_ramp = SubResource("Gradient_sbxf7")
 
 [node name="Black cover" type="ColorRect" parent="."]
 visible = false

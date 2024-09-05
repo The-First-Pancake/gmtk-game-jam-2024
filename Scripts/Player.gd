@@ -24,10 +24,10 @@ var campfires: Array[Campfire] = []
 @onready var side_hand_point: Marker2D = %"Side Hand Point" as Marker2D
 @onready var top_hand_point: Marker2D = %"Top Hand Point" as Marker2D
 
-@onready var slide_particles: GPUParticles2D = $"Slide Particles" as GPUParticles2D
-@onready var jump_particles: GPUParticles2D = $"Jump Particles" as GPUParticles2D
-@onready var land_particles: GPUParticles2D = $"Land Particles" as GPUParticles2D
-@onready var hold_release_particles: GPUParticles2D = $"Hold Release Particles" as GPUParticles2D
+@onready var slide_particles: CPUParticles2D = $"Slide Particles" as CPUParticles2D
+@onready var jump_particles: CPUParticles2D = $"Jump Particles" as CPUParticles2D
+@onready var land_particles: CPUParticles2D = $"Land Particles" as CPUParticles2D
+@onready var hold_release_particles: CPUParticles2D = $"Hold Release Particles" as CPUParticles2D
 
 @onready var jump_sound: AudioStreamPlayer = $Audio/Jump012 as AudioStreamPlayer
 @onready var land_sound: AudioStreamPlayer = $Audio/Punch1021 as AudioStreamPlayer

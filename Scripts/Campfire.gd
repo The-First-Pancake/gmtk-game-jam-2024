@@ -1,8 +1,8 @@
 class_name Campfire
 extends Area2D
 
-@onready var smoke_particle_fx: GPUParticles2D =  %"Smoke Particle FX" as GPUParticles2D
-@onready var ember_particle_fx: GPUParticles2D =  %"Ember Particle FX" as GPUParticles2D
+@onready var smoke_particle_fx: CPUParticles2D =  %"Smoke Particle FX" as CPUParticles2D
+@onready var ember_particle_fx: CPUParticles2D =  %"Ember Particle FX" as CPUParticles2D
 @onready var flame_sprite: AnimatedSprite2D = %"Flame Sprite" as AnimatedSprite2D
 @onready var point_light_2d: PointLight2D = $PointLight2D
 @onready var flag_sprite: AnimatedSprite2D = $"Flag Sprite"
