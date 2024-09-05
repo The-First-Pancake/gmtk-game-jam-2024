@@ -47,6 +47,7 @@ func fall() -> void:
 	gibs.reparent(get_tree().current_scene)
 	
 	await get_tree().process_frame
+	get_tree().create_timer(20).timeout.connect(gibs.queue_free)
 	gibs.visible = true
 	queue_free()
 

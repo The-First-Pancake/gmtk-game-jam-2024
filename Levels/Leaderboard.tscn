@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bd754qqva43i1" path="res://Prefabs/leaderboard_entry.tscn" id="5_j83hf"]
 [ext_resource type="Script" path="res://Scripts/MusicPlayer.gd" id="14_17obq"]
 [ext_resource type="AudioStream" uid="uid://b7o0nfcidnbwd" path="res://Sound/Music/title_music.wav" id="15_7peww"]
-[ext_resource type="PackedScene" uid="uid://b76hrrf1ild6h" path="res://Prefabs/cursor.tscn" id="16_81hsu"]
+[ext_resource type="PackedScene" uid="uid://fq6lpryclmx1" path="res://Prefabs/cursor.tscn" id="16_81hsu"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_pwuex"]
 light_mode = 1
