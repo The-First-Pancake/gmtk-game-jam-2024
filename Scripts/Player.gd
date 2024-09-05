@@ -53,16 +53,18 @@ func _ready() -> void:
 
 func enter_level() -> void:
 	is_entering = true
-	await get_tree().create_timer(0.1).timeout
+	await get_tree().create_timer(0.2).timeout
 	velocity.x = max_speed
-	await get_tree().create_timer(0.25).timeout
+	await get_tree().create_timer(0.2).timeout
 	is_entering = false
 
 func exit_level() -> void:
-	var dir: int = sign(velocity.x)
+	var dir: int = 1
+	if velocity.x < 0:
+		dir = -1
 	is_exiting = true
-	velocity.x = 500
-	await get_tree().create_timer(0.7).timeout
+	velocity.x = 500 * dir
+	await get_tree().create_timer(0.4).timeout
 	GameManager.level_complete()
 	is_exiting = false
 

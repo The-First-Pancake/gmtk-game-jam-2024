@@ -52,15 +52,17 @@ func refresh_success(sw_result: Dictionary) -> void:
 	loading_label.visible = false
 	board_refreshed.emit()
 	currently_refreshing = false
-	
+
+var score_submitted: bool = false
+
+@onready var score_submit_button: Button = %"Score Submit Button"
+@onready var name_entry: TextEdit = %"Name Entry"
+func _process(delta: float) -> void:
+	score_submit_button.disabled = score_submitted or name_entry.text == ""
 
 func save_score() -> void:
 	var name_entry: TextEdit = %"Name Entry"
-	var score_submit_button: Button = %"Score Submit Button"
-	score_submit_button.disabled = true
-
+	score_submitted = true
+	
 	await SilentWolf.Scores.save_score(name_entry.text, GameManager.endless_run_height).sw_save_score_complete
 	refresh_board()
-
-func continue_button() -> void:
-	GameManager.load_level_from_packed(GameManager.level_select_scene)

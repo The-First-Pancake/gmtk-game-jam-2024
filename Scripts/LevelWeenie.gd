@@ -1,7 +1,7 @@
 class_name LevelWeenie
 extends Control
 
-var level_idx : int = 1;
+var level_idx : int = 1
 
 @export var scene_to_load: PackedScene
 @export var override_text: String = ""

@@ -13,6 +13,6 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if (is_instance_valid(GameManager.player)):
 		idol_label.text = str(GameManager.player.idols_collected) + "/3"
-		var player_height : int = floor(base_height - GameManager.player.global_position.y / 50)
+		var player_height : int = ceil(base_height - GameManager.player.global_position.y / 50)
 		var door_height : int = floor(base_height - GameManager.exit_door.global_position.y / 50)
 		height_label.text = "%02d"%player_height + "\n" + "%02d"%door_height

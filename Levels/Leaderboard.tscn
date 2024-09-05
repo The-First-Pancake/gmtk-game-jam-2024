@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cangbjogya6b3"]
+[gd_scene load_steps=15 format=3 uid="uid://cangbjogya6b3"]
 
 [ext_resource type="Script" path="res://Scripts/Leaderboard.gd" id="1_o07ta"]
 [ext_resource type="Texture2D" uid="uid://bqfeqtdw7xcxo" path="res://Art/Sprites/Backgrounds/background.png" id="3_bylc3"]
@@ -7,6 +7,7 @@
 [ext_resource type="FontVariation" uid="uid://btbr0dkcrkg1g" path="res://Fonts/CenteredPixelFont.tres" id="5_1nslo"]
 [ext_resource type="PackedScene" uid="uid://bd754qqva43i1" path="res://Prefabs/leaderboard_entry.tscn" id="5_j83hf"]
 [ext_resource type="StyleBox" uid="uid://chxj0ri352x13" path="res://UI/Button Sytlebox.tres" id="6_ymys1"]
+[ext_resource type="Script" path="res://Scripts/LoadLevel.gd" id="7_1ve4r"]
 [ext_resource type="Script" path="res://Scripts/MusicPlayer.gd" id="14_17obq"]
 [ext_resource type="AudioStream" uid="uid://b7o0nfcidnbwd" path="res://Sound/Music/title_music.wav" id="15_7peww"]
 [ext_resource type="PackedScene" uid="uid://fq6lpryclmx1" path="res://Prefabs/cursor.tscn" id="16_81hsu"]
@@ -141,7 +142,9 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("4_y3vag")
 theme_override_font_sizes/font_size = 35
 theme_override_styles/normal = ExtResource("6_ymys1")
+action_mode = 0
 text = "Main Menu"
+script = ExtResource("7_1ve4r")
 
 [node name="Leaderboard Container" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
@@ -172,4 +175,4 @@ volume_db = -7.0
 [node name="Cursor" parent="." instance=ExtResource("16_81hsu")]
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/MarginContainer/Player Entry/Score Submit Button" to="." method="save_score"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/MarginContainer/Player Entry/Continue button" to="." method="continue_button"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/MarginContainer/Player Entry/Continue button" to="MarginContainer/HBoxContainer/MarginContainer/Player Entry/Continue button" method="load_level"]

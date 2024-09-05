@@ -36,12 +36,11 @@ func _ready() -> void:
 	SilentWolf.configure({
 		"api_key": silentwolf_api_key,
 		"game_id": "Cappy&Tappy",
-		"log_level": 1
+		"log_level": 1 #what level of info do we want printed about connectivity
 	})
 
 	if ResourceLoader.exists(SAVE_PATH):
 		current_save = ResourceLoader.load(SAVE_PATH) as GameSave
-		print(current_save.endless_high_height)
 	else:
 		setup_new_save()
 
