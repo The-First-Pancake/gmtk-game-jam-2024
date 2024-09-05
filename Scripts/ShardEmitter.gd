@@ -102,7 +102,8 @@ func shatter(impact_point_global : Vector2) -> void:
 
 
 func _on_DeleteTimer_timeout() -> void:
-	get_parent().queue_free()
+	print("destroying")
+	get_parent().get_parent().queue_free()
 
 func _draw() -> void:
 	if display_triangles:

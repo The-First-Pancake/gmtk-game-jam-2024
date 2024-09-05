@@ -32,7 +32,6 @@ centered = false
 nbr_of_shards = 10
 min_impulse = 50.0
 max_impulse = 200.0
-lifetime = 50.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(15, 0, -45, 0, -45, -30, 45, -30, 45, 30, 15, 30)
