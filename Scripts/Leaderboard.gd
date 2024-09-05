@@ -18,9 +18,9 @@ func refresh_board() -> void:
 	if currently_refreshing:
 		await board_refreshed
 	currently_refreshing = true
-	var leaderboard_entry_prefab: PackedScene = preload("res://Prefabs/leaderboard_entry.tscn")
-	var leaderboard_container: VBoxContainer = %"Leaderboard Container"
 	loading_label.visible = true
+	loading_label.text = "Loading Scores..."
+	var leaderboard_container: VBoxContainer = %"Leaderboard Container"
 	for child: Node in leaderboard_container.get_children():
 		if child.name == "Header":
 			continue
@@ -28,8 +28,21 @@ func refresh_board() -> void:
 			continue
 		child.queue_free()
 	#TODO failsafe for if we don't connect
-	var sw_result: Dictionary = await SilentWolf.Scores.get_scores(10).sw_get_scores_complete
 	
+	get_tree().create_timer(3).timeout.connect(refresh_failed)
+	SilentWolf.Scores.get_scores(10).sw_get_scores_complete.connect(refresh_success)
+
+func refresh_failed() -> void:
+	if currently_refreshing == false:
+		return
+	loading_label.text = "Couldn't Connect to Leaderboard"
+	currently_refreshing = false
+
+func refresh_success(sw_result: Dictionary) -> void:
+	if currently_refreshing == false:
+		return
+	var leaderboard_entry_prefab: PackedScene = preload("res://Prefabs/leaderboard_entry.tscn")
+	var leaderboard_container: VBoxContainer = %"Leaderboard Container"
 	var i: int = 0
 	for score_entry: Dictionary in sw_result.scores:
 		i += 1
@@ -39,7 +52,7 @@ func refresh_board() -> void:
 	loading_label.visible = false
 	board_refreshed.emit()
 	currently_refreshing = false
-
+	
 
 func save_score() -> void:
 	var name_entry: TextEdit = %"Name Entry"

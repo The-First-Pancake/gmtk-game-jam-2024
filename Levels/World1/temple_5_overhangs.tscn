@@ -23,11 +23,11 @@ position = Vector2(850, -1550)
 position = Vector2(1850, -2800)
 
 [node name="PlaceableCharacterBody2d2" parent="." index="15" instance=ExtResource("2_sc1g2")]
-position = Vector2(1850, -50)
+position = Vector2(1850, -100)
 rotation = 1.5708
 
 [node name="PlaceableCharacterBody2d3" parent="." index="16" instance=ExtResource("2_sc1g2")]
-position = Vector2(1450, -50)
+position = Vector2(1450, -100)
 rotation = 1.5708
 
 [node name="PlaceableCharacterBody2d4" parent="." index="17" instance=ExtResource("2_sc1g2")]

@@ -26,6 +26,8 @@ func _on_body_entered(body: Node2D) -> void:
 			door_frame.z_index = top_layer
 			interior_wall.process_mode = Node.PROCESS_MODE_INHERIT
 			interior_wall_2.process_mode = Node.PROCESS_MODE_INHERIT
+			if body is Player and is_exit:
+				(body as Player).exit_level()
 		else:
 			door_frame.z_index = lower_layer
 			interior_wall.process_mode = Node.PROCESS_MODE_DISABLED
@@ -33,4 +35,4 @@ func _on_body_entered(body: Node2D) -> void:
 
 func _on_exit_hitbox_body_exited(body: Node2D) -> void:
 	if body is Player and is_exit:
-		GameManager.level_complete()
+		body.modulate = Color.TRANSPARENT

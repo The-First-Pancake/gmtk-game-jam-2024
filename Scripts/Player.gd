@@ -40,16 +40,43 @@ var campfires: Array[Campfire] = []
 @onready var gravity_reduce_timer: Timer = %"Gravity Reduce Timer" as Timer
 @onready var targeting_arrow: Sprite2D = $"Targeting Arrow"
 
+
+var is_entering: bool = false
+var is_exiting: bool = false
+var is_downsliding: bool = false
+
+
+
 func _ready() -> void:
 	GameManager.player = self
-	await get_tree().create_timer(0.3).timeout
-	velocity.x = 900
+	enter_level()
 
-var is_downsliding: bool
+func enter_level() -> void:
+	is_entering = true
+	await get_tree().create_timer(0.1).timeout
+	velocity.x = max_speed
+	await get_tree().create_timer(0.25).timeout
+	is_entering = false
+
+func exit_level() -> void:
+	var dir: int = sign(velocity.x)
+	is_exiting = true
+	velocity.x = 500
+	await get_tree().create_timer(0.7).timeout
+	GameManager.level_complete()
+	is_exiting = false
 
 func _process(delta: float) -> void:
-	if dying: return
 	targeting_arrow.visible = false
+	if dying: return
+	if is_entering: 
+		update_animations()
+		move_and_slide()
+		return
+	if is_exiting:
+		update_animations()
+		move_and_slide()
+		return
 	is_downsliding = is_on_wall() and velocity.y > 0
 	
 	if !is_instance_valid(current_hold):
@@ -241,6 +268,7 @@ func try_squash() -> void:
 
 var dying: bool = false
 func die() -> void:
+	if is_exiting: return
 	if dying:return
 	dying = true
 	hitbox.process_mode = Node.PROCESS_MODE_DISABLED

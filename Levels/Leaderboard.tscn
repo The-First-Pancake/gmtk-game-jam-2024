@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cangbjogya6b3"]
+[gd_scene load_steps=14 format=3 uid="uid://cangbjogya6b3"]
 
 [ext_resource type="Script" path="res://Scripts/Leaderboard.gd" id="1_o07ta"]
 [ext_resource type="Texture2D" uid="uid://bqfeqtdw7xcxo" path="res://Art/Sprites/Backgrounds/background.png" id="3_bylc3"]
@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://ck4uibtfurjl4" path="res://Fonts/BlockyPixelFont.TTF" id="4_y3vag"]
 [ext_resource type="FontVariation" uid="uid://btbr0dkcrkg1g" path="res://Fonts/CenteredPixelFont.tres" id="5_1nslo"]
 [ext_resource type="PackedScene" uid="uid://bd754qqva43i1" path="res://Prefabs/leaderboard_entry.tscn" id="5_j83hf"]
+[ext_resource type="StyleBox" uid="uid://chxj0ri352x13" path="res://UI/Button Sytlebox.tres" id="6_ymys1"]
 [ext_resource type="Script" path="res://Scripts/MusicPlayer.gd" id="14_17obq"]
 [ext_resource type="AudioStream" uid="uid://b7o0nfcidnbwd" path="res://Sound/Music/title_music.wav" id="15_7peww"]
 [ext_resource type="PackedScene" uid="uid://fq6lpryclmx1" path="res://Prefabs/cursor.tscn" id="16_81hsu"]
@@ -55,9 +56,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
+theme_override_constants/margin_top = 75
 theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
+theme_override_constants/margin_bottom = 75
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -71,8 +72,12 @@ theme_override_constants/margin_right = 100
 [node name="Player Entry" type="VBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/separation = 50
+theme_override_constants/separation = 30
 alignment = 1
+
+[node name="Spacer2" type="Control" parent="MarginContainer/HBoxContainer/MarginContainer/Player Entry"]
+layout_mode = 2
+size_flags_vertical = 3
 
 [node name="Stats" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer/Player Entry"]
 custom_minimum_size = Vector2(0, 52)
@@ -113,6 +118,7 @@ custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("5_1nslo")
 theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("6_ymys1")
 placeholder_text = "Enter Your Name Here"
 
 [node name="Score Submit Button" type="Button" parent="MarginContainer/HBoxContainer/MarginContainer/Player Entry"]
@@ -121,7 +127,21 @@ custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_y3vag")
 theme_override_font_sizes/font_size = 51
+theme_override_styles/normal = ExtResource("6_ymys1")
 text = "Submit Score"
+
+[node name="Spacer" type="Control" parent="MarginContainer/HBoxContainer/MarginContainer/Player Entry"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Continue button" type="Button" parent="MarginContainer/HBoxContainer/MarginContainer/Player Entry"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_y3vag")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = ExtResource("6_ymys1")
+text = "Main Menu"
 
 [node name="Leaderboard Container" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
@@ -133,25 +153,13 @@ layout_mode = 2
 
 [node name="Loading Label" type="Label" parent="MarginContainer/HBoxContainer/Leaderboard Container"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 size_flags_vertical = 6
 text = "Loading Scores...."
 label_settings = SubResource("LabelSettings_nb0ck")
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="Continue button" type="Button" parent="."]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 120)
-layout_mode = 2
-offset_left = 150.0
-offset_top = 928.0
-offset_right = 858.0
-offset_bottom = 1048.0
-theme_override_fonts/font = ExtResource("4_y3vag")
-theme_override_font_sizes/font_size = 51
-text = "Continue"
+autowrap_mode = 2
 
 [node name="Music Player" type="Node2D" parent="."]
 script = ExtResource("14_17obq")
@@ -162,7 +170,6 @@ stream = ExtResource("15_7peww")
 volume_db = -7.0
 
 [node name="Cursor" parent="." instance=ExtResource("16_81hsu")]
-position = Vector2(1507, 669)
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/MarginContainer/Player Entry/Score Submit Button" to="." method="save_score"]
-[connection signal="pressed" from="Continue button" to="." method="continue_button"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/MarginContainer/Player Entry/Continue button" to="." method="continue_button"]

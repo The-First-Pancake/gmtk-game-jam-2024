@@ -467,6 +467,7 @@ scale_amount_curve = SubResource("Curve_tpu5v")
 color_ramp = SubResource("Gradient_87cxs")
 
 [node name="Targeting Arrow" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0.25098)
 scale = Vector2(2, 2)
 texture = ExtResource("4_gmgjr")
