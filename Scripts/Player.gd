@@ -194,7 +194,8 @@ func holding_behavior() -> void:
 			velocity = leap_velocity * aim_dir
 		current_hold = null
 
-@onready var hitbox: Area2D = $Hitbox
+@onready var collect_box: Area2D = $CollectBox
+@onready var die_box: Area2D = %DieBox
 @onready var sprite_animator: AnimatedSprite2D = %"Sprite Animator" as AnimatedSprite2D
 @onready var griddy_timer: Timer = %"Griddy Timer" as Timer
 @onready var footstep_animator: AnimationPlayer = $"Sprite Animator/AnimationPlayer" as AnimationPlayer
@@ -273,7 +274,9 @@ func die() -> void:
 	if is_exiting: return
 	if dying:return
 	dying = true
-	hitbox.process_mode = Node.PROCESS_MODE_DISABLED
+	die_box.process_mode = Node.PROCESS_MODE_DISABLED
+	collect_box.process_mode = Node.PROCESS_MODE_DISABLED
+	
 	current_hold = null
 	sprite_animator.play("die")
 	if (is_instance_valid(slide_sound_playing)):
@@ -304,7 +307,8 @@ func die() -> void:
 	if highest_campfire:
 		#respawn
 		global_position = highest_campfire.global_position
-		hitbox.process_mode = Node.PROCESS_MODE_INHERIT
+		collect_box.process_mode = Node.PROCESS_MODE_INHERIT
+		die_box.process_mode = Node.PROCESS_MODE_INHERIT
 	else:
 		GameManager.save_game()
 		GameManager.player_die()

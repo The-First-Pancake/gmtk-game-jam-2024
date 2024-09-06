@@ -369,6 +369,7 @@ wait_time = 10.0
 one_shot = true
 
 [node name="DieBox" type="Area2D" parent="."]
+unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DieBox"]
 position = Vector2(0, 9)
@@ -376,6 +377,7 @@ shape = SubResource("CapsuleShape2D_018a7")
 debug_color = Color(1, 0, 0, 0)
 
 [node name="CollectBox" type="Area2D" parent="."]
+unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectBox"]
 position = Vector2(0, 6)
