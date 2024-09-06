@@ -19,7 +19,7 @@ spawn_count = 5
 [node name="Template Level" instance=ExtResource("1_pp86u")]
 
 [node name="Exit Door" parent="." index="2"]
-position = Vector2(1350, -567)
+position = Vector2(1350, -574)
 
 [node name="BlockSpawner" parent="Camera2D" index="1"]
 position = Vector2(-683, -281)

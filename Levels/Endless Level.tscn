@@ -101,7 +101,7 @@ light_mode = 1
 size = Vector2(1474, 709)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_br2ev"]
-size = Vector2(1350, 1110)
+size = Vector2(1298, 1110)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_e7s6v"]
 light_mode = 1
@@ -352,7 +352,7 @@ debug_color = Color(0, 0.595, 0.7, 0)
 position = Vector2(3, 7)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Water/Water Destroy Area"]
-position = Vector2(253, 2007)
+position = Vector2(227, 2007)
 shape = SubResource("RectangleShape2D_br2ev")
 
 [node name="RopeHook" type="Sprite2D" parent="."]

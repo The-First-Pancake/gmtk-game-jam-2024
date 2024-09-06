@@ -44,7 +44,7 @@ scale = Vector2(6.25, 6.25)
 texture = ExtResource("6_jk0d0")
 
 [node name="Exit Door" parent="." index="3"]
-position = Vector2(1402, -364)
+position = Vector2(1400, -375)
 
 [node name="DirectionalLight2D" parent="." index="4"]
 position = Vector2(950, 186)
@@ -63,9 +63,6 @@ offset_bottom = -6576.0
 [node name="Right Wall" parent="." index="8"]
 offset_top = -10488.0
 offset_bottom = -6572.0
-
-[node name="Player" parent="." index="9"]
-position = Vector2(1019, 1038)
 
 [node name="Camera2D" parent="." index="10"]
 position = Vector2(1133, 717)

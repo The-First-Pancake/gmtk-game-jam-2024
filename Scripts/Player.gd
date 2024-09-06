@@ -325,11 +325,7 @@ func apply_gravity(delta: float) -> void:
 	else:
 		velocity += get_gravity()*3 * delta
 
-func on_hitbix_hit(area: Area2D) -> void:
-	if area.is_in_group("spike"):
-		die()
-	if area.is_in_group("water"):
-		die()
+func on_collectbox_hit(area: Area2D) -> void:
 	if area.is_in_group("idol"):
 		area.queue_free()
 		idols_collected += 1
@@ -339,3 +335,10 @@ func on_hitbix_hit(area: Area2D) -> void:
 		if campfires.has(area): return #skip if we already have it
 		area.is_lit = true
 		campfires.append(area)
+	
+
+func on_diebox_hit(area: Area2D) -> void:
+	if area.is_in_group("spike"):
+		die()
+	if area.is_in_group("water"):
+		die()

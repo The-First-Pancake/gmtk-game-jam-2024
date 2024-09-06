@@ -20,7 +20,7 @@ spawn_count = 2
 [node name="Template Level" instance=ExtResource("1_ge7sx")]
 
 [node name="Exit Door" parent="." index="2"]
-position = Vector2(900, -2350)
+position = Vector2(900, -2375)
 
 [node name="Cieling" parent="." index="5"]
 offset_top = -11276.0

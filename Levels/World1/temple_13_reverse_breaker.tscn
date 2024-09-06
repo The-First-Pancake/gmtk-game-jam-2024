@@ -24,7 +24,7 @@ spawn_count = 1
 position = Vector2(1350, -3150)
 
 [node name="Exit Door" parent="." index="2"]
-position = Vector2(1354, 950)
+position = Vector2(1354, 924)
 
 [node name="Cieling" parent="." index="5"]
 offset_top = -11276.0

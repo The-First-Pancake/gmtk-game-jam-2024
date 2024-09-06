@@ -7,7 +7,7 @@
 [node name="Template Level" instance=ExtResource("1_lv8xn")]
 
 [node name="Exit Door" parent="." index="2"]
-position = Vector2(1750, -3267)
+position = Vector2(1750, -3275)
 
 [node name="Cieling" parent="." index="5"]
 offset_top = -11276.0

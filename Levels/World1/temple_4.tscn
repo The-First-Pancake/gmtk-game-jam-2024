@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bgygxndvon4hm"]
+[gd_scene load_steps=3 format=3 uid="uid://cge4flojubrju"]
 
 [ext_resource type="PackedScene" uid="uid://6dd2cbybvcqg" path="res://Levels/Template Level.tscn" id="1_sy0s0"]
 [ext_resource type="PackedScene" uid="uid://c4safo4pwme48" path="res://Prefabs/Blocks/1x4-Piece.tscn" id="2_35457"]
@@ -6,7 +6,7 @@
 [node name="Template Level" instance=ExtResource("1_sy0s0")]
 
 [node name="Exit Door" parent="." index="2"]
-position = Vector2(1750, -3268)
+position = Vector2(1750, -3275)
 
 [node name="Cieling" parent="." index="5"]
 offset_top = -11276.0

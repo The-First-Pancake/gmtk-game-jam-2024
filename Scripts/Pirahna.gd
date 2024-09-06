@@ -22,9 +22,13 @@ var was_submerged: bool = true
 func _process(delta: float) -> void:
 	var is_submerged: bool = get_overlapping_areas().has(swim_area)
 	var is_above_waterline: bool = !is_submerged and global_position.y < swim_area.global_position.y
+	#var player: Player = GameManager.player
+	
 	
 	if is_submerged:
 		var rand_angle: float = noise_gen.get_noise_1d(Time.get_ticks_msec()*angular_accel + noise_offset) * angular_vel
+		#if player: # I tried biasing the movment towards the player this way. It made them jump a little too much and it didn't make a huge difference
+		#	rand_angle = abs(rand_angle) * sign(global_position.angle_to_point(player.global_position))
 		swim_dir = swim_dir.rotated(rand_angle * delta)
 	else:
 		var angle_to_home: float = (swim_area.global_position - global_position).angle()

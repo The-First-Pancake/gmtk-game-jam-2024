@@ -14,7 +14,7 @@ light_mode = 1
 size = Vector2(3, 224)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_el28c"]
-size = Vector2(5, 218)
+size = Vector2(5, 248)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qkgs3"]
 size = Vector2(77, 151)
@@ -25,13 +25,12 @@ is_exit = true
 
 [node name="Door Background" type="Sprite2D" parent="."]
 material = SubResource("CanvasItemMaterial_midbx")
-position = Vector2(-4, 17)
+position = Vector2(0, 23)
 scale = Vector2(3.125, 3.125)
 texture = ExtResource("2_ed0te")
 
 [node name="Door Frame" type="Sprite2D" parent="."]
 material = SubResource("CanvasItemMaterial_cjcuh")
-position = Vector2(0, -6)
 scale = Vector2(3.125, 3.125)
 texture = ExtResource("3_slp37")
 
@@ -42,16 +41,17 @@ shape = SubResource("RectangleShape2D_e0y4u")
 [node name="Interior Wall" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interior Wall"]
-position = Vector2(-94.5, 7)
+position = Vector2(-92.5, 0)
 shape = SubResource("RectangleShape2D_el28c")
 
 [node name="Interior Wall2" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interior Wall2"]
-position = Vector2(90, 7)
+position = Vector2(90, 0)
 shape = SubResource("RectangleShape2D_el28c")
 
 [node name="Exit Hitbox" type="Area2D" parent="."]
+position = Vector2(0, 6)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Exit Hitbox"]
 position = Vector2(-0.5, 41.5)
