@@ -98,7 +98,7 @@ spawn_count = 1
 light_mode = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j4yru"]
-size = Vector2(1474, 709)
+size = Vector2(1488, 709)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_br2ev"]
 size = Vector2(1298, 1110)
@@ -344,7 +344,7 @@ stretch_mode = 1
 [node name="Water Kill Area" type="Area2D" parent="Water" groups=["water"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Water/Water Kill Area"]
-position = Vector2(254, 308.5)
+position = Vector2(247, 308.5)
 shape = SubResource("RectangleShape2D_j4yru")
 debug_color = Color(0, 0.595, 0.7, 0)
 

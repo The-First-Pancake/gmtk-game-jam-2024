@@ -11,6 +11,9 @@ light_mode = 1
 
 [node name="Template Level" instance=ExtResource("1_tpik0")]
 
+[node name="Exit Door" parent="." index="2"]
+position = Vector2(1667, 924)
+
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Water/Piranah Swim Area/Pirahna" index="0"]
 shape = SubResource("CircleShape2D_oun4q")
 

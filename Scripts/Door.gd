@@ -8,8 +8,11 @@ var lower_layer: int = 0
 @onready var interior_wall: StaticBody2D = $"Interior Wall"
 @onready var interior_wall_2: StaticBody2D = $"Interior Wall2"
 
+var player_inside: bool = false
+
 func _ready() -> void:
 	if is_exit:
+		player_inside = false
 		door_frame.z_index = lower_layer
 		interior_wall.process_mode = Node.PROCESS_MODE_DISABLED
 		interior_wall_2.process_mode = Node.PROCESS_MODE_DISABLED
@@ -23,16 +26,18 @@ func _ready() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
 		if is_exit:
+			player_inside = true
 			door_frame.z_index = top_layer
 			interior_wall.process_mode = Node.PROCESS_MODE_INHERIT
 			interior_wall_2.process_mode = Node.PROCESS_MODE_INHERIT
 			if body is Player and is_exit:
 				(body as Player).exit_level()
 		else:
+			player_inside = false
 			door_frame.z_index = lower_layer
 			interior_wall.process_mode = Node.PROCESS_MODE_DISABLED
 			interior_wall_2.process_mode = Node.PROCESS_MODE_DISABLED
 
 func _on_exit_hitbox_body_exited(body: Node2D) -> void:
-	if body is Player and is_exit:
+	if body is Player and is_exit and player_inside:
 		body.modulate = Color.TRANSPARENT
