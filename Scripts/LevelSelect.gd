@@ -14,3 +14,5 @@ func _ready() -> void:
 		spawned_obj.level_idx = i
 		spawned_obj.scene_to_load = level
 		weenie_container.add_child(spawned_obj)
+		if i == 0:
+			spawned_obj.grab_focus()

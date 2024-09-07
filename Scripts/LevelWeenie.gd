@@ -18,6 +18,7 @@ var unlocked: bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if level_idx == 1:
+		call_deferred("grab_focus")
 		unlocked = true
 	else:
 		var previous_level: PackedScene = GameManager.levels[level_idx-2]
@@ -57,8 +58,6 @@ func _ready() -> void:
 
 	pass # Replace with function body.
 
-
-
 func _on_mouse_entered() -> void:
 	modulate.r /= 2
 	modulate.g /= 2
@@ -68,7 +67,6 @@ func _on_mouse_exited() -> void:
 	modulate.r *= 2
 	modulate.g *= 2
 	modulate.b *= 2
-
 
 func _on_gui_input(event: InputEvent) -> void:
 	if event.is_action_pressed("drop_block"):	

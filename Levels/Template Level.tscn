@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://6dd2cbybvcqg"]
+[gd_scene load_steps=42 format=3 uid="uid://6dd2cbybvcqg"]
 
 [ext_resource type="Texture2D" uid="uid://bqfeqtdw7xcxo" path="res://Art/Sprites/Backgrounds/background.png" id="1_dtx2u"]
 [ext_resource type="PackedScene" uid="uid://dngf3odx0yf5k" path="res://Prefabs/player.tscn" id="2_hossx"]
@@ -22,7 +22,6 @@
 [ext_resource type="PackedScene" uid="uid://cah82i8ualvd0" path="res://Prefabs/Pirahnas/pirahna.tscn" id="19_q2wtl"]
 [ext_resource type="Texture2D" uid="uid://dg585ad1tpgdc" path="res://Art/Sprites/Rope_Hook.png" id="20_71uq3"]
 [ext_resource type="Script" path="res://Scripts/Rope.gd" id="21_xxhgi"]
-[ext_resource type="PackedScene" uid="uid://fq6lpryclmx1" path="res://Prefabs/cursor.tscn" id="22_v0byj"]
 [ext_resource type="Script" path="res://Scripts/MusicPlayer.gd" id="22_y5d0p"]
 [ext_resource type="AudioStream" uid="uid://twgpbnyr1add" path="res://Sound/Music/music_main.wav" id="23_cdry0"]
 
@@ -355,8 +354,6 @@ scale = Vector2(3.125, 3.125)
 texture = ExtResource("20_71uq3")
 offset = Vector2(0, -186.98)
 script = ExtResource("21_xxhgi")
-
-[node name="Cursor" parent="." instance=ExtResource("22_v0byj")]
 
 [node name="Music Player" type="Node2D" parent="."]
 script = ExtResource("22_y5d0p")
