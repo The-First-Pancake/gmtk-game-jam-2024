@@ -41,6 +41,8 @@ func _ready() -> void:
 
 	if ResourceLoader.exists(SAVE_PATH):
 		current_save = ResourceLoader.load(SAVE_PATH) as GameSave
+		if current_save == null: # if old save type, we have to reset
+			setup_new_save()
 	else:
 		setup_new_save()
 
