@@ -270,12 +270,16 @@ func try_squash() -> void:
 		die()
 
 var dying: bool = false
+
+func disable_hitboxes() -> void:
+	die_box.process_mode = Node.PROCESS_MODE_DISABLED
+	collect_box.process_mode = Node.PROCESS_MODE_DISABLED
+
 func die() -> void:
 	if is_exiting: return
 	if dying:return
 	dying = true
-	die_box.process_mode = Node.PROCESS_MODE_DISABLED
-	collect_box.process_mode = Node.PROCESS_MODE_DISABLED
+	call_deferred("disable_hitboxes")
 	
 	current_hold = null
 	sprite_animator.play("die")

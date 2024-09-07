@@ -61,8 +61,6 @@ func _process(delta: float) -> void:
 	score_submit_button.disabled = score_submitted or name_entry.text == ""
 
 func save_score() -> void:
-	var name_entry: TextEdit = %"Name Entry"
 	score_submitted = true
-	
 	await SilentWolf.Scores.save_score(name_entry.text, GameManager.endless_run_height).sw_save_score_complete
 	refresh_board()

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bqfeqtdw7xcxo" path="res://Art/Sprites/Backgrounds/background.png" id="3_bylc3"]
 [ext_resource type="Texture2D" uid="uid://cra8a72oqq7vi" path="res://Art/Sprites/Idol.png" id="3_r7ohp"]
 [ext_resource type="FontFile" uid="uid://ck4uibtfurjl4" path="res://Fonts/BlockyPixelFont.TTF" id="4_y3vag"]
-[ext_resource type="FontVariation" path="res://Fonts/CenteredPixelFont.tres" id="5_1nslo"]
+[ext_resource type="FontVariation" uid="uid://btbr0dkcrkg1g" path="res://Fonts/CenteredPixelFont.tres" id="5_1nslo"]
 [ext_resource type="PackedScene" uid="uid://bd754qqva43i1" path="res://Prefabs/leaderboard_entry.tscn" id="5_j83hf"]
 [ext_resource type="StyleBox" uid="uid://chxj0ri352x13" path="res://UI/Button Sytlebox.tres" id="6_ymys1"]
 [ext_resource type="Script" path="res://Scripts/LoadLevel.gd" id="7_1ve4r"]
@@ -29,6 +29,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_o07ta")
 
 [node name="Background" type="TextureRect" parent="."]
@@ -141,7 +143,6 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("4_y3vag")
 theme_override_font_sizes/font_size = 35
 theme_override_styles/normal = ExtResource("6_ymys1")
-action_mode = 0
 text = "Main Menu"
 script = ExtResource("7_1ve4r")
 

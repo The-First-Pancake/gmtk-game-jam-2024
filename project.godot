@@ -26,6 +26,7 @@ SilentWolf="*res://addons/silent_wolf/SilentWolf.gd"
 
 [debug]
 
+gdscript/warnings/unused_parameter=0
 gdscript/warnings/untyped_declaration=2
 gdscript/warnings/integer_division=0
 gdscript/warnings/narrowing_conversion=0
