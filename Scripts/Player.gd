@@ -334,6 +334,7 @@ func apply_gravity(delta: float) -> void:
 		velocity += get_gravity()*3 * delta
 
 func on_collectbox_hit(area: Area2D) -> void:
+	if dying: return
 	if area.is_in_group("idol"):
 		area.queue_free()
 		idols_collected += 1
