@@ -135,6 +135,7 @@ stream = ExtResource("7_32xas")
 volume_db = -7.0
 
 [node name="Button" type="Button" parent="."]
+layout_mode = 0
 offset_left = 1600.0
 offset_top = 1000.0
 offset_right = 2028.0
@@ -150,6 +151,7 @@ stream = ExtResource("12_gncmx")
 volume_db = -5.0
 
 [node name="Esc to Quit" type="Label" parent="."]
+layout_mode = 0
 offset_left = 200.0
 offset_top = 1154.0
 offset_right = 533.0

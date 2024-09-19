@@ -1,7 +1,7 @@
 class_name Placeable
 extends CharacterBody2D
 
-enum PlaceState {QUEUED, PLACING, FALLING, PLACED, DESTROYED}
+enum PlaceState {QUEUED, PLACING, FALLING, HARPOONED, PLACED, DESTROYED}
 @export var grid_size : float = 50
 @export var state : int = PlaceState.PLACED
 var hold_point_generator : HoldPointGenerator
@@ -20,12 +20,23 @@ const UNPLACED_COLLISION_LAYER : int = 2
 
 static var currently_held_block: Placeable = null
 var destroy_semaphore : Semaphore = Semaphore.new()
+var targeted_by_harpoon: bool = false
+var harpooned_accel: float = 3500
+var harpooned_dir: Vector2 = Vector2.RIGHT
 
 func _ready() -> void:
 	if (state == PlaceState.FALLING):
 		enter_falling()
 	hold_point_generator = $HoldPointGenerator
 	destroy_semaphore.post()
+
+func get_closest_cell_center(to_point: Vector2) -> Vector2:
+	var center_points: PackedVector2Array = hold_point_generator.generated_cell_center_points
+	var closest_point: Vector2 = Vector2(100000,100000)
+	for cell_center: Vector2 in center_points:
+		if to_global(cell_center).distance_to(to_point) < closest_point.distance_to(to_point):
+			closest_point = to_global(cell_center)
+	return closest_point
 
 func _physics_process(delta: float) -> void:
 	if (state == PlaceState.PLACING):
@@ -50,10 +61,33 @@ func _physics_process(delta: float) -> void:
 					player.try_squash()
 			elif (collision.get_angle(up_direction) < deg_to_rad(45) and collision.get_angle(up_direction) > deg_to_rad(-45)):
 				enter_placed()
+	elif state == PlaceState.HARPOONED:
+		velocity += harpooned_accel * harpooned_dir * delta
+		var collision : KinematicCollision2D = move_and_collide(velocity * delta)
+		if (collision):
+			if (collision.get_collider() is Player):
+				collision.get_collider().velocity = velocity
+				#if (collision.get_angle(-harpooned_dir) < deg_to_rad(45) and collision.get_angle(-harpooned_dir) > deg_to_rad(-45)):
+					#var player : Player = collision.get_collider() as Player
+					#player.try_squash()
+			elif (collision.get_angle(-harpooned_dir) < deg_to_rad(45) and collision.get_angle(-harpooned_dir) > deg_to_rad(-45)):
+				enter_placed()
 	if (state == PlaceState.QUEUED):
 		if Input.is_action_just_pressed("drop_block"):
 			if currently_held_block == null:
 				enter_placing()
+
+func align_to_grid() -> void:
+	var x_interval: float = 50 #unused
+	var y_interval: float = 100 #unused
+	global_position = round(global_position / grid_size) * grid_size #Snap to the nearest grid space
+
+func enter_harpooned(delay: float,dir: Vector2) -> void:
+	await get_tree().create_timer(delay).timeout
+	align_to_grid()
+	velocity = Vector2.ZERO
+	harpooned_dir = dir
+	state = PlaceState.HARPOONED
 
 func enter_queued() -> void:
 	state = PlaceState.QUEUED
@@ -89,7 +123,7 @@ func enter_falling() -> void:
 
 func enter_placed() -> void:
 	state = PlaceState.PLACED
-	global_position = round(global_position / grid_size) * grid_size #Snap to the nearest grid space
+	align_to_grid()
 	CameraController.instance.apply_shake()
 	AudioManager.PlayAudio(impact_sound)
 	placed.emit()

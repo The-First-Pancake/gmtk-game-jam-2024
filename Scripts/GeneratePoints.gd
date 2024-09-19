@@ -5,6 +5,7 @@ var units_per_block : int = 98
 @export var generate_test_points : bool = false
 var generated_points : PackedVector2Array = PackedVector2Array()
 var generated_orth_vectors : PackedVector2Array = PackedVector2Array()
+var generated_cell_center_points: PackedVector2Array = PackedVector2Array()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,6 +13,8 @@ func _ready() -> void:
 	var collision_points : PackedVector2Array = collision_polygon.polygon
 	
 	var generated : Array[PackedVector2Array] = generateHoldPoints(collision_points)
+	generated_cell_center_points = get_cell_centers(collision_points)
+	print(generated_cell_center_points)
 	generated_points = generated[0]
 	generated_orth_vectors = generated[1]
 	if (generate_test_points):
@@ -19,7 +22,6 @@ func _ready() -> void:
 	
 func get_generated_points() -> PackedVector2Array:
 	return generated_points
-
 	
 func placeTestPoints(points: PackedVector2Array) -> void:
 	for point in points:
@@ -30,6 +32,31 @@ func placeTestPoints(points: PackedVector2Array) -> void:
 		test_point.position = point
 		#test_point.rotation = parent.rotation
 	return
+
+func get_cell_centers(points: PackedVector2Array) -> PackedVector2Array:
+	var center_points: PackedVector2Array = []
+	for i in points.size():
+		var next_index : int = i+1
+		if (next_index == points.size()):
+			next_index = 0 #loop back to first index when on the last point in the array
+		var point1 : Vector2 = points[i]
+		var point2 : Vector2 = points[next_index]
+		var orthvector : Vector2 = (point2 - point1).rotated(deg_to_rad(-90)).normalized()
+		var distance: float = point1.distance_to(point2)
+		var direction : Vector2 = point1.direction_to(point2)
+		if (distance >= units_per_block):
+			var working_point : Vector2 = point1 - ((units_per_block * direction) / 2)
+			
+			for j in range((distance/units_per_block)):
+				var new_point : Vector2 = (units_per_block * direction) + working_point
+				working_point = new_point
+				var center_point: Vector2 = working_point - (orthvector * units_per_block/2)
+				
+				center_point = round(center_point/50)*50 #round to the nearest 50
+				if !center_points.has(center_point):
+					center_points.push_back(center_point)
+	
+	return center_points
 
 func generateHoldPoints(points: PackedVector2Array) -> Array[PackedVector2Array]:
 	var created_points: PackedVector2Array

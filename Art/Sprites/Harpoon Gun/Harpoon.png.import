@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cd2g7mxg82wbf"
-path="res://.godot/imported/george_credit.png-38db2a77e7a61c49bb2dc084dcf7afae.ctex"
+uid="uid://bhom3sfcx1xvk"
+path="res://.godot/imported/Harpoon.png-c27618c5e8e3739ed370c5a29c9a644d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/george_credit.png"
-dest_files=["res://.godot/imported/george_credit.png-38db2a77e7a61c49bb2dc084dcf7afae.ctex"]
+source_file="res://Art/Sprites/Harpoon Gun/Harpoon.png"
+dest_files=["res://.godot/imported/Harpoon.png-c27618c5e8e3739ed370c5a29c9a644d.ctex"]
 
 [params]
 

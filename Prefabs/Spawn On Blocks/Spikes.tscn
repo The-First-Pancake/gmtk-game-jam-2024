@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dhrgrpwwax6i8"]
 
 [ext_resource type="Texture2D" uid="uid://dl5vghi4ai07t" path="res://Art/Sprites/spikes.png" id="1_qt3w2"]
-[ext_resource type="Script" path="res://Prefabs/Squashable.gd" id="2_ebffp"]
+[ext_resource type="Script" path="res://Scripts/Squashable.gd" id="2_ebffp"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_qen5j"]
 light_mode = 1

@@ -1,7 +1,32 @@
-[gd_scene load_steps=5 format=3 uid="uid://cq8y8541n2cg0"]
+[gd_scene load_steps=14 format=3 uid="uid://cq8y8541n2cg0"]
 
 [ext_resource type="PackedScene" uid="uid://6dd2cbybvcqg" path="res://Levels/Template Level.tscn" id="1_tpik0"]
 [ext_resource type="Texture2D" uid="uid://nrkjss2x4yjn" path="res://Art/Sprites/pirahna.png" id="2_edj6i"]
+[ext_resource type="Script" path="res://Scripts/SpawnObject.gd" id="2_rawbg"]
+[ext_resource type="PackedScene" uid="uid://2emoy8lav7a0" path="res://Prefabs/Spawn On Blocks/harpoon_launcher.tscn" id="3_c0jtj"]
+[ext_resource type="PackedScene" uid="uid://r1kjk04fwuou" path="res://Prefabs/Spawn On Blocks/Hold.tscn" id="3_qvafs"]
+[ext_resource type="PackedScene" uid="uid://bkatak76uuoli" path="res://Prefabs/Spawn On Blocks/Campfire.tscn" id="4_xsl0n"]
+[ext_resource type="PackedScene" uid="uid://dhrgrpwwax6i8" path="res://Prefabs/Spawn On Blocks/Spikes.tscn" id="5_qdpub"]
+
+[sub_resource type="Resource" id="Resource_6716m"]
+script = ExtResource("2_rawbg")
+spawn_prefab = ExtResource("3_qvafs")
+spawn_count = 10
+
+[sub_resource type="Resource" id="Resource_b3o7y"]
+script = ExtResource("2_rawbg")
+spawn_prefab = ExtResource("4_xsl0n")
+spawn_count = 2
+
+[sub_resource type="Resource" id="Resource_mwrdh"]
+script = ExtResource("2_rawbg")
+spawn_prefab = ExtResource("5_qdpub")
+spawn_count = 10
+
+[sub_resource type="Resource" id="Resource_eylrs"]
+script = ExtResource("2_rawbg")
+spawn_prefab = ExtResource("3_c0jtj")
+spawn_count = 5
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oun4q"]
 radius = 1.9465
@@ -12,7 +37,13 @@ light_mode = 1
 [node name="Template Level" instance=ExtResource("1_tpik0")]
 
 [node name="Exit Door" parent="." index="2"]
-position = Vector2(1667, 924)
+position = Vector2(1667, 145)
+
+[node name="BlockSpawner" parent="Camera2D" index="1"]
+spawn_objects = Array[ExtResource("2_rawbg")]([SubResource("Resource_6716m"), SubResource("Resource_b3o7y"), SubResource("Resource_mwrdh"), SubResource("Resource_eylrs")])
+
+[node name="Water" parent="." index="11"]
+rise_speed = 0.0
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Water/Piranah Swim Area/Pirahna" index="0"]
 shape = SubResource("CircleShape2D_oun4q")
@@ -21,3 +52,11 @@ shape = SubResource("CircleShape2D_oun4q")
 unique_name_in_owner = true
 material = SubResource("CanvasItemMaterial_gy11q")
 texture = ExtResource("2_edj6i")
+
+[node name="Harpoon Launcher" parent="." index="17" instance=ExtResource("3_c0jtj")]
+position = Vector2(2050, 700)
+rotation = -1.5708
+
+[node name="Harpoon Launcher2" parent="." index="18" instance=ExtResource("3_c0jtj")]
+position = Vector2(2050, 400)
+rotation = -1.5708

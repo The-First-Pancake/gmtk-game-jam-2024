@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://41px2nbwnx3k" path="res://Art/Sprites/dust.png" id="6_jnjs7"]
 [ext_resource type="AudioStream" uid="uid://da4bgebl5ud5n" path="res://Sound/campfire_light.mp3" id="9_5ixnm"]
 [ext_resource type="AudioStream" uid="uid://cmbg6gp144led" path="res://Sound/campfire_extinguish.mp3" id="9_a3xb8"]
-[ext_resource type="Script" path="res://Prefabs/Squashable.gd" id="11_g2gib"]
+[ext_resource type="Script" path="res://Scripts/Squashable.gd" id="11_g2gib"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r3r1h"]
 size = Vector2(35.7855, 4.5)

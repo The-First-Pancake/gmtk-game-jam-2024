@@ -71,14 +71,11 @@ func exit_level() -> void:
 func _process(delta: float) -> void:
 	targeting_arrow.visible = false
 	if dying: return
-	if is_entering: 
+	if is_entering or is_exiting: 
 		update_animations()
 		move_and_slide()
 		return
-	if is_exiting:
-		update_animations()
-		move_and_slide()
-		return
+
 	is_downsliding = is_on_wall() and velocity.y > 0
 	
 	if !is_instance_valid(current_hold):
@@ -88,6 +85,16 @@ func _process(delta: float) -> void:
 	
 	update_animations()
 	move_and_slide()
+	if being_shoved:
+		being_shoved = false
+
+var being_shoved: bool = false
+func shove_player(vel: Vector2) -> void:
+	#You can definitly do this better with some fucked vector math. Oops
+	print(vel)
+	being_shoved = true
+	#velocity = vel
+	current_hold = null
 
 func movement(delta: float) -> void:
 	# Add the gravity.
@@ -146,11 +153,13 @@ func movement(delta: float) -> void:
 	
 	if input_direction: #if we're tryna move
 		if sign(input_direction) != sign(velocity.x):
-			velocity.x = 0 # for instant turning around
+			if !being_shoved:
+				velocity.x = 0 # for instant turning around
 		if abs(velocity.x) < max_speed:
 			velocity.x += input_direction * acceleration * delta
 	else: #if we aint tryna move
-		velocity.x = move_toward(velocity.x, 0, deceleration * delta) #slow down
+		if !being_shoved:
+			velocity.x = move_toward(velocity.x, 0, deceleration * delta) #slow down
 	
 	#flipping. Used answer from here: https://forum.godotengine.org/t/why-my-character-scale-keep-changing/13909/5
 	if input_direction > 0:

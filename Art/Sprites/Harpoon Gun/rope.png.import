@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ce1w4jc1lhxdd"
-path="res://.godot/imported/james_credit.png-d5f5eda54fec8e0ddd9112f276de414c.ctex"
+uid="uid://c8tgmp5g0x3h3"
+path="res://.godot/imported/rope.png-c7bf5984e027f4a830b631d5a623c111.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/james_credit.png"
-dest_files=["res://.godot/imported/james_credit.png-d5f5eda54fec8e0ddd9112f276de414c.ctex"]
+source_file="res://Art/Sprites/Harpoon Gun/rope.png"
+dest_files=["res://.godot/imported/rope.png-c7bf5984e027f4a830b631d5a623c111.ctex"]
 
 [params]
 

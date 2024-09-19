@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://86aav2k6p7y"
-path="res://.godot/imported/oliver_credit.png-8dadec3f4c0dde5f0529f8cc9ac5dbdf.ctex"
+uid="uid://cd2g7mxg82wbf"
+path="res://.godot/imported/george_credit.png-f23ebc41a7fc77a3de6c09ded1ba6930.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/oliver_credit.png"
-dest_files=["res://.godot/imported/oliver_credit.png-8dadec3f4c0dde5f0529f8cc9ac5dbdf.ctex"]
+source_file="res://Art/Logos/george_credit.png"
+dest_files=["res://.godot/imported/george_credit.png-f23ebc41a7fc77a3de6c09ded1ba6930.ctex"]
 
 [params]
 

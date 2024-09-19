@@ -3,9 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://6dd2cbybvcqg" path="res://Levels/Template Level.tscn" id="1_hx6d2"]
 [ext_resource type="Script" path="res://Scripts/SpawnObject.gd" id="2_g7o34"]
 [ext_resource type="PackedScene" uid="uid://c4safo4pwme48" path="res://Prefabs/Blocks/1x4-Piece.tscn" id="2_ma814"]
-[ext_resource type="PackedScene" uid="uid://r1kjk04fwuou" path="res://Prefabs/Hold.tscn" id="3_mhqar"]
-[ext_resource type="PackedScene" uid="uid://bkatak76uuoli" path="res://Prefabs/Campfire.tscn" id="4_ptrkp"]
-[ext_resource type="PackedScene" uid="uid://cn5g0kaav20lj" path="res://Prefabs/ArrowSpitter.tscn" id="5_mwpor"]
+[ext_resource type="PackedScene" uid="uid://r1kjk04fwuou" path="res://Prefabs/Spawn On Blocks/Hold.tscn" id="3_mhqar"]
+[ext_resource type="PackedScene" uid="uid://bkatak76uuoli" path="res://Prefabs/Spawn On Blocks/Campfire.tscn" id="4_ptrkp"]
+[ext_resource type="PackedScene" uid="uid://cn5g0kaav20lj" path="res://Prefabs/Spawn On Blocks/ArrowSpitter.tscn" id="5_mwpor"]
 
 [sub_resource type="Resource" id="Resource_6716m"]
 script = ExtResource("2_g7o34")

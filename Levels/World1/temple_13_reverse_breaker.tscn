@@ -7,10 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://c7c8vai4olkeh" path="res://Prefabs/Blocks/T-Piece.tscn" id="5_1r8jc"]
 [ext_resource type="PackedScene" uid="uid://b60t64b6u40dy" path="res://Prefabs/Blocks/Z-Piece-Mirrored.tscn" id="6_udgby"]
 [ext_resource type="Script" path="res://Scripts/SpawnObject.gd" id="7_7omhc"]
-[ext_resource type="PackedScene" uid="uid://hetb2cu4cbew" path="res://Prefabs/BreakerSpike.tscn" id="8_8yufu"]
+[ext_resource type="PackedScene" uid="uid://hetb2cu4cbew" path="res://Prefabs/Spawn On Blocks/BreakerSpike.tscn" id="8_8yufu"]
 [ext_resource type="PackedScene" uid="uid://bdyf8npx3i7xk" path="res://Prefabs/Blocks/2x2-Piece.tscn" id="9_i6e5t"]
 [ext_resource type="PackedScene" uid="uid://c4safo4pwme48" path="res://Prefabs/Blocks/1x4-Piece.tscn" id="10_uwfru"]
-[ext_resource type="PackedScene" uid="uid://bkatak76uuoli" path="res://Prefabs/Campfire.tscn" id="11_icgcv"]
+[ext_resource type="PackedScene" uid="uid://bkatak76uuoli" path="res://Prefabs/Spawn On Blocks/Campfire.tscn" id="11_icgcv"]
 [ext_resource type="AudioStream" uid="uid://bs0ib4ihh3wc1" path="res://Sound/Music/Chill Level Music gmtk game jam 2024.wav" id="12_xttfj"]
 
 [sub_resource type="Resource" id="Resource_xd867"]
