@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://2emoy8lav7a0"]
+
+[ext_resource type="Script" path="res://Scripts/Harpoon.gd" id="1_dcokm"]
+[ext_resource type="Script" path="res://Scripts/Squashable.gd" id="2_64uom"]
+[ext_resource type="Material" uid="uid://cg4fprgafhcxd" path="res://Art/unshaded_material.tres" id="3_2r2oc"]
+[ext_resource type="Texture2D" uid="uid://c8tgmp5g0x3h3" path="res://Art/Sprites/Harpoon Gun/rope.png" id="4_gkehe"]
+[ext_resource type="Texture2D" uid="uid://bhom3sfcx1xvk" path="res://Art/Sprites/Harpoon Gun/Harpoon.png" id="5_7kukt"]
+[ext_resource type="Texture2D" uid="uid://ddurl6x40287e" path="res://Art/Sprites/Harpoon Gun/Harpoon Launcher.png" id="6_jrujo"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v85wb"]
+radius = 1.60007
+height = 21.76
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_3smye"]
+
+[node name="Harpoon Launcher" type="Area2D"]
+scale = Vector2(3.125, 3.125)
+script = ExtResource("1_dcokm")
+
+[node name="Tripwire" type="RayCast2D" parent="."]
+position = Vector2(5.59506e-08, -1.28)
+target_position = Vector2(0, -425)
+
+[node name="Squashable" type="Node" parent="."]
+script = ExtResource("2_64uom")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1.86)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_v85wb")
+
+[node name="Rope" type="Line2D" parent="."]
+visible = false
+texture_repeat = 2
+material = ExtResource("3_2r2oc")
+points = PackedVector2Array(-0.32, -90.88, 6.08, -86.08, 8.96, -83.52, 10.88, -81.6, 14.08, -76.8, 15.04, -73.6, 15.36, -70.4, 15.04, -66.88, 14.4, -63.68, 12.6674, -61.2255, 10.56, -58.24, 8, -56, 5.44, -53.12, -0.32, -50.24)
+width = 4.0
+texture = ExtResource("4_gkehe")
+texture_mode = 1
+
+[node name="Harpoon" type="Node2D" parent="."]
+position = Vector2(0.319946, 0)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Harpoon"]
+material = ExtResource("3_2r2oc")
+position = Vector2(-0.319987, -16.32)
+texture = ExtResource("5_7kukt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = ExtResource("3_2r2oc")
+position = Vector2(4.57764e-05, -16.32)
+texture = ExtResource("6_jrujo")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+material = ExtResource("3_2r2oc")
+position = Vector2(-2.58894, -40.2032)
+scale = Vector2(6.70212, 3.59769)
+mesh = SubResource("ArrayMesh_3smye")
+texture = ExtResource("4_gkehe")

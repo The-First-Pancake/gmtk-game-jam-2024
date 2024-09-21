@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dpyoyg7dk52w6" path="res://Art/Sprites/hold/Hold.png" id="1_43tsb"]
 [ext_resource type="Texture2D" uid="uid://bnvyxybj0rs1t" path="res://Art/Sprites/hold/Hold_Normal.png" id="2_q3t11"]
-[ext_resource type="Script" path="res://Prefabs/Squashable.gd" id="3_wed4u"]
+[ext_resource type="Script" path="res://Scripts/Squashable.gd" id="3_wed4u"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_vaxov"]
 diffuse_texture = ExtResource("1_43tsb")

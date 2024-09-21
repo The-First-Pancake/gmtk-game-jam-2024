@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cfwthgghjptlu" path="res://Art/Sprites/glyphs/Glyph_Handhold_Hold.png" id="2_bsear"]
 [ext_resource type="Texture2D" uid="uid://ckqbqnfws6rvb" path="res://Art/Sprites/glyphs/Glyph_Handhold_Dir.png" id="3_f6p84"]
 [ext_resource type="Script" path="res://Scripts/SpawnObject.gd" id="3_ovksb"]
-[ext_resource type="PackedScene" uid="uid://r1kjk04fwuou" path="res://Prefabs/Hold.tscn" id="4_cbys8"]
+[ext_resource type="PackedScene" uid="uid://r1kjk04fwuou" path="res://Prefabs/Spawn On Blocks/Hold.tscn" id="4_cbys8"]
 [ext_resource type="Texture2D" uid="uid://myc5ko8clsbs" path="res://Art/Sprites/glyphs/Glyph_Handhold_Release.png" id="4_kfenh"]
 
 [sub_resource type="Resource" id="Resource_6716m"]

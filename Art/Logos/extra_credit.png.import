@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4x7gtuvj0inr"
-path="res://.godot/imported/micah_credit.png-49521d12ac38895192c9ae397f7b58c6.ctex"
+uid="uid://bhj26p7eauk4a"
+path="res://.godot/imported/extra_credit.png-508d1a78230cde4155543c5505d48251.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/micah_credit.png"
-dest_files=["res://.godot/imported/micah_credit.png-49521d12ac38895192c9ae397f7b58c6.ctex"]
+source_file="res://Art/Logos/extra_credit.png"
+dest_files=["res://.godot/imported/extra_credit.png-508d1a78230cde4155543c5505d48251.ctex"]
 
 [params]
 
