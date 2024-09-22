@@ -271,6 +271,7 @@ func update_animations() -> void:
 @onready var squash_detector: RayCast2D = %"Squash detector"
 
 func try_squash() -> void:
+	await get_tree().physics_frame
 	#This method could cause problems if the player temporarily clips into something due to moving really fast, but I've yet to run into that problem
 	if squash_detector.is_colliding(): 
 		if squash_detector.get_collision_normal() == Vector2.ZERO: #the ray is inside the object it's colliding with
@@ -312,7 +313,7 @@ func die() -> void:
 	
 	tween = get_tree().create_tween()
 	tween.set_trans(Tween.TRANS_QUAD)
-	tween.tween_property(self, "global_position:y", global_position.y + 600, 0.5)
+	tween.tween_property(self, "global_position:y", global_position.y + 800, 0.5)
 	await tween.finished
 
 	var highest_campfire: Campfire = null
@@ -334,6 +335,7 @@ func die() -> void:
 		GameManager.save_game()
 		GameManager.player_die()
 	
+	await get_tree().physics_frame
 	dying = false
 
 func apply_gravity(delta: float) -> void:

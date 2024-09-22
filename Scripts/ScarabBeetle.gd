@@ -38,7 +38,6 @@ func try_squash() -> void:
 		return
 	if front_raycast.is_colliding() and rear_raycast.is_colliding() and middle_raycast.is_colliding():
 		if front_raycast.get_collision_normal() == Vector2.ZERO and rear_raycast.get_collision_normal() == Vector2.ZERO and middle_raycast.get_collision_normal() == Vector2.ZERO:
-			print("aaaaa im suqash")
 			queue_free()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
