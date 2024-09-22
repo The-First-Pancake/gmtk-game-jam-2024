@@ -385,6 +385,11 @@ position = Vector2(0, 6)
 shape = SubResource("CapsuleShape2D_lme6c")
 debug_color = Color(0, 0.7, 0.0233333, 0)
 
+[node name="Squash detector" type="RayCast2D" parent="."]
+unique_name_in_owner = true
+target_position = Vector2(0, 11)
+hit_from_inside = true
+
 [node name="Slide Particles" type="CPUParticles2D" parent="."]
 z_as_relative = false
 material = SubResource("CanvasItemMaterial_m3i5l")
@@ -488,6 +493,7 @@ texture = ExtResource("4_gmgjr")
 offset = Vector2(0, -33.525)
 
 [node name="Audio" type="Node2D" parent="."]
+position = Vector2(0, 4)
 
 [node name="Jump012" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("8_jf1wr")

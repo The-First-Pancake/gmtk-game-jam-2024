@@ -70,7 +70,7 @@ func exit_level() -> void:
 	GameManager.level_complete()
 	is_exiting = false
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	targeting_arrow.visible = false
 	if dying: return
 	if is_entering or is_exiting: 
@@ -87,16 +87,8 @@ func _process(delta: float) -> void:
 	
 	update_animations()
 	move_and_slide()
-	if being_shoved:
-		being_shoved = false
+	try_squash()
 
-var being_shoved: bool = false
-func shove_player(vel: Vector2) -> void:
-	#You can definitly do this better with some fucked vector math. Oops
-	print(vel)
-	being_shoved = true
-	#velocity = vel
-	current_hold = null
 
 func movement(delta: float) -> void:
 	# Add the gravity.
@@ -155,13 +147,11 @@ func movement(delta: float) -> void:
 	
 	if input_direction: #if we're tryna move
 		if sign(input_direction) != sign(velocity.x):
-			if !being_shoved:
-				velocity.x = 0 # for instant turning around
+			velocity.x = 0 # for instant turning around
 		if abs(velocity.x) < max_speed:
 			velocity.x += input_direction * acceleration * delta
 	else: #if we aint tryna move
-		if !being_shoved:
-			velocity.x = move_toward(velocity.x, 0, deceleration * delta) #slow down
+		velocity.x = move_toward(velocity.x, 0, deceleration * delta) #slow down
 	
 	#flipping. Used answer from here: https://forum.godotengine.org/t/why-my-character-scale-keep-changing/13909/5
 	if input_direction > 0:
@@ -249,9 +239,10 @@ func update_animations() -> void:
 					griddy_sound.play()
 			else:
 				sprite_animator.play("idle")
-				if AudioManager.current_music.stream_paused == true:
-					AudioManager.current_music.stream_paused = false
-					griddy_sound.stop()
+				if AudioManager.current_music:
+					if AudioManager.current_music.stream_paused == true:
+						AudioManager.current_music.stream_paused = false
+						griddy_sound.stop()
 				footstep_animator.stop()
 	elif is_downsliding:
 		if not is_instance_valid(slide_sound_playing):
@@ -263,9 +254,10 @@ func update_animations() -> void:
 		if (is_instance_valid(slide_sound_playing)):
 			slide_sound_playing.queue_free()
 		footstep_animator.stop()
-		if AudioManager.current_music.stream_paused == true:
-			AudioManager.current_music.stream_paused = false
-			griddy_sound.stop()
+		if AudioManager.current_music:
+			if AudioManager.current_music.stream_paused == true:
+				AudioManager.current_music.stream_paused = false
+				griddy_sound.stop()
 		if abs(velocity.x) > 750:
 			sprite_animator.play("jump_reach")
 		else:
@@ -276,9 +268,23 @@ func update_animations() -> void:
 			else:
 				sprite_animator.play("jump_up")
 
+@onready var squash_detector: RayCast2D = %"Squash detector"
+
 func try_squash() -> void:
-	if is_on_floor():
-		die()
+	#This method could cause problems if the player temporarily clips into something due to moving really fast, but I've yet to run into that problem
+	if squash_detector.is_colliding(): 
+		if squash_detector.get_collision_normal() == Vector2.ZERO: #the ray is inside the object it's colliding with
+			die()
+	
+	#This method is really smart and doesn't work lol
+	#var collision_normals: Array[Vector2] = []
+	#for i: int in get_slide_collision_count():
+		#var collision: KinematicCollision2D = get_slide_collision(i)
+		#for other_normal: Vector2 in collision_normals:
+			#if other_normal.dot(collision.get_normal()) < -0.25: #if we're colliding with 2 opposite colliders
+				#die()
+		#collision_normals.append(collision.get_normal())
+
 
 var dying: bool = false
 
