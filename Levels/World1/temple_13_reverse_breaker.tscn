@@ -45,7 +45,7 @@ spawn_object_probability = 0.075
 rise_speed = 0.0
 
 [node name="Idol" parent="." index="12"]
-position = Vector2(900, -1600)
+position = Vector2(900, -1579)
 
 [node name="Idol2" parent="." index="13"]
 position = Vector2(1350, 650)

@@ -28,7 +28,7 @@ spawn_count = 5
 [node name="Template Level" instance=ExtResource("1_jhrg7")]
 
 [node name="Exit Door" parent="." index="2"]
-position = Vector2(1200, -1150)
+position = Vector2(1200, -1127)
 
 [node name="Cieling" parent="." index="5"]
 offset_top = -11276.0
@@ -50,7 +50,7 @@ position = Vector2(1000, -100)
 position = Vector2(1700, -600)
 
 [node name="PlaceableCharacterBody2d" parent="." index="16" instance=ExtResource("5_dty44")]
-position = Vector2(1200, -975)
+position = Vector2(1200, -950)
 rotation = 1.5708
 
 [node name="Music" parent="Music Player" index="0"]

@@ -17,10 +17,10 @@ offset_top = -11276.0
 offset_bottom = -11010.0
 
 [node name="Idol" parent="." index="12"]
-position = Vector2(1750, -450)
+position = Vector2(1950, -150)
 
 [node name="Idol2" parent="." index="13"]
-position = Vector2(900, -900)
+position = Vector2(850, -850)
 
 [node name="Idol3" parent="." index="14"]
 position = Vector2(2000, -1250)
@@ -151,9 +151,6 @@ position = Vector2(-0.000732422, -200)
 [node name="PlaceableCharacterBody2d8" parent="." index="18" instance=ExtResource("2_r7x6o")]
 position = Vector2(900, -1700)
 rotation = 1.5708
-
-[node name="Cursor" parent="." index="20"]
-texture = null
 
 [node name="Music" parent="Music Player" index="0"]
 stream = ExtResource("7_j4s4t")

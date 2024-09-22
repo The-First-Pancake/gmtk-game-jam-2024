@@ -37,12 +37,15 @@ scale = Vector2(3.125, 3.125)
 texture = ExtResource("4_kfenh")
 
 [node name="Exit Door" parent="." index="3"]
-position = Vector2(1400, -1475)
+position = Vector2(1400, -1075)
 
 [node name="BlockSpawner" parent="Camera2D" index="1"]
 block_prefabs = Array[PackedScene]([ExtResource("2_bl821")])
 spawn_objects = Array[ExtResource("3_ovksb")]([SubResource("Resource_6716m")])
 spawn_object_probability = 0.3
+
+[node name="Water" parent="." index="12"]
+rise_speed = 12.0
 
 [node name="Idol" parent="." index="13"]
 position = Vector2(900, -750)
@@ -51,10 +54,10 @@ position = Vector2(900, -750)
 position = Vector2(2000, -150)
 
 [node name="Idol3" parent="." index="15"]
-position = Vector2(950, 700)
+position = Vector2(950, 750)
 
 [node name="2x2 Piiece" parent="." index="17" instance=ExtResource("2_bl821")]
-position = Vector2(1400, -1250)
+position = Vector2(1400, -850)
 
 [node name="Music" parent="Music Player" index="0"]
 volume_db = -7.0

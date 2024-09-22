@@ -18,6 +18,8 @@ var exit_door : Door = null
 		preload("res://Levels/World1/temple_11_breaker_intro.tscn"),
 		preload("res://Levels/World1/temple_12_breaker_dropper.tscn"),
 		preload("res://Levels/World1/temple_13_reverse_breaker.tscn"),
+		preload("res://Levels/World1/temple_15_crawlers_everywhere!.tscn"),
+		preload("res://Levels/World1/temple_16_harpoons_intro.tscn"),
 	]
 
 var current_level : PackedScene = null
