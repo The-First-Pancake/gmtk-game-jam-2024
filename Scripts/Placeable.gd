@@ -11,6 +11,7 @@ const GRID_SIZE: float = 50
 signal picked_up
 signal placed
 signal falling
+signal destroyed
 
 const DEFAULT_COLLISION_LAYER : int = 1
 const UNPLACED_COLLISION_LAYER : int = 2
@@ -122,6 +123,7 @@ func enter_falling() -> void:
 	falling.emit()
 
 func enter_placed() -> void:
+	velocity = Vector2.ZERO
 	state = PlaceState.PLACED
 	align_to_grid()
 	CameraController.instance.apply_shake()
@@ -144,6 +146,7 @@ func destroy(collision_point_global : Vector2) -> void:
 	if destroy_semaphore.try_wait():
 		if (state != PlaceState.DESTROYED):
 			state = PlaceState.DESTROYED
+			destroyed.emit()
 			AudioManager.PlayAudio(shatter_sound)
 			for child in get_children():
 				if child is Sprite2D:

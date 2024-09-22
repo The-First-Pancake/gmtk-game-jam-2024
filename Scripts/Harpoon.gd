@@ -40,5 +40,8 @@ func _process(delta: float) -> void:
 					hit_obj.global_position.x  = global_position.x- cell_local_pos.x
 				harpoon.reparent(hit_obj)
 	else:
-		rope.points = [to_local(harpoon.global_position), Vector2.ZERO]
+		if is_instance_valid(harpoon):
+			rope.points = [to_local(harpoon.global_position), Vector2.ZERO]
+		else:
+			rope.visible = false
 	

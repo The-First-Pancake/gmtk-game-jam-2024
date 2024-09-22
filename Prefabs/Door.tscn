@@ -20,6 +20,7 @@ size = Vector2(5, 248)
 size = Vector2(77, 151)
 
 [node name="Door" type="Area2D"]
+collision_mask = 3
 script = ExtResource("1_4n4fl")
 is_exit = true
 
@@ -52,6 +53,7 @@ shape = SubResource("RectangleShape2D_el28c")
 
 [node name="Exit Hitbox" type="Area2D" parent="."]
 position = Vector2(0, 6)
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Exit Hitbox"]
 position = Vector2(-0.5, 41.5)

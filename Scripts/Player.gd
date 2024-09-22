@@ -23,12 +23,16 @@ var campfires: Array[Campfire] = []
 
 @onready var side_hand_point: Marker2D = %"Side Hand Point" as Marker2D
 @onready var top_hand_point: Marker2D = %"Top Hand Point" as Marker2D
+@onready var gravity_reduce_timer: Timer = %"Gravity Reduce Timer" as Timer
+@onready var targeting_arrow: Sprite2D = $"Targeting Arrow"
 
+#Particles
 @onready var slide_particles: CPUParticles2D = $"Slide Particles" as CPUParticles2D
 @onready var jump_particles: CPUParticles2D = $"Jump Particles" as CPUParticles2D
 @onready var land_particles: CPUParticles2D = $"Land Particles" as CPUParticles2D
 @onready var hold_release_particles: CPUParticles2D = $"Hold Release Particles" as CPUParticles2D
 
+#Sounds
 @onready var jump_sound: AudioStreamPlayer = $Audio/Jump012 as AudioStreamPlayer
 @onready var land_sound: AudioStreamPlayer = $Audio/Punch1021 as AudioStreamPlayer
 @onready var slide_sound: AudioStreamPlayer = $Audio/Sliding01 as AudioStreamPlayer
@@ -37,8 +41,6 @@ var campfires: Array[Campfire] = []
 @onready var idol_get_sound: AudioStreamPlayer = $Audio/IdolGet as AudioStreamPlayer
 @onready var griddy_sound: AudioStreamPlayer = $Audio/Griddy as AudioStreamPlayer
 
-@onready var gravity_reduce_timer: Timer = %"Gravity Reduce Timer" as Timer
-@onready var targeting_arrow: Sprite2D = $"Targeting Arrow"
 
 
 var is_entering: bool = false
