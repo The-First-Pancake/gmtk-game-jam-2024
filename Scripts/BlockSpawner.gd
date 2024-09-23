@@ -41,6 +41,8 @@ func clear_added_spawns() -> void:
 func generate_and_spawn_block() -> void:
 	if (block_bag.size() == 0):
 		refresh_block_bag()
+	if (block_bag.size() == 0): #if it's still empty (meaning this level doesn't want blocks) just return
+		return
 	spawned_block = block_bag.pop_front().instantiate() as Placeable
 	add_child(spawned_block)
 	spawned_block.global_position = global_position

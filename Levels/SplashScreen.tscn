@@ -68,8 +68,6 @@ z_index = 1000
 position = Vector2(1133, 681)
 script = ExtResource("1_1wwk0")
 step = 300.0
-top_trigger = 300.0
-bottom_trigger = 200.0
 
 [node name="BlockContainer" type="Node2D" parent="."]
 

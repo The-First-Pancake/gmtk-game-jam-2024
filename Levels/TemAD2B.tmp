@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://6dd2cbybvcqg"]
+[gd_scene load_steps=42 format=3 uid="uid://6dd2cbybvcqg"]
 
 [ext_resource type="Texture2D" uid="uid://bqfeqtdw7xcxo" path="res://Art/Sprites/Backgrounds/background.png" id="1_dtx2u"]
 [ext_resource type="PackedScene" uid="uid://dngf3odx0yf5k" path="res://Prefabs/player.tscn" id="2_hossx"]
@@ -18,11 +18,9 @@
 [ext_resource type="Texture2D" uid="uid://bs6m1kttcvgdo" path="res://Art/Sprites/water/Water_Depth.png" id="12_2m3xp"]
 [ext_resource type="PackedScene" uid="uid://b3c0skin4w372" path="res://Prefabs/Spawn On Blocks/idol.tscn" id="13_jfp1q"]
 [ext_resource type="Texture2D" uid="uid://cra8a72oqq7vi" path="res://Art/Sprites/Idol.png" id="13_pmlcy"]
-[ext_resource type="PackedScene" uid="uid://mcu32jepdsb3" path="res://Prefabs/Dynamite.tscn" id="16_3kw41"]
 [ext_resource type="PackedScene" uid="uid://def2hxxjwwhvl" path="res://Prefabs/Door.tscn" id="19_owl44"]
 [ext_resource type="PackedScene" uid="uid://cah82i8ualvd0" path="res://Prefabs/Pirahnas/pirahna.tscn" id="19_q2wtl"]
 [ext_resource type="Texture2D" uid="uid://dg585ad1tpgdc" path="res://Art/Sprites/Rope_Hook.png" id="20_71uq3"]
-[ext_resource type="Script" path="res://Scripts/Rope.gd" id="21_xxhgi"]
 [ext_resource type="Script" path="res://Scripts/MusicPlayer.gd" id="22_y5d0p"]
 [ext_resource type="AudioStream" uid="uid://twgpbnyr1add" path="res://Sound/Music/music_main.wav" id="23_cdry0"]
 
@@ -85,6 +83,20 @@ size = Vector2(1474, 709)
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_e7s6v"]
 light_mode = 1
 
+[sub_resource type="GDScript" id="GDScript_a3hwu"]
+script/source = "class_name Rope
+extends Sprite2D
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta: float) -> void:
+	var block: Placeable = Placeable.currently_held_block
+	if is_instance_valid(block):
+		global_position = block.global_position #+ Vector2(0,-100)
+	else:
+		global_position = get_global_mouse_position()
+"
+
 [node name="Template Level" type="Node2D"]
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
@@ -120,6 +132,8 @@ is_exit = false
 position = Vector2(1667, 764)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+position = Vector2(950, 150)
+rotation = -6.28319
 energy = 1.55
 
 [node name="Floor" type="TextureRect" parent="."]
@@ -202,6 +216,8 @@ z_index = 1000
 position = Vector2(1133, 681)
 script = ExtResource("4_psc51")
 step = 300.0
+top_trigger = 300.0
+bottom_trigger = 200.0
 
 [node name="UI" type="Node2D" parent="Camera2D" node_paths=PackedStringArray("idol_label", "height_label")]
 z_as_relative = false
@@ -222,32 +238,32 @@ centered = false
 [node name="UiFrame" type="Sprite2D" parent="Camera2D/UI"]
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_ymr2b")
-position = Vector2(-643, 194)
+position = Vector2(-673, 203)
 scale = Vector2(3.125, 3.125)
 texture = ExtResource("10_ixs36")
 
 [node name="IdolUI" type="Label" parent="Camera2D/UI"]
-offset_left = -709.0
-offset_top = 310.0
-offset_right = -562.0
-offset_bottom = 448.0
+offset_left = -739.0
+offset_top = 319.0
+offset_right = -592.0
+offset_bottom = 457.0
 text = "0/3"
 label_settings = SubResource("LabelSettings_448k6")
 
 [node name="HeightUI" type="Label" parent="Camera2D/UI"]
-offset_left = -735.0
-offset_top = 9.0
-offset_right = -645.0
-offset_bottom = 200.0
+offset_left = -765.0
+offset_top = 18.0
+offset_right = -675.0
+offset_bottom = 209.0
 text = "00
 66"
 label_settings = SubResource("LabelSettings_448k6")
 
 [node name="HeightUI2" type="Label" parent="Camera2D/UI"]
-offset_left = -637.0
-offset_top = 9.0
-offset_right = -547.0
-offset_bottom = 200.0
+offset_left = -667.0
+offset_top = 18.0
+offset_right = -577.0
+offset_bottom = 209.0
 text = "m
 m"
 label_settings = SubResource("LabelSettings_448k6")
@@ -255,7 +271,7 @@ label_settings = SubResource("LabelSettings_448k6")
 [node name="Idol" type="Sprite2D" parent="Camera2D/UI"]
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_lftag")
-position = Vector2(-642, 241)
+position = Vector2(-672, 250)
 scale = Vector2(6, 6)
 texture = ExtResource("13_pmlcy")
 
@@ -265,15 +281,6 @@ position = Vector2(-688, -299)
 spawn_container = NodePath("../../BlockContainer")
 spawn_objects = Array[ExtResource("6_xpr8c")]([SubResource("Resource_6716m"), SubResource("Resource_b3o7y"), SubResource("Resource_mwrdh")])
 spawn_object_probability = 0.5
-
-[node name="Dynamite" parent="Camera2D" instance=ExtResource("16_3kw41")]
-position = Vector2(-883, 119)
-
-[node name="Dynamite3" parent="Camera2D" instance=ExtResource("16_3kw41")]
-position = Vector2(-883, 319)
-
-[node name="Dynamite2" parent="Camera2D" instance=ExtResource("16_3kw41")]
-position = Vector2(-883, 219)
 
 [node name="BlockContainer" type="Node2D" parent="."]
 
@@ -359,7 +366,7 @@ position = Vector2(2844, 1052)
 scale = Vector2(3.125, 3.125)
 texture = ExtResource("20_71uq3")
 offset = Vector2(0, -186.98)
-script = ExtResource("21_xxhgi")
+script = SubResource("GDScript_a3hwu")
 
 [node name="Music Player" type="Node2D" parent="."]
 script = ExtResource("22_y5d0p")

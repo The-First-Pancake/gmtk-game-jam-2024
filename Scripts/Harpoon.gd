@@ -57,7 +57,6 @@ func _process(delta: float) -> void:
 					var y: float = sin(x*PI*frequency) * magnitude
 					
 					rope.add_point(direction*(distance-x) + perpendicular_dir*y)
-				print(rope.points)
 		else:
 			rope.visible = false
 

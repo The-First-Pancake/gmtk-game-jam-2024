@@ -77,9 +77,9 @@ rotation = -1.5708
 position = Vector2(2050, 400)
 rotation = -1.5708
 
-[node name="Scarab Beetle" parent="." index="19" instance=ExtResource("8_p1ric")]
+[node name="PlaceableCharacterBody2d3" parent="." index="19" instance=ExtResource("8_jf0jc")]
+position = Vector2(1450, 600)
+
+[node name="Scarab Beetle" parent="." index="20" instance=ExtResource("8_p1ric")]
 position = Vector2(1439, 493)
 rotation = -0.551524
-
-[node name="PlaceableCharacterBody2d" parent="." index="20" instance=ExtResource("8_jf0jc")]
-position = Vector2(1450, 650)

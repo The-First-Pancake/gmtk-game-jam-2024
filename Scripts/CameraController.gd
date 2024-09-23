@@ -3,8 +3,9 @@ extends Camera2D
 
 static var instance: CameraController
 @export var step: float
-@export var top_trigger: float
-@export var bottom_trigger: float
+@export var leading_trigger: float
+@export var reverse_trigger: float
+@export var stationary_cam: bool = false
 @export var random_stength: float = 15.0
 @export var shake_fade: float = 5.0
 
@@ -36,14 +37,15 @@ func _process(delta: float) -> void:
 	
 	if !GameManager.player: return
 	if GameManager.player.dying: return
-	if GameManager.player.global_position.y < screen_top + top_trigger:
+	if stationary_cam: return
+	if GameManager.player.global_position.y < screen_top + leading_trigger:
 		var slide_tween: Tween = get_tree().create_tween()
 		slide_tween.set_trans(Tween.TRANS_QUAD)
 		slide_tween.tween_property(self, "global_position", global_position - Vector2(0,step),.3)
 		is_sliding = true
 		await slide_tween.finished
 		is_sliding = false
-	if GameManager.player.global_position.y > screen_bottom - bottom_trigger:
+	if GameManager.player.global_position.y > screen_bottom - reverse_trigger:
 		var slide_tween: Tween = get_tree().create_tween()
 		slide_tween.set_trans(Tween.TRANS_QUAD)
 		slide_tween.tween_property(self, "global_position", global_position + Vector2(0,step),.3)

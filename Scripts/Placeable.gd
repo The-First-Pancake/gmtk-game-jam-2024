@@ -2,11 +2,9 @@ class_name Placeable
 extends CharacterBody2D
 
 enum PlaceState {QUEUED, PLACING, FALLING, HARPOONED, PLACED, DESTROYED}
-@export var grid_size : float = 50
 @export var state : int = PlaceState.PLACED
 var hold_point_generator : HoldPointGenerator
 
-const GRID_SIZE: float = 50
 
 signal picked_up
 signal placed
@@ -19,7 +17,6 @@ const UNPLACED_COLLISION_LAYER : int = 2
 @onready var impact_sound : AudioStreamPlayer = $BlockImpact01 as AudioStreamPlayer
 @onready var shatter_sound : AudioStreamPlayer = $Explosion3003 as AudioStreamPlayer
 
-static var currently_held_block: Placeable = null
 var destroy_semaphore : Semaphore = Semaphore.new()
 var targeted_by_harpoon: bool = false
 var harpooned_accel: float = 3500
@@ -41,8 +38,9 @@ func get_closest_cell_center(to_point: Vector2) -> Vector2:
 
 func _physics_process(delta: float) -> void:
 	if (state == PlaceState.PLACING):
+		var grid_size: float = GameManager.GRID_SIZE
 		var mouse_pos : Vector2 = get_global_mouse_position()
-		global_position = Vector2(int(mouse_pos.x / grid_size) * grid_size, int(mouse_pos.y / grid_size) * grid_size)
+		global_position = round(mouse_pos / grid_size) * grid_size
 		if (Input.is_action_just_pressed("rotate_block_right")):
 			rotation += deg_to_rad(90)
 			return
@@ -74,13 +72,12 @@ func _physics_process(delta: float) -> void:
 			elif (collision.get_angle(-harpooned_dir) < deg_to_rad(45) and collision.get_angle(-harpooned_dir) > deg_to_rad(-45)):
 				enter_placed()
 	if (state == PlaceState.QUEUED):
-		if Input.is_action_just_pressed("drop_block"):
-			if currently_held_block == null:
+		if Input.is_action_just_pressed("drop_block"): #Pick Up
+			if GameManager.currently_held_object == null:
 				enter_placing()
 
 func align_to_grid() -> void:
-	var x_interval: float = 50 #unused
-	var y_interval: float = 100 #unused
+	var grid_size: float = GameManager.GRID_SIZE
 	global_position = round(global_position / grid_size) * grid_size #Snap to the nearest grid space
 
 func enter_harpooned(delay: float,dir: Vector2) -> void:
@@ -102,14 +99,14 @@ func enter_queued() -> void:
 			area_2d_child.set_collision_layer_value(UNPLACED_COLLISION_LAYER, true);
 
 func enter_placing() -> void:
-	currently_held_block = self
+	GameManager.currently_held_object = self
 	await get_tree().process_frame
 	picked_up.emit()
 	modulate.a = 0.5 # make transparent
 	state = PlaceState.PLACING 
 
 func enter_falling() -> void:
-	currently_held_block = null
+	GameManager.currently_held_object = null
 	set_collision_layer_value(DEFAULT_COLLISION_LAYER, true);
 	set_collision_layer_value(UNPLACED_COLLISION_LAYER, false);
 	# Deal with child nodes

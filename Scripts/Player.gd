@@ -221,6 +221,12 @@ func update_animations() -> void:
 			sprite_animator.play("hang_top")
 		else:
 			sprite_animator.play("hang_side")
+	elif is_downsliding:
+		if not is_instance_valid(slide_sound_playing):
+			slide_sound_playing = AudioManager.PlayAudio(slide_sound)
+		footstep_animator.stop()
+		sprite_animator.play("downslide")
+		slide_particles.emitting = true
 	elif is_on_floor():
 		if is_instance_valid(slide_sound_playing):
 			slide_sound_playing.queue_free()
@@ -244,12 +250,6 @@ func update_animations() -> void:
 						AudioManager.current_music.stream_paused = false
 						griddy_sound.stop()
 				footstep_animator.stop()
-	elif is_downsliding:
-		if not is_instance_valid(slide_sound_playing):
-			slide_sound_playing = AudioManager.PlayAudio(slide_sound)
-		footstep_animator.stop()
-		sprite_animator.play("downslide")
-		slide_particles.emitting = true
 	else:
 		if (is_instance_valid(slide_sound_playing)):
 			slide_sound_playing.queue_free()
@@ -334,6 +334,7 @@ func die() -> void:
 	else:
 		GameManager.save_game()
 		GameManager.player_die()
+		return
 	
 	await get_tree().physics_frame
 	dying = false

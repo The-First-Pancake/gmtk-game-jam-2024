@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://mcu32jepdsb3"]
+
+[ext_resource type="Script" path="res://Scripts/Dynamite.gd" id="1_0xau1"]
+[ext_resource type="Material" uid="uid://cg4fprgafhcxd" path="res://Art/unshaded_material.tres" id="2_nvjlg"]
+[ext_resource type="Texture2D" uid="uid://det8arxk2wg81" path="res://Art/Sprites/Dynamite/Dynamite.png" id="3_8ilru"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nsrqv"]
+size = Vector2(86, 99)
+
+[node name="Dynamite" type="Area2D"]
+position = Vector2(-911, 22)
+script = ExtResource("1_0xau1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_nsrqv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = ExtResource("2_nvjlg")
+position = Vector2(2, 0)
+scale = Vector2(3.125, 3.125)
+texture = ExtResource("3_8ilru")
+
+[node name="Block Detector" type="RayCast2D" parent="."]
+target_position = Vector2(0, 1)
+hit_from_inside = true
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
