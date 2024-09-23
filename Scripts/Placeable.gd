@@ -47,7 +47,7 @@ func _physics_process(delta: float) -> void:
 		if (Input.is_action_just_pressed("rotate_block_left")):
 			rotation -= deg_to_rad(90)
 			return
-		if (!check_for_collisions() and Input.is_action_just_pressed("drop_block")):
+		if (!check_for_collisions() and Input.is_action_just_released("drop_block")):
 			enter_falling()
 	elif (state == PlaceState.FALLING):
 		# Add the gravity.
@@ -72,7 +72,7 @@ func _physics_process(delta: float) -> void:
 			elif (collision.get_angle(-harpooned_dir) < deg_to_rad(45) and collision.get_angle(-harpooned_dir) > deg_to_rad(-45)):
 				enter_placed()
 	if (state == PlaceState.QUEUED):
-		if Input.is_action_just_pressed("drop_block"): #Pick Up
+		if Input.is_action_just_released("drop_block"): #Pick Up
 			if GameManager.currently_held_object == null:
 				enter_placing()
 

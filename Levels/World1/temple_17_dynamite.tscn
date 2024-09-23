@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cqrk66u8spi3" path="res://Prefabs/Blocks/Z-Piece.tscn" id="2_tsovo"]
 [ext_resource type="PackedScene" uid="uid://caudmtkjwca1i" path="res://Prefabs/Blocks/L-Piece-Mirrored.tscn" id="3_ftapl"]
 [ext_resource type="PackedScene" uid="uid://b1lrc4bb14deo" path="res://Prefabs/Blocks/L-Piece.tscn" id="4_2dnok"]
-[ext_resource type="PackedScene" uid="uid://b60t64b6u40dy" path="res://Prefabs/Blocks/Z-Piece-Mirrored.tscn" id="6_84fqo"]
+[ext_resource type="PackedScene" uid="uid://c7c8vai4olkeh" path="res://Prefabs/Blocks/T-Piece.tscn" id="5_w2b2c"]
 [ext_resource type="Script" path="res://Scripts/SpawnObject.gd" id="7_7t5f7"]
 [ext_resource type="PackedScene" uid="uid://hetb2cu4cbew" path="res://Prefabs/Spawn On Blocks/BreakerSpike.tscn" id="8_jt8to"]
 [ext_resource type="PackedScene" uid="uid://bdyf8npx3i7xk" path="res://Prefabs/Blocks/2x2-Piece.tscn" id="9_03ful"]
@@ -76,37 +76,45 @@ rotation = 1.5708
 position = Vector2(1200, 750)
 rotation = 1.5708
 
-[node name="PlaceableCharacterBody2d10" parent="." index="21" instance=ExtResource("4_2dnok")]
-position = Vector2(1700, 650)
-rotation = 1.5708
-
-[node name="PlaceableCharacterBody2d11" parent="." index="22" instance=ExtResource("4_2dnok")]
+[node name="PlaceableCharacterBody2d11" parent="." index="21" instance=ExtResource("4_2dnok")]
 position = Vector2(850, 800)
 rotation = 3.14159
 
-[node name="PlaceableCharacterBody2d12" parent="." index="23" instance=ExtResource("4_2dnok")]
+[node name="PlaceableCharacterBody2d12" parent="." index="22" instance=ExtResource("4_2dnok")]
 position = Vector2(1950, 800)
 
-[node name="PlaceableCharacterBody2d4" parent="." index="24" instance=ExtResource("2_tsovo")]
+[node name="PlaceableCharacterBody2d4" parent="." index="23" instance=ExtResource("2_tsovo")]
 position = Vector2(1950, 1000)
 
-[node name="PlaceableCharacterBody2d5" parent="." index="25" instance=ExtResource("2_tsovo")]
+[node name="PlaceableCharacterBody2d5" parent="." index="24" instance=ExtResource("2_tsovo")]
 position = Vector2(1200, 950)
 rotation = 1.5708
 
-[node name="PlaceableCharacterBody2d8" parent="." index="26" instance=ExtResource("2_tsovo")]
+[node name="PlaceableCharacterBody2d8" parent="." index="25" instance=ExtResource("2_tsovo")]
 position = Vector2(1600, 850)
 rotation = 1.5708
 
-[node name="PlaceableCharacterBody2d7" parent="." index="27" instance=ExtResource("2_tsovo")]
+[node name="PlaceableCharacterBody2d7" parent="." index="26" instance=ExtResource("2_tsovo")]
 position = Vector2(1700, 550)
 rotation = 1.5708
 
-[node name="2x2 Piiece" parent="." index="28" instance=ExtResource("9_03ful")]
+[node name="2x2 Piiece" parent="." index="27" instance=ExtResource("9_03ful")]
 position = Vector2(950, 650)
+
+[node name="2x2 Piiece3" parent="." index="28" instance=ExtResource("9_03ful")]
+position = Vector2(1450, 750)
 
 [node name="2x2 Piiece2" parent="." index="29" instance=ExtResource("9_03ful")]
 position = Vector2(1950, 550)
 
-[node name="PlaceableCharacterBody2d" parent="." index="30" instance=ExtResource("6_84fqo")]
-position = Vector2(1450, 700)
+[node name="PlaceableCharacterBody2d" parent="." index="30" instance=ExtResource("5_w2b2c")]
+position = Vector2(1500, 550)
+rotation = -1.5708
+
+[node name="PlaceableCharacterBody2d2" parent="." index="31" instance=ExtResource("5_w2b2c")]
+position = Vector2(850, 500)
+rotation = 3.14159
+
+[node name="PlaceableCharacterBody2d10" parent="." index="32" instance=ExtResource("3_ftapl")]
+position = Vector2(1700, 750)
+rotation = 1.5708

@@ -67,7 +67,6 @@ stretch_mode = 1
 z_index = 1000
 position = Vector2(1133, 681)
 script = ExtResource("1_1wwk0")
-step = 300.0
 
 [node name="BlockContainer" type="Node2D" parent="."]
 

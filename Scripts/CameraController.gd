@@ -2,9 +2,9 @@ class_name CameraController
 extends Camera2D
 
 static var instance: CameraController
-@export var step: float
-@export var leading_trigger: float
-@export var reverse_trigger: float
+@export var step: float = 300
+@export var leading_trigger: float = 300
+@export var reverse_trigger: float = 200
 @export var stationary_cam: bool = false
 @export var random_stength: float = 15.0
 @export var shake_fade: float = 5.0

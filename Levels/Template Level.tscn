@@ -201,7 +201,6 @@ position = Vector2(1033, 1002)
 z_index = 1000
 position = Vector2(1133, 681)
 script = ExtResource("4_psc51")
-step = 300.0
 
 [node name="UI" type="Node2D" parent="Camera2D" node_paths=PackedStringArray("idol_label", "height_label")]
 z_as_relative = false
