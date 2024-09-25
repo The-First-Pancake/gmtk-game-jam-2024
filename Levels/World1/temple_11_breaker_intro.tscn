@@ -31,7 +31,7 @@ spawn_count = 10
 [node name="Template Level" instance=ExtResource("1_vxill")]
 
 [node name="Exit Door" parent="." index="2"]
-position = Vector2(1150, -2425)
+position = Vector2(1150, -2276)
 
 [node name="Cieling" parent="." index="5"]
 offset_top = -11276.0
@@ -129,7 +129,7 @@ position = Vector2(1400, -750)
 rotation = 3.14159
 
 [node name="PlaceableCharacterBody2d12" parent="." index="39" instance=ExtResource("2_r8fog")]
-position = Vector2(900, -2150)
+position = Vector2(900, -2001)
 rotation = 1.5708
 
 [node name="Arrow_Spitter" parent="PlaceableCharacterBody2d12" index="5" instance=ExtResource("7_cqoqo")]
@@ -137,7 +137,7 @@ position = Vector2(49.9998, -50.0002)
 rotation = 0.0
 
 [node name="PlaceableCharacterBody2d13" parent="." index="40" instance=ExtResource("2_r8fog")]
-position = Vector2(1400, -2150)
+position = Vector2(1400, -2001)
 rotation = 1.5708
 
 [node name="Arrow_Spitter3" parent="PlaceableCharacterBody2d13" index="5" instance=ExtResource("7_cqoqo")]
@@ -149,7 +149,7 @@ position = Vector2(49.9995, -150)
 rotation = 0.0
 
 [node name="PlaceableCharacterBody2d14" parent="." index="41" instance=ExtResource("6_kb5xa")]
-position = Vector2(1150, -2200)
+position = Vector2(1150, -2051)
 rotation = -1.5708
 
 [node name="2x2 Piiece" parent="." index="42" instance=ExtResource("8_mfjac")]

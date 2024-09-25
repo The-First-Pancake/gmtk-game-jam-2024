@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cq8y8541n2cg0"]
+[gd_scene load_steps=19 format=3 uid="uid://cq8y8541n2cg0"]
 
 [ext_resource type="PackedScene" uid="uid://6dd2cbybvcqg" path="res://Levels/Template Level.tscn" id="1_tpik0"]
 [ext_resource type="Texture2D" uid="uid://nrkjss2x4yjn" path="res://Art/Sprites/pirahna.png" id="2_edj6i"]
@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://r1kjk04fwuou" path="res://Prefabs/Spawn On Blocks/Hold.tscn" id="3_qvafs"]
 [ext_resource type="PackedScene" uid="uid://bkatak76uuoli" path="res://Prefabs/Spawn On Blocks/Campfire.tscn" id="4_xsl0n"]
 [ext_resource type="PackedScene" uid="uid://dhrgrpwwax6i8" path="res://Prefabs/Spawn On Blocks/Spikes.tscn" id="5_qdpub"]
+[ext_resource type="PackedScene" uid="uid://hetb2cu4cbew" path="res://Prefabs/Spawn On Blocks/BreakerSpike.tscn" id="7_qjiyx"]
+[ext_resource type="PackedScene" uid="uid://c7c8vai4olkeh" path="res://Prefabs/Blocks/T-Piece.tscn" id="8_jf0jc"]
+[ext_resource type="PackedScene" uid="uid://dgwixm1vxqs6t" path="res://Prefabs/Spawn On Blocks/Scarab_Beetle.tscn" id="8_p1ric"]
 
 [sub_resource type="Resource" id="Resource_6716m"]
 script = ExtResource("2_rawbg")
@@ -28,6 +31,16 @@ script = ExtResource("2_rawbg")
 spawn_prefab = ExtResource("3_c0jtj")
 spawn_count = 5
 
+[sub_resource type="Resource" id="Resource_2cuk8"]
+script = ExtResource("2_rawbg")
+spawn_prefab = ExtResource("7_qjiyx")
+spawn_count = 10
+
+[sub_resource type="Resource" id="Resource_8i6eg"]
+script = ExtResource("2_rawbg")
+spawn_prefab = ExtResource("8_p1ric")
+spawn_count = 10
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_oun4q"]
 radius = 1.9465
 
@@ -39,8 +52,11 @@ light_mode = 1
 [node name="Exit Door" parent="." index="2"]
 position = Vector2(1667, 145)
 
+[node name="CollisionShape2D" parent="Left Wall/StaticBody2D" index="0"]
+position = Vector2(170.56, 1864.96)
+
 [node name="BlockSpawner" parent="Camera2D" index="1"]
-spawn_objects = Array[ExtResource("2_rawbg")]([SubResource("Resource_6716m"), SubResource("Resource_b3o7y"), SubResource("Resource_mwrdh"), SubResource("Resource_eylrs")])
+spawn_objects = Array[ExtResource("2_rawbg")]([SubResource("Resource_6716m"), SubResource("Resource_b3o7y"), SubResource("Resource_mwrdh"), SubResource("Resource_eylrs"), SubResource("Resource_2cuk8"), SubResource("Resource_8i6eg")])
 
 [node name="Water" parent="." index="11"]
 rise_speed = 0.0
@@ -60,3 +76,10 @@ rotation = -1.5708
 [node name="Harpoon Launcher2" parent="." index="18" instance=ExtResource("3_c0jtj")]
 position = Vector2(2050, 400)
 rotation = -1.5708
+
+[node name="PlaceableCharacterBody2d3" parent="." index="19" instance=ExtResource("8_jf0jc")]
+position = Vector2(1450, 600)
+
+[node name="Scarab Beetle" parent="." index="20" instance=ExtResource("8_p1ric")]
+position = Vector2(1439, 493)
+rotation = -0.551524

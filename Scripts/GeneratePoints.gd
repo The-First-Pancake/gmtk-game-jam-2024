@@ -14,7 +14,6 @@ func _ready() -> void:
 	
 	var generated : Array[PackedVector2Array] = generateHoldPoints(collision_points)
 	generated_cell_center_points = get_cell_centers(collision_points)
-	print(generated_cell_center_points)
 	generated_points = generated[0]
 	generated_orth_vectors = generated[1]
 	if (generate_test_points):

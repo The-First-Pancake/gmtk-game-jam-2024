@@ -4,6 +4,8 @@ var player : Player = null
 var entrance_door : Door = null
 var exit_door : Door = null
 
+const GRID_SIZE: float = 50
+
 @onready var levels : Array[PackedScene] = [
 		preload("res://Levels/World1/temple_1_intro.tscn"),
 		preload("res://Levels/World1/temple_2_spikes.tscn"),
@@ -18,6 +20,9 @@ var exit_door : Door = null
 		preload("res://Levels/World1/temple_11_breaker_intro.tscn"),
 		preload("res://Levels/World1/temple_12_breaker_dropper.tscn"),
 		preload("res://Levels/World1/temple_13_reverse_breaker.tscn"),
+		preload("res://Levels/World1/temple_15_crawlers_everywhere!.tscn"),
+		preload("res://Levels/World1/temple_16_harpoons_intro.tscn"),
+		preload("res://Levels/World1/temple_17_dynamite.tscn"),
 	]
 
 var current_level : PackedScene = null
@@ -26,6 +31,7 @@ var splash_screen_scene: PackedScene = preload("res://Levels/SplashScreen.tscn")
 var leaderboard_scene: PackedScene = preload("res://Levels/Leaderboard.tscn")
 const SAVE_PATH: String = "user://save.tres"
 var current_save: GameSave = null
+var currently_held_object: Node2D = null
 
 func _ready() -> void:
 	var silentwolf_api_file: FileAccess = FileAccess.open("res://Keys/SilentwolfAPI.txt", FileAccess.READ)

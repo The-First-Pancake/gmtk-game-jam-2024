@@ -30,10 +30,10 @@ offset_bottom = -11010.0
 spawn_objects = Array[ExtResource("2_dcvft")]([SubResource("Resource_fa0pl"), SubResource("Resource_bl7r2")])
 
 [node name="Idol" parent="." index="12"]
-position = Vector2(1850, -300)
+position = Vector2(1750, 926)
 
 [node name="Idol2" parent="." index="13"]
-position = Vector2(950, -1050)
+position = Vector2(950, -971)
 
 [node name="Idol3" parent="." index="14"]
 position = Vector2(1650, -2700)
@@ -43,10 +43,18 @@ position = Vector2(900, -2200)
 rotation = 1.5708
 
 [node name="PlaceableCharacterBody2d2" parent="." index="17" instance=ExtResource("3_v627j")]
-position = Vector2(1000, -1050)
+position = Vector2(950, -1050)
+rotation = -1.5708
 
 [node name="PlaceableCharacterBody2d3" parent="." index="18" instance=ExtResource("3_v627j")]
-position = Vector2(900, -1050)
+position = Vector2(950, -950)
+rotation = 1.5708
+
+[node name="PlaceableCharacterBody2d2" parent="PlaceableCharacterBody2d3" index="5" instance=ExtResource("3_v627j")]
+position = Vector2(1900, -800)
+
+[node name="PlaceableCharacterBody2d3" parent="PlaceableCharacterBody2d3" index="6" instance=ExtResource("3_v627j")]
+position = Vector2(1800, -800)
 rotation = 3.14159
 
 [node name="Music" parent="Music Player" index="0"]

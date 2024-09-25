@@ -9,7 +9,7 @@
 [node name="Template Level" instance=ExtResource("1_pdxa0")]
 
 [node name="Exit Door" parent="." index="2"]
-position = Vector2(1750, -2225)
+position = Vector2(1750, -2175)
 
 [node name="Cieling" parent="." index="5"]
 offset_top = -11276.0
@@ -19,17 +19,17 @@ offset_bottom = -11010.0
 position = Vector2(1800, -450)
 
 [node name="Idol2" parent="." index="13"]
-position = Vector2(900, -1500)
+position = Vector2(900, -1450)
 
 [node name="Idol3" parent="." index="14"]
 position = Vector2(900, -2600)
 
 [node name="PlaceableCharacterBody2d" parent="." index="15" instance=ExtResource("2_f6xab")]
-position = Vector2(1750, -2050)
+position = Vector2(1750, -2000)
 rotation = 1.5708
 
 [node name="Arrow_Spitter" parent="." index="16" instance=ExtResource("3_0s6mf")]
-position = Vector2(700, 50)
+position = Vector2(700, 100)
 rotation = 0.0
 
 [node name="Arrow_Spitter2" parent="." index="17" instance=ExtResource("3_0s6mf")]
@@ -37,7 +37,7 @@ position = Vector2(700, -1000)
 rotation = 0.0
 
 [node name="Arrow_Spitter3" parent="." index="18" instance=ExtResource("3_0s6mf")]
-position = Vector2(700, -1950)
+position = Vector2(700, -2000)
 rotation = 0.0
 
 [node name="Arrow_Spitter6" parent="." index="19" instance=ExtResource("4_q65wd")]
@@ -45,7 +45,7 @@ position = Vector2(2050, 500)
 rotation = 3.14159
 
 [node name="Arrow_Spitter7" parent="." index="20" instance=ExtResource("4_q65wd")]
-position = Vector2(2050, -450)
+position = Vector2(2050, -500)
 rotation = 3.14159
 
 [node name="Arrow_Spitter8" parent="." index="21" instance=ExtResource("4_q65wd")]
