@@ -27,8 +27,11 @@ spawn_count = 5
 
 [node name="Template Level" instance=ExtResource("1_jhrg7")]
 
+[node name="Entrance Door" parent="." index="1"]
+position = Vector2(1100, 1050)
+
 [node name="Exit Door" parent="." index="2"]
-position = Vector2(1200, -1127)
+position = Vector2(1200, -1000)
 
 [node name="Cieling" parent="." index="5"]
 offset_top = -11276.0

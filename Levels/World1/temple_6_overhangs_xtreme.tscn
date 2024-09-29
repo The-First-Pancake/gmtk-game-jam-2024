@@ -52,15 +52,19 @@ rotation = 1.5708
 
 [node name="PlaceableCharacterBody2d5" parent="." index="21" instance=ExtResource("2_pyrvr")]
 position = Vector2(1150, -700)
+rotation = 15.708
 
 [node name="PlaceableCharacterBody2d7" parent="." index="22" instance=ExtResource("2_pyrvr")]
 position = Vector2(1600, -1200)
+rotation = 15.708
 
 [node name="PlaceableCharacterBody2d11" parent="." index="23" instance=ExtResource("2_pyrvr")]
 position = Vector2(1600, -1600)
+rotation = 15.708
 
 [node name="PlaceableCharacterBody2d12" parent="." index="24" instance=ExtResource("2_pyrvr")]
 position = Vector2(1150, -1100)
+rotation = 15.708
 
 [node name="2x2 Piiece2" parent="." index="25" instance=ExtResource("3_r5fou")]
 position = Vector2(1350, -3050)

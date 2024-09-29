@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://ducte5svkjikd"]
+
+[ext_resource type="PackedScene" uid="uid://cxgaavewg0jbi" path="res://Prefabs/PlaceableCharacterBody2D.tscn" id="1_x0357"]
+[ext_resource type="Texture2D" uid="uid://b0kiel0yh3i3s" path="res://Art/Sprites/Tetronimoes/1x1_sand.png" id="2_luh4f"]
+[ext_resource type="AudioStream" uid="uid://btmai0cyj5oqt" path="res://Sound/Blocks/Sand Crunch 2.wav" id="2_nkksd"]
+[ext_resource type="Material" uid="uid://cg4fprgafhcxd" path="res://Art/unshaded_material.tres" id="3_36t3u"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_a4gsd"]
+random_pitch = 1.5
+random_volume_offset_db = 1.0
+streams_count = 1
+stream_0/stream = ExtResource("2_nkksd")
+stream_0/weight = 3.0
+
+[node name="Sand" instance=ExtResource("1_x0357")]
+rotation = 17.2788
+minecraft_sand_behavior = true
+
+[node name="Explosion3003" parent="." index="0"]
+stream = ExtResource("2_nkksd")
+
+[node name="BlockImpact01" parent="." index="1"]
+stream = SubResource("AudioStreamRandomizer_a4gsd")
+
+[node name="Sprite2D" parent="." index="2"]
+material = ExtResource("3_36t3u")
+position = Vector2(-50, -50)
+texture = ExtResource("2_luh4f")
+
+[node name="CollisionPolygon2D" parent="." index="3"]
+polygon = PackedVector2Array(49, 49, -49, 49, -49, -49, 49, -49)

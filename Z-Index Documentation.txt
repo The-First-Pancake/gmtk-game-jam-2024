@@ -1,0 +1,7 @@
+Here are relevent Z-indexes used by parts of the game:
+	
+- Background -1,000
+- The backdrop Inside of doors -900
+- Player: 1
+- Player inside door: -1
+- Player Targeting Arrow: 100

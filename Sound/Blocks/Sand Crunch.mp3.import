@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c7who27tpn8cg"
+path="res://.godot/imported/Sand Crunch.mp3-3e37e09b36a9d02361c78c2492809a90.mp3str"
+
+[deps]
+
+source_file="res://Sound/Blocks/Sand Crunch.mp3"
+dest_files=["res://.godot/imported/Sand Crunch.mp3-3e37e09b36a9d02361c78c2492809a90.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

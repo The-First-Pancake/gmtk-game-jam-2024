@@ -9,7 +9,7 @@ diffuse_texture = ExtResource("2_yr4et")
 normal_texture = ExtResource("3_v3uvb")
 texture_filter = 1
 
-[node name="PlaceableCharacterBody2d" instance=ExtResource("1_mi26r")]
+[node name="T-Piece" instance=ExtResource("1_mi26r")]
 
 [node name="Sprite2D" parent="." index="2"]
 position = Vector2(-100, -150)

@@ -30,8 +30,11 @@ spawn_count = 3
 
 [node name="Template Level" instance=ExtResource("1_sdp6r")]
 
+[node name="Entrance Door" parent="." index="1"]
+position = Vector2(1100, 1050)
+
 [node name="Exit Door" parent="." index="2"]
-position = Vector2(1350, -3268)
+position = Vector2(1350, -3150)
 
 [node name="Cieling" parent="." index="5"]
 offset_top = -11276.0
@@ -39,6 +42,7 @@ offset_bottom = -11010.0
 
 [node name="PlaceableCharacterBody2d3" parent="." index="9" instance=ExtResource("2_sxolh")]
 position = Vector2(1650, 550)
+rotation = 18.8496
 
 [node name="Spikes" parent="PlaceableCharacterBody2d3" index="5" instance=ExtResource("6_dsxgq")]
 position = Vector2(0, -200)
@@ -49,6 +53,7 @@ rotation = 1.5708
 
 [node name="PlaceableCharacterBody2d4" parent="." index="10" instance=ExtResource("2_sxolh")]
 position = Vector2(1850, 550)
+rotation = 18.8496
 
 [node name="Hold" parent="PlaceableCharacterBody2d4" index="5" instance=ExtResource("5_xt33w")]
 position = Vector2(-50, -150)
@@ -85,9 +90,11 @@ rotation = -3.14159
 
 [node name="PlaceableCharacterBody2d10" parent="." index="16" instance=ExtResource("9_qo082")]
 position = Vector2(800, -600)
+rotation = 18.8496
 
 [node name="PlaceableCharacterBody2d11" parent="." index="17" instance=ExtResource("2_sxolh")]
 position = Vector2(2000, -2350)
+rotation = 18.8496
 
 [node name="Hold7" parent="PlaceableCharacterBody2d11" index="5" instance=ExtResource("5_xt33w")]
 position = Vector2(-50, -50)
@@ -99,6 +106,7 @@ rotation = -3.14159
 
 [node name="PlaceableCharacterBody2d12" parent="." index="18" instance=ExtResource("2_sxolh")]
 position = Vector2(1800, -2350)
+rotation = 18.8496
 
 [node name="Hold6" parent="PlaceableCharacterBody2d12" index="5" instance=ExtResource("5_xt33w")]
 position = Vector2(50, 100)
@@ -134,9 +142,11 @@ rotation = 1.57079
 
 [node name="PlaceableCharacterBody2d" parent="." index="22" instance=ExtResource("11_bkrlc")]
 position = Vector2(1850, -1700)
+rotation = 15.708
 
 [node name="PlaceableCharacterBody2d2" parent="." index="23" instance=ExtResource("2_sxolh")]
 position = Vector2(2000, -1650)
+rotation = 15.708
 
 [node name="BlockSpawner" parent="Camera2D" index="1"]
 block_prefabs = Array[PackedScene]([ExtResource("2_sxolh")])

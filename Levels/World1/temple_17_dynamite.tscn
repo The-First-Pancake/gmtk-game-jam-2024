@@ -20,10 +20,10 @@ spawn_count = 1
 [node name="Template Level" instance=ExtResource("1_j2rxh")]
 
 [node name="Entrance Door" parent="." index="1"]
-position = Vector2(1166, 425)
+position = Vector2(1200, 550)
 
 [node name="Exit Door" parent="." index="2"]
-position = Vector2(1750, 925)
+position = Vector2(1750, 1050)
 
 [node name="Cieling" parent="." index="5"]
 offset_top = -11276.0
@@ -82,9 +82,11 @@ rotation = 3.14159
 
 [node name="PlaceableCharacterBody2d12" parent="." index="22" instance=ExtResource("4_2dnok")]
 position = Vector2(1950, 800)
+rotation = 18.8496
 
 [node name="PlaceableCharacterBody2d4" parent="." index="23" instance=ExtResource("2_tsovo")]
 position = Vector2(1950, 1000)
+rotation = 15.708
 
 [node name="PlaceableCharacterBody2d5" parent="." index="24" instance=ExtResource("2_tsovo")]
 position = Vector2(1200, 950)

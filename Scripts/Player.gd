@@ -47,25 +47,32 @@ var is_entering: bool = false
 var is_exiting: bool = false
 var is_downsliding: bool = false
 
+var normal_z_layer: int = 1
+var inside_door_z_layer: int = -1
 
+signal crossed_entrance_threshold
 
 func _ready() -> void:
 	GameManager.player = self
 	enter_level()
 
 func enter_level() -> void:
+	z_index = inside_door_z_layer
 	is_entering = true
 	await get_tree().create_timer(0.2).timeout
 	velocity.x = max_speed
+	await crossed_entrance_threshold
+	z_index = normal_z_layer
 	await get_tree().create_timer(0.2).timeout
 	is_entering = false
 
 func exit_level() -> void:
+	z_index = inside_door_z_layer
 	var dir: int = 1
 	if velocity.x < 0:
 		dir = -1
 	is_exiting = true
-	velocity.x = 500 * dir
+	velocity.x = 600 * dir
 	await get_tree().create_timer(0.4).timeout
 	GameManager.level_complete()
 	is_exiting = false
@@ -73,7 +80,8 @@ func exit_level() -> void:
 func _physics_process(delta: float) -> void:
 	targeting_arrow.visible = false
 	if dying: return
-	if is_entering or is_exiting: 
+	if is_entering or is_exiting:
+		apply_gravity(delta)
 		update_animations()
 		move_and_slide()
 		return
@@ -170,19 +178,21 @@ func holding_behavior() -> void:
 		else:
 			targeting_arrow.global_rotation = aim_dir.angle() - PI/2
 	
-	var holding_cieling: bool = abs(angle_difference(current_hold.global_rotation, deg_to_rad(180))) < deg_to_rad(1)
+	var holding_cieling: bool = abs(angle_difference(current_hold.global_rotation, deg_to_rad(180))) < deg_to_rad(20)
 	if holding_cieling:
-		global_position = current_hold.global_position - (top_hand_point.global_position - global_position)
-		if aim_dir.x > 0:
+		#cieling gold
+		if aim_dir.x > 0: #flip player
 			transform.x.x = 1
 		elif aim_dir.x < 0:
 			transform.x.x = -1 
+		global_position = current_hold.global_position - (top_hand_point.global_position - global_position)
 	else:
-		global_position = current_hold.global_position - (side_hand_point.global_position - global_position)
-		if abs(angle_difference(current_hold.global_rotation, deg_to_rad(90))) < deg_to_rad(1):
+		#side hold
+		if abs(angle_difference(current_hold.global_rotation, deg_to_rad(90))) < deg_to_rad(20): #flip player
 			transform.x.x = -1
-		elif abs(angle_difference(current_hold.global_rotation, deg_to_rad(270))) < deg_to_rad(1):
+		elif abs(angle_difference(current_hold.global_rotation, deg_to_rad(270))) < deg_to_rad(20):
 			transform.x.x = 1
+		global_position = current_hold.global_position - (side_hand_point.global_position - global_position)
 	
 	if Input.is_action_just_released("grab_hold"):
 		hold_release_particles.restart()

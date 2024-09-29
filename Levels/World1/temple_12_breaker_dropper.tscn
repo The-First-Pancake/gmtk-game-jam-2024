@@ -20,7 +20,7 @@ spawn_count = 2
 [node name="Template Level" instance=ExtResource("1_ge7sx")]
 
 [node name="Exit Door" parent="." index="2"]
-position = Vector2(900, -2375)
+position = Vector2(900, -1500)
 
 [node name="Cieling" parent="." index="5"]
 offset_top = -11276.0
@@ -33,28 +33,43 @@ spawn_objects = Array[ExtResource("2_dcvft")]([SubResource("Resource_fa0pl"), Su
 position = Vector2(1750, 926)
 
 [node name="Idol2" parent="." index="13"]
-position = Vector2(950, -971)
+position = Vector2(950, -571)
 
 [node name="Idol3" parent="." index="14"]
-position = Vector2(1650, -2700)
+position = Vector2(2000, -1600)
 
 [node name="PlaceableCharacterBody2d" parent="." index="16" instance=ExtResource("2_5a6n2")]
-position = Vector2(900, -2200)
+position = Vector2(900, -1450)
 rotation = 1.5708
 
-[node name="PlaceableCharacterBody2d2" parent="." index="17" instance=ExtResource("3_v627j")]
-position = Vector2(950, -1050)
+[node name="PlaceableCharacterBody2d6" parent="." index="17" instance=ExtResource("2_5a6n2")]
+position = Vector2(1750, -1650)
+rotation = 1.5708
+
+[node name="PlaceableCharacterBody2d4" parent="." index="18" instance=ExtResource("2_5a6n2")]
+position = Vector2(1850, -1550)
+rotation = 1.5708
+indestructable = true
+
+[node name="PlaceableCharacterBody2d5" parent="." index="19" instance=ExtResource("2_5a6n2")]
+position = Vector2(1850, -1750)
+rotation = 1.5708
+indestructable = true
+
+[node name="PlaceableCharacterBody2d2" parent="." index="20" instance=ExtResource("3_v627j")]
+position = Vector2(950, -650)
 rotation = -1.5708
 
-[node name="PlaceableCharacterBody2d3" parent="." index="18" instance=ExtResource("3_v627j")]
-position = Vector2(950, -950)
+[node name="PlaceableCharacterBody2d3" parent="." index="21" instance=ExtResource("3_v627j")]
+position = Vector2(950, -550)
 rotation = 1.5708
 
 [node name="PlaceableCharacterBody2d2" parent="PlaceableCharacterBody2d3" index="5" instance=ExtResource("3_v627j")]
-position = Vector2(1900, -800)
+position = Vector2(1500, -800.005)
+rotation = 18.8496
 
 [node name="PlaceableCharacterBody2d3" parent="PlaceableCharacterBody2d3" index="6" instance=ExtResource("3_v627j")]
-position = Vector2(1800, -800)
+position = Vector2(1400, -800.005)
 rotation = 3.14159
 
 [node name="Music" parent="Music Player" index="0"]

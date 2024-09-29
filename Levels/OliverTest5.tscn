@@ -49,8 +49,11 @@ light_mode = 1
 
 [node name="Template Level" instance=ExtResource("1_tpik0")]
 
+[node name="Entrance Door" parent="." index="1"]
+position = Vector2(1100, 1050)
+
 [node name="Exit Door" parent="." index="2"]
-position = Vector2(1667, 145)
+position = Vector2(1650, -428)
 
 [node name="CollisionShape2D" parent="Left Wall/StaticBody2D" index="0"]
 position = Vector2(170.56, 1864.96)
@@ -69,6 +72,9 @@ unique_name_in_owner = true
 material = SubResource("CanvasItemMaterial_gy11q")
 texture = ExtResource("2_edj6i")
 
+[node name="Idol" parent="." index="12"]
+position = Vector2(1450, 1000)
+
 [node name="Harpoon Launcher" parent="." index="17" instance=ExtResource("3_c0jtj")]
 position = Vector2(2050, 700)
 rotation = -1.5708
@@ -78,8 +84,8 @@ position = Vector2(2050, 400)
 rotation = -1.5708
 
 [node name="PlaceableCharacterBody2d3" parent="." index="19" instance=ExtResource("8_jf0jc")]
-position = Vector2(1450, 600)
+position = Vector2(1450, 650)
 
 [node name="Scarab Beetle" parent="." index="20" instance=ExtResource("8_p1ric")]
-position = Vector2(1439, 493)
+position = Vector2(1450, 550)
 rotation = -0.551524

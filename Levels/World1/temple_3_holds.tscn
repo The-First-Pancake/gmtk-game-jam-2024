@@ -36,8 +36,11 @@ position = Vector2(263, 98)
 scale = Vector2(3.125, 3.125)
 texture = ExtResource("4_kfenh")
 
+[node name="Entrance Door" parent="." index="2"]
+position = Vector2(1100, 1050)
+
 [node name="Exit Door" parent="." index="3"]
-position = Vector2(1400, -1075)
+position = Vector2(1400, -950)
 
 [node name="BlockSpawner" parent="Camera2D" index="1"]
 block_prefabs = Array[PackedScene]([ExtResource("2_bl821")])

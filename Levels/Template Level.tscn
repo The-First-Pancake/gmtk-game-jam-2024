@@ -91,22 +91,12 @@ light_mode = 1
 scroll_scale = Vector2(1, 0.5)
 
 [node name="Background" type="TextureRect" parent="Parallax2D"]
+z_index = -1000
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_sacac")
 offset_left = 410.0
 offset_top = -16345.0
 offset_right = 1050.0
-offset_bottom = -12660.0
-scale = Vector2(3, 5)
-texture = ExtResource("1_dtx2u")
-stretch_mode = 1
-
-[node name="Background2" type="TextureRect" parent="Parallax2D"]
-texture_filter = 1
-material = SubResource("CanvasItemMaterial_sacac")
-offset_left = 340.0
-offset_top = -16345.0
-offset_right = 980.0
 offset_bottom = -12660.0
 scale = Vector2(3, 5)
 texture = ExtResource("1_dtx2u")
@@ -161,9 +151,9 @@ debug_color = Color(0, 0.595, 0.7, 0)
 [node name="Left Wall" type="TextureRect" parent="."]
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_4c02t")
-offset_left = -383.0
+offset_left = -382.0
 offset_top = -10528.0
-offset_right = -37.0
+offset_right = -36.0
 offset_bottom = -6612.0
 scale = Vector2(3.125, 3.125)
 texture = ExtResource("3_yibs3")
@@ -179,9 +169,9 @@ debug_color = Color(0, 0.595, 0.7, 0)
 [node name="Right Wall" type="TextureRect" parent="."]
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_4c02t")
-offset_left = 2052.0
+offset_left = 2050.0
 offset_top = -10524.0
-offset_right = 2248.0
+offset_right = 2246.0
 offset_bottom = -6608.0
 scale = Vector2(3.125, 3.125)
 texture = ExtResource("3_yibs3")

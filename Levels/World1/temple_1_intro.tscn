@@ -43,8 +43,11 @@ position = Vector2(68.5599, 573.76)
 scale = Vector2(6.25, 6.25)
 texture = ExtResource("6_jk0d0")
 
+[node name="Entrance Door" parent="." index="2"]
+position = Vector2(1100, 1050)
+
 [node name="Exit Door" parent="." index="3"]
-position = Vector2(1400, -375)
+position = Vector2(1400, -250)
 
 [node name="DirectionalLight2D" parent="." index="4"]
 position = Vector2(950, 186)

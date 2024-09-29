@@ -11,7 +11,7 @@ var player_height : int:
 
 var exit_door_height: int:
 	get:
-		return round((GameManager.exit_door.global_position.y + 150) / 50)
+		return round((GameManager.exit_door.global_position.y) / 50)
 
 func _ready() -> void:
 	await get_tree().process_frame

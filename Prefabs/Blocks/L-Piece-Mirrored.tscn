@@ -9,7 +9,7 @@ diffuse_texture = ExtResource("2_yyogb")
 normal_texture = ExtResource("3_6g6yl")
 texture_filter = 1
 
-[node name="PlaceableCharacterBody2d" instance=ExtResource("1_munif")]
+[node name="L-piece (mirrored)" instance=ExtResource("1_munif")]
 
 [node name="Sprite2D" parent="." index="2"]
 position = Vector2(-100, -150)

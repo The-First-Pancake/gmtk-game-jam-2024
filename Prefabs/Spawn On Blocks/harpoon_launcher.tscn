@@ -1,62 +1,76 @@
-[gd_scene load_steps=10 format=3 uid="uid://2emoy8lav7a0"]
+[gd_scene load_steps=11 format=3 uid="uid://2emoy8lav7a0"]
 
 [ext_resource type="Script" path="res://Scripts/Harpoon.gd" id="1_dcokm"]
 [ext_resource type="Script" path="res://Scripts/Squashable.gd" id="2_64uom"]
 [ext_resource type="Material" uid="uid://cg4fprgafhcxd" path="res://Art/unshaded_material.tres" id="3_2r2oc"]
 [ext_resource type="Texture2D" uid="uid://by7via7sb8iyj" path="res://Art/Sprites/Harpoon Gun/harpoon_rope.png" id="4_3lguc"]
-[ext_resource type="Texture2D" uid="uid://c8tgmp5g0x3h3" path="res://Art/Sprites/Harpoon Gun/rope.png" id="4_gkehe"]
 [ext_resource type="Texture2D" uid="uid://bhvty2fmh6tls" path="res://Art/Sprites/Harpoon Gun/harpoon_spear.png" id="5_cdfdi"]
 [ext_resource type="Texture2D" uid="uid://ds407cwrk87ua" path="res://Art/Sprites/Harpoon Gun/harpoon_base.png" id="6_yuaro"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v85wb"]
-radius = 1.60007
-height = 21.76
+radius = 4.0
+height = 34.0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_3smye"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_rkgde"]
+radius = 1.92
+
+[sub_resource type="Gradient" id="Gradient_ijtng"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_x4vvd"]
+gradient = SubResource("Gradient_ijtng")
 
 [node name="Harpoon Launcher" type="Area2D"]
-scale = Vector2(3.125, 3.125)
+show_behind_parent = true
 script = ExtResource("1_dcokm")
+
+[node name="Rope" type="Line2D" parent="."]
+texture_repeat = 2
+material = ExtResource("3_2r2oc")
+points = PackedVector2Array(-0.32, -90.88, 6.08, -86.08, 8.96, -83.52, 10.88, -81.6, 14.08, -76.8, 15.04, -73.6, 15.36, -70.4, 15.04, -66.88, 14.4, -63.68, 12.6674, -61.2255, 10.56, -58.24, 8, -56, 5.44, -53.12, -0.32, -50.24)
+width = 12.5
+texture = ExtResource("4_3lguc")
+texture_mode = 1
+
+[node name="Launcher Base" type="Sprite2D" parent="."]
+material = ExtResource("3_2r2oc")
+position = Vector2(0, -5)
+rotation = 1.5708
+scale = Vector2(3.125, 3.125)
+texture = ExtResource("6_yuaro")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_v85wb")
+
+[node name="Harpoon" type="Area2D" parent="."]
+show_behind_parent = true
+position = Vector2(1.49012e-07, 11.84)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Harpoon"]
+material = ExtResource("3_2r2oc")
+position = Vector2(-1.49012e-07, -10.84)
+rotation = 1.5708
+scale = Vector2(3.125, 3.125)
+texture = ExtResource("5_cdfdi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Harpoon"]
+position = Vector2(0.64, -19.2)
+shape = SubResource("CircleShape2D_rkgde")
 
 [node name="Tripwire" type="RayCast2D" parent="."]
 position = Vector2(5.59506e-08, -1.28)
-target_position = Vector2(0, -425)
+target_position = Vector2(0, -1600)
 
 [node name="Squashable" type="Node" parent="."]
 script = ExtResource("2_64uom")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -1.86)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_v85wb")
-
-[node name="Rope" type="Line2D" parent="."]
+[node name="Tripwire Hint" type="Sprite2D" parent="."]
 visible = false
-texture_repeat = 2
-material = ExtResource("3_2r2oc")
-points = PackedVector2Array(-0.32, -90.88, 6.08, -86.08, 8.96, -83.52, 10.88, -81.6, 14.08, -76.8, 15.04, -73.6, 15.36, -70.4, 15.04, -66.88, 14.4, -63.68, 12.6674, -61.2255, 10.56, -58.24, 8, -56, 5.44, -53.12, -0.32, -50.24)
-width = 4.0
-texture = ExtResource("4_3lguc")
-texture_mode = 1
+modulate = Color(1, 1, 1, 0.270588)
+position = Vector2(-7.45058e-09, -199.68)
+scale = Vector2(-0.00889633, 6.14283)
+texture = SubResource("GradientTexture2D_x4vvd")
 
-[node name="Harpoon" type="Node2D" parent="."]
-position = Vector2(1.28, 28.16)
-
-[node name="Sprite2D2" type="Sprite2D" parent="Harpoon"]
-material = ExtResource("3_2r2oc")
-position = Vector2(-0.959946, -26.24)
-rotation = 1.5708
-texture = ExtResource("5_cdfdi")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-material = ExtResource("3_2r2oc")
-position = Vector2(0, -1.6)
-rotation = 1.5708
-texture = ExtResource("6_yuaro")
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
-material = ExtResource("3_2r2oc")
-position = Vector2(-2.58894, -40.2032)
-scale = Vector2(6.70212, 3.59769)
-mesh = SubResource("ArrayMesh_3smye")
-texture = ExtResource("4_gkehe")
+[connection signal="body_entered" from="Harpoon" to="." method="_on_harpoon_body_entered"]

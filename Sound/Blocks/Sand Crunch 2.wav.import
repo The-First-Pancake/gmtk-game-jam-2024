@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://btmai0cyj5oqt"
+path="res://.godot/imported/Sand Crunch 2.wav-5f643cb39608f38161b305ee8ff6574a.sample"
+
+[deps]
+
+source_file="res://Sound/Blocks/Sand Crunch 2.wav"
+dest_files=["res://.godot/imported/Sand Crunch 2.wav-5f643cb39608f38161b305ee8ff6574a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

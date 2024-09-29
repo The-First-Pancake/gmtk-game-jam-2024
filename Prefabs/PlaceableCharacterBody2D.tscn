@@ -14,6 +14,7 @@ streams_count = 1
 stream_0/stream = ExtResource("2_uc7ox")
 
 [node name="PlaceableCharacterBody2d" type="CharacterBody2D"]
+rotation = 17.2788
 input_pickable = true
 script = ExtResource("1_1yjnn")
 
@@ -34,9 +35,12 @@ min_impulse = 50.0
 max_impulse = 200.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+modulate = Color(1, 1, 1, 0.192157)
 polygon = PackedVector2Array(15, 0, -45, 0, -45, -30, 45, -30, 45, 30, 15, 30)
 
 [node name="HoldPointGenerator" parent="." instance=ExtResource("3_5mqgh")]
 z_index = 2
 
 [connection signal="input_event" from="." to="." method="on_collision_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

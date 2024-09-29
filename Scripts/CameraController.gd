@@ -8,6 +8,7 @@ static var instance: CameraController
 @export var stationary_cam: bool = false
 @export var random_stength: float = 15.0
 @export var shake_fade: float = 5.0
+@export var reverse_level: bool = false
 
 var RNG : RandomNumberGenerator = RandomNumberGenerator.new()
 
@@ -38,14 +39,21 @@ func _process(delta: float) -> void:
 	if !GameManager.player: return
 	if GameManager.player.dying: return
 	if stationary_cam: return
-	if GameManager.player.global_position.y < screen_top + leading_trigger:
+	
+	var top_trigger: float = leading_trigger
+	var bottom_trigger: float = reverse_trigger
+	if reverse_level:
+		top_trigger = reverse_trigger
+		bottom_trigger = leading_trigger
+	
+	if GameManager.player.global_position.y < screen_top + top_trigger:
 		var slide_tween: Tween = get_tree().create_tween()
 		slide_tween.set_trans(Tween.TRANS_QUAD)
 		slide_tween.tween_property(self, "global_position", global_position - Vector2(0,step),.3)
 		is_sliding = true
 		await slide_tween.finished
 		is_sliding = false
-	if GameManager.player.global_position.y > screen_bottom - reverse_trigger:
+	if GameManager.player.global_position.y > screen_bottom - bottom_trigger:
 		var slide_tween: Tween = get_tree().create_tween()
 		slide_tween.set_trans(Tween.TRANS_QUAD)
 		slide_tween.tween_property(self, "global_position", global_position + Vector2(0,step),.3)
