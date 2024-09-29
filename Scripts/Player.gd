@@ -61,6 +61,9 @@ func enter_level() -> void:
 	is_entering = true
 	await get_tree().create_timer(0.2).timeout
 	velocity.x = max_speed
+	
+	get_tree().create_timer(1).timeout.connect(crossed_entrance_threshold.emit) #if 1 second passes, act like we hit to doorway, just in case door is fucked
+	
 	await crossed_entrance_threshold
 	z_index = normal_z_layer
 	await get_tree().create_timer(0.2).timeout

@@ -190,6 +190,7 @@ Mute={
 
 2d_physics/layer_1="Solids"
 2d_physics/layer_2="Player"
+2d_physics/layer_7="Unplaced"
 2d_physics/layer_8="gibs"
 
 [rendering]

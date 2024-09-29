@@ -4,7 +4,9 @@ extends Area2D
 @onready var tripwire: RayCast2D = $Tripwire
 var launched: bool = false
 var has_harpoon_landed: bool = false
-@onready var harpoon: Node2D = $Harpoon
+@onready var harpoon: Area2D = $Harpoon
+@onready var harpoon_raycast: RayCast2D = $"Harpoon/Harpoon Raycast"
+
 @onready var rope: Line2D = $Rope
 
 
@@ -15,7 +17,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	var parent: Node = get_parent()
 	if parent is Placeable:
 		if parent.state != Placeable.PlaceState.PLACED:
@@ -26,22 +28,33 @@ func _process(delta: float) -> void:
 			if tripping_obj.state == Placeable.PlaceState.FALLING:
 				if tripping_obj.targeted_by_harpoon: return #if another harpoon already has plans
 				tripping_obj.targeted_by_harpoon = true
+				
+				launched = true
 				var direction: Vector2 = Vector2.from_angle( global_rotation - deg_to_rad(90))
 				direction = direction.normalized()
 				direction = direction.round()
-				launched = true
 				rope.visible = true
 				var tween: Tween = get_tree().create_tween()
 				var range: float = 1600
 				var speed: float = 6000
 				
-				tween.tween_property(harpoon, "global_position", harpoon.global_position + direction * range, range/speed)
+				var hit_block: Node2D = null
 				
-				var hit_block: Placeable = await harpoon_landed as Placeable
+				for i in range(range):
+					harpoon_raycast.target_position.y = -speed * delta #The harpoon checks the entire distance it's about to traverse
+					if harpoon_raycast.get_collider():
+						hit_block = harpoon_raycast.get_collider()
+						harpoon.global_position = harpoon_raycast.get_collision_point() - direction * 50
+						break
+					else:
+						harpoon.global_position += delta*speed*direction
+					
+					await get_tree().process_frame
+				
 				
 				has_harpoon_landed = true
 				tween.stop()
-				if hit_block:
+				if hit_block and hit_block is Placeable:
 					hit_block.enter_harpooned(-direction)
 					var cell_hit_pos: Vector2 = hit_block.get_closest_cell_center(harpoon.global_position)
 					var cell_local_pos: Vector2 = cell_hit_pos - hit_block.global_position
@@ -49,10 +62,10 @@ func _process(delta: float) -> void:
 						hit_block.global_position.y  = global_position.y - cell_local_pos.y
 					else:
 						hit_block.global_position.x  = global_position.x- cell_local_pos.x
-					harpoon.global_position -= direction * 50 #make the harpoon poke out a bit
+					harpoon.global_position -= direction * 0 #Back up the harpoon
 					harpoon.reparent(hit_block)
 	else:
-		if is_instance_valid(harpoon) && launched:
+		if is_instance_valid(harpoon):
 			if has_harpoon_landed:
 				rope.points = [to_local(harpoon.global_position), Vector2.ZERO]
 			else:

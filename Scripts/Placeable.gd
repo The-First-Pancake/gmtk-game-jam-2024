@@ -25,7 +25,8 @@ signal falling
 signal destroyed
 
 const DEFAULT_COLLISION_LAYER : int = 1
-const UNPLACED_COLLISION_LAYER : int = 2
+const PLAYER_COLLISION_LAYER : int = 2
+const UNPLACED_COLLISION_LAYER : int = 7
 
 @onready var impact_sound : AudioStreamPlayer = $BlockImpact01 as AudioStreamPlayer
 @onready var shatter_sound : AudioStreamPlayer = $Explosion3003 as AudioStreamPlayer
@@ -38,22 +39,24 @@ var harpooned_dir: Vector2 = Vector2.RIGHT
 func _ready() -> void:
 	if Engine.is_editor_hint():
 		return
+	
 	if (state == PlaceState.FALLING):
 		enter_falling()
 	hold_point_generator = $HoldPointGenerator
 	destroy_semaphore.post()
 
-var debounce: bool = false
+var rotate_debounce: bool = false
 func _physics_process(delta: float) -> void:
-	if Engine.is_editor_hint():
+	if Engine.is_editor_hint(): #editor tools
 		if self in EditorInterface.get_selection().get_selected_nodes():
 			if Input.is_key_pressed(KEY_V):
-				if debounce == false:
-					debounce = true
+				if rotate_debounce == false:
+					rotate_debounce = true
 					rotate(PI/2)
 			else:
-				debounce = false
+				rotate_debounce = false
 		return
+	
 	if (state == PlaceState.PLACING):
 		var grid_size: float = GameManager.GRID_SIZE
 		var mouse_pos : Vector2 = get_global_mouse_position()
@@ -65,6 +68,9 @@ func _physics_process(delta: float) -> void:
 			rotation -= deg_to_rad(90)
 			return
 		if (!check_for_collisions() and Input.is_action_just_released("drop_block")):
+			await get_tree().physics_frame
+			if GameManager.currently_held_object == self:
+					GameManager.currently_held_object = null
 			enter_falling()
 	elif (state == PlaceState.FALLING):
 		# Add the gravity.
@@ -78,25 +84,21 @@ func _physics_process(delta: float) -> void:
 		var collision : KinematicCollision2D = move_and_collide(velocity * delta)
 		if (collision):
 			if (collision.get_collider() is Player):
-				collision.get_collider().velocity = velocity
-				#if (collision.get_angle(-harpooned_dir) < deg_to_rad(45) and collision.get_angle(-harpooned_dir) > deg_to_rad(-45)):
-					#var player : Player = collision.get_collider() as Player
-					#player.try_squash()dda
+				collision.get_collider().velocity = velocity #TODO this kind of prevents the player from sliding/jumping
 			elif (collision.get_angle(-harpooned_dir) < deg_to_rad(45) and collision.get_angle(-harpooned_dir) > deg_to_rad(-45)):
 				enter_placed()
 	elif (state == PlaceState.QUEUED):
 		if Input.is_action_just_released("drop_block"): #Pick Up
 			if GameManager.currently_held_object == null:
 				enter_placing()
-	elif state == PlaceState.PLACED:
-		if GameManager.currently_held_object is Dynamite and mouse_hovering and !indestructable:
+	elif (state == PlaceState.PLACED):
+		if is_instance_valid(GameManager.currently_held_object) and GameManager.currently_held_object is Dynamite and mouse_hovering and !indestructable:
 			modulate = Color.RED
 		else:
 			modulate = Color.WHITE
 		if minecraft_sand_behavior:
 			var collision: KinematicCollision2D = move_and_collide(Vector2.DOWN * 20, true)
 			if !collision:
-				print("AAAAA")
 				enter_falling()
 
 func align_to_grid() -> void:
@@ -128,6 +130,7 @@ func enter_queued() -> void:
 			area_2d_child.set_collision_layer_value(UNPLACED_COLLISION_LAYER, true);
 
 func enter_placing() -> void:
+	set_collision_mask_value(PLAYER_COLLISION_LAYER,true)
 	GameManager.currently_held_object = self
 	await get_tree().process_frame
 	picked_up.emit()
@@ -135,7 +138,8 @@ func enter_placing() -> void:
 	state = PlaceState.PLACING 
 
 func enter_falling() -> void:
-	GameManager.currently_held_object = null
+	set_collision_mask_value(PLAYER_COLLISION_LAYER,false)
+	
 	set_collision_layer_value(DEFAULT_COLLISION_LAYER, true);
 	set_collision_layer_value(UNPLACED_COLLISION_LAYER, false);
 	# Deal with child nodes

@@ -14,9 +14,10 @@ streams_count = 1
 stream_0/stream = ExtResource("2_uc7ox")
 
 [node name="PlaceableCharacterBody2d" type="CharacterBody2D"]
-rotation = 17.2788
+rotation = 26.7036
 input_pickable = true
 script = ExtResource("1_1yjnn")
+minecraft_sand_behavior = true
 
 [node name="Explosion3003" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_g5u5i")

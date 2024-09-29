@@ -49,9 +49,6 @@ light_mode = 1
 
 [node name="Template Level" instance=ExtResource("1_tpik0")]
 
-[node name="Entrance Door" parent="." index="1"]
-position = Vector2(1100, 1050)
-
 [node name="Exit Door" parent="." index="2"]
 position = Vector2(1650, -428)
 
@@ -76,7 +73,7 @@ texture = ExtResource("2_edj6i")
 position = Vector2(1450, 1000)
 
 [node name="Harpoon Launcher" parent="." index="17" instance=ExtResource("3_c0jtj")]
-position = Vector2(2050, 700)
+position = Vector2(2050, 900)
 rotation = -1.5708
 
 [node name="Harpoon Launcher2" parent="." index="18" instance=ExtResource("3_c0jtj")]
@@ -85,6 +82,8 @@ rotation = -1.5708
 
 [node name="PlaceableCharacterBody2d3" parent="." index="19" instance=ExtResource("8_jf0jc")]
 position = Vector2(1450, 650)
+rotation = 20.4204
+minecraft_sand_behavior = false
 
 [node name="Scarab Beetle" parent="." index="20" instance=ExtResource("8_p1ric")]
 position = Vector2(1450, 550)

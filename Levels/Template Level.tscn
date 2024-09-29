@@ -87,10 +87,10 @@ light_mode = 1
 
 [node name="Template Level" type="Node2D"]
 
-[node name="Parallax2D" type="Parallax2D" parent="."]
+[node name="Background Parallax" type="Parallax2D" parent="."]
 scroll_scale = Vector2(1, 0.5)
 
-[node name="Background" type="TextureRect" parent="Parallax2D"]
+[node name="Background" type="TextureRect" parent="Background Parallax"]
 z_index = -1000
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_sacac")
@@ -103,11 +103,11 @@ texture = ExtResource("1_dtx2u")
 stretch_mode = 1
 
 [node name="Entrance Door" parent="." instance=ExtResource("19_owl44")]
-position = Vector2(1100, 925)
+position = Vector2(1100, 1050)
 is_exit = false
 
 [node name="Exit Door" parent="." instance=ExtResource("19_owl44")]
-position = Vector2(1667, 764)
+position = Vector2(1700, 700)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 energy = 1.55
@@ -187,6 +187,8 @@ debug_color = Color(0, 0.595, 0.7, 0)
 [node name="Player" parent="." instance=ExtResource("2_hossx")]
 position = Vector2(1033, 1002)
 
+[node name="BlockContainer" type="Node2D" parent="."]
+
 [node name="Camera2D" type="Camera2D" parent="."]
 z_index = 1000
 position = Vector2(1133, 681)
@@ -263,8 +265,6 @@ position = Vector2(-883, 319)
 
 [node name="Dynamite2" parent="Camera2D" instance=ExtResource("16_3kw41")]
 position = Vector2(-883, 219)
-
-[node name="BlockContainer" type="Node2D" parent="."]
 
 [node name="Water" type="Node2D" parent="."]
 modulate = Color(1, 1, 1, 0.882353)
