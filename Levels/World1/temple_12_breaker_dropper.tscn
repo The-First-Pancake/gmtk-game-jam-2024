@@ -20,65 +20,53 @@ spawn_count = 2
 [node name="Template Level" instance=ExtResource("1_ge7sx")]
 
 [node name="Exit Door" parent="." index="2"]
-position = Vector2(900, -1500)
-
-[node name="Cieling" parent="." index="5"]
-offset_top = -11276.0
-offset_bottom = -11010.0
+position = Vector2(900, -1450)
 
 [node name="BlockSpawner" parent="Camera2D" index="1"]
 spawn_objects = Array[ExtResource("2_dcvft")]([SubResource("Resource_fa0pl"), SubResource("Resource_bl7r2")])
 
-[node name="Idol" parent="." index="12"]
+[node name="Idol" parent="." index="9"]
 position = Vector2(1750, 926)
 
-[node name="Idol2" parent="." index="13"]
+[node name="Idol2" parent="." index="10"]
 position = Vector2(950, -571)
 
-[node name="Idol3" parent="." index="14"]
-position = Vector2(2000, -1600)
+[node name="Idol3" parent="." index="11"]
+position = Vector2(2000, -1550)
 
-[node name="PlaceableCharacterBody2d" parent="." index="16" instance=ExtResource("2_5a6n2")]
-position = Vector2(900, -1450)
+[node name="Music" parent="Music Player" index="0"]
+volume_db = -7.0
+
+[node name="PlaceableCharacterBody2d" parent="." index="14" instance=ExtResource("2_5a6n2")]
+position = Vector2(900, -1400)
 rotation = 1.5708
-minecraft_sand_behavior = false
 
-[node name="PlaceableCharacterBody2d6" parent="." index="17" instance=ExtResource("2_5a6n2")]
-position = Vector2(1750, -1650)
+[node name="PlaceableCharacterBody2d6" parent="." index="15" instance=ExtResource("2_5a6n2")]
+position = Vector2(1750, -1600)
 rotation = 1.5708
-minecraft_sand_behavior = false
 
-[node name="PlaceableCharacterBody2d4" parent="." index="18" instance=ExtResource("2_5a6n2")]
-position = Vector2(1850, -1550)
-rotation = 1.5708
-indestructable = true
-minecraft_sand_behavior = false
-
-[node name="PlaceableCharacterBody2d5" parent="." index="19" instance=ExtResource("2_5a6n2")]
-position = Vector2(1850, -1750)
+[node name="PlaceableCharacterBody2d4" parent="." index="16" instance=ExtResource("2_5a6n2")]
+position = Vector2(1850, -1500)
 rotation = 1.5708
 indestructable = true
-minecraft_sand_behavior = false
 
-[node name="PlaceableCharacterBody2d2" parent="." index="20" instance=ExtResource("3_v627j")]
+[node name="PlaceableCharacterBody2d5" parent="." index="17" instance=ExtResource("2_5a6n2")]
+position = Vector2(1850, -1700)
+rotation = 1.5708
+indestructable = true
+
+[node name="PlaceableCharacterBody2d2" parent="." index="18" instance=ExtResource("3_v627j")]
 position = Vector2(950, -650)
 rotation = -1.5708
-minecraft_sand_behavior = false
 
-[node name="PlaceableCharacterBody2d3" parent="." index="21" instance=ExtResource("3_v627j")]
+[node name="PlaceableCharacterBody2d3" parent="." index="19" instance=ExtResource("3_v627j")]
 position = Vector2(950, -550)
 rotation = 1.5708
-minecraft_sand_behavior = false
 
 [node name="PlaceableCharacterBody2d2" parent="PlaceableCharacterBody2d3" index="5" instance=ExtResource("3_v627j")]
 position = Vector2(1500, -800.005)
 rotation = 18.8496
-minecraft_sand_behavior = false
 
 [node name="PlaceableCharacterBody2d3" parent="PlaceableCharacterBody2d3" index="6" instance=ExtResource("3_v627j")]
 position = Vector2(1400, -800.005)
 rotation = 3.14159
-minecraft_sand_behavior = false
-
-[node name="Music" parent="Music Player" index="0"]
-volume_db = -7.0

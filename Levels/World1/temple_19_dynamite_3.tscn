@@ -19,57 +19,53 @@ spawn_count = 1
 
 [node name="Template Level" instance=ExtResource("1_ab74x")]
 
-[node name="Entrance Door" parent="." index="1"]
-position = Vector2(900, 250)
-
-[node name="Exit Door" parent="." index="2"]
-position = Vector2(900, 750)
-
-[node name="Spikes5" parent="Floor" index="0" instance=ExtResource("2_egqk4")]
-position = Vector2(80, 0)
-scale = Vector2(0.32, 0.32)
-
-[node name="Spikes6" parent="Floor" index="1" instance=ExtResource("2_egqk4")]
-position = Vector2(112, 0)
-scale = Vector2(0.32, 0.32)
-
-[node name="Spikes7" parent="Floor" index="2" instance=ExtResource("2_egqk4")]
-position = Vector2(144, 0)
-scale = Vector2(0.32, 0.32)
-
-[node name="Spikes8" parent="Floor" index="3" instance=ExtResource("2_egqk4")]
-position = Vector2(176, 0)
-scale = Vector2(0.32, 0.32)
-
-[node name="Spikes9" parent="Floor" index="4" instance=ExtResource("2_egqk4")]
-position = Vector2(208, 0)
-scale = Vector2(0.32, 0.32)
-
-[node name="Spikes10" parent="Floor" index="5" instance=ExtResource("2_egqk4")]
-position = Vector2(240, 0)
-scale = Vector2(0.32, 0.32)
-
-[node name="Spikes11" parent="Floor" index="6" instance=ExtResource("2_egqk4")]
-position = Vector2(272, 0)
-scale = Vector2(0.32, 0.32)
-
-[node name="Spikes12" parent="Floor" index="7" instance=ExtResource("2_egqk4")]
-position = Vector2(304, 0)
-scale = Vector2(0.32, 0.32)
-
-[node name="Cieling" parent="." index="5"]
-offset_top = -11276.0
-offset_bottom = -11010.0
-
-[node name="Hold5" parent="Left Wall" index="0" instance=ExtResource("7_prfip")]
+[node name="Left Wall#Hold5" parent="." index="0" instance=ExtResource("7_prfip")]
 position = Vector2(346.24, 3656.96)
 rotation = 1.57081
 scale = Vector2(0.32, 0.32)
 
-[node name="Player" parent="." index="8"]
+[node name="Floor#Spikes5" parent="." index="1" instance=ExtResource("2_egqk4")]
+position = Vector2(80, 0)
+scale = Vector2(0.32, 0.32)
+
+[node name="Floor#Spikes6" parent="." index="2" instance=ExtResource("2_egqk4")]
+position = Vector2(112, 0)
+scale = Vector2(0.32, 0.32)
+
+[node name="Floor#Spikes7" parent="." index="3" instance=ExtResource("2_egqk4")]
+position = Vector2(144, 0)
+scale = Vector2(0.32, 0.32)
+
+[node name="Floor#Spikes8" parent="." index="4" instance=ExtResource("2_egqk4")]
+position = Vector2(176, 0)
+scale = Vector2(0.32, 0.32)
+
+[node name="Floor#Spikes9" parent="." index="5" instance=ExtResource("2_egqk4")]
+position = Vector2(208, 0)
+scale = Vector2(0.32, 0.32)
+
+[node name="Floor#Spikes10" parent="." index="6" instance=ExtResource("2_egqk4")]
+position = Vector2(240, 0)
+scale = Vector2(0.32, 0.32)
+
+[node name="Floor#Spikes11" parent="." index="7" instance=ExtResource("2_egqk4")]
+position = Vector2(272, 0)
+scale = Vector2(0.32, 0.32)
+
+[node name="Floor#Spikes12" parent="." index="8" instance=ExtResource("2_egqk4")]
+position = Vector2(304, 0)
+scale = Vector2(0.32, 0.32)
+
+[node name="Entrance Door" parent="." index="10"]
+position = Vector2(900, 250)
+
+[node name="Exit Door" parent="." index="11"]
+position = Vector2(900, 750)
+
+[node name="Player" parent="." index="14"]
 position = Vector2(833, 200)
 
-[node name="Camera2D" parent="." index="9"]
+[node name="Camera2D" parent="." index="16"]
 position = Vector2(1150, 996)
 reverse_level = true
 
@@ -87,22 +83,6 @@ position = Vector2(-883, 265)
 
 [node name="Dynamite2" parent="Camera2D" index="4"]
 position = Vector2(-883, 165)
-
-[node name="Water" parent="." index="11"]
-rise_speed = 0.0
-
-[node name="Idol" parent="." index="12"]
-position = Vector2(850, 950)
-
-[node name="Idol2" parent="." index="13"]
-position = Vector2(1350, 450)
-
-[node name="Idol3" parent="." index="14"]
-position = Vector2(1800, 250)
-
-[node name="Music" parent="Music Player" index="0"]
-stream = ExtResource("5_kw2u5")
-volume_db = -5.0
 
 [node name="PlaceableCharacterBody2d14" parent="." index="17" instance=ExtResource("6_bg5ys")]
 position = Vector2(900, 300)
@@ -255,3 +235,19 @@ rotation = 14.1372
 [node name="Z-Piece4" parent="." index="36" instance=ExtResource("9_tieo0")]
 position = Vector2(1500, 650)
 rotation = 14.1372
+
+[node name="Water" parent="." index="37"]
+rise_speed = 0.0
+
+[node name="Idol" parent="." index="38"]
+position = Vector2(850, 950)
+
+[node name="Idol2" parent="." index="39"]
+position = Vector2(1350, 450)
+
+[node name="Idol3" parent="." index="40"]
+position = Vector2(1800, 250)
+
+[node name="Music" parent="Music Player" index="0"]
+stream = ExtResource("5_kw2u5")
+volume_db = -5.0
