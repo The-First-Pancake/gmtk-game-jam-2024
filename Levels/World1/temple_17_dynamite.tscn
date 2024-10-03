@@ -59,60 +59,76 @@ volume_db = -5.0
 [node name="PlaceableCharacterBody2d3" parent="." index="14" instance=ExtResource("11_dk1qe")]
 position = Vector2(1050, 800)
 rotation = 1.5708
+sand_cluster = false
 
 [node name="PlaceableCharacterBody2d13" parent="." index="15" instance=ExtResource("11_dk1qe")]
 position = Vector2(1250, 600)
 rotation = 1.5708
+sand_cluster = false
 
 [node name="PlaceableCharacterBody2d6" parent="." index="16" instance=ExtResource("11_dk1qe")]
 position = Vector2(1450, 1000)
 rotation = 1.5708
+sand_cluster = false
 
 [node name="PlaceableCharacterBody2d9" parent="." index="17" instance=ExtResource("3_ftapl")]
 position = Vector2(1200, 750)
 rotation = 1.5708
+sand_cluster = false
 
 [node name="PlaceableCharacterBody2d11" parent="." index="18" instance=ExtResource("4_2dnok")]
 position = Vector2(850, 800)
 rotation = 3.14159
+sand_cluster = false
 
 [node name="PlaceableCharacterBody2d12" parent="." index="19" instance=ExtResource("4_2dnok")]
 position = Vector2(1950, 800)
 rotation = 18.8496
+sand_cluster = false
 
 [node name="PlaceableCharacterBody2d4" parent="." index="20" instance=ExtResource("2_tsovo")]
 position = Vector2(1950, 1000)
 rotation = 15.708
+sand_cluster = false
 
 [node name="PlaceableCharacterBody2d5" parent="." index="21" instance=ExtResource("2_tsovo")]
 position = Vector2(1200, 950)
 rotation = 1.5708
+sand_cluster = false
 
 [node name="PlaceableCharacterBody2d8" parent="." index="22" instance=ExtResource("2_tsovo")]
 position = Vector2(1600, 850)
 rotation = 1.5708
+sand_cluster = false
 
 [node name="PlaceableCharacterBody2d7" parent="." index="23" instance=ExtResource("2_tsovo")]
 position = Vector2(1700, 550)
 rotation = 7.85399
+sand_cluster = false
 
 [node name="2x2 Piiece" parent="." index="24" instance=ExtResource("9_03ful")]
 position = Vector2(950, 650)
+sand_cluster = false
 
 [node name="2x2 Piiece3" parent="." index="25" instance=ExtResource("9_03ful")]
 position = Vector2(1450, 750)
+sand_cluster = false
 
 [node name="2x2 Piiece2" parent="." index="26" instance=ExtResource("9_03ful")]
 position = Vector2(1950, 550)
+sand_cluster = false
 
 [node name="PlaceableCharacterBody2d" parent="." index="27" instance=ExtResource("5_w2b2c")]
 position = Vector2(1500, 550)
 rotation = 10.9956
+sand_cluster = false
 
 [node name="PlaceableCharacterBody2d2" parent="." index="28" instance=ExtResource("5_w2b2c")]
 position = Vector2(850, 500)
 rotation = 3.14159
+sand_cluster = false
 
 [node name="PlaceableCharacterBody2d10" parent="." index="29" instance=ExtResource("3_ftapl")]
 position = Vector2(1700, 750)
 rotation = 1.5708
+sand_cluster = false
