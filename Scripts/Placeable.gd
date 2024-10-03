@@ -13,8 +13,8 @@ signal picked_up
 signal placed
 signal falling
 
-const DEFAULT_COLLISION_LAYER : int = 1
-const UNPLACED_COLLISION_LAYER : int = 2
+const DEFAULT_COLLISION_LAYER : int = 2
+const UNPLACED_COLLISION_LAYER : int = 3
 
 @onready var impact_sound : AudioStreamPlayer = $BlockImpact01 as AudioStreamPlayer
 @onready var shatter_sound : AudioStreamPlayer = $Explosion3003 as AudioStreamPlayer
@@ -50,6 +50,10 @@ func _physics_process(delta: float) -> void:
 				if (collision.get_angle(up_direction) < deg_to_rad(45) and collision.get_angle(up_direction) > deg_to_rad(-45)):
 					var player : Player = collision.get_collider() as Player
 					player.try_squash()
+			elif (collision.get_collider() is Enemy):
+				if (collision.get_angle(up_direction) < deg_to_rad(45) and collision.get_angle(up_direction) > deg_to_rad(-45)):
+					var enemy : Enemy = collision.get_collider() as Enemy
+					enemy.try_squash()
 			elif (collision.get_angle(up_direction) < deg_to_rad(45) and collision.get_angle(up_direction) > deg_to_rad(-45)):
 				enter_placed()
 	if (state == PlaceState.QUEUED):

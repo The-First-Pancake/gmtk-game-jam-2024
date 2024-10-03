@@ -14,6 +14,7 @@ texture_filter = 1
 radius = 9.05539
 
 [node name="Hold" type="Area2D" groups=["hold"]]
+collision_mask = 3
 script = ExtResource("1_5se8l")
 
 [node name="Default2" type="Sprite2D" parent="."]

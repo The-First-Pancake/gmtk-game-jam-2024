@@ -11,6 +11,7 @@ texture_filter = 1
 
 [node name="BreakerSpike" type="Area2D"]
 rotation = 3.14159
+collision_mask = 3
 script = ExtResource("1_b3v11")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
