@@ -13,7 +13,8 @@ signal picked_up
 signal placed
 signal falling
 
-const DEFAULT_COLLISION_LAYER : int = 2
+const DEFAULT_OBJECT_COLLISION_LAYER : int = 1
+const PLACED_COLLISION_LAYER : int = 2
 const UNPLACED_COLLISION_LAYER : int = 3
 
 @onready var impact_sound : AudioStreamPlayer = $BlockImpact01 as AudioStreamPlayer
@@ -63,13 +64,13 @@ func _physics_process(delta: float) -> void:
 
 func enter_queued() -> void:
 	state = PlaceState.QUEUED
-	set_collision_layer_value(DEFAULT_COLLISION_LAYER, false);
+	set_collision_layer_value(PLACED_COLLISION_LAYER, false);
 	set_collision_layer_value(UNPLACED_COLLISION_LAYER, true);
 	# Deal with child nodes
 	for child in get_children():
 		if (child is Area2D):
 			var area_2d_child : Area2D = child as Area2D
-			area_2d_child.set_collision_layer_value(DEFAULT_COLLISION_LAYER, false);
+			area_2d_child.set_collision_layer_value(DEFAULT_OBJECT_COLLISION_LAYER, false);
 			area_2d_child.set_collision_layer_value(UNPLACED_COLLISION_LAYER, true);
 
 func enter_placing() -> void:
@@ -81,13 +82,13 @@ func enter_placing() -> void:
 
 func enter_falling() -> void:
 	currently_held_block = null
-	set_collision_layer_value(DEFAULT_COLLISION_LAYER, true);
+	set_collision_layer_value(PLACED_COLLISION_LAYER, true);
 	set_collision_layer_value(UNPLACED_COLLISION_LAYER, false);
 	# Deal with child nodes
 	for child in get_children():
 		if (child is Area2D):
 			var area_2d_child : Area2D = child as Area2D
-			area_2d_child.set_collision_layer_value(DEFAULT_COLLISION_LAYER, true);
+			area_2d_child.set_collision_layer_value(DEFAULT_OBJECT_COLLISION_LAYER, true);
 			area_2d_child.set_collision_layer_value(UNPLACED_COLLISION_LAYER, false);
 	modulate.a = 1 # make solid
 	state = PlaceState.FALLING

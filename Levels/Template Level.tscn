@@ -1,8 +1,9 @@
-[gd_scene load_steps=42 format=3 uid="uid://6dd2cbybvcqg"]
+[gd_scene load_steps=43 format=3 uid="uid://6dd2cbybvcqg"]
 
 [ext_resource type="Texture2D" uid="uid://bqfeqtdw7xcxo" path="res://Art/Sprites/Backgrounds/background.png" id="1_dtx2u"]
 [ext_resource type="PackedScene" uid="uid://dngf3odx0yf5k" path="res://Prefabs/player.tscn" id="2_hossx"]
 [ext_resource type="Texture2D" uid="uid://c8stqjg8ba3bf" path="res://Art/Sprites/side_column_right.png" id="3_yibs3"]
+[ext_resource type="PackedScene" uid="uid://c5egotsf7fdg4" path="res://Prefabs/PathNode.tscn" id="4_eddhu"]
 [ext_resource type="Script" path="res://Scripts/CameraController.gd" id="4_psc51"]
 [ext_resource type="PackedScene" uid="uid://ctlx3qylqphyo" path="res://Prefabs/BlockSpawner.tscn" id="5_74oay"]
 [ext_resource type="Texture2D" uid="uid://cm1bxb5y7kb" path="res://Art/Sprites/UI/ui_throbber.png" id="5_aae1a"]
@@ -134,7 +135,95 @@ scale = Vector2(3.125, 3.125)
 texture = ExtResource("3_yibs3")
 stretch_mode = 1
 
+[node name="PathNode" parent="Floor" instance=ExtResource("4_eddhu")]
+scale = Vector2(0.32, 0.32)
+
+[node name="PathNode2" parent="Floor" instance=ExtResource("4_eddhu")]
+position = Vector2(16, 0)
+scale = Vector2(0.32, 0.32)
+
+[node name="PathNode4" parent="Floor" instance=ExtResource("4_eddhu")]
+position = Vector2(32, 0)
+scale = Vector2(0.32, 0.32)
+
+[node name="PathNode3" parent="Floor" instance=ExtResource("4_eddhu")]
+position = Vector2(48, 0)
+scale = Vector2(0.32, 0.32)
+
+[node name="PathNode5" parent="Floor" instance=ExtResource("4_eddhu")]
+position = Vector2(64, 0)
+scale = Vector2(0.32, 0.32)
+
+[node name="PathNode6" parent="Floor" instance=ExtResource("4_eddhu")]
+position = Vector2(80, 0)
+scale = Vector2(0.32, 0.32)
+
+[node name="PathNode7" parent="Floor" instance=ExtResource("4_eddhu")]
+position = Vector2(96, 0)
+scale = Vector2(0.32, 0.32)
+
+[node name="PathNode8" parent="Floor" instance=ExtResource("4_eddhu")]
+position = Vector2(112, 0)
+scale = Vector2(0.32, 0.32)
+
+[node name="PathNode9" parent="Floor" instance=ExtResource("4_eddhu")]
+position = Vector2(128, 0)
+scale = Vector2(0.32, 0.32)
+
+[node name="PathNode10" parent="Floor" instance=ExtResource("4_eddhu")]
+position = Vector2(144, 0)
+scale = Vector2(0.32, 0.32)
+
+[node name="PathNode11" parent="Floor" instance=ExtResource("4_eddhu")]
+position = Vector2(160, 0)
+scale = Vector2(0.32, 0.32)
+
+[node name="PathNode12" parent="Floor" instance=ExtResource("4_eddhu")]
+position = Vector2(176, 0)
+scale = Vector2(0.32, 0.32)
+
+[node name="PathNode13" parent="Floor" instance=ExtResource("4_eddhu")]
+position = Vector2(192, 0)
+scale = Vector2(0.32, 0.32)
+
+[node name="PathNode14" parent="Floor" instance=ExtResource("4_eddhu")]
+position = Vector2(208, 0)
+scale = Vector2(0.32, 0.32)
+
+[node name="PathNode15" parent="Floor" instance=ExtResource("4_eddhu")]
+position = Vector2(224, 0)
+scale = Vector2(0.32, 0.32)
+
+[node name="PathNode16" parent="Floor" instance=ExtResource("4_eddhu")]
+position = Vector2(240, 0)
+scale = Vector2(0.32, 0.32)
+
+[node name="PathNode17" parent="Floor" instance=ExtResource("4_eddhu")]
+position = Vector2(256, 0)
+scale = Vector2(0.32, 0.32)
+
+[node name="PathNode18" parent="Floor" instance=ExtResource("4_eddhu")]
+position = Vector2(272, 0)
+scale = Vector2(0.32, 0.32)
+
+[node name="PathNode19" parent="Floor" instance=ExtResource("4_eddhu")]
+position = Vector2(288, 0)
+scale = Vector2(0.32, 0.32)
+
+[node name="PathNode20" parent="Floor" instance=ExtResource("4_eddhu")]
+position = Vector2(304, 0)
+scale = Vector2(0.32, 0.32)
+
+[node name="PathNode21" parent="Floor" instance=ExtResource("4_eddhu")]
+position = Vector2(320, 0)
+scale = Vector2(0.32, 0.32)
+
+[node name="PathNode22" parent="Floor" instance=ExtResource("4_eddhu")]
+position = Vector2(336, 0)
+scale = Vector2(0.32, 0.32)
+
 [node name="StaticBody2D" type="StaticBody2D" parent="Floor" groups=["terrain"]]
+collision_layer = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/StaticBody2D"]
 position = Vector2(168, 133.1)
@@ -171,6 +260,7 @@ texture = ExtResource("3_yibs3")
 stretch_mode = 1
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Left Wall" groups=["terrain"]]
+collision_layer = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Left Wall/StaticBody2D"]
 position = Vector2(173.44, 1869.76)
@@ -189,6 +279,7 @@ texture = ExtResource("3_yibs3")
 stretch_mode = 1
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Right Wall" groups=["terrain"]]
+collision_layer = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Right Wall/StaticBody2D"]
 position = Vector2(136.28, 1876.56)
